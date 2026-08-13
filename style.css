@@ -1,0 +1,315 @@
+      :root {
+        --primary: #2f6f9f;
+        --secondary: #c93b52;
+        --panel-bg: rgba(255, 255, 255, 0.94);
+        --ink: #1f2937;
+        --muted: #6b7280;
+        --sea: #dfe8ee;
+        --land: #f4f1ea;
+        --coast: #a9b4bd;
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        color: var(--ink);
+        background: var(--sea);
+      }
+
+      /* --- map --- */
+      #map { position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+             touch-action: none; user-select: none; }
+      .land { fill: var(--land); stroke: var(--coast); stroke-width: 1; }
+      .land.context { fill: #ece9e2; stroke: #c3ccd3; }
+      .half-primary { fill: #3d7ea6; opacity: 0.18; }
+      .half-secondary { fill: #d1495b; opacity: 0.18; }
+      .pt-primary { fill: #2f6f9f; }
+      .pt-secondary { fill: #c93b52; }
+      #pts-primary, #pts-secondary { opacity: 0.75; }
+      #divider-ext { stroke: #111827; stroke-width: 1.5; stroke-dasharray: 6 4; opacity: 0.55; fill: none; }
+      #divider-seg { stroke: #111827; stroke-width: 3; fill: none; }
+      #hit-seg { stroke: transparent; stroke-width: 22; fill: none; cursor: move; }
+      /* Each handle lives in a group scaled by unitsPerPx, so everything inside
+         is authored in screen pixels — the effective scale is exactly 1. */
+      .handle-group { cursor: grab; }
+      body.dragging .handle-group { cursor: grabbing; }
+      .handle { fill: #fff; stroke: #111827; stroke-width: 2; }
+      .handle-group:hover .handle { fill: #fde68a; }
+      /* Curved bidirectional arrow over each handle: the "you can rotate this"
+         affordance. Subtle by default, emphasised while hovering the handle. */
+      .rot-arc { fill: none; stroke: #111827; stroke-width: 1.5; opacity: 0.5; }
+      .rot-head { fill: #111827; opacity: 0.5; }
+      .handle-group:hover .rot-arc,
+      .handle-group:hover .rot-head { opacity: 0.9; }
+      /* Strokes stay in screen pixels despite the tiny world-unit scale. */
+      .land, #divider-ext, #divider-seg, #hit-seg { vector-effect: non-scaling-stroke; }
+
+      /* --- panel --- */
+      #panel {
+        position: absolute; top: 16px; left: 16px; z-index: 10;
+        width: 300px; max-width: calc(100vw - 32px);
+        background: var(--panel-bg); backdrop-filter: blur(6px);
+        border-radius: 12px; box-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
+        padding: 16px 18px;
+      }
+      #panel h1 { margin: 0; font-size: 20px; letter-spacing: -0.01em; }
+
+      /* --- collapsing --- */
+      .panel-bar { display: flex; align-items: center; gap: 10px; }
+      #btn-info {
+        flex: none; width: 22px; height: 22px; line-height: 1;
+        font-size: 13px; font-weight: 700; font-style: italic;
+        font-family: Georgia, 'Times New Roman', serif;
+        color: var(--muted); background: #fff;
+        border: 1.5px solid #d1d5db; border-radius: 50%;
+        cursor: pointer; padding: 0;
+      }
+      #btn-info:hover { background: #f3f4f6; border-color: #9ca3af; color: var(--ink); }
+      #btn-collapse { margin-left: auto; }
+      #btn-collapse {
+        flex: none; width: 28px; height: 28px; line-height: 1;
+        font-size: 18px; font-weight: 700; color: var(--muted);
+        background: #fff; border: 1px solid #d1d5db; border-radius: 8px;
+        cursor: pointer; padding: 0;
+      }
+      #btn-collapse:hover { background: #f3f4f6; border-color: #9ca3af; color: var(--ink); }
+      #summary {
+        margin: 10px 0 0; font-size: 13px; font-weight: 600;
+        font-variant-numeric: tabular-nums;
+      }
+      #summary .s-primary { color: var(--primary); }
+      #summary .s-secondary { color: var(--secondary); }
+      #summary .s-sep { color: var(--muted); font-weight: 400; margin: 0 6px; }
+      #panel.collapsed { padding-bottom: 14px; }
+      #panel.collapsed #panel-body { display: none; }
+      .subtitle { margin: 4px 0 0; font-size: 12px; color: var(--muted); line-height: 1.35; }
+      .link-info {
+        border: none; background: none; padding: 0; font: inherit; cursor: pointer;
+        color: var(--accent, #2563eb); text-decoration: underline;
+      }
+      .link-info:hover { color: var(--ink); }
+      .controls { display: flex; gap: 8px; margin: 12px 0 4px; }
+      .controls button {
+        flex: 1; padding: 7px 10px; font-size: 13px; font-weight: 600;
+        color: var(--ink); background: #fff; border: 1px solid #d1d5db;
+        border-radius: 8px; cursor: pointer; transition: background 0.12s, border-color 0.12s;
+      }
+      .controls button:hover { background: #f3f4f6; border-color: #9ca3af; }
+      .controls button:active { background: #e5e7eb; }
+      .controls + .controls { margin-top: 6px; }
+      .animate-toggle {
+        display: flex; align-items: center; gap: 6px;
+        margin: 6px 0 2px; font-size: 12px; color: var(--muted); cursor: pointer;
+      }
+      .animate-toggle input { cursor: pointer; }
+      .metric { margin: 10px 0 6px; font-size: 12px; color: var(--muted); }
+      .metric span { color: var(--ink); font-weight: 600; }
+
+      /* --- data controls --- */
+      .data-controls { display: flex; flex-direction: column; gap: 6px; margin: 8px 0 4px; }
+      .data-controls select {
+        width: 100%; min-width: 0; padding: 7px 10px; font-size: 13px; font-weight: 600;
+        font-family: inherit; color: var(--ink); background: #fff;
+        border: 1px solid #d1d5db; border-radius: 8px; cursor: pointer;
+      }
+      .data-controls select:hover { background: #f3f4f6; border-color: #9ca3af; }
+      /* After a file upload no catalogue entry is current, so the picker is
+         deselected and greyed — still active, just not claiming a selection. */
+      .data-controls select.deselected { color: var(--muted); font-weight: 400; }
+      /* Provenance for the live dataset. Always present — every dataset,
+         including the synthetic one and an uploaded file, has an entry — so it
+         needs no show/hide and the panel height stays steady while switching. */
+      .sources-box {
+        margin-top: 2px; padding: 7px 9px; font-size: 11px; line-height: 1.4;
+        color: var(--muted); background: #f9fafb;
+        border: 1px solid #e5e7eb; border-radius: 8px;
+      }
+      .sources-box h2 {
+        margin: 0 0 4px; font-size: 10px; font-weight: 700; letter-spacing: 0.04em;
+        text-transform: uppercase; color: var(--muted);
+      }
+      .sources-box ul { margin: 0; padding-left: 14px; }
+      .sources-box li { margin: 2px 0; overflow-wrap: anywhere; }
+      .sources-box a { color: inherit; text-decoration: underline; }
+      .sources-box a:hover { color: var(--ink); }
+
+      /* Picker and load button share one line; the select shrinks to fit it. */
+      .load-row { display: flex; gap: 6px; align-items: stretch; }
+      .load-row select { flex: 1 1 auto; }
+      #btn-load {
+        flex: none; width: 36px; height: 34px; padding: 0;
+        display: inline-flex; align-items: center; justify-content: center;
+        color: var(--muted); background: #fff; border: 1px solid #d1d5db;
+        border-radius: 8px; cursor: pointer;
+      }
+      #btn-load:hover { background: #f3f4f6; border-color: #9ca3af; color: var(--ink); }
+      #btn-load svg { display: block; }
+
+      /* --- column-mapping modal --- */
+      .modal {
+        position: fixed; inset: 0; z-index: 50; display: flex;
+        align-items: center; justify-content: center;
+        background: rgba(17, 24, 39, 0.45); padding: 16px;
+      }
+      .modal[hidden] { display: none; }
+      .modal-card {
+        background: #fff; border-radius: 14px; padding: 20px 22px;
+        width: min(420px, 100%); box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
+        max-height: 90vh; overflow-y: auto;
+      }
+      .modal-card h2 { margin: 0 0 4px; font-size: 17px; }
+      .modal-sub { margin: 0 0 16px; font-size: 12px; color: var(--muted); }
+      .modal-field { margin-bottom: 12px; }
+      .modal-field label {
+        display: block; font-size: 12px; font-weight: 600; margin-bottom: 4px;
+      }
+      .modal-field select {
+        width: 100%; padding: 8px 10px; font-size: 13px; font-family: inherit;
+        color: var(--ink); background: #fff; border: 1px solid #d1d5db;
+        border-radius: 8px;
+      }
+      .modal-req { color: var(--muted); font-weight: 400; }
+      .modal-actions { display: flex; gap: 8px; margin-top: 18px; }
+      .modal-actions button {
+        flex: 1; padding: 9px 12px; font-size: 13px; font-weight: 600;
+        font-family: inherit; border-radius: 8px; cursor: pointer;
+        border: 1px solid #d1d5db; background: #fff; color: var(--ink);
+      }
+      #modal-confirm {
+        background: #2f6f9f; border-color: #2f6f9f; color: #fff;
+      }
+      #modal-confirm:disabled { opacity: 0.5; cursor: not-allowed; }
+      .modal-actions button:hover { filter: brightness(0.97); }
+
+      /* --- About / info dialog body --- */
+      #info-modal .modal-card { width: min(520px, 100%); }
+      .info-body { font-size: 13px; line-height: 1.5; color: var(--ink); }
+      .info-body h3 {
+        margin: 16px 0 4px; font-size: 13px; font-weight: 700;
+      }
+      .info-body h3:first-child { margin-top: 4px; }
+      .info-body p { margin: 0 0 8px; }
+      .info-body ul { margin: 0 0 8px; padding-left: 18px; }
+      .info-body li { margin-bottom: 6px; }
+      .info-body a { color: #2f6f9f; }
+      .info-body .info-src { color: var(--muted); font-size: 12px; }
+
+      /* --- hover tooltip --- */
+      #point-tip {
+        position: fixed; z-index: 40; pointer-events: none;
+        background: rgba(17, 24, 39, 0.92); color: #fff;
+        padding: 5px 9px; border-radius: 7px; font-size: 12px; line-height: 1.35;
+        max-width: 240px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        white-space: nowrap;
+      }
+      #point-tip[hidden] { display: none; }
+      #point-tip .tip-name { font-weight: 700; }
+      #point-tip .tip-val { opacity: 0.85; }
+      /* Notes and errors from the ingest layer. Guessing a weight column
+         silently is how a plausible wrong answer gets believed, so this is
+         never hidden while a source has something to say. */
+      .notice {
+        margin: 0 0 12px; font-size: 11px; line-height: 1.45; color: var(--muted);
+        border-left: 3px solid #d1d5db; padding: 4px 0 4px 8px;
+      }
+      .notice.error { color: #9f1239; border-left-color: var(--secondary); }
+      body.drop-active::after {
+        content: 'Drop a CSV, GeoJSON or grid file';
+        position: fixed; inset: 12px; z-index: 20; pointer-events: none;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 18px; font-weight: 700; color: var(--ink);
+        background: rgba(255, 255, 255, 0.72);
+        border: 3px dashed var(--primary); border-radius: 16px;
+      }
+      .cards { display: grid; gap: 10px; }
+      .card {
+        display: grid; grid-template-columns: 1fr auto;
+        grid-template-areas: 'label pct' 'weight weight' 'count count';
+        align-items: baseline; gap: 2px 8px; padding: 12px 14px;
+        border-radius: 10px; border-left: 5px solid;
+      }
+      .card-primary { background: rgba(47, 111, 159, 0.08); border-left-color: var(--primary); }
+      .card-secondary { background: rgba(201, 59, 82, 0.08); border-left-color: var(--secondary); }
+      .card-label { grid-area: label; font-size: 12px; font-weight: 700;
+                    text-transform: uppercase; letter-spacing: 0.04em; }
+      .card-primary .card-label { color: var(--primary); }
+      .card-secondary .card-label { color: var(--secondary); }
+      .stat-weight { grid-area: weight; font-size: 24px; font-weight: 700;
+                     font-variant-numeric: tabular-nums; min-width: 0; }
+      .stat-unit { display: none; }
+      .stat-pct { grid-area: pct; justify-self: end; font-size: 18px; font-weight: 700;
+                  font-variant-numeric: tabular-nums; }
+      .card-primary .stat-pct { color: var(--primary); }
+      .card-secondary .stat-pct { color: var(--secondary); }
+      .stat-count { grid-area: count; font-size: 12px; color: var(--muted); margin-top: 2px; }
+      /* --- breakdown box --- */
+      #breakdown { margin-top: 12px; border-top: 1px solid #e5e7eb; padding-top: 10px; }
+      #breakdown summary {
+        cursor: pointer; font-size: 12px; font-weight: 600; color: var(--muted);
+        list-style-position: outside; padding-left: 2px;
+      }
+      #breakdown summary:hover { color: var(--ink); }
+      #breakdown[open] summary { margin-bottom: 8px; }
+      .bd-total { margin: 0 0 8px; font-size: 11px; color: var(--muted);
+                  font-variant-numeric: tabular-nums; }
+      .bd-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .bd-col h2 {
+        margin: 0 0 4px; font-size: 10px; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 0.04em;
+      }
+      .bd-primary h2 { color: var(--primary); }
+      .bd-secondary h2 { color: var(--secondary); }
+      .bd-col ul { list-style: none; margin: 0; padding: 0; }
+      .bd-col li {
+        display: flex; justify-content: space-between; gap: 6px; align-items: flex-start;
+        font-size: 11px; line-height: 1.4; font-variant-numeric: tabular-nums;
+      }
+      /* The number never shrinks and pins to the top-right; the name takes the
+         rest and, when it is too long for one line, wraps to a second and then
+         ellipsises. min-width:0 is the load-bearing bit — without it a flex item
+         refuses to shrink below its content and overflows the panel. */
+      .bd-col li .bd-w { color: var(--muted); flex: none; }
+      .bd-col li .bd-n {
+        min-width: 0; overflow: hidden; text-overflow: ellipsis;
+        display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+      }
+      .bd-col li.bd-more { color: var(--muted); font-style: italic; }
+      .bd-split::after { content: '†'; color: var(--muted); margin-left: 2px; }
+      .bd-note { margin: 8px 0 0; font-size: 10px; color: var(--muted); line-height: 1.4; }
+
+      .credit { margin: 12px 0 0; font-size: 10px; color: var(--muted); line-height: 1.4; }
+      .credit a { color: inherit; text-decoration: underline; }
+
+      /* --- advert ---
+         Square (300x250) floats in the free bottom-right corner on desktop; the
+         leaderboard (728x90) takes over as a liquid-scaled bottom bar on narrow
+         screens (see the media query). Both link out in a new tab. */
+      #ad {
+        position: fixed; right: 16px; bottom: 16px; z-index: 9;
+        line-height: 0; border-radius: 8px; overflow: hidden;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
+      }
+      #ad img { display: block; width: 300px; height: 250px; }
+      #ad-mobile { display: none; }
+
+      /* --- narrow screens --- */
+      @media (max-width: 640px) {
+        #panel { top: 8px; left: 8px; right: 8px; width: auto; max-width: none; padding: 12px 14px; }
+        #panel h1 { font-size: 17px; }
+        .subtitle { font-size: 11px; }
+        /* 44px min touch target */
+        .controls button { padding: 13px 10px; }
+        #btn-collapse { width: 36px; height: 36px; }
+        .stat-weight { font-size: 20px; }
+        .card { padding: 10px 12px; }
+        /* Swap the square for the leaderboard, pinned across the bottom and
+           liquid-scaled (width:100%, height:auto keeps its 728x90 ratio). */
+        #ad { display: none; }
+        #ad-mobile {
+          display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 9;
+          line-height: 0; box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.16);
+        }
+        #ad-mobile img { display: block; width: 100%; height: auto; }
+      }

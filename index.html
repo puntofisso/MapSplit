@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MapSplit — divide location data into 2 parts</title>
+    <script defer data-domain="puntofisso.net" src="https://plausible.puntofisso.net/js/script.file-downloads.outbound-links.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <svg id="map" preserveAspectRatio="xMidYMid meet" aria-label="Map of the UK with a dividing line">
+      <defs>
+        <clipPath id="clip-primary" clipPathUnits="userSpaceOnUse"><polygon id="poly-primary" points="" /></clipPath>
+        <clipPath id="clip-secondary" clipPathUnits="userSpaceOnUse"><polygon id="poly-secondary" points="" /></clipPath>
+        <!-- Rotation affordance: a 120° arc over the handle with an arrowhead at
+             each end (rotate either way). Authored in screen pixels; placed by a
+             per-handle group scaled so 1 unit here == 1 screen pixel. -->
+        <g id="rot-hint">
+          <path class="rot-arc" d="M -11.26 -6.5 A 13 13 0 0 1 11.26 -6.5" />
+          <polygon class="rot-head" points="13.76,-2.17 7.8,-4.5 14.72,-8.5" />
+          <polygon class="rot-head" points="-13.76,-2.17 -14.72,-8.5 -7.8,-4.5" />
+        </g>
+      </defs>
+      <g id="coast"></g>
+      <polygon id="tint-primary" class="half-primary" points="" />
+      <polygon id="tint-secondary" class="half-secondary" points="" />
+      <g id="pts-primary" clip-path="url(#clip-primary)"></g>
+      <g id="pts-secondary" clip-path="url(#clip-secondary)"></g>
+      <line id="divider-ext" />
+      <line id="divider-seg" />
+      <line id="hit-seg" />
+      <g id="handle-a" class="handle-group">
+        <use href="#rot-hint" />
+        <circle class="handle" />
+      </g>
+      <g id="handle-b" class="handle-group">
+        <use href="#rot-hint" />
+        <circle class="handle" />
+      </g>
+    </svg>
+
+    <aside id="panel">
+      <div class="panel-bar">
+        <h1>MapSplit</h1>
+        <button type="button" id="btn-info" aria-label="About MapSplit" title="About MapSplit"
+                aria-haspopup="dialog">i</button>
+        <button type="button" id="btn-collapse" aria-expanded="true" aria-controls="panel-body"
+                aria-label="Minimise panel" title="Minimise panel">−</button>
+      </div>
+
+      <!-- Shown only when collapsed: keeps the headline numbers visible. -->
+      <p id="summary" hidden></p>
+
+<!-- The picker is populated from CONFIG.datasets and stays hidden
+             while that list is empty, so the default file is unchanged. -->
+        <div class="data-controls">
+          <p class="subtitle">Choose a dataset or upload one
+            <button type="button" id="link-info" class="link-info" aria-haspopup="dialog">(info)</button></p>
+          <div class="load-row">
+            <select id="dataset-picker" aria-label="Choose a dataset" hidden></select>
+            <button type="button" id="btn-load" aria-label="Load a file…" title="Load a file…">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" y1="3" x2="12" y2="15" />
+              </svg>
+            </button>
+          </div>
+          <input type="file" id="file-input" accept=".csv,.tsv,.txt,.json,.geojson,.asc" hidden />
+          <!-- Provenance for whatever is currently rendered. Rebuilt by
+               renderSources() from the source's own `sources` list, so it
+               follows what is on the map rather than what the picker says. -->
+          <div id="sources-box" class="sources-box">
+            <h2>Sources</h2>
+            <ul id="sources-list"></ul>
+          </div>
+        </div>
+
+      <div id="panel-body">
+        <p class="subtitle">Drag a handle to rotate the line + drag the line to move it</p>
+        <div class="controls">
+          <button type="button" id="btn-horizontal">↔ Horizontal</button>
+          <button type="button" id="btn-vertical">↕ Vertical</button>
+        </div>
+        <div class="controls">
+          <button type="button" id="btn-balance-ns" title="Move a horizontal line to the 50/50 North–South split">⚖ Balance N–S</button>
+          <button type="button" id="btn-balance-we" title="Move a vertical line to the 50/50 West–East split">⚖ Balance W–E</button>
+        </div>
+        <label class="animate-toggle"><input type="checkbox" id="animate-balance" checked /> Animate balance finding</label>
+        
+
+        <p class="metric">Statistic: <span id="stat-label">—</span></p>
+        <p id="notice" class="notice" hidden></p>
+
+        <div class="cards">
+          <section id="card-primary" class="card card-primary">
+            <span class="card-label">North</span>
+            <span class="stat-weight">—</span>
+            <span class="stat-unit"></span>
+            <span class="stat-pct">—</span>
+            <span class="stat-count">—</span>
+          </section>
+          <section id="card-secondary" class="card card-secondary">
+            <span class="card-label">South</span>
+            <span class="stat-weight">—</span>
+            <span class="stat-unit"></span>
+            <span class="stat-pct">—</span>
+            <span class="stat-count">—</span>
+          </section>
+        </div>
+        <details id="breakdown" hidden>
+          <summary>What's being counted</summary>
+          <p id="bd-total" class="bd-total"></p>
+          <div class="bd-cols">
+            <div class="bd-col bd-primary">
+              <h2 id="bd-head-primary"></h2>
+              <ul id="bd-list-primary"></ul>
+            </div>
+            <div class="bd-col bd-secondary">
+              <h2 id="bd-head-secondary"></h2>
+              <ul id="bd-list-secondary"></ul>
+            </div>
+          </div>
+          <p id="bd-note" class="bd-note"></p>
+        </details>
+
+        <p class="credit">Coastline: <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/"
+             target="_blank" rel="noopener">Natural Earth 1:10m</a> (public domain), simplified and
+           inlined as an SVG path — no map tiles. Data: <span id="credit-source">—</span>.</p>
+      </div>
+    </aside>
+
+    <!-- Advert. Square floats bottom-right on desktop; the leaderboard takes
+         over as a liquid-scaled bottom bar on narrow screens (CSS decides
+         which is shown). Both open the sponsor in a new tab. -->
+    <a id="ad" href="https://quantumofsollazzo.com" target="_blank" rel="noopener"
+       aria-label="Advertisement">
+      <img src="squaread.png" alt="Advertisement" width="300" height="250" />
+    </a>
+    <a id="ad-mobile" href="https://quantumofsollazzo.com" target="_blank" rel="noopener"
+       aria-label="Advertisement">
+      <img src="longad.png" alt="Advertisement" width="728" height="90" />
+    </a>
+
+    <!-- One floating tooltip, repositioned per pointer move (see the tooltip
+         hit-test). Hidden whenever the pointer is not over a drawn point. -->
+    <div id="point-tip" hidden></div>
+
+    <!-- Column-mapping dialog. Its fields are rebuilt from the loaded file's
+         columns each time it opens; see openMapping() in the loading section. -->
+    <div id="map-modal" class="modal" hidden>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <h2 id="modal-title">Map the columns</h2>
+        <p id="modal-sub" class="modal-sub"></p>
+        <div id="modal-fields"></div>
+        <div class="modal-actions">
+          <button type="button" id="modal-cancel">Cancel</button>
+          <button type="button" id="modal-confirm">Show data</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- About / info dialog. -->
+    <div id="info-modal" class="modal" hidden>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="info-title">
+        <h2 id="info-title">About MapSplit</h2>
+        <div id="info-body" class="info-body">
+          <p>MapSplit: draw a movable straight line across the UK and reports a statistic
+             for each side.</p>
+
+          <h3>Using it</h3>
+          <ul>
+            <li>Select a <strong>dataset</strong> from the drop down or upload your own file (see below how to).
+                Where its numbers came from is listed under <strong>Sources</strong>, just below the drop down.</li>
+            <li>Drag the <strong>line</strong> across the country;
+                rotate the <strong>handle</strong> to any angle.</li>
+            <li>Use <strong>↔ Horizontal</strong> and <strong>↕ Vertical</strong> to
+                snap back to a level line.</li>
+            <li>Check the totals and the partial breakdown in <strong>What's being counted</strong>. When a
+                line runs roughly north–south the split is labelled West/East instead of North/South.</li>
+            <li><strong>Hover</strong> a point to see more a data tooltip.</li>
+          </ul>
+
+          <h3>Loading your own data</h3>
+          <p>Drag a file onto the map, or use the upload button. A dialog lets you confirm which column is which. Accepted files:
+             CSV/TSV, GeoJSON points or polygons, and JSON or ESRI-ASCII grids.
+             The minimum each needs:</p>
+          <ul>
+            <li><strong>CSV/TSV</strong>: a column for longitude, one for latitude column, and a numeric value column. An optional text column can group the
+                points. </li>
+            <li><strong>GeoJSON</strong>: Point/MultiPoint, or polygons (reduced
+                to their centroids), with a numeric property.</li>
+            <li><strong>Grids</strong>: a bounding box (or origin + cell size) and
+                a numeric value per cell.</li>
+          </ul>
+
+          <p class="info-src"><strong>IMPORTANT:</strong> coordinates must be unprojected <strong>WGS84
+             longitude/latitude in degrees</strong> (EPSG:4326).</p>
+
+          <h3>Development notes</h3>
+          <p>This website was developed by Giuseppe Sollazzo with an LLM-aided workflow using Claude Opus 5 and manual tests.</p>
+          <p>The datasets were created by cleaning and merging the source data above using a manually created <a href="https://github.com/puntofisso/MapSplit/data-scripts/Notebook.ipynb">Jupyter notebook</a></p>
+
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="info-close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
