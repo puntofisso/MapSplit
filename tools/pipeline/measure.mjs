@@ -21,7 +21,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '.
 const js = fs.readFileSync(path.join(ROOT, 'Play/app-game.js'), 'utf8');
 const pure = js.slice(js.indexOf('/* BEGIN PURE */'), js.indexOf('/* END PURE */'));
 const G = new Function(pure + `; return { CONFIG, GAME, parseCsvText, axisSpec, lngLatToMerc,
-  offsetOfPoint, targetOffset, offsetGapKm, weightedCentroidMerc, placeNearLine,
+  offsetOfPoint, alongOfPoint, targetOffset, offsetGapKm, weightedCentroidMerc, placeNearLine,
   lineCoordLabel, snapAxisToCardinal };`)();
 
 const BASELINE = 'census-population';   // the line a player with no idea starts from
@@ -75,7 +75,8 @@ for (const ax of AXES) {
       if (k < ck) { ck = k; closest = o; }
       if (k < MIN_GAP_KM) near.push(o);
     }
-    const place = G.placeNearLine(d['vals_' + ax], d.weights, d.groups, d.groupNames, t, 20);
+    const place = G.placeNearLine(d['vals_' + ax], d.weights, d.groups, d.groupNames, t, 20,
+      d.merc.map(m => G.alongOfPoint(m, spec)));
     const at = G.lineCoordLabel(spec, t, G.CONFIG.padBbox) || '(diagonal)';
     const sentence = `Find the line that puts ${TARGET}% of ${e.question} ${spec.sides[0].toLowerCase()} of it`;
     rows.push([id, e.label, e.family, e.source, ax, G.snapAxisToCardinal(ax), spec.sides.join('/'),

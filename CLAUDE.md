@@ -1113,7 +1113,18 @@ record of the first season.
   day is not "already played" when it arrives.
 - Local Apache's docroot no longer points here; `php -S localhost:8765 -t ..`
   from this folder serves `http://localhost:8765/MapSplit/Play/`.
-- `Play/tests-game.html` now has 176 assertions, including ones that load the
+- **Data URLs are versioned.** Each statistic carries a 12-hex content `hash`
+  in `stats.json` (written by `run.py`), which `catalogueFromStats` appends as
+  `?v=`; `stats.json` and `data/games/*.json` are stamped with
+  `window.MAPSPLIT_DATA_VERSION`, the newest of their mtimes, emitted by
+  `Play/index.php` (`$dataVersion`). Without it a cached old catalogue could
+  meet a new schedule after the yearly refresh.
+- **The takeaway's place is chosen near the middle of the data.**
+  `placeNearLine` takes an optional `along` array (`alongOfPoint`, the
+  coordinate along the line) and only considers points inside the
+  statistic's 25th–75th weighted percentile along it — an upright line through
+  Edinburgh used to name itself after Orkney.
+- `Play/tests-game.html` now has 177 assertions, including ones that load the
   shipped `stats.json` and both schedules.
 
 ## Design specs

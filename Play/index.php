@@ -20,6 +20,16 @@ $v = function ($f) {
     return $f . '?v=' . (is_file($path) ? filemtime($path) : '0');
 };
 
+// The same for the DATA the game fetches: stats.json and the yearly schedules
+// change at every refresh, and a browser pairing a cached old catalogue with a
+// new schedule would fail — or worse, score against last year's numbers. The
+// newest of their mtimes stamps both URLs; each statistic file carries its own
+// content hash inside stats.json, so it is versioned from there.
+$dataVersion = 0;
+foreach (array_merge([__DIR__ . '/../data/stats.json'], glob(__DIR__ . '/../data/games/*.json') ?: []) as $p) {
+    if (is_file($p)) $dataVersion = max($dataVersion, filemtime($p));
+}
+
 // --- AdSense ---------------------------------------------------------------
 // ONE fixed-size unit, BELOW THE FOLD in the content flow — never over the map.
 //
@@ -377,6 +387,7 @@ $adsLive = $SHOW_ADS
       </div>
     </div>
 
+    <script>window.MAPSPLIT_DATA_VERSION = <?= json_encode((string) $dataVersion) ?>;</script>
     <script src="<?= $v('app-game.js') ?>"></script>
 <?php if ($adsLive): ?>
     <script>

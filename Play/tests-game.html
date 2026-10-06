@@ -492,7 +492,8 @@
           const cat = catalogueFromStats(STATS, '../data/');
           assert(cat.length === Object.keys(STATS).length, `${cat.length} entries`);
           for (const e of cat) {
-            assert(e.url === '../data/' + STATS[e.id].file, e.url);
+            assert(e.url === '../data/' + STATS[e.id].file + '?v=' + STATS[e.id].hash, e.url);
+            assert(/^[0-9a-f]{12}$/.test(STATS[e.id].hash), e.id + ' has no content hash');
             assert(e.weightColumn === 'value' && e.groupColumn === 'name', e.id);
             assert(e.question && e.question.length > 2, e.id + ' has no question wording');
             // Provenance must include the file's own licence and the
@@ -2181,6 +2182,32 @@
                                   { stat: 'Pop', place: 'Leeds' }, ['North', 'South'], 70);
           assert(!/NaN|undefined/.test(t2), t2);
           assert(t2 === '70% of Tax is north of a line through Derby.', t2);
+        });
+
+        test('placeNearLine with `along` names a place near the middle of the data', () => {
+          // An upright line: every point is equally near it, so without `along`
+          // the heaviest wins wherever it is — here a far-north outlier.
+          // The outlier is the heaviest single point but a MINORITY of the
+          // weight (3 of 9) — if it held most of it, it would genuinely be the
+          // middle of the data and naming it would be right.
+          const values = [0, 0, 0, 0, 0, 0, 0];
+          const weights = [3, 1, 1, 1, 1, 1, 1];
+          const along = [100, 1, 2, 3, 4, 5, 6];      // point 0 is far up the line
+          const names = ['Orkney', 'Leeds', 'York', 'Derby', 'Hull', 'Wigan', 'Bath'];
+          const groups = [0, 1, 2, 3, 4, 5, 6];
+          assert(placeNearLine(values, weights, groups, names, 0, 7) === 'Orkney', 'baseline');
+          const got = placeNearLine(values, weights, groups, names, 0, 7, along);
+          assert(got !== 'Orkney', 'the outlier must not be named: ' + got);
+          // A wrong-length `along` is ignored rather than trusted.
+          assert(placeNearLine(values, weights, groups, names, 0, 7, [1]) === 'Orkney');
+          // alongOfPoint is perpendicular to offsetOfPoint for every axis.
+          for (const ax of ['ns', 'we', '30', '135']) {
+            const spec = axisSpec(ax), a = [0.3, 0.2], b = [0.31, 0.27];
+            const dOff = offsetOfPoint(b, spec) - offsetOfPoint(a, spec);
+            const dAl = alongOfPoint(b, spec) - alongOfPoint(a, spec);
+            const len = Math.hypot(b[0] - a[0], b[1] - a[1]);
+            assert(Math.abs(Math.hypot(dOff, dAl) - len) < 1e-12, ax + ' is not an orthonormal pair');
+          }
         });
 
         test('the takeaway never appears before a guess is committed', () => {

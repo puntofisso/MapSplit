@@ -39,9 +39,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46823,
+  "points": 361,
   "total": 1732813.0,
   "nationShares": {
    "England": 0.8108,
@@ -49,7 +49,8 @@
    "Scotland": 0.0879,
    "Northern Ireland": 0.0396
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "87fed548526f"
  },
  "census-cars-3plus": {
   "id": "census-cars-3plus",
@@ -91,9 +92,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46671,
+  "points": 361,
   "total": 2546341.0,
   "nationShares": {
    "England": 0.8397,
@@ -101,7 +102,8 @@
    "Scotland": 0.068,
    "Northern Ireland": 0.0356
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "9155e50f352d"
  },
  "census-cars-none": {
   "id": "census-cars-none",
@@ -143,9 +145,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46835,
+  "points": 361,
   "total": 6589994.0,
   "nationShares": {
    "England": 0.837,
@@ -153,7 +155,8 @@
    "Scotland": 0.1004,
    "Northern Ireland": 0.0228
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "a68e4940331b"
  },
  "census-commute-bike": {
   "id": "census-commute-bike",
@@ -195,10 +198,10 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre.",
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority.",
    "England, Wales and Northern Ireland were counted in March 2021, during a COVID-19 lockdown; Scotland in March 2022. Travel to work therefore under-counts commuting outside Scotland and over-counts working from home."
   ],
-  "points": 43873,
+  "points": 361,
   "total": 609885.0,
   "nationShares": {
    "England": 0.9085,
@@ -206,7 +209,8 @@
    "Scotland": 0.0562,
    "Northern Ireland": 0.0106
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "17f085f4b429"
  },
  "census-commute-car": {
   "id": "census-commute-car",
@@ -248,10 +252,10 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre.",
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority.",
    "England, Wales and Northern Ireland were counted in March 2021, during a COVID-19 lockdown; Scotland in March 2022. Travel to work therefore under-counts commuting outside Scotland and over-counts working from home."
   ],
-  "points": 46844,
+  "points": 361,
   "total": 15417072.0,
   "nationShares": {
    "England": 0.8283,
@@ -259,7 +263,8 @@
    "Scotland": 0.0813,
    "Northern Ireland": 0.036
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "bcd333b2aed3"
  },
  "census-commute-foot": {
   "id": "census-commute-foot",
@@ -301,10 +306,10 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre.",
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority.",
    "England, Wales and Northern Ireland were counted in March 2021, during a COVID-19 lockdown; Scotland in March 2022. Travel to work therefore under-counts commuting outside Scotland and over-counts working from home."
   ],
-  "points": 46779,
+  "points": 361,
   "total": 2351260.0,
   "nationShares": {
    "England": 0.8581,
@@ -312,7 +317,8 @@
    "Scotland": 0.0784,
    "Northern Ireland": 0.0223
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "533d8f08d656"
  },
  "census-commute-metro": {
   "id": "census-commute-metro",
@@ -354,11 +360,11 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre.",
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority.",
    "England, Wales and Northern Ireland were counted in March 2021, during a COVID-19 lockdown; Scotland in March 2022. Travel to work therefore under-counts commuting outside Scotland and over-counts working from home.",
    "Northern Ireland has no underground, metro or tram system."
   ],
-  "points": 20257,
+  "points": 349,
   "total": 511094.0,
   "nationShares": {
    "England": 0.9875,
@@ -366,7 +372,8 @@
    "Scotland": 0.0114,
    "Northern Ireland": 0.0
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "d3692a0b5738"
  },
  "census-commute-motorbike": {
   "id": "census-commute-motorbike",
@@ -408,10 +415,10 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre.",
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority.",
    "England, Wales and Northern Ireland were counted in March 2021, during a COVID-19 lockdown; Scotland in March 2022. Travel to work therefore under-counts commuting outside Scotland and over-counts working from home."
   ],
-  "points": 35495,
+  "points": 361,
   "total": 134630.0,
   "nationShares": {
    "England": 0.9215,
@@ -419,7 +426,8 @@
    "Scotland": 0.0332,
    "Northern Ireland": 0.0108
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "8f4bb73afc09"
  },
  "census-commute-taxi": {
   "id": "census-commute-taxi",
@@ -461,10 +469,10 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre.",
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority.",
    "England, Wales and Northern Ireland were counted in March 2021, during a COVID-19 lockdown; Scotland in March 2022. Travel to work therefore under-counts commuting outside Scotland and over-counts working from home."
   ],
-  "points": 38215,
+  "points": 360,
   "total": 223101.0,
   "nationShares": {
    "England": 0.8637,
@@ -472,7 +480,8 @@
    "Scotland": 0.0662,
    "Northern Ireland": 0.0361
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "2ff0b2524358"
  },
  "census-commute-train": {
   "id": "census-commute-train",
@@ -514,10 +523,10 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre.",
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority.",
    "England, Wales and Northern Ireland were counted in March 2021, during a COVID-19 lockdown; Scotland in March 2022. Travel to work therefore under-counts commuting outside Scotland and over-counts working from home."
   ],
-  "points": 42341,
+  "points": 361,
   "total": 594198.0,
   "nationShares": {
    "England": 0.8706,
@@ -525,7 +534,8 @@
    "Scotland": 0.0971,
    "Northern Ireland": 0.0129
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "f2d781702293"
  },
  "census-health-verybad": {
   "id": "census-health-verybad",
@@ -567,9 +577,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46661,
+  "points": 361,
   "total": 841792.0,
   "nationShares": {
    "England": 0.7882,
@@ -577,7 +587,8 @@
    "Scotland": 0.1063,
    "Northern Ireland": 0.044
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "5164e29b8d29"
  },
  "census-heat-bottled": {
   "id": "census-heat-bottled",
@@ -619,9 +630,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 39171,
+  "points": 361,
   "total": 299315.0,
   "nationShares": {
    "England": 0.7771,
@@ -629,7 +640,8 @@
    "Scotland": 0.1112,
    "Northern Ireland": 0.0197
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "ed9bda5cc58d"
  },
  "census-heat-electric": {
   "id": "census-heat-electric",
@@ -671,9 +683,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 45183,
+  "points": 361,
   "total": 2351994.0,
   "nationShares": {
    "England": 0.8683,
@@ -681,7 +693,8 @@
    "Scotland": 0.0963,
    "Northern Ireland": 0.0052
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "6e27b8493b3d"
  },
  "census-heat-gas": {
   "id": "census-heat-gas",
@@ -723,9 +736,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46180,
+  "points": 361,
   "total": 20383817.0,
   "nationShares": {
    "England": 0.8504,
@@ -733,7 +746,8 @@
    "Scotland": 0.0904,
    "Northern Ireland": 0.0119
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "423d2bac308d"
  },
  "census-heat-oil": {
   "id": "census-heat-oil",
@@ -775,9 +789,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 29878,
+  "points": 361,
   "total": 1374013.0,
   "nationShares": {
    "England": 0.5534,
@@ -785,7 +799,8 @@
    "Scotland": 0.0928,
    "Northern Ireland": 0.277
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "364ea7ed205e"
  },
  "census-heat-renewable": {
   "id": "census-heat-renewable",
@@ -827,9 +842,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 24699,
+  "points": 361,
   "total": 129113.0,
   "nationShares": {
    "England": 0.7163,
@@ -837,7 +852,8 @@
    "Scotland": 0.2144,
    "Northern Ireland": 0.0201
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "962b14e93725"
  },
  "census-heat-solid": {
   "id": "census-heat-solid",
@@ -879,9 +895,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 16214,
+  "points": 360,
   "total": 61973.0,
   "nationShares": {
    "England": 0.6784,
@@ -889,7 +905,8 @@
    "Scotland": 0.131,
    "Northern Ireland": 0.0691
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "05a76aac77fa"
  },
  "census-heat-wood": {
   "id": "census-heat-wood",
@@ -931,9 +948,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 12770,
+  "points": 360,
   "total": 47994.0,
   "nationShares": {
    "England": 0.6465,
@@ -941,7 +958,8 @@
    "Scotland": 0.2394,
    "Northern Ireland": 0.0162
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "9331e7c2d4c1"
  },
  "census-home-caravan": {
   "id": "census-home-caravan",
@@ -983,9 +1001,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 15344,
+  "points": 360,
   "total": 109477.0,
   "nationShares": {
    "England": 0.9123,
@@ -993,7 +1011,8 @@
    "Scotland": 0.0377,
    "Northern Ireland": 0.01
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "fb0e55428345"
  },
  "census-home-commercial": {
   "id": "census-home-commercial",
@@ -1035,9 +1054,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 31438,
+  "points": 361,
   "total": 220630.0,
   "nationShares": {
    "England": 0.897,
@@ -1045,7 +1064,8 @@
    "Scotland": 0.0437,
    "Northern Ireland": 0.0118
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "2f37bcb2695d"
  },
  "census-home-converted": {
   "id": "census-home-converted",
@@ -1087,9 +1107,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 40134,
+  "points": 361,
   "total": 1090302.0,
   "nationShares": {
    "England": 0.9264,
@@ -1097,7 +1117,8 @@
    "Scotland": 0.0359,
    "Northern Ireland": 0.009
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "e4726689a1e0"
  },
  "census-home-detached": {
   "id": "census-home-detached",
@@ -1139,9 +1160,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46607,
+  "points": 361,
   "total": 6643703.0,
   "nationShares": {
    "England": 0.8081,
@@ -1149,7 +1170,8 @@
    "Scotland": 0.0904,
    "Northern Ireland": 0.0437
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "7ca3bb5ce38b"
  },
  "census-home-flat": {
   "id": "census-home-flat",
@@ -1191,9 +1213,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 44697,
+  "points": 361,
   "total": 5004804.0,
   "nationShares": {
    "England": 0.7992,
@@ -1201,7 +1223,8 @@
    "Scotland": 0.1626,
    "Northern Ireland": 0.013
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "057ea4340b1e"
  },
  "census-home-semi": {
   "id": "census-home-semi",
@@ -1243,9 +1266,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46738,
+  "points": 361,
   "total": 8623189.0,
   "nationShares": {
    "England": 0.8556,
@@ -1253,7 +1276,8 @@
    "Scotland": 0.0678,
    "Northern Ireland": 0.0265
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "698141d1b121"
  },
  "census-home-terraced": {
   "id": "census-home-terraced",
@@ -1295,9 +1319,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46326,
+  "points": 361,
   "total": 6368831.0,
   "nationShares": {
    "England": 0.845,
@@ -1305,7 +1329,8 @@
    "Scotland": 0.0718,
    "Northern Ireland": 0.027
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "18af021b6533"
  },
  "census-hours-49plus": {
   "id": "census-hours-49plus",
@@ -1347,9 +1372,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46834,
+  "points": 361,
   "total": 3408332.0,
   "nationShares": {
    "England": 0.8582,
@@ -1357,7 +1382,8 @@
    "Scotland": 0.0778,
    "Northern Ireland": 0.023
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "6c237a0fc626"
  },
  "census-job-managers": {
   "id": "census-job-managers",
@@ -1399,9 +1425,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46835,
+  "points": 361,
   "total": 3830100.0,
   "nationShares": {
    "England": 0.8887,
@@ -1409,7 +1435,8 @@
    "Scotland": 0.0538,
    "Northern Ireland": 0.0199
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "7326a5874e7e"
  },
  "census-job-operatives": {
   "id": "census-job-operatives",
@@ -1451,9 +1478,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46829,
+  "points": 361,
   "total": 2204156.0,
   "nationShares": {
    "England": 0.8313,
@@ -1461,7 +1488,8 @@
    "Scotland": 0.0908,
    "Northern Ireland": 0.0291
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "69614eb20789"
  },
  "census-job-trades": {
   "id": "census-job-trades",
@@ -1503,9 +1531,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46843,
+  "points": 361,
   "total": 3254689.0,
   "nationShares": {
    "England": 0.8242,
@@ -1513,7 +1541,8 @@
    "Scotland": 0.0911,
    "Northern Ireland": 0.0335
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "6236559790dd"
  },
  "census-population": {
   "id": "census-population",
@@ -1555,9 +1584,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46844,
+  "points": 361,
   "total": 66941131.0,
   "nationShares": {
    "England": 0.8439,
@@ -1565,7 +1594,8 @@
    "Scotland": 0.0813,
    "Northern Ireland": 0.0284
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "ffe07a0fff36"
  },
  "census-qual-apprentice": {
   "id": "census-qual-apprentice",
@@ -1607,10 +1637,10 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre.",
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority.",
    "Qualification levels are harmonised across four different education systems; Scotland's levels in particular are not exact equivalents."
   ],
-  "points": 46842,
+  "points": 361,
   "total": 3034588.0,
   "nationShares": {
    "England": 0.8064,
@@ -1618,7 +1648,8 @@
    "Scotland": 0.1146,
    "Northern Ireland": 0.0318
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "c82e1728fc6e"
  },
  "census-qual-degree": {
   "id": "census-qual-degree",
@@ -1660,10 +1691,10 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre.",
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority.",
    "Qualification levels are harmonised across four different education systems; Scotland's levels in particular are not exact equivalents."
   ],
-  "points": 46844,
+  "points": 361,
   "total": 18978837.0,
   "nationShares": {
    "England": 0.8223,
@@ -1671,7 +1702,8 @@
    "Scotland": 0.1095,
    "Northern Ireland": 0.0256
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "f7d8dd7e2cc5"
  },
  "census-qual-none": {
   "id": "census-qual-none",
@@ -1713,10 +1745,10 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre.",
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority.",
    "Qualification levels are harmonised across four different education systems; Scotland's levels in particular are not exact equivalents."
   ],
-  "points": 46844,
+  "points": 361,
   "total": 9945765.0,
   "nationShares": {
    "England": 0.8363,
@@ -1724,7 +1756,8 @@
    "Scotland": 0.0762,
    "Northern Ireland": 0.0363
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "555db6c9425b"
  },
  "census-sick": {
   "id": "census-sick",
@@ -1766,9 +1799,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46824,
+  "points": 361,
   "total": 2374875.0,
   "nationShares": {
    "England": 0.7894,
@@ -1776,7 +1809,8 @@
    "Scotland": 0.0995,
    "Northern Ireland": 0.0474
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "01d1e530df60"
  },
  "census-tenure-outright": {
   "id": "census-tenure-outright",
@@ -1818,9 +1852,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46843,
+  "points": 361,
   "total": 9254779.0,
   "nationShares": {
    "England": 0.8239,
@@ -1828,7 +1862,8 @@
    "Scotland": 0.092,
    "Northern Ireland": 0.0289
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "db14d0ade214"
  },
  "census-tenure-private": {
   "id": "census-tenure-private",
@@ -1870,9 +1905,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46832,
+  "points": 361,
   "total": 5478606.0,
   "nationShares": {
    "England": 0.8751,
@@ -1880,7 +1915,8 @@
    "Scotland": 0.0589,
    "Northern Ireland": 0.0242
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "8b1e6acaaaac"
  },
  "census-tenure-social": {
   "id": "census-tenure-social",
@@ -1922,9 +1958,9 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre."
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
   ],
-  "points": 46165,
+  "points": 361,
   "total": 4909654.0,
   "nationShares": {
    "England": 0.8159,
@@ -1932,7 +1968,8 @@
    "Scotland": 0.1149,
    "Northern Ireland": 0.0239
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "e1d275fbcdf1"
  },
  "census-work-from-home": {
   "id": "census-work-from-home",
@@ -1974,10 +2011,10 @@
   ],
   "caveats": [
    "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
-   "Census Output Areas are grouped into ~47,000 LSOA-sized areas (Data Zones in Scotland and Northern Ireland), each placed at its population-weighted centre.",
+   "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority.",
    "England, Wales and Northern Ireland were counted in March 2021, during a COVID-19 lockdown; Scotland in March 2022. Travel to work therefore under-counts commuting outside Scotland and over-counts working from home."
   ],
-  "points": 46844,
+  "points": 361,
   "total": 9626149.0,
   "nationShares": {
    "England": 0.8645,
@@ -1985,7 +2022,8 @@
    "Scotland": 0.0832,
    "Northern Ireland": 0.016
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "67e15eb8488a"
  },
  "ge24-con": {
   "id": "ge24-con",
@@ -2036,7 +2074,8 @@
    "Scotland": 0.045,
    "Northern Ireland": 0.0001
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "abf308c03a49"
  },
  "ge24-green": {
   "id": "ge24-green",
@@ -2087,7 +2126,8 @@
    "Scotland": 0.0477,
    "Northern Ireland": 0.0045
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "92f9c277d5f9"
  },
  "ge24-labour": {
   "id": "ge24-labour",
@@ -2139,7 +2179,8 @@
    "Scotland": 0.0877,
    "Northern Ireland": 0.0
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "bb642d2d3f5a"
  },
  "ge24-libdem": {
   "id": "ge24-libdem",
@@ -2191,7 +2232,8 @@
    "Scotland": 0.0666,
    "Northern Ireland": 0.0
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "8e56eefce35e"
  },
  "ge24-nonvoters": {
   "id": "ge24-nonvoters",
@@ -2242,7 +2284,8 @@
    "Scotland": 0.0857,
    "Northern Ireland": 0.0301
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "e2a5e6d7c275"
  },
  "ge24-reform": {
   "id": "ge24-reform",
@@ -2294,7 +2337,8 @@
    "Scotland": 0.0408,
    "Northern Ireland": 0.0
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "cd829e5a08df"
  },
  "hmrc-additional-rate": {
   "id": "hmrc-additional-rate",
@@ -2342,7 +2386,8 @@
    "Scotland": 0.0483,
    "Northern Ireland": 0.009
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "eda2cf6fa9f8"
  },
  "hmrc-employed": {
   "id": "hmrc-employed",
@@ -2389,7 +2434,8 @@
    "Scotland": 0.082,
    "Northern Ireland": 0.0258
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "e792ba3b7b14"
  },
  "hmrc-higher-rate": {
   "id": "hmrc-higher-rate",
@@ -2437,7 +2483,8 @@
    "Scotland": 0.101,
    "Northern Ireland": 0.0152
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "4521d6b4ce6d"
  },
  "hmrc-pension": {
   "id": "hmrc-pension",
@@ -2485,7 +2532,8 @@
    "Scotland": 0.0895,
    "Northern Ireland": 0.0229
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "c98cab96babd"
  },
  "hmrc-self-employed": {
   "id": "hmrc-self-employed",
@@ -2532,7 +2580,8 @@
    "Scotland": 0.0652,
    "Northern Ireland": 0.0285
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "2b5c406c3bc6"
  },
  "hmrc-tax-amount": {
   "id": "hmrc-tax-amount",
@@ -2579,7 +2628,8 @@
    "Scotland": 0.0681,
    "Northern Ireland": 0.0156
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "8fdec4c071a9"
  },
  "hmrc-taxpayers": {
   "id": "hmrc-taxpayers",
@@ -2626,7 +2676,8 @@
    "Scotland": 0.0821,
    "Northern Ireland": 0.0249
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "73d874b2eb9a"
  },
  "osm-aldi": {
   "id": "osm-aldi",
@@ -2680,7 +2731,8 @@
    "Scotland": 0.1021,
    "Northern Ireland": 0.0
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "c262e957828d"
  },
  "osm-breweries": {
   "id": "osm-breweries",
@@ -2733,7 +2785,8 @@
    "Scotland": 0.0694,
    "Northern Ireland": 0.041
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "81e5a2ab624d"
  },
  "osm-castles": {
   "id": "osm-castles",
@@ -2786,7 +2839,8 @@
    "Scotland": 0.388,
    "Northern Ireland": 0.0727
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "bb3a322a9976"
  },
  "osm-chippies": {
   "id": "osm-chippies",
@@ -2839,7 +2893,8 @@
    "Scotland": 0.0841,
    "Northern Ireland": 0.0245
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "9193b8ab312e"
  },
  "osm-costa": {
   "id": "osm-costa",
@@ -2892,7 +2947,8 @@
    "Scotland": 0.0723,
    "Northern Ireland": 0.0101
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "a95b521a48a9"
  },
  "osm-distilleries": {
   "id": "osm-distilleries",
@@ -2945,7 +3001,8 @@
    "Scotland": 0.6484,
    "Northern Ireland": 0.0256
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "2c7d024d32df"
  },
  "osm-golf": {
   "id": "osm-golf",
@@ -2998,7 +3055,8 @@
    "Scotland": 0.1893,
    "Northern Ireland": 0.0354
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "de9f54a885ea"
  },
  "osm-greggs": {
   "id": "osm-greggs",
@@ -3051,7 +3109,8 @@
    "Scotland": 0.1181,
    "Northern Ireland": 0.0093
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "bd25c511e54e"
  },
  "osm-iceland": {
   "id": "osm-iceland",
@@ -3104,7 +3163,8 @@
    "Scotland": 0.0746,
    "Northern Ireland": 0.0417
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "3b0698ee811d"
  },
  "osm-lidl": {
   "id": "osm-lidl",
@@ -3157,7 +3217,8 @@
    "Scotland": 0.1067,
    "Northern Ireland": 0.0429
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "d030c2dbc096"
  },
  "osm-lighthouses": {
   "id": "osm-lighthouses",
@@ -3210,7 +3271,8 @@
    "Scotland": 0.4879,
    "Northern Ireland": 0.0484
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "f7ef8e1a683b"
  },
  "osm-mands": {
   "id": "osm-mands",
@@ -3263,7 +3325,8 @@
    "Scotland": 0.0909,
    "Northern Ireland": 0.0244
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "604bae1e7bc0"
  },
  "osm-mcdonalds": {
   "id": "osm-mcdonalds",
@@ -3316,7 +3379,8 @@
    "Scotland": 0.0778,
    "Northern Ireland": 0.0259
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "b22795497776"
  },
  "osm-morrisons": {
   "id": "osm-morrisons",
@@ -3370,7 +3434,8 @@
    "Scotland": 0.1225,
    "Northern Ireland": 0.0
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "0dff7c759361"
  },
  "osm-nandos": {
   "id": "osm-nandos",
@@ -3423,7 +3488,8 @@
    "Scotland": 0.0642,
    "Northern Ireland": 0.0236
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "a400c442abe4"
  },
  "osm-pret": {
   "id": "osm-pret",
@@ -3476,7 +3542,8 @@
    "Scotland": 0.0513,
    "Northern Ireland": 0.0067
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "10624ec7a4e1"
  },
  "osm-pubs": {
   "id": "osm-pubs",
@@ -3529,7 +3596,8 @@
    "Scotland": 0.062,
    "Northern Ireland": 0.0144
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "d6fd57a89665"
  },
  "osm-sainsburys": {
   "id": "osm-sainsburys",
@@ -3582,7 +3650,8 @@
    "Scotland": 0.0701,
    "Northern Ireland": 0.011
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "c381c0a77a9e"
  },
  "osm-standing-stones": {
   "id": "osm-standing-stones",
@@ -3635,7 +3704,8 @@
    "Scotland": 0.3923,
    "Northern Ireland": 0.0663
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "fa778a5791b0"
  },
  "osm-starbucks": {
   "id": "osm-starbucks",
@@ -3688,7 +3758,8 @@
    "Scotland": 0.0952,
    "Northern Ireland": 0.024
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "b906ac8192b3"
  },
  "osm-stations": {
   "id": "osm-stations",
@@ -3741,7 +3812,8 @@
    "Scotland": 0.1223,
    "Northern Ireland": 0.0201
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "f943948884de"
  },
  "osm-tesco": {
   "id": "osm-tesco",
@@ -3794,7 +3866,8 @@
    "Scotland": 0.0769,
    "Northern Ireland": 0.0226
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "42ff962c5aeb"
  },
  "osm-waitrose": {
   "id": "osm-waitrose",
@@ -3848,7 +3921,8 @@
    "Scotland": 0.0245,
    "Northern Ireland": 0.0
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "154e97a5148c"
  },
  "osm-wetherspoon": {
   "id": "osm-wetherspoon",
@@ -3901,7 +3975,8 @@
    "Scotland": 0.0674,
    "Northern Ireland": 0.0048
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "227979817cee"
  },
  "osm-windmills": {
   "id": "osm-windmills",
@@ -3954,7 +4029,8 @@
    "Scotland": 0.0225,
    "Northern Ireland": 0.03
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "cb18d1f5abb5"
  },
  "pop-all": {
   "id": "pop-all",
@@ -4000,7 +4076,8 @@
    "Scotland": 0.0798,
    "Northern Ireland": 0.0278
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "30d2772dd38c"
  },
  "repd-battery": {
   "id": "repd-battery",
@@ -4047,7 +4124,8 @@
    "Scotland": 0.1861,
    "Northern Ireland": 0.002
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "aada011f911f"
  },
  "repd-battery-pipeline": {
   "id": "repd-battery-pipeline",
@@ -4094,7 +4172,8 @@
    "Scotland": 0.279,
    "Northern Ireland": 0.0157
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "f25f9a0122b7"
  },
  "repd-hydro": {
   "id": "repd-hydro",
@@ -4143,7 +4222,8 @@
    "Scotland": 0.9072,
    "Northern Ireland": 0.0
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "02551c48c0ce"
  },
  "repd-solar": {
   "id": "repd-solar",
@@ -4190,7 +4270,8 @@
    "Scotland": 0.0076,
    "Northern Ireland": 0.0188
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "b4327432380e"
  },
  "repd-solar-pipeline": {
   "id": "repd-solar-pipeline",
@@ -4237,7 +4318,8 @@
    "Scotland": 0.0741,
    "Northern Ireland": 0.0035
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "7a1c0b0e2c21"
  },
  "repd-wind-offshore": {
   "id": "repd-wind-offshore",
@@ -4287,7 +4369,8 @@
    "Scotland": 0.2585,
    "Northern Ireland": 0.0
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "2dc60bdf9fbe"
  },
  "repd-wind-onshore": {
   "id": "repd-wind-onshore",
@@ -4334,6 +4417,7 @@
    "Scotland": 0.6578,
    "Northern Ireland": 0.0784
   },
-  "built": "2026-10-06"
+  "built": "2026-10-06",
+  "hash": "4a7889b1993d"
  }
 }

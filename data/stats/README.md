@@ -135,41 +135,41 @@ done to each.
 
 | File | Statistic | Points | Total |
 | --- | --- | --- | --- |
-| `census-carers-50h.csv` | Carers giving 50+ hours a week | 46823 | 1,732,813 |
-| `census-cars-3plus.csv` | Households with 3+ cars | 46671 | 2,546,341 |
-| `census-cars-none.csv` | Households with no car | 46835 | 6,589,994 |
-| `census-commute-bike.csv` | Commuters by bicycle | 43873 | 609,885 |
-| `census-commute-car.csv` | Commuters by car or van | 46844 | 15,417,072 |
-| `census-commute-foot.csv` | Commuters on foot | 46779 | 2,351,260 |
-| `census-commute-metro.csv` | Commuters by underground, metro or tram | 20257 | 511,094 |
-| `census-commute-motorbike.csv` | Commuters by motorbike or moped | 35495 | 134,630 |
-| `census-commute-taxi.csv` | Commuters by taxi | 38215 | 223,101 |
-| `census-commute-train.csv` | Commuters by train | 42341 | 594,198 |
-| `census-health-verybad.csv` | Very bad health | 46661 | 841,792 |
-| `census-heat-bottled.csv` | Homes heated only by tank or bottled gas | 39171 | 299,315 |
-| `census-heat-electric.csv` | Homes heated only by electricity | 45183 | 2,351,994 |
-| `census-heat-gas.csv` | Homes heated only by mains gas | 46180 | 20,383,817 |
-| `census-heat-oil.csv` | Homes heated only by oil | 29878 | 1,374,013 |
-| `census-heat-renewable.csv` | Homes heated only by renewables | 24699 | 129,113 |
-| `census-heat-solid.csv` | Homes heated only by solid fuel | 16214 | 61,973 |
-| `census-heat-wood.csv` | Homes heated only by wood | 12770 | 47,994 |
-| `census-home-caravan.csv` | Households in a caravan or mobile home | 15344 | 109,477 |
-| `census-home-commercial.csv` | Households in a commercial building | 31438 | 220,630 |
-| `census-home-converted.csv` | Households in converted or shared houses | 40134 | 1,090,302 |
-| `census-home-detached.csv` | Households in detached houses | 46607 | 6,643,703 |
-| `census-home-flat.csv` | Households in purpose-built flats | 44697 | 5,004,804 |
-| `census-home-semi.csv` | Households in semi-detached houses | 46738 | 8,623,189 |
-| `census-home-terraced.csv` | Households in terraced houses | 46326 | 6,368,831 |
-| `census-hours-49plus.csv` | People working 49+ hours a week | 46834 | 3,408,332 |
-| `census-job-managers.csv` | Managers, directors and senior officials | 46835 | 3,830,100 |
-| `census-job-operatives.csv` | Process, plant and machine operatives | 46829 | 2,204,156 |
-| `census-job-trades.csv` | Skilled trades | 46843 | 3,254,689 |
-| `census-population.csv` | Usual residents (census) | 46844 | 66,941,131 |
-| `census-qual-apprentice.csv` | Apprenticeships | 46842 | 3,034,588 |
-| `census-qual-degree.csv` | Degree-level qualifications | 46844 | 18,978,837 |
-| `census-qual-none.csv` | No qualifications | 46844 | 9,945,765 |
-| `census-sick.csv` | Long-term sick or disabled | 46824 | 2,374,875 |
-| `census-tenure-outright.csv` | Households that own outright | 46843 | 9,254,779 |
-| `census-tenure-private.csv` | Households renting privately | 46832 | 5,478,606 |
-| `census-tenure-social.csv` | Households renting socially | 46165 | 4,909,654 |
-| `census-work-from-home.csv` | People working mainly from home | 46844 | 9,626,149 |
+| `census-carers-50h.csv` | Carers giving 50+ hours a week | 361 | 1,732,813 |
+| `census-cars-3plus.csv` | Households with 3+ cars | 361 | 2,546,341 |
+| `census-cars-none.csv` | Households with no car | 361 | 6,589,994 |
+| `census-commute-bike.csv` | Commuters by bicycle | 361 | 609,885 |
+| `census-commute-car.csv` | Commuters by car or van | 361 | 15,417,072 |
+| `census-commute-foot.csv` | Commuters on foot | 361 | 2,351,260 |
+| `census-commute-metro.csv` | Commuters by underground, metro or tram | 349 | 511,094 |
+| `census-commute-motorbike.csv` | Commuters by motorbike or moped | 361 | 134,630 |
+| `census-commute-taxi.csv` | Commuters by taxi | 360 | 223,101 |
+| `census-commute-train.csv` | Commuters by train | 361 | 594,198 |
+| `census-health-verybad.csv` | Very bad health | 361 | 841,792 |
+| `census-heat-bottled.csv` | Homes heated only by tank or bottled gas | 361 | 299,315 |
+| `census-heat-electric.csv` | Homes heated only by electricity | 361 | 2,351,994 |
+| `census-heat-gas.csv` | Homes heated only by mains gas | 361 | 20,383,817 |
+| `census-heat-oil.csv` | Homes heated only by oil | 361 | 1,374,013 |
+| `census-heat-renewable.csv` | Homes heated only by renewables | 361 | 129,113 |
+| `census-heat-solid.csv` | Homes heated only by solid fuel | 360 | 61,973 |
+| `census-heat-wood.csv` | Homes heated only by wood | 360 | 47,994 |
+| `census-home-caravan.csv` | Households in a caravan or mobile home | 360 | 109,477 |
+| `census-home-commercial.csv` | Households in a commercial building | 361 | 220,630 |
+| `census-home-converted.csv` | Households in converted or shared houses | 361 | 1,090,302 |
+| `census-home-detached.csv` | Households in detached houses | 361 | 6,643,703 |
+| `census-home-flat.csv` | Households in purpose-built flats | 361 | 5,004,804 |
+| `census-home-semi.csv` | Households in semi-detached houses | 361 | 8,623,189 |
+| `census-home-terraced.csv` | Households in terraced houses | 361 | 6,368,831 |
+| `census-hours-49plus.csv` | People working 49+ hours a week | 361 | 3,408,332 |
+| `census-job-managers.csv` | Managers, directors and senior officials | 361 | 3,830,100 |
+| `census-job-operatives.csv` | Process, plant and machine operatives | 361 | 2,204,156 |
+| `census-job-trades.csv` | Skilled trades | 361 | 3,254,689 |
+| `census-population.csv` | Usual residents (census) | 361 | 66,941,131 |
+| `census-qual-apprentice.csv` | Apprenticeships | 361 | 3,034,588 |
+| `census-qual-degree.csv` | Degree-level qualifications | 361 | 18,978,837 |
+| `census-qual-none.csv` | No qualifications | 361 | 9,945,765 |
+| `census-sick.csv` | Long-term sick or disabled | 361 | 2,374,875 |
+| `census-tenure-outright.csv` | Households that own outright | 361 | 9,254,779 |
+| `census-tenure-private.csv` | Households renting privately | 361 | 5,478,606 |
+| `census-tenure-social.csv` | Households renting socially | 361 | 4,909,654 |
+| `census-work-from-home.csv` | People working mainly from home | 361 | 9,626,149 |

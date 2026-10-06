@@ -1591,6 +1591,13 @@ function offsetOfPoint(mercPt, spec) {
   return mercPt[0] * spec.normal[0] + mercPt[1] * spec.normal[1];
 }
 
+// Where a point sits ALONG the line — the coordinate offsetOfPoint ignores.
+// Only used to keep the takeaway's place name near the middle of the data
+// (see placeNearLine); grading never reads it.
+function alongOfPoint(mercPt, spec) {
+  return -mercPt[0] * spec.normal[1] + mercPt[1] * spec.normal[0];
+}
+
 // The line at offset t, as two lng/lat endpoints long enough to cross the bbox
 // at any angle.
 function lineAtOffset(spec, t, padBbox) {
@@ -1947,7 +1954,10 @@ function catalogueFromStats(stats, baseUrl) {
     }
     out.push({
       id: ids[i], label: s.label, question: s.question || s.label, unit: s.unit,
-      url: baseUrl + s.file, type: 'csv', weightColumn: 'value', groupColumn: 'name',
+      // The content hash written by the pipeline: a rebuilt file gets a new
+      // URL, so no browser can keep serving last year's numbers.
+      url: baseUrl + s.file + (s.hash ? '?v=' + s.hash : ''),
+      type: 'csv', weightColumn: 'value', groupColumn: 'name',
       sources: src,
     });
   }
@@ -2081,12 +2091,25 @@ function tidyPlaceName(name) {
 // recognises. Take the `pool` nearest points to the line and name the HEAVIEST
 // of them, so the sentence lands on somewhere the reader has heard of while
 // staying genuinely near the line.
-function placeNearLine(values, weights, groups, groupNames, t, pool) {
+//
+// `along` (optional) is each point's position ALONG the line. Without it, the
+// "nearest to the line" pool can come from anywhere on a line that crosses the
+// whole country — an upright line through Edinburgh named itself after Orkney.
+// With it, candidates are first limited to the middle half of the statistic's
+// own weight along the line (its 25th–75th percentile there), so the place is
+// near where the thing being counted actually is. If that leaves no point
+// near enough, the unrestricted pool is used, so a name is never lost.
+function placeNearLine(values, weights, groups, groupNames, t, pool, along) {
   if (!groups || !groupNames || !groupNames.length) return null;
   var n = values.length;
   if (!n) return null;
   var idx = [];
-  for (var i = 0; i < n; i++) idx.push(i);
+  if (along && along.length === n) {
+    var lo = quantilePosition(along, weights, 0.25);
+    var hi = quantilePosition(along, weights, 0.75);
+    for (var c = 0; c < n; c++) if (along[c] >= lo && along[c] <= hi) idx.push(c);
+  }
+  if (!idx.length) for (var i = 0; i < n; i++) idx.push(i);
   idx.sort(function (a, b) {
     return Math.abs(values[a] - t) - Math.abs(values[b] - t);
   });
@@ -3281,8 +3304,9 @@ function onRoundData() {
   axisValues = mercPts.map(function (m) { return offsetOfPoint(m, axis); });
   trueOffset = targetOffset(axisValues, data.weights, currentRound().target);
   centroid = weightedCentroidMerc(mercPts, data.weights);
-  truePlace = placeNearLine(axisValues, data.weights, data.groups,
-                            data.groupNames, trueOffset, 20);
+  truePlace = placeNearLine(axisValues, data.weights, data.groups, data.groupNames,
+                            trueOffset, 20,
+                            mercPts.map(function (m) { return alongOfPoint(m, axis); }));
   trueCoord = lineCoordLabel(axis, trueOffset, CONFIG.padBbox);
   // Start at the middle of the country — from CONFIG.padBbox, NOT from the
   // viewport. The visible extent depends on the player's window aspect ratio,
@@ -3535,10 +3559,12 @@ function fetchJson(url) {
 function loadPuzzleList(region, dateStr, cb) {
   if (region && region.gamesUrl) {
     var year = Number(String(dateStr).slice(0, 4));
-    fetchJson(region.statsUrl).then(function (stats) {
+    // Set by Play/index.php from the files' mtimes (see $dataVersion there).
+    var dv = window.MAPSPLIT_DATA_VERSION ? '?v=' + encodeURIComponent(window.MAPSPLIT_DATA_VERSION) : '';
+    fetchJson(region.statsUrl + dv).then(function (stats) {
       var catalogue = catalogueFromStats(stats, region.dataBase);
-      return fetchJson(region.gamesUrl + gamesFileFor(dateStr))
-        .catch(function () { return fetchJson(region.gamesUrl + (year - 1) + '.json'); })
+      return fetchJson(region.gamesUrl + gamesFileFor(dateStr) + dv)
+        .catch(function () { return fetchJson(region.gamesUrl + (year - 1) + '.json' + dv); })
         .then(function (games) {
           // The runtime catalogue REPLACES the sample one: rounds name
           // statistics by label, and every label now comes from stats.json.

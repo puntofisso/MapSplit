@@ -14,6 +14,7 @@ not written unless it passes common.check_stat, and an area that drops out of
 a join must be declared in the source's knownGaps or the build fails.
 """
 import datetime
+import hashlib
 import importlib.util
 import json
 import os
@@ -184,8 +185,11 @@ def main(argv):
                 raise BuildError('%s: unknown aggregate %r' % (stat['id'], how))
         for stat in src['stats']:
             info, warns = common.check_stat(stat, built[stat['id']])
-            common.write_stat(stat['id'], built[stat['id']])
+            path = common.write_stat(stat['id'], built[stat['id']])
             cat[stat['id']] = catalogue_entry(stat, src, sources, info)
+            # Content hash: the game appends it to the file's URL, so a
+            # rebuilt file can never be served from a stale browser cache.
+            cat[stat['id']]['hash'] = hashlib.sha1(open(path, 'rb').read()).hexdigest()[:12]
             flag = ('  ⚠ ' + '; '.join(warns)) if warns else ''
             print('  %-28s %6d pts  %s%s' % (stat['id'], info['points'],
                   ' '.join('%s %.1f%%' % (n[:2], 100 * s) for n, s in info['shares'].items()), flag))
