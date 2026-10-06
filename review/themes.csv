@@ -1,0 +1,12 @@
+theme,title,stats,trios_possible,trios_valid_somewhere,valid_days,valid_days_by_axis,stats_never_in_a_valid_day
+supermarkets,Supermarket sweep,8,56,33,224,ns:28 we:11 15:33 30:28 45:2 75:1 105:11 120:11 135:33 150:33 165:33,
+highstreet,Food and drink,10,120,56,396,ns:56 we:20 15:56 30:40 45:10 75:10 105:20 120:20 135:52 150:56 165:56,
+heating,Keeping warm,7,35,25,163,ns:21 we:12 15:21 30:14 45:8 60:4 75:12 105:12 120:8 135:13 150:17 165:21,
+power,Power stations,7,35,35,327,ns:30 we:30 15:30 30:30 45:25 60:16 75:26 105:26 120:29 135:30 150:25 165:30,
+commute,Getting to work,8,56,40,266,ns:34 we:16 15:34 30:32 75:16 105:16 120:16 135:34 150:34 165:34,
+election,Election night,6,20,6,36,ns:6 15:6 30:6 135:6 150:6 165:6,
+money,Follow the money,6,20,12,76,ns:8 we:10 15:8 30:4 75:2 105:10 120:10 135:8 150:8 165:8,
+homes,Home life,12,220,64,415,ns:64 we:14 15:62 30:43 75:12 105:14 120:14 135:64 150:64 165:64,
+work,Work and life,10,120,23,115,ns:22 15:16 30:9 135:22 150:23 165:23,
+heritage,Castles and coastlines,6,20,20,179,ns:16 we:16 15:16 30:12 45:16 60:10 75:13 105:16 120:16 135:16 150:16 165:16,
+contrasts,Poles apart,12,220,197,1851,ns:168 we:173 15:168 30:149 45:135 60:87 75:130 105:164 120:173 135:168 150:168 165:168,

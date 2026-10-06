@@ -1,0 +1,362 @@
+lon,lat,value,name
+-1.2176,54.6859,480,Hartlepool
+-1.231,54.5597,798,Middlesbrough
+-1.0312,54.5842,1106,Redcar and Cleveland
+-1.3189,54.566,907,Stockton-on-Tees
+-1.5549,54.5277,919,Darlington
+-2.7231,53.3514,547,Halton
+-2.5772,53.3941,1376,Warrington
+-2.4792,53.7308,931,Blackburn with Darwen
+-3.0449,53.8166,3953,Blackpool
+-0.3518,53.7534,3516,"Kingston upon Hull, City of"
+-0.3579,53.9421,2726,East Riding of Yorkshire
+-0.0728,53.5625,1782,North East Lincolnshire
+-0.6335,53.5873,878,North Lincolnshire
+-1.0859,53.9601,2579,York
+-1.4784,52.9154,1983,Derby
+-1.1299,52.6289,5247,Leicester
+-0.6906,52.6504,211,Rutland
+-1.1575,52.9627,5296,Nottingham
+-2.6693,52.0608,2286,"Herefordshire, County of"
+-2.458,52.6958,882,Telford and Wrekin
+-2.1747,53.0181,1628,Stoke-on-Trent
+-2.3823,51.381,5623,Bath and North East Somerset
+-2.5932,51.4614,22947,"Bristol, City of"
+-2.93,51.3715,6415,North Somerset
+-2.5062,51.4986,2018,South Gloucestershire
+-4.1419,50.38,9697,Plymouth
+-3.5405,50.4559,6988,Torbay
+-1.7833,51.5655,1893,Swindon
+-0.2491,52.5803,1397,Peterborough
+-0.4236,51.885,2632,Luton
+0.6998,51.5419,10947,Southend-on-Sea
+0.3442,51.489,705,Thurrock
+0.533,51.3815,2669,Medway
+-0.7524,51.4035,582,Bracknell Forest
+-1.2716,51.4196,1590,West Berkshire
+-0.9766,51.4539,3812,Reading
+-0.5986,51.5131,1640,Slough
+-0.6598,51.4868,2033,Windsor and Maidenhead
+-0.875,51.4261,927,Wokingham
+-0.7528,52.0477,1195,Milton Keynes
+-0.1512,50.8301,25583,Brighton and Hove
+-1.0784,50.7973,6646,Portsmouth
+-1.4008,50.9166,6025,Southampton
+-1.2153,50.6857,3976,Isle of Wight
+-1.637,54.7679,2082,County Durham
+-2.2948,53.1902,3133,Cheshire East
+-2.817,53.2207,2474,Cheshire West and Chester
+-2.7225,52.7012,2836,Shropshire
+-4.9921,50.3188,8999,Cornwall
+-6.3111,49.916,116,Isles of Scilly
+-2.0102,51.285,4500,Wiltshire
+-0.4703,52.1398,2588,Bedford
+-0.4641,51.9706,1631,Central Bedfordshire
+-1.7474,55.1998,2726,Northumberland
+-1.8679,50.7306,14990,"Bournemouth, Christchurch and Poole"
+-2.3552,50.7164,4969,Dorset
+-0.7329,51.6825,4601,Buckinghamshire
+-0.6768,52.3672,2338,North Northamptonshire
+-0.9345,52.2284,3192,West Northamptonshire
+-3.184,54.7507,2339,Cumberland
+-2.8721,54.3315,2901,Westmorland and Furness
+-1.1635,54.1357,10287,North Yorkshire
+-2.8972,51.0944,6886,Somerset
+0.135,52.2049,1880,Cambridge
+0.2969,52.3707,513,East Cambridgeshire
+0.081,52.5975,561,Fenland
+-0.1758,52.3271,1205,Huntingdonshire
+0.0871,52.2116,573,South Cambridgeshire
+-1.4159,53.0357,701,Amber Valley
+-1.2583,53.2136,299,Bolsover
+-1.4242,53.2464,769,Chesterfield
+-1.6372,53.1456,666,Derbyshire Dales
+-1.3021,52.9289,818,Erewash
+-1.9302,53.3262,1541,High Peak
+-1.405,53.2252,409,North East Derbyshire
+-1.5342,52.8181,392,South Derbyshire
+-3.3068,50.6694,2784,East Devon
+-3.5213,50.7229,2923,Exeter
+-3.5125,50.8691,799,Mid Devon
+-4.0666,51.1361,1936,North Devon
+-3.7408,50.3625,1340,South Hams
+-3.5618,50.5596,2875,Teignbridge
+-4.2339,50.9798,924,Torridge
+-4.0668,50.619,694,West Devon
+0.2814,50.7703,4171,Eastbourne
+0.568,50.859,6102,Hastings
+0.0468,50.8189,1585,Lewes
+0.4872,50.8614,2639,Rother
+0.1962,50.9698,1415,Wealden
+0.4628,51.5849,712,Basildon
+0.5999,51.8776,1081,Braintree
+0.3106,51.6208,985,Brentwood
+0.5861,51.5486,341,Castle Point
+0.4788,51.7252,1087,Chelmsford
+0.8991,51.8845,1681,Colchester
+0.0838,51.6794,870,Epping Forest
+0.1068,51.7707,507,Harlow
+0.7293,51.7081,347,Maldon
+0.6736,51.5861,364,Rochford
+1.1743,51.8375,1993,Tendring
+0.2702,51.9442,660,Uttlesford
+-2.0781,51.8977,3607,Cheltenham
+-1.9174,51.7743,864,Cotswold
+-2.5137,51.8103,647,Forest of Dean
+-2.2402,51.8578,1646,Gloucester
+-2.2588,51.7253,1306,Stroud
+-2.129,51.9453,389,Tewkesbury
+-1.1256,51.2722,1302,Basingstoke and Deane
+-0.9322,51.0672,987,East Hampshire
+-1.3459,50.9444,922,Eastleigh
+-1.2048,50.8534,529,Fareham
+-1.1474,50.7994,780,Gosport
+-0.8619,51.2929,477,Hart
+-0.9878,50.8468,805,Havant
+-1.5975,50.8308,1310,New Forest
+-0.7598,51.261,1349,Rushmoor
+-1.4941,51.1048,833,Test Valley
+-1.2777,51.0246,1540,Winchester
+-0.0278,51.7221,706,Broxbourne
+-0.5027,51.7588,1211,Dacorum
+-0.2898,51.6666,933,Hertsmere
+-0.213,51.9668,1195,North Hertfordshire
+-0.4509,51.6635,665,Three Rivers
+-0.3993,51.6637,2605,Watford
+0.8408,51.138,933,Ashford
+1.0945,51.3327,2603,Canterbury
+0.2397,51.4429,1028,Dartford
+1.3331,51.1683,1883,Dover
+0.3684,51.4353,1298,Gravesham
+0.5278,51.2637,1752,Maidstone
+0.1733,51.2938,1089,Sevenoaks
+1.1525,51.0775,3945,Folkestone and Hythe
+0.7902,51.3653,1294,Swale
+1.3923,51.3678,5094,Thanet
+0.343,51.2461,872,Tonbridge and Malling
+0.2844,51.1329,3518,Tunbridge Wells
+-2.2587,53.7929,557,Burnley
+-2.6428,53.6576,518,Chorley
+-3.0028,53.7507,1985,Fylde
+-2.3823,53.7601,402,Hyndburn
+-2.8373,54.0633,2512,Lancaster
+-2.1876,53.863,503,Pendle
+-2.7054,53.7653,1665,Preston
+-2.4541,53.8499,341,Ribble Valley
+-2.2591,53.6937,588,Rossendale
+-2.6967,53.7232,397,South Ribble
+-2.8426,53.5742,488,West Lancashire
+-2.9992,53.8959,1137,Wyre
+-1.1996,52.593,281,Blaby
+-1.1805,52.7447,1061,Charnwood
+-1.0012,52.5018,410,Harborough
+-1.3556,52.5634,565,Hinckley and Bosworth
+-0.8827,52.7846,370,Melton
+-1.3846,52.7556,436,North West Leicestershire
+-1.1102,52.5864,236,Oadby and Wigston
+-0.0293,52.9757,445,Boston
+0.1961,53.2167,1417,East Lindsey
+-0.5436,53.2267,1297,Lincoln
+-0.4578,53.0863,358,North Kesteven
+-0.0675,52.7893,497,South Holland
+-0.5526,52.8293,865,South Kesteven
+-0.5834,53.3811,425,West Lindsey
+0.8632,52.5652,734,Breckland
+1.2839,52.6917,466,Broadland
+1.7244,52.6002,1348,Great Yarmouth
+0.4295,52.765,1052,King's Lynn and West Norfolk
+1.2526,52.8887,1271,North Norfolk
+1.2892,52.629,3086,Norwich
+1.2259,52.5048,682,South Norfolk
+-1.2488,53.0895,557,Ashfield
+-1.0335,53.3216,602,Bassetlaw
+-1.241,52.943,680,Broxtowe
+-1.109,52.9865,588,Gedling
+-1.193,53.1487,644,Mansfield
+-0.8703,53.0916,820,Newark and Sherwood
+-1.1186,52.9253,1052,Rushcliffe
+-1.2945,51.9858,1362,Cherwell
+-1.2354,51.7512,3155,Oxford
+-1.064,51.6103,1188,South Oxfordshire
+-1.3573,51.6617,1180,Vale of White Horse
+-1.4943,51.8267,794,West Oxfordshire
+-1.9858,52.7163,507,Cannock Chase
+-1.6731,52.8196,768,East Staffordshire
+-1.8452,52.6843,639,Lichfield
+-2.2411,53.0269,610,Newcastle-under-Lyme
+-2.1741,52.5925,401,South Staffordshire
+-2.1291,52.8331,1083,Stafford
+-2.0321,53.0621,612,Staffordshire Moorlands
+-1.6854,52.6293,502,Tamworth
+0.8552,52.0366,511,Babergh
+1.1566,52.0568,2022,Ipswich
+1.0388,52.2048,426,Mid Suffolk
+-0.3864,51.3767,1555,Elmbridge
+-0.2674,51.3431,1037,Epsom and Ewell
+-0.573,51.2436,2079,Guildford
+-0.3273,51.2512,1223,Mole Valley
+-0.183,51.2442,2060,Reigate and Banstead
+-0.5254,51.3968,960,Runnymede
+-0.4687,51.428,1059,Spelthorne
+-0.7156,51.3356,817,Surrey Heath
+-0.0627,51.2611,1158,Tandridge
+-0.6807,51.1686,1815,Waverley
+-0.5579,51.3188,1041,Woking
+-1.5963,52.5518,373,North Warwickshire
+-1.4784,52.5122,729,Nuneaton and Bedworth
+-1.2702,52.372,815,Rugby
+-1.6872,52.1989,955,Stratford-on-Avon
+-1.5508,52.2957,2570,Warwick
+-0.2739,50.8333,767,Adur
+-0.6163,50.7991,3085,Arun
+-0.7562,50.8894,1437,Chichester
+-0.1875,51.1123,605,Crawley
+-0.3469,51.026,1178,Horsham
+-0.0875,51.0316,2033,Mid Sussex
+-0.3796,50.8158,4914,Worthing
+-2.0457,52.3601,497,Bromsgrove
+-2.3267,52.1268,1252,Malvern Hills
+-1.9399,52.2991,635,Redditch
+-2.2192,52.1959,1545,Worcester
+-2.0358,52.1474,1018,Wychavon
+-2.2587,52.3798,893,Wyre Forest
+-0.3309,51.7585,1993,St Albans
+-0.2059,51.7807,626,Welwyn Hatfield
+0.0122,51.8294,1363,East Hertfordshire
+-0.1889,51.9048,597,Stevenage
+1.5556,52.2769,2509,East Suffolk
+0.5601,52.2451,1252,West Suffolk
+-2.44,53.5834,1860,Bolton
+-2.2998,53.5779,1252,Bury
+-2.2364,53.4535,12214,Manchester
+-2.084,53.5452,1022,Oldham
+-2.1668,53.6048,1130,Rochdale
+-2.3135,53.4933,2302,Salford
+-2.1592,53.4097,2739,Stockport
+-2.0815,53.4795,1602,Tameside
+-2.3295,53.4215,2375,Trafford
+-2.5907,53.5286,1601,Wigan
+-2.8363,53.4322,395,Knowsley
+-2.9482,53.4009,10805,Liverpool
+-2.7174,53.4524,871,St. Helens
+-3.0056,53.5819,5827,Sefton
+-3.0577,53.3967,6511,Wirral
+-1.1287,53.5277,2109,Doncaster
+-1.3207,53.4325,1117,Rotherham
+-1.6099,54.9861,8401,Newcastle upon Tyne
+-1.4743,55.0162,4284,North Tyneside
+-1.4451,54.9797,2562,South Tyneside
+-1.4106,54.8988,2487,Sunderland
+-1.8893,52.4766,14639,Birmingham
+-1.5085,52.4118,2649,Coventry
+-2.1139,52.4844,2514,Dudley
+-2.0067,52.5049,1994,Sandwell
+-1.772,52.4262,815,Solihull
+-1.9929,52.59,1412,Walsall
+-2.1279,52.5877,2595,Wolverhampton
+-1.7997,53.8306,6138,Bradford
+-1.8956,53.7119,2902,Calderdale
+-1.7508,53.6592,4293,Kirklees
+-1.5647,53.8115,13127,Leeds
+-1.4374,53.6824,1984,Wakefield
+-1.6119,54.9476,2770,Gateshead
+-1.4642,53.5467,1046,Barnsley
+-1.4849,53.38,5858,Sheffield
+-0.0953,51.5151,337,City of London
+0.1262,51.5489,1773,Barking and Dagenham
+-0.1989,51.601,14200,Barnet
+0.1369,51.4602,2032,Bexley
+-0.2367,51.5469,20288,Brent
+-0.0167,51.4073,8806,Bromley
+-0.164,51.5462,25920,Camden
+-0.094,51.3837,14140,Croydon
+-0.3068,51.5132,18175,Ealing
+-0.0873,51.6326,8649,Enfield
+0.0454,51.4772,8561,Greenwich
+-0.069,51.554,20021,Hackney
+-0.2168,51.4907,20881,Hammersmith and Fulham
+-0.1079,51.5871,25228,Haringey
+-0.3371,51.5878,6275,Harrow
+0.1988,51.5736,2093,Havering
+-0.4367,51.5438,3635,Hillingdon
+-0.3254,51.4778,7394,Hounslow
+-0.1104,51.5513,23514,Islington
+-0.1951,51.5015,16504,Kensington and Chelsea
+-0.2933,51.3978,4681,Kingston upon Thames
+-0.1199,51.4524,30277,Lambeth
+-0.027,51.4526,21258,Lewisham
+-0.1924,51.415,8108,Merton
+0.0328,51.5372,8937,Newham
+0.0672,51.5737,7289,Redbridge
+-0.3092,51.4525,8085,Richmond upon Thames
+-0.0758,51.4744,16323,Southwark
+-0.1804,51.3645,3679,Sutton
+-0.044,51.5194,6967,Tower Hamlets
+-0.0111,51.5784,13011,Waltham Forest
+-0.1732,51.4499,26020,Wandsworth
+-0.1755,51.5161,16602,Westminster
+-6.0455,54.6957,327,Antrim and Newtownabbey
+-6.4231,54.4045,692,"Armagh City, Banbridge and Craigavon"
+-5.9312,54.5925,4504,Belfast
+-6.6575,55.1334,495,Causeway Coast and Glens
+-7.3309,54.9831,706,Derry City and Strabane
+-7.4647,54.4633,392,Fermanagh and Omagh
+-5.9931,54.531,379,Lisburn and Castlereagh
+-6.06,54.8328,528,Mid and East Antrim
+-6.7473,54.5896,415,Mid Ulster
+-6.0953,54.2051,632,"Newry, Mourne and Down"
+-5.691,54.6294,749,Ards and North Down
+-3.7753,56.1347,325,Clackmannanshire
+-3.8223,55.0414,816,Dumfries and Galloway
+-4.4276,55.5798,512,East Ayrshire
+-2.7917,55.9917,858,East Lothian
+-4.3213,55.7879,213,East Renfrewshire
+-6.5738,58.0615,36,Na h-Eileanan Siar
+-3.7633,56.006,484,Falkirk
+-4.2491,57.5709,1215,Highland
+-4.76,55.94,1212,Inverclyde
+-3.1236,55.8648,348,Midlothian
+-3.2526,57.6444,468,Moray
+-4.8018,55.7104,937,North Ayrshire
+-3.0561,58.9778,174,Orkney Islands
+-2.7671,55.6014,1246,Scottish Borders
+-1.1842,60.1777,159,Shetland Islands
+-4.6447,55.4659,803,South Ayrshire
+-4.0371,55.754,1041,South Lanarkshire
+-4.0143,56.1343,931,Stirling
+-2.1223,57.1489,2826,Aberdeen City
+-2.2395,57.3548,1256,Aberdeenshire
+-5.0156,55.9705,1862,Argyll and Bute
+-3.2033,55.9461,6722,City of Edinburgh
+-4.4605,55.8459,943,Renfrewshire
+-4.5238,55.9536,240,West Dunbartonshire
+-3.5817,55.9085,533,West Lothian
+-2.6642,56.6321,1001,Angus
+-2.962,56.4683,1616,Dundee City
+-4.234,55.928,340,East Dunbartonshire
+-3.1045,56.2077,2940,Fife
+-3.5199,56.429,1330,Perth and Kinross
+-4.2811,55.8619,5042,Glasgow City
+-3.9911,55.8508,700,North Lanarkshire
+-4.3796,53.2868,469,Isle of Anglesey
+-4.1517,52.9852,1192,Gwynedd
+-3.7785,53.2951,2626,Conwy
+-3.4333,53.2631,1149,Denbighshire
+-3.0945,53.2075,710,Flintshire
+-3.0069,53.035,682,Wrexham
+-4.1598,52.3308,1131,Ceredigion
+-4.9039,51.7576,1263,Pembrokeshire
+-4.1976,51.7973,1247,Carmarthenshire
+-3.9646,51.6259,2671,Swansea
+-3.7985,51.6568,785,Neath Port Talbot
+-3.639,51.5208,1015,Bridgend
+-3.2488,51.4225,1708,Vale of Glamorgan
+-3.1799,51.4895,8167,Cardiff
+-3.4,51.6214,1155,Rhondda Cynon Taf
+-3.2052,51.6454,751,Caerphilly
+-3.1819,51.7573,366,Blaenau Gwent
+-3.0406,51.6865,363,Torfaen
+-2.8466,51.7469,782,Monmouthshire
+-2.9933,51.5872,1657,Newport
+-3.3378,52.2973,1146,Powys
+-3.3665,51.7435,293,Merthyr Tydfil

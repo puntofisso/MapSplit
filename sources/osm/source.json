@@ -1,0 +1,427 @@
+{
+ "id": "osm",
+ "title": "OpenStreetMap: shops, places and landmarks across the UK",
+ "publisher": "OpenStreetMap contributors",
+ "page": "https://www.openstreetmap.org/copyright",
+ "vintage": "extracted via the Overpass API (date of the raw files in data/raw/osm)",
+ "refresh": "Yearly: run.py --refresh osm. Review the counts against expectTotal; a chain that has grown or shrunk, or a change in how OSM tags it, shows up there.",
+ "licence": {
+  "name": "Open Database Licence (ODbL) 1.0",
+  "url": "https://opendatacommons.org/licenses/odbl/1-0/"
+ },
+ "attribution": "© OpenStreetMap contributors. Data available under the Open Database Licence (openstreetmap.org/copyright).",
+ "derivedLicence": {
+  "name": "Open Database Licence (ODbL) 1.0",
+  "url": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "note": "These files are derivative databases of OpenStreetMap and are licensed under the ODbL; the OGL boundary data used only to name each point is compatible with that."
+ },
+ "uses": [
+  "boundaries"
+ ],
+ "fetch": [
+  {
+   "file": "osm-morrisons.json",
+   "overpass": "[shop=supermarket][brand=Morrisons]"
+  },
+  {
+   "file": "osm-waitrose.json",
+   "overpass": "[shop][brand~\"^Waitrose\"]"
+  },
+  {
+   "file": "osm-aldi.json",
+   "overpass": "[shop][brand=Aldi]"
+  },
+  {
+   "file": "osm-lidl.json",
+   "overpass": "[shop][brand=Lidl]"
+  },
+  {
+   "file": "osm-tesco.json",
+   "overpass": "[shop][brand~\"^Tesco\"]"
+  },
+  {
+   "file": "osm-sainsburys.json",
+   "overpass": "[shop][brand~\"^Sainsbury\"]"
+  },
+  {
+   "file": "osm-mands.json",
+   "overpass": "[shop][brand~\"^(Marks (&|and) Spencer|M&S)\"]"
+  },
+  {
+   "file": "osm-iceland.json",
+   "overpass": "[shop][brand=Iceland]"
+  },
+  {
+   "file": "osm-greggs.json",
+   "overpass": "[brand=Greggs]"
+  },
+  {
+   "file": "osm-pret.json",
+   "overpass": "[brand~\"^Pret A Manger\",i]"
+  },
+  {
+   "file": "osm-costa.json",
+   "overpass": "[amenity=cafe][brand~\"^Costa\"]"
+  },
+  {
+   "file": "osm-starbucks.json",
+   "overpass": "[amenity=cafe][brand=Starbucks]"
+  },
+  {
+   "file": "osm-mcdonalds.json",
+   "overpass": "[amenity=fast_food][brand=\"McDonald's\"]"
+  },
+  {
+   "file": "osm-nandos.json",
+   "overpass": "[amenity=restaurant][brand=\"Nando's\"]"
+  },
+  {
+   "file": "osm-wetherspoon.json",
+   "overpass": "[amenity=pub][brand~\"Wetherspoon\",i]"
+  },
+  {
+   "file": "osm-pubs.json",
+   "overpass": "[amenity=pub]"
+  },
+  {
+   "file": "osm-chippies.json",
+   "overpass": "[amenity=fast_food][cuisine~\"fish_and_chips\"]"
+  },
+  {
+   "file": "osm-breweries.json",
+   "overpass": "[craft=brewery]"
+  },
+  {
+   "file": "osm-distilleries.json",
+   "overpass": "[craft=distillery]"
+  },
+  {
+   "file": "osm-golf.json",
+   "overpass": "[leisure=golf_course]"
+  },
+  {
+   "file": "osm-stations.json",
+   "overpass": "[railway=station][station!=subway][station!=light_rail][station!=monorail][station!=miniature]"
+  },
+  {
+   "file": "osm-castles.json",
+   "overpass": "[historic=castle]"
+  },
+  {
+   "file": "osm-standing-stones.json",
+   "overpass": "[archaeological_site=megalith]"
+  },
+  {
+   "file": "osm-windmills.json",
+   "overpass": "[man_made=windmill]"
+  },
+  {
+   "file": "osm-lighthouses.json",
+   "overpass": "[man_made=lighthouse]"
+  }
+ ],
+ "caveats": [
+  "OpenStreetMap is mapped by volunteers: well-known chains are close to complete, but coverage of small or rural places varies.",
+  "Each place counts once, wherever it is; a shop mapped as both a point and a building may occasionally count twice.",
+  "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
+ ],
+ "stats": [
+  {
+   "id": "osm-morrisons",
+   "label": "Morrisons supermarkets",
+   "question": "Morrisons supermarkets",
+   "unit": "places",
+   "family": "Supermarket sweep",
+   "selector": "[shop=supermarket][brand=Morrisons]",
+   "expectTotal": [
+    300,
+    750
+   ],
+   "realCount": 500,
+   "absentFrom": {
+    "Northern Ireland": "Morrisons has no stores in Northern Ireland."
+   }
+  },
+  {
+   "id": "osm-waitrose",
+   "label": "Waitrose shops",
+   "question": "Waitrose shops",
+   "unit": "places",
+   "family": "Supermarket sweep",
+   "selector": "[shop][brand~\"^Waitrose\"]",
+   "expectTotal": [
+    198,
+    495
+   ],
+   "realCount": 330,
+   "absentFrom": {
+    "Northern Ireland": "Waitrose has no shops in Northern Ireland."
+   }
+  },
+  {
+   "id": "osm-aldi",
+   "label": "Aldi shops",
+   "question": "Aldi shops",
+   "unit": "places",
+   "family": "Supermarket sweep",
+   "selector": "[shop][brand=Aldi]",
+   "expectTotal": [
+    630,
+    1575
+   ],
+   "realCount": 1050,
+   "absentFrom": {
+    "Northern Ireland": "Aldi has no stores in Northern Ireland."
+   }
+  },
+  {
+   "id": "osm-lidl",
+   "label": "Lidl shops",
+   "question": "Lidl shops",
+   "unit": "places",
+   "family": "Supermarket sweep",
+   "selector": "[shop][brand=Lidl]",
+   "expectTotal": [
+    582,
+    1455
+   ],
+   "realCount": 970
+  },
+  {
+   "id": "osm-tesco",
+   "label": "Tesco shops (all formats)",
+   "question": "Tesco shops of every size",
+   "unit": "places",
+   "family": "Supermarket sweep",
+   "selector": "[shop][brand~\"^Tesco\"]",
+   "expectTotal": [
+    1740,
+    4350
+   ],
+   "realCount": 2900
+  },
+  {
+   "id": "osm-sainsburys",
+   "label": "Sainsbury's shops (all formats)",
+   "question": "Sainsbury's shops of every size",
+   "unit": "places",
+   "family": "Supermarket sweep",
+   "selector": "[shop][brand~\"^Sainsbury\"]",
+   "expectTotal": [
+    840,
+    2100
+   ],
+   "realCount": 1400
+  },
+  {
+   "id": "osm-mands",
+   "label": "M&S shops",
+   "question": "Marks & Spencer shops",
+   "unit": "places",
+   "family": "Supermarket sweep",
+   "selector": "[shop][brand~\"^(Marks (&|and) Spencer|M&S)\"]",
+   "expectTotal": [
+    600,
+    1500
+   ],
+   "realCount": 1000
+  },
+  {
+   "id": "osm-iceland",
+   "label": "Iceland shops",
+   "question": "Iceland shops",
+   "unit": "places",
+   "family": "Supermarket sweep",
+   "selector": "[shop][brand=Iceland]",
+   "expectTotal": [
+    570,
+    1425
+   ],
+   "realCount": 950
+  },
+  {
+   "id": "osm-greggs",
+   "label": "Greggs shops",
+   "question": "Greggs shops",
+   "unit": "places",
+   "family": "High street",
+   "selector": "[brand=Greggs]",
+   "expectTotal": [
+    1560,
+    3900
+   ],
+   "realCount": 2600
+  },
+  {
+   "id": "osm-pret",
+   "label": "Pret A Manger shops",
+   "question": "Pret A Manger shops",
+   "unit": "places",
+   "family": "High street",
+   "selector": "[brand~\"^Pret A Manger\",i]",
+   "expectTotal": [
+    270,
+    675
+   ],
+   "realCount": 450,
+   "aggregate": null,
+   "aggregateNote": "Westminster alone would hold 16% of the total at authority level, pinning the answer to one point; 448 points ship small anyway."
+  },
+  {
+   "id": "osm-costa",
+   "label": "Costa Coffee shops",
+   "question": "Costa Coffee shops",
+   "unit": "places",
+   "family": "High street",
+   "selector": "[amenity=cafe][brand~\"^Costa\"]",
+   "expectTotal": [
+    1560,
+    3900
+   ],
+   "realCount": 2600
+  },
+  {
+   "id": "osm-starbucks",
+   "label": "Starbucks shops",
+   "question": "Starbucks shops",
+   "unit": "places",
+   "family": "High street",
+   "selector": "[amenity=cafe][brand=Starbucks]",
+   "expectTotal": [
+    780,
+    1950
+   ],
+   "realCount": 1300
+  },
+  {
+   "id": "osm-mcdonalds",
+   "label": "McDonald's restaurants",
+   "question": "McDonald's restaurants",
+   "unit": "places",
+   "family": "High street",
+   "selector": "[amenity=fast_food][brand=\"McDonald's\"]",
+   "expectTotal": [
+    870,
+    2175
+   ],
+   "realCount": 1450
+  },
+  {
+   "id": "osm-nandos",
+   "label": "Nando's restaurants",
+   "question": "Nando's restaurants",
+   "unit": "places",
+   "family": "High street",
+   "selector": "[amenity=restaurant][brand=\"Nando's\"]",
+   "expectTotal": [
+    270,
+    675
+   ],
+   "realCount": 450
+  },
+  {
+   "id": "osm-wetherspoon",
+   "label": "Wetherspoon pubs",
+   "question": "Wetherspoon pubs",
+   "unit": "places",
+   "family": "High street",
+   "selector": "[amenity=pub][brand~\"Wetherspoon\",i]",
+   "expectTotal": [
+    480,
+    1200
+   ],
+   "realCount": 800
+  },
+  {
+   "id": "osm-pubs",
+   "label": "Pubs",
+   "question": "pubs",
+   "unit": "places",
+   "family": "Out and about",
+   "selector": "[amenity=pub]"
+  },
+  {
+   "id": "osm-chippies",
+   "label": "Fish and chip shops",
+   "question": "fish and chip shops",
+   "unit": "places",
+   "family": "Out and about",
+   "selector": "[amenity=fast_food][cuisine~\"fish_and_chips\"]"
+  },
+  {
+   "id": "osm-breweries",
+   "label": "Breweries",
+   "question": "breweries",
+   "unit": "places",
+   "family": "Out and about",
+   "selector": "[craft=brewery]"
+  },
+  {
+   "id": "osm-distilleries",
+   "label": "Distilleries",
+   "question": "distilleries",
+   "unit": "places",
+   "family": "Out and about",
+   "selector": "[craft=distillery]",
+   "aggregate": null,
+   "aggregateNote": "Moray (18%) and Highland (12%) would each become a single heavy point; 273 points ship small anyway."
+  },
+  {
+   "id": "osm-golf",
+   "label": "Golf courses",
+   "question": "golf courses",
+   "unit": "places",
+   "family": "Out and about",
+   "selector": "[leisure=golf_course]"
+  },
+  {
+   "id": "osm-stations",
+   "label": "Railway stations",
+   "question": "railway stations",
+   "unit": "places",
+   "family": "Out and about",
+   "selector": "[railway=station][station!=subway][station!=light_rail][station!=monorail][station!=miniature]"
+  },
+  {
+   "id": "osm-castles",
+   "label": "Castles",
+   "question": "castles",
+   "unit": "places",
+   "family": "Heritage & coast",
+   "selector": "[historic=castle]"
+  },
+  {
+   "id": "osm-standing-stones",
+   "label": "Standing stones and other megaliths",
+   "question": "standing stones and other megaliths",
+   "unit": "places",
+   "family": "Heritage & coast",
+   "selector": "[archaeological_site=megalith]",
+   "aggregate": null,
+   "aggregateNote": "Wiltshire would hold 11% as one point; 1,267 points ship small anyway."
+  },
+  {
+   "id": "osm-windmills",
+   "label": "Windmills (historic)",
+   "question": "old windmills",
+   "unit": "places",
+   "family": "Heritage & coast",
+   "selector": "[man_made=windmill]"
+  },
+  {
+   "id": "osm-lighthouses",
+   "label": "Lighthouses",
+   "question": "lighthouses",
+   "unit": "places",
+   "family": "Heritage & coast",
+   "selector": "[man_made=lighthouse]"
+  }
+ ],
+ "deferred": {
+  "osm-lifeboats": {
+   "selector": "[emergency=lifeboat_station]",
+   "why": "Overpass returned 504 on every mirror on 2026-10-06; add back at the next refresh."
+  }
+ },
+ "aggregate": "lad"
+}

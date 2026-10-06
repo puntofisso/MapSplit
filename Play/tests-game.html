@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MapSplit — tests</title>
+    <style>
+      body { font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+             margin: 24px; color: #1f2937; }
+      h1 { font-size: 18px; margin: 0 0 4px; }
+      .note { color: #6b7280; font-size: 12px; margin: 0 0 18px; }
+      #summary { font-size: 16px; font-weight: 700; padding: 10px 14px;
+                 border-radius: 8px; margin-bottom: 14px; }
+      .ok { background: #dcfce7; color: #166534; }
+      .bad { background: #fee2e2; color: #991b1b; }
+      li { margin: 2px 0; }
+      li.pass::marker { content: '✓ '; color: #16a34a; }
+      li.fail::marker { content: '✗ '; color: #dc2626; }
+      li.fail { color: #991b1b; }
+      ul { list-style-position: inside; padding-left: 0; }
+      .detail { color: #6b7280; }
+      #hidden { position: absolute; visibility: hidden; pointer-events: none; }
+    </style>
+  </head>
+  <body>
+    <h1>MapSplit — pure logic tests</h1>
+    <p class="note">
+      Extracts the <code>/* BEGIN PURE */ … /* END PURE */</code> block from
+      <code>app-game.js</code> and runs assertions against it, so these tests
+      cannot drift from the implementation.<br />
+      Must be served over HTTP (<code>fetch()</code> of a sibling file is blocked
+      under <code>file://</code>) — e.g. <code>http://localhost/MapSplit/tests.html</code>.
+    </p>
+    <div id="summary">running…</div>
+    <ul id="results"></ul>
+
+    <!-- A real SVG, used to test the screen↔world CTM round-trip. -->
+    <svg id="hidden" preserveAspectRatio="xMidYMid meet"></svg>
+
+    <script>
+      const results = [];
+      const near = (a, b, eps = 1e-9) => Math.abs(a - b) <= eps;
+
+      function test(name, fn) {
+        try {
+          const detail = fn();
+          results.push({ name, pass: true, detail: detail || '' });
+        } catch (e) {
+          results.push({ name, pass: false, detail: e && e.message ? e.message : String(e) });
+        }
+      }
+      function assert(cond, msg) {
+        if (!cond) throw new Error(msg || 'assertion failed');
+      }
+
+      function render() {
+        const ul = document.getElementById('results');
+        ul.innerHTML = results
+          .map(
+            (r) =>
+              `<li class="${r.pass ? 'pass' : 'fail'}">${r.name}` +
+              (r.detail ? ` <span class="detail">— ${r.detail}</span>` : '') +
+              `</li>`
+          )
+          .join('');
+        const failed = results.filter((r) => !r.pass).length;
+        const el = document.getElementById('summary');
+        el.className = failed ? 'bad' : 'ok';
+        el.textContent = failed
+          ? `${failed} of ${results.length} FAILED`
+          : `all ${results.length} passed`;
+      }
+
+      async function main() {
+        let src;
+        try {
+          const html = await fetch('app-game.js').then((r) => {
+            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            return r.text();
+          });
+          const m = html.match(/\/\* BEGIN PURE \*\/([\s\S]*?)\/\* END PURE \*\//);
+          if (!m) throw new Error('PURE markers not found in app-game.js');
+          src = m[1];
+        } catch (e) {
+          document.getElementById('summary').className = 'bad';
+          document.getElementById('summary').textContent =
+            `Could not load app-game.js: ${e.message}. Serve this page over HTTP.`;
+          return;
+        }
+
+        // Indirect eval → the block's declarations land on globalThis.
+        (0, eval)(src);
+
+        // --- projection ----------------------------------------------------
+        test('lngLatToMerc / mercToLngLat round-trip', () => {
+          for (const ll of [[-8.65, 61], [1.9, 49.8], [0, 0], [-3.6, 54.6], [1.3, 52.63]]) {
+            const back = mercToLngLat(lngLatToMerc(ll));
+            assert(near(back[0], ll[0], 1e-9), `lng ${back[0]} != ${ll[0]}`);
+            assert(near(back[1], ll[1], 1e-9), `lat ${back[1]} != ${ll[1]}`);
+          }
+          return '5 coordinates';
+        });
+
+        test('Mercator is monotonic: higher latitude → smaller y', () => {
+          assert(lngLatToMerc([0, 61])[1] < lngLatToMerc([0, 49.8])[1]);
+        });
+
+        test('mercToWorld / worldToMerc round-trip', () => {
+          for (const m of [[0.4, 0.3], [0.5, 0.28], [0.47597, 0.2848]]) {
+            const back = worldToMerc(mercToWorld(m));
+            assert(near(back[0], m[0], 1e-12) && near(back[1], m[1], 1e-12));
+          }
+        });
+
+        test('lngLatToWorld / worldToLngLat round-trip', () => {
+          const ll = [-2.5, 54.3];
+          const back = worldToLngLat(lngLatToWorld(ll));
+          assert(near(back[0], ll[0], 1e-8) && near(back[1], ll[1], 1e-8));
+        });
+
+        test('display bbox maps to the viewBox origin', () => {
+          const w = lngLatToWorld([CONFIG.displayBbox[0], CONFIG.displayBbox[3]]);
+          assert(near(w[0], 0, 1e-6) && near(w[1], 0, 1e-6), `got ${w}`);
+        });
+
+        // --- classification ------------------------------------------------
+        test('sideValue sign separates the two sides', () => {
+          const A = lngLatToMerc([-5, 54]);
+          const B = lngLatToMerc([2, 54]);
+          const north = lngLatToMerc([-1, 58]);
+          const south = lngLatToMerc([-1, 51]);
+          assert(Math.sign(sideValue(A, B, north)) !== Math.sign(sideValue(A, B, south)));
+        });
+
+        test('sideValue is ~0 for a point on the line', () => {
+          const A = lngLatToMerc([-5, 54]);
+          const B = lngLatToMerc([2, 54]);
+          assert(Math.abs(sideValue(A, B, lngLatToMerc([-1, 54]))) < 1e-12);
+        });
+
+        test('clipToHalfPlane splits a square into two halves', () => {
+          const sq = [[0, 0], [1, 0], [1, 1], [0, 1]];
+          const A = [0, 0.5], B = [1, 0.5];
+          const pos = clipToHalfPlane(sq, A, B, +1);
+          const neg = clipToHalfPlane(sq, A, B, -1);
+          assert(pos.length >= 3 && neg.length >= 3, 'both halves non-degenerate');
+          const area = (p) => Math.abs(p.reduce((s, c, i) => {
+            const n = p[(i + 1) % p.length];
+            return s + c[0] * n[1] - n[0] * c[1];
+          }, 0)) / 2;
+          assert(near(area(pos), 0.5, 1e-12) && near(area(neg), 0.5, 1e-12),
+            `areas ${area(pos)} / ${area(neg)}`);
+        });
+
+        // --- computeSplit ---------------------------------------------------
+        test('an E–W divide puts the northern half in .primary and says North/South', () => {
+          const s = computeSplit([-5, 54], [2, 54], CONFIG.padBbox);
+          const latOf = (ring) =>
+            ring.reduce((a, p) => a + mercToLngLat(p)[1], 0) / ring.length;
+          assert(latOf(s.primary) > latOf(s.secondary),
+            `primary ${latOf(s.primary).toFixed(2)} vs secondary ${latOf(s.secondary).toFixed(2)}`);
+          assert(s.orientation === 'ns', `orientation ${s.orientation}`);
+          assert(s.labels[0] === 'North' && s.labels[1] === 'South', s.labels.join('/'));
+        });
+
+        // These are the regression tests for the inverted-labelling bug: the
+        // labelling must not depend on the clip rectangle, and a known city
+        // must land on the side a human would name.
+        test('labelling is independent of the clip rectangle', () => {
+          const boxes = [
+            [-13, 47, 5, 62],      // the old fixed padBbox
+            [-30, 45, 25, 65],     // wide window
+            [-9, 49, 2, 61],       // tight
+            [-60, 40, 60, 70],     // very wide
+          ];
+          for (const line of [[[-5, 54], [2, 54]], [[-3.6, 54.6], [0.9, 51.2]], [[-8, 50], [3, 60]]]) {
+            const signs = boxes.map((b) => computeSplit(line[0], line[1], b).primarySign);
+            assert(new Set(signs).size === 1,
+              `line ${JSON.stringify(line)} gave primarySigns ${signs}`);
+          }
+          return '3 lines × 4 boxes';
+        });
+
+        test('Edinburgh is North and Brighton is South of a mid-UK divide', () => {
+          const edinburgh = [-3.1883, 55.9533];
+          const brighton = [-0.1372, 50.8225];
+          for (const box of [[-13, 47, 5, 62], [-60, 40, 60, 70]]) {
+            const s = computeSplit([-5, 54], [2, 54], box);
+            const labelOf = (ll) =>
+              s.labels[(sideValue(s.A, s.B, lngLatToMerc(ll)) >= 0 ? 1 : -1) === s.primarySign ? 0 : 1];
+            assert(labelOf(edinburgh) === 'North', `Edinburgh got ${labelOf(edinburgh)}`);
+            assert(labelOf(brighton) === 'South', `Brighton got ${labelOf(brighton)}`);
+          }
+        });
+
+        test('Aberystwyth is West and Norwich is East of a N–S divide', () => {
+          // The relabelling case: a vertical divide splits west/east, and the
+          // cards must say so rather than "North"/"South".
+          const aberystwyth = [-4.0819, 52.4153];
+          const norwich = [1.2974, 52.6309];
+          const s = computeSplit([-2.5, 50], [-2.5, 60], CONFIG.padBbox);
+          assert(s.orientation === 'we', `orientation ${s.orientation}`);
+          assert(s.labels[0] === 'West' && s.labels[1] === 'East', s.labels.join('/'));
+          const labelOf = (ll) =>
+            s.labels[(sideValue(s.A, s.B, lngLatToMerc(ll)) >= 0 ? 1 : -1) === s.primarySign ? 0 : 1];
+          assert(labelOf(aberystwyth) === 'West', `Aberystwyth got ${labelOf(aberystwyth)}`);
+          assert(labelOf(norwich) === 'East', `Norwich got ${labelOf(norwich)}`);
+        });
+
+        test('the canonical NW–SE divide is still called North/South', () => {
+          // The threshold is tan(22.5°), NOT 45°, precisely so the Alasdair Rae
+          // style diagonal this app exists to draw keeps its North/South naming.
+          const s = computeSplit(...CONFIG.defaultLine, CONFIG.padBbox);
+          assert(s.orientation === 'ns', `default line got ${s.orientation}`);
+        });
+
+        test('reversing the endpoints does not swap the two halves', () => {
+          for (const box of [[-13, 47, 5, 62], [-60, 40, 60, 70]]) {
+            const fwd = computeSplit([-5, 54], [2, 54], box);
+            const rev = computeSplit([2, 54], [-5, 54], box);
+            const p = lngLatToMerc([-3, 58]); // definitely northern
+            const labelIn = (s) =>
+              s.labels[(sideValue(s.A, s.B, p) >= 0 ? 1 : -1) === s.primarySign ? 0 : 1];
+            assert(labelIn(fwd) === 'North' && labelIn(rev) === 'North',
+              `fwd ${labelIn(fwd)}, rev ${labelIn(rev)}`);
+          }
+        });
+
+        test('no flip at vertical any more — the West/East regime is stable there', () => {
+          // This is what the relabelling bought: rotating through exactly
+          // vertical no longer swaps the halves, because inside the West/East
+          // band the sign rule keys off dy, which does not change sign there.
+          const at = (d) => computeSplit([-4, 50], [-4 + d, 60], CONFIG.padBbox);
+          const across = [-0.5, -0.05, 0, 0.05, 0.5].map(at);
+          assert(across.every((s) => s.orientation === 'we'), 'all should be West/East');
+          assert(new Set(across.map((s) => s.primarySign)).size === 1,
+            `flipped at vertical: ${across.map((s) => s.primarySign)}`);
+        });
+
+        test('the single unavoidable flip sits at a regime boundary', () => {
+          // One discontinuity is topologically unavoidable (rotating 180°
+          // returns the same line with its halves exchanged). It must land on
+          // the North/South ↔ West/East boundary, where the words change too.
+          const at = (t) => computeSplit([-4, 54], [-4 + Math.cos(t), 54 + Math.sin(t)],
+                                         CONFIG.padBbox);
+          let flips = 0, relabels = 0, prev = at(0);
+          for (let i = 1; i <= 180; i++) {
+            const cur = at((i * Math.PI) / 180);
+            const flipped = cur.primarySign !== prev.primarySign;
+            const relabelled = cur.orientation !== prev.orientation;
+            if (flipped) { flips++; assert(relabelled, `flip without relabel at ${i}°`); }
+            if (relabelled) relabels++;
+            prev = cur;
+          }
+          assert(flips === 1, `expected exactly 1 flip over 180°, got ${flips}`);
+          return `${flips} flip, ${relabels} relabels over 180°`;
+        });
+
+        test('the Vertical snap button gives a deterministic labelling', () => {
+          const runs = [
+            snapEndpoints([-3.6, 54.6], [0.9, 51.2], 'vertical'),
+            snapEndpoints([-1, 52], [1, 56], 'vertical'),
+          ].map(([a, b]) => computeSplit(a, b, CONFIG.padBbox));
+          assert(new Set(runs.map((s) => s.primarySign)).size === 1,
+            `primarySigns ${runs.map((s) => s.primarySign)}`);
+          assert(runs.every((s) => s.orientation === 'we'), 'vertical snap must read West/East');
+        });
+
+        test('the Horizontal snap button reads North/South', () => {
+          const [a, b] = snapEndpoints([-3.6, 54.6], [0.9, 51.2], 'horizontal');
+          assert(computeSplit(a, b, CONFIG.padBbox).orientation === 'ns');
+        });
+
+        // --- balancePosition (50/50 boundary) -------------------------------
+        test('balancePosition centres an even, symmetric, equal-weight set', () => {
+          const m = balancePosition([-2, -1, 1, 2], [1, 1, 1, 1]);
+          assert(near(m, 0, 1e-9), `expected 0, got ${m}`);
+        });
+
+        test('balancePosition puts a heavy tail point alone on its side', () => {
+          // values 0..4 with weight 6 on the last: best split is {4} vs the
+          // rest (6 vs 4), so the boundary sits between 3 and 4, NOT past 4.
+          const m = balancePosition([0, 1, 2, 3, 4], [1, 1, 1, 1, 6]);
+          assert(m > 3 && m < 4, `expected boundary in (3,4), got ${m}`);
+        });
+
+        test('balancePosition weights the median, not the midpoint', () => {
+          // Nearly all weight at value 0 → boundary above 0, below 10.
+          const m = balancePosition([0, 10], [3, 1]);
+          assert(m > 0 && m < 10, `expected boundary in (0,10), got ${m}`);
+        });
+
+        test('balancePosition falls back to the range midpoint with no weight', () => {
+          const m = balancePosition([2, 8], [0, 0]);
+          assert(near(m, 5, 1e-9), `expected 5, got ${m}`);
+        });
+
+        test('balancePosition never returns a value that sits on a point', () => {
+          const vals = [1, 2, 2, 3, 5, 8];
+          const m = balancePosition(vals, [2, 1, 1, 4, 1, 1]);
+          assert(vals.every((v) => v !== m), `boundary ${m} landed on a point`);
+        });
+
+        test('computeSplit primarySign classifies a known northern point', () => {
+          const s = computeSplit([-5, 54], [2, 54], CONFIG.padBbox);
+          const sgn = sideValue(s.A, s.B, lngLatToMerc([-3, 58])) >= 0 ? 1 : -1;
+          assert(sgn === s.primarySign);
+        });
+
+        test('swapping A/B keeps the same half in .primary', () => {
+          const fwd = computeSplit([-5, 54], [2, 54], CONFIG.padBbox);
+          const rev = computeSplit([2, 54], [-5, 54], CONFIG.padBbox);
+          const latOf = (ring) =>
+            ring.reduce((a, p) => a + mercToLngLat(p)[1], 0) / ring.length;
+          assert(near(latOf(fwd.primary), latOf(rev.primary), 1e-9),
+            'primary half must be the same regardless of endpoint order');
+        });
+
+        test('computeSplit returns a divider crossing the bbox', () => {
+          const s = computeSplit([-5, 54], [2, 54], CONFIG.padBbox);
+          assert(s.dividerLine && s.dividerLine.length === 2);
+        });
+
+        test('a vertical line yields east/west halves of equal-ish area', () => {
+          const s = computeSplit([-4, 50], [-4, 60], CONFIG.padBbox);
+          assert(s.primary.length >= 3 && s.secondary.length >= 3);
+        });
+
+        // --- stats ----------------------------------------------------------
+        test('computeStats sums to the totals', () => {
+          const sides = ['primary','secondary','primary','secondary'];
+          const weights = [10, 20, 30, 40];
+          const st = computeStats(sides, weights);
+          assert(st.primary.weight === 40 && st.secondary.weight === 60);
+          assert(st.totalWeight === 100 && st.totalCount === 4);
+        });
+
+        test('computeStats percentages sum to 100', () => {
+          const st = computeStats(['primary','secondary','secondary'], [5, 3, 2]);
+          assert(near(st.primary.pct + st.secondary.pct, 100, 1e-9));
+        });
+
+        test('computeStats handles zero total weight', () => {
+          const st = computeStats(['primary','secondary'], [0, 0]);
+          assert(st.primary.pct === 0 && st.secondary.pct === 0 && st.totalCount === 2);
+        });
+
+        // --- source provenance -----------------------------------------------
+
+        test('normalizeSources keeps well-formed entries', () => {
+          const out = normalizeSources([
+            { label: 'ONS estimates', url: 'https://ons.gov.uk/x' },
+            { label: 'LAD boundaries', url: 'https://geoportal/y' },
+          ]);
+          assert(out.length === 2);
+          assert(out[0].label === 'ONS estimates' && out[0].url === 'https://ons.gov.uk/x');
+          assert(out[1].url === 'https://geoportal/y');
+        });
+
+        test('normalizeSources gives a url-less entry url null', () => {
+          const out = normalizeSources([{ label: 'Loaded from your file: LA.csv' }, { label: 'x', url: '  ' }]);
+          assert(out.length === 2);
+          assert(out[0].url === null, 'missing url becomes null, not undefined');
+          assert(out[1].url === null, 'blank url becomes null too');
+        });
+
+        test('normalizeSources drops junk and defaults to an empty list', () => {
+          assert(normalizeSources(undefined).length === 0);
+          assert(normalizeSources([]).length === 0);
+          // No label means nothing to show, so the entry goes rather than
+          // rendering an empty bullet.
+          assert(normalizeSources([null, {}, { url: 'https://a' }, { label: '  ' }]).length === 0);
+        });
+
+        test('makeSource exposes normalized sources', () => {
+          const s = makeSource({
+            label: 'x', unit: 'people',
+            sources: [{ label: 'Some table', url: 'https://a' }, { label: 'note' }],
+            features: { coords: [[0, 0]], weights: [1] },
+          });
+          assert(s.sources.length === 2 && s.sources[1].url === null);
+          // A source that declares none still answers with a list.
+          assert(makeSource({ label: 'y', features: {} }).sources.length === 0);
+        });
+
+        test('every catalogue dataset declares at least one source', () => {
+          CONFIG.datasets.forEach((d) => {
+            assert(normalizeSources(d.sources).length > 0, `${d.label} has no sources`);
+          });
+          assert(normalizeSources(CONFIG.synthetic.sources).length > 0, 'synthetic has no sources');
+        });
+
+        // The wiring, not just the config: a source built the way the picker
+        // and the file:// boot fallback build it must carry its provenance
+        // through to the object setSource() reads.
+        test('the synthetic source carries CONFIG.synthetic.sources through', () => {
+          const s = createSyntheticSource(CONFIG.synthetic);
+          assert(s.sources.length === normalizeSources(CONFIG.synthetic.sources).length);
+          assert(s.sources[0].url === null, 'the synthetic note is plain text, not a link');
+        });
+
+        test('a catalogue entry carries its sources through createSourceFromText', () => {
+          const entry = CONFIG.datasets[0];
+          const csv = 'lng,lat,Population2024,Name\n-1,52,100,Placeville\n';
+          const s = createSourceFromText(entry.url, csv, entry);
+          assert(s.sources.length === 2, `got ${s.sources.length}`);
+          assert(s.sources[0].url.indexOf('http') === 0);
+        });
+
+        // --- data source ------------------------------------------------------
+        // getFeatures() resolves a promise in EVERY source, synthetic included,
+        // so the fixtures are resolved once here and the assertions below stay
+        // synchronous — the harness's `test` does not await.
+        const synth = (opts) => createSyntheticSource(opts).getFeatures();
+        const SYN = {
+          a50: await synth({ count: 50, seed: 42 }),
+          b50: await synth({ count: 50, seed: 42 }), // separate call, same seed
+          c50: await synth({ count: 50, seed: 43 }),
+          n200: await synth({ count: 200, seed: 7 }),
+          n300: await synth({ count: 300, seed: 42 }),
+          n500: await synth({ count: 500, seed: 42 }),
+          n800: await synth({ count: 800, seed: 3 }),
+        };
+
+        // The shipped puzzle's REAL datasets, fetched once. The spread test
+        // below cannot use synthetic points: the property it guards is a fact
+        // about UK population and tax, not about the code.
+        // EVERY catalogue entry, not just the ones the fallback table names:
+        // the authored puzzle list below draws on all of them, and a test that
+        // only loaded the fallback's three would silently skip most of the file
+        // it claims to validate.
+        const REAL = {};
+        for (const entry of CONFIG.datasets) {
+          const text = await fetch(entry.url).then((r) => r.text());
+          REAL[entry.label] = await createSourceFromText(
+            entry.url, text, Object.assign({}, entry)).getFeatures();
+        }
+
+        // The AUTHORED list — data/puzzles.csv — as the game will actually
+        // parse it. GAME.puzzles is only the fallback; this file is what
+        // players meet, and until now nothing checked it.
+        const PUZZLE_URL = (findById(REGIONS, 'uk') || {}).puzzleUrl;
+        let AUTHORED = null, AUTHORED_ERR = null;
+        try {
+          AUTHORED = parsePuzzleCsv(
+            await fetch(PUZZLE_URL).then((r) => {
+              if (!r.ok) throw new Error(PUZZLE_URL + ' -> HTTP ' + r.status);
+              return r.text();
+            }), CONFIG.datasets);
+        } catch (e) { AUTHORED_ERR = e; }
+
+        // Every region's coastline file, fetched once. A region whose file is
+        // missing or renamed shows up as a blank map at runtime and nothing
+        // else, which is exactly the failure a test should catch first.
+        const COASTS = {};
+        for (const r of REGIONS) {
+          try {
+            const src = await fetch('../data/coast/' + r.id + '.js').then((res) => {
+              if (!res.ok) throw new Error(res.status);
+              return res.text();
+            });
+            // The file is a <script> that assigns into a global (so it works
+            // under file://); the test only needs the object literal.
+            const json = src.slice(src.indexOf('] = ') + 4).trim().replace(/;\s*$/, '');
+            COASTS[r.id] = JSON.parse(json);
+          } catch (e) { COASTS[r.id] = { error: String(e) }; }
+        }
+
+        // The pipeline's output — data/stats.json and the yearly schedules
+        // data/games/YYYY.json — as the game loads them. Fetched once here
+        // because test() does not await.
+        const UK = findById(REGIONS, 'uk') || {};
+        let STATS = null, STATS_ERR = null;
+        try {
+          STATS = await fetch(UK.statsUrl).then((r) => {
+            if (!r.ok) throw new Error(UK.statsUrl + ' -> HTTP ' + r.status);
+            return r.json();
+          });
+        } catch (e) { STATS_ERR = e; }
+        const SCHEDULES = {};
+        for (const y of [2026, 2027]) {
+          try {
+            SCHEDULES[y] = await fetch(UK.gamesUrl + y + '.json').then((r) => {
+              if (!r.ok) throw new Error(y + '.json -> HTTP ' + r.status);
+              return r.json();
+            });
+          } catch (e) { SCHEDULES[y] = { error: String(e) }; }
+        }
+
+        test('stats.json builds a catalogue with one entry per statistic', () => {
+          assert(!STATS_ERR, STATS_ERR && STATS_ERR.message);
+          const cat = catalogueFromStats(STATS, '../data/');
+          assert(cat.length === Object.keys(STATS).length, `${cat.length} entries`);
+          for (const e of cat) {
+            assert(e.url === '../data/' + STATS[e.id].file, e.url);
+            assert(e.weightColumn === 'value' && e.groupColumn === 'name', e.id);
+            assert(e.question && e.question.length > 2, e.id + ' has no question wording');
+            // Provenance must include the file's own licence and the
+            // attribution the source requires (ODbL: "© OpenStreetMap contributors").
+            assert(e.sources.some((s) => /^Licence: /.test(s.label)), e.id + ' has no licence line');
+            if (/^osm-/.test(e.id)) {
+              assert(e.sources.some((s) => /OpenStreetMap contributors/.test(s.label)),
+                e.id + ' lacks OSM attribution');
+            }
+          }
+          return cat.length + ' statistics';
+        });
+
+        test('catalogueFromStats refuses two statistics with the same label', () => {
+          let threw = false;
+          try {
+            catalogueFromStats({ a: { label: 'X', file: 'a.csv' }, b: { label: 'X', file: 'b.csv' } }, '');
+          } catch (e) { threw = /label of both/.test(e.message); }
+          assert(threw, 'a duplicate label must be fatal — rounds look statistics up by label');
+        });
+
+        test('parseGamesJson fails loudly on an unknown statistic or axis', () => {
+          const cat = [{ id: 'a', label: 'A', question: 'aaa' }];
+          const bad = (obj, re) => {
+            try { parseGamesJson(obj, cat); } catch (e) { return re.test(e.message); }
+            return false;
+          };
+          assert(bad({ days: [{ date: '2027-01-01', rounds: [['zzz', 'ns']] }] }, /no statistic "zzz"/));
+          assert(bad({ days: [{ date: '2027-01-01', rounds: [['a', 'sideways']] }] }, /not an axis/));
+          assert(bad({ days: [] }, /no days/));
+          const ok = parseGamesJson({ days: [{ date: '2027-01-01', title: 'T', rounds: [['a', 'we']] }] }, cat);
+          assert(ok[0].theme === 'T' && ok[0].rounds[0].stat === 'A' &&
+                 ok[0].rounds[0].question === 'aaa' && ok[0].rounds[0].target === null);
+        });
+
+        for (const y of [2026, 2027]) {
+          test(`the shipped ${y} schedule parses, never repeats a day, and has no gaps`, () => {
+            assert(!STATS_ERR, 'stats.json did not load');
+            assert(!SCHEDULES[y].error, SCHEDULES[y].error);
+            const cat = catalogueFromStats(STATS, '../data/');
+            const days = parseGamesJson(SCHEDULES[y], cat);
+            const seen = new Set();
+            for (let i = 0; i < days.length; i++) {
+              const d = days[i];
+              assert(d.rounds.length === 3, d.date + ': ' + d.rounds.length + ' rounds');
+              assert(d.date.startsWith(String(y)), d.date + ' is in the wrong year file');
+              // Normal mode only: every round on a cardinal axis.
+              assert(d.rounds.every((r) => r.axis === 'ns' || r.axis === 'we'), d.date + ' has a diagonal');
+              const key = d.rounds.map((r) => r.stat).sort().join('+') + '@' + d.rounds[0].axis;
+              assert(!seen.has(key), d.date + ' repeats an earlier day: ' + key);
+              seen.add(key);
+              if (i) {
+                assert(dayNumber(d.date, days[i - 1].date) === 1,
+                  'gap or disorder between ' + days[i - 1].date + ' and ' + d.date);
+              }
+            }
+            assert(days[days.length - 1].date === y + '-12-31', 'does not run to 31 December');
+            return days.length + ' days';
+          });
+        }
+
+        test('a scheduled day reaches puzzleForDate with its theme and wording', () => {
+          assert(!STATS_ERR && !SCHEDULES[2027].error, 'inputs did not load');
+          const cat = catalogueFromStats(STATS, '../data/');
+          const list = parseGamesJson(SCHEDULES[2027], cat);
+          const cfg = Object.assign({}, GAME, { puzzles: list, forceTarget: 50, forceCardinal: true });
+          const day = list[100];
+          const p = puzzleForDate(day.date, cfg);
+          assert(p.date === day.date && p.theme === day.theme, 'theme lost');
+          assert(p.rounds.every((r, k) => r.question === day.rounds[k].question && r.target === 50),
+            'question wording or Normal target lost');
+          // Every round's statistic must be findable the way startRound looks it up.
+          assert(p.rounds.every((r) => findDataset(r.stat, cat)), 'a round names no catalogue entry');
+        });
+
+        test('Pro is hidden, and a saved or linked Pro falls back to Normal', () => {
+          const visible = MODES.filter((m) => !m.hidden);
+          assert(visible.length === 1 && visible[0].id === 'normal',
+            visible.map((m) => m.id).join(','));
+          assert(resolveChoice(visible, 'pro', 'pro') === 'normal');
+          // Still defined, so un-hiding it is one word.
+          assert(findById(MODES, 'pro'), 'Pro must stay in MODES');
+        });
+
+        test('synthetic source is deterministic for a fixed seed', () => {
+          const a = SYN.a50, b = SYN.b50;
+          assert(JSON.stringify(a.coords) === JSON.stringify(b.coords));
+          assert(JSON.stringify(a.weights) === JSON.stringify(b.weights));
+        });
+
+        test('synthetic source honours count, and weights are positive', () => {
+          const f = SYN.n200;
+          assert(f.coords.length === 200 && f.weights.length === 200);
+          assert(f.weights.every((w) => w > 0));
+        });
+
+        test('a different seed gives different data', () => {
+          const a = SYN.a50, b = SYN.c50;
+          assert(JSON.stringify(a.coords) !== JSON.stringify(b.coords));
+        });
+
+        test('every classified point lands on exactly one side', () => {
+          const f = SYN.n500;
+          const s = computeSplit([-5, 54], [2, 54], CONFIG.padBbox);
+          const sides = f.coords.map((c) => {
+            const sgn = sideValue(s.A, s.B, lngLatToMerc(c)) >= 0 ? 1 : -1;
+            return sgn === s.primarySign ? 'primary' : 'secondary';
+          });
+          const st = computeStats(sides, f.weights);
+          const total = f.weights.reduce((a, b) => a + b, 0);
+          assert(st.totalCount === 500, `count ${st.totalCount}`);
+          assert(near(st.totalWeight, total, 1e-9), 'no weight lost or double-counted');
+        });
+
+        // The balance boundary, fed back through the real split + stats, must
+        // reconcile both sides to within the single straddling point's weight
+        // — the tightest a discrete 50/50 can be. maxW bounds that.
+        const balanceReconciles = (f, orientation) => {
+          const axis = orientation === 'horizontal' ? 1 : 0;
+          const med = balancePosition(f.coords.map((c) => c[axis]), f.weights);
+          const [a, b] = orientation === 'horizontal'
+            ? [[-12, med], [4, med]] : [[med, 49], [med, 61]];
+          const s = computeSplit(a, b, CONFIG.padBbox);
+          const sides = f.coords.map((c) =>
+            (sideValue(s.A, s.B, lngLatToMerc(c)) >= 0 ? 1 : -1) === s.primarySign
+              ? 'primary' : 'secondary');
+          const st = computeStats(sides, f.weights);
+          const maxW = Math.max(...f.weights);
+          return { s, gap: Math.abs(st.primary.weight - st.secondary.weight), maxW };
+        };
+
+        test('a horizontal balance line halves the weight (~50/50)', () => {
+          const r = balanceReconciles(SYN.n800, 'horizontal');
+          assert(r.s.orientation === 'ns', 'a horizontal balance line reads North/South');
+          assert(r.gap <= r.maxW, `imbalance ${r.gap} exceeds max point weight ${r.maxW}`);
+        });
+
+        test('a vertical balance line halves the weight (~50/50)', () => {
+          const r = balanceReconciles(SYN.n800, 'vertical');
+          assert(r.s.orientation === 'we', 'a vertical balance line reads West/East');
+          assert(r.gap <= r.maxW, `imbalance ${r.gap} exceeds max point weight ${r.maxW}`);
+        });
+
+        // --- contribution breakdown ---------------------------------------
+        test('synthetic source attributes every point to a named group', () => {
+          const f = SYN.n300;
+          assert(f.groups.length === 300 && f.groupNames.length === 23,
+            `${f.groups.length} groups, ${f.groupNames.length} names`);
+          assert(f.groups.every((g) => Number.isInteger(g) && f.groupNames[g] !== undefined),
+            'every point must index a real group name');
+          assert(f.groupNames[f.groupNames.length - 1] === 'Rural scatter');
+        });
+
+        test('breakdown columns reconcile exactly with the side totals', () => {
+          // The whole point of attributing at synthesis time: the parts must
+          // sum to the totals shown on the cards, with nothing lost or double
+          // counted.
+          const f = SYN.n800;
+          const s = computeSplit([-5, 54], [2, 54], CONFIG.padBbox);
+          const sides = f.coords.map((c) =>
+            (sideValue(s.A, s.B, lngLatToMerc(c)) >= 0 ? 1 : -1) === s.primarySign
+              ? 'primary' : 'secondary');
+          const stats = computeStats(sides, f.weights);
+          // limit = every group, so nothing is rolled up
+          const all = summariseContributors(sides, f.weights, f.groups, f.groupNames, 999);
+          const sumOf = (col) => col.rows.reduce((a, r) => a + r.weight, 0) + col.moreWeight;
+          assert(near(sumOf(all.primary), stats.primary.weight, 1e-9),
+            `${sumOf(all.primary)} vs ${stats.primary.weight}`);
+          assert(near(sumOf(all.secondary), stats.secondary.weight, 1e-9),
+            `${sumOf(all.secondary)} vs ${stats.secondary.weight}`);
+        });
+
+        test('the roll-up preserves the total when the list is truncated', () => {
+          const f = SYN.n800;
+          const s = computeSplit([-5, 54], [2, 54], CONFIG.padBbox);
+          const sides = f.coords.map((c) =>
+            (sideValue(s.A, s.B, lngLatToMerc(c)) >= 0 ? 1 : -1) === s.primarySign
+              ? 'primary' : 'secondary');
+          const stats = computeStats(sides, f.weights);
+          const top = summariseContributors(sides, f.weights, f.groups, f.groupNames, 3);
+          assert(top.primary.rows.length <= 3 && top.secondary.rows.length <= 3);
+          const sumOf = (col) => col.rows.reduce((a, r) => a + r.weight, 0) + col.moreWeight;
+          assert(near(sumOf(top.primary), stats.primary.weight, 1e-9), 'primary roll-up lost weight');
+          assert(near(sumOf(top.secondary), stats.secondary.weight, 1e-9), 'secondary roll-up lost weight');
+        });
+
+        test('rows are ordered by contribution, descending', () => {
+          const f = SYN.n800;
+          const s = computeSplit(...CONFIG.defaultLine, CONFIG.padBbox);
+          const sides = f.coords.map((c) =>
+            (sideValue(s.A, s.B, lngLatToMerc(c)) >= 0 ? 1 : -1) === s.primarySign
+              ? 'primary' : 'secondary');
+          const sum = summariseContributors(sides, f.weights, f.groups, f.groupNames, 5);
+          for (const col of [sum.primary, sum.secondary]) {
+            for (let i = 1; i < col.rows.length; i++) {
+              assert(col.rows[i - 1].weight >= col.rows[i].weight, 'out of order');
+            }
+          }
+        });
+
+        test('a cluster the divider cuts is flagged split in both columns', () => {
+          // A line straight through the middle of one cluster must mark it,
+          // otherwise the same name in both columns just looks like a bug.
+          const groupNames = ['Cut', 'North only', 'South only'];
+          const groups = [0, 0, 1, 2];
+          const weights = [10, 20, 30, 40];
+          const sides = ['primary', 'secondary', 'primary', 'secondary'];
+          const sum = summariseContributors(sides, weights, groups, groupNames, 5);
+          const find = (col, n) => col.rows.find((r) => r.name === n);
+          assert(find(sum.primary, 'Cut').split === true, 'primary side not flagged');
+          assert(find(sum.secondary, 'Cut').split === true, 'secondary side not flagged');
+          assert(find(sum.primary, 'North only').split === false, 'wrongly flagged');
+          assert(find(sum.secondary, 'South only').split === false, 'wrongly flagged');
+        });
+
+        test('groups contributing nothing to a side are omitted from it', () => {
+          const sum = summariseContributors(
+            ['primary', 'primary'], [5, 5], [0, 1], ['A', 'B', 'C'], 5);
+          assert(sum.primary.rows.length === 2, 'both contributing groups listed');
+          assert(sum.secondary.rows.length === 0 && sum.secondary.moreCount === 0,
+            'empty side must be empty, not zero-weight rows');
+          assert(!sum.primary.rows.some((r) => r.name === 'C'), 'C contributes nothing');
+        });
+
+        // --- hit testing --------------------------------------------------
+        test('hitTest returns null well away from the line', () => {
+          assert(hitTest([100, 100], [0, 0], [10, 0], 2) === null);
+        });
+
+        test('hitTest finds the segment body', () => {
+          assert(hitTest([5, 1], [0, 0], [10, 0], 2) === 'line');
+        });
+
+        test('hitTest prefers an endpoint over the segment', () => {
+          // [0.5, 0] is within radius of BOTH endpoint A and the line body.
+          assert(hitTest([0.5, 0], [0, 0], [10, 0], 2) === 'a');
+        });
+
+        test('hitTest picks the nearer endpoint', () => {
+          assert(hitTest([9.5, 0], [0, 0], [10, 0], 2) === 'b');
+        });
+
+        test('distSqToSegment clamps beyond the endpoints', () => {
+          // Off the end of the segment: distance is to the endpoint, not the
+          // infinite line (which would give 0).
+          assert(near(distSqToSegment([15, 0], [0, 0], [10, 0]), 25, 1e-12));
+        });
+
+        // --- snapping -------------------------------------------------------
+        test('snapEndpoints horizontal gives two equal latitudes', () => {
+          const [a, b] = snapEndpoints([-3.6, 54.6], [0.9, 51.2], 'horizontal');
+          assert(a[1] === b[1], `${a[1]} != ${b[1]}`);
+          assert(a[0] !== b[0], 'must still have length');
+        });
+
+        test('snapEndpoints vertical gives two equal longitudes', () => {
+          const [a, b] = snapEndpoints([-3.6, 54.6], [0.9, 51.2], 'vertical');
+          assert(a[0] === b[0], `${a[0]} != ${b[0]}`);
+          assert(a[1] !== b[1], 'must still have length');
+        });
+
+        test('snapEndpoints preserves the midpoint', () => {
+          const a0 = [-3.6, 54.6], b0 = [0.9, 51.2];
+          const mid0 = [(a0[0] + b0[0]) / 2, (a0[1] + b0[1]) / 2];
+          for (const o of ['horizontal', 'vertical']) {
+            const [a, b] = snapEndpoints(a0, b0, o);
+            const mid = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+            assert(near(mid[0], mid0[0], 1e-12) && near(mid[1], mid0[1], 1e-12), o);
+          }
+        });
+
+        test('snapping is idempotent (to within float noise)', () => {
+          // Re-snapping recomputes the midpoint and length from the previous
+          // result, so it drifts by ~1 ULP. Measured worst case: 2.2e-16.
+          // (The prototype's TerraDraw validator rejected exactly this kind of
+          // noise as "excessive precision"; nothing here cares.)
+          const once = snapEndpoints([-3.6, 54.6], [0.9, 51.2], 'horizontal');
+          const twice = snapEndpoints(once[0], once[1], 'horizontal');
+          for (let i = 0; i < 2; i++) {
+            assert(near(once[i][0], twice[i][0], 1e-12) && near(once[i][1], twice[i][1], 1e-12),
+              `drifted at endpoint ${i}`);
+          }
+        });
+
+        // --- data ingest ----------------------------------------------------
+        // Parsing is inside the PURE markers precisely so it can be tested
+        // here; the FileReader/fetch that produced the text is not.
+
+        const CSV = 'name,longitude,latitude,population\n' +
+          '"Newcastle, Staffs",-2.23,53.01,1200\n' +
+          'London,-0.1278,51.5074,9000\n' +
+          'nowhere,999,999,5\n';
+
+        test('CSV: finds lng/lat/weight columns by alias', () => {
+          const r = parseCsvText(CSV, {});
+          assert(r.coords.length === 2, `kept ${r.coords.length}`);
+          assert(r.weights[0] === 1200 && r.weights[1] === 9000, 'weights');
+          assert(r.unit === 'population', `unit ${r.unit}`);
+        });
+
+        test('CSV: quoted field containing the delimiter survives', () => {
+          const r = parseCsvText(CSV, {});
+          assert(r.groupNames[0] === 'Newcastle, Staffs', r.groupNames[0]);
+        });
+
+        test('CSV: out-of-range coordinates are skipped, not clamped', () => {
+          const r = parseCsvText(CSV, {});
+          assert(r.skipped === 1, `skipped ${r.skipped}`);
+          assert(r.coords.every(([lng, lat]) => Math.abs(lng) <= 180 && Math.abs(lat) <= 85));
+        });
+
+        test('CSV: semicolon delimiter detected; no weight column ⇒ every row counts 1', () => {
+          const r = parseCsvText('lon;lat\n-3;54\n-2;55\n', {});
+          assert(r.coords.length === 2, `rows ${r.coords.length}`);
+          assert(r.weights.every((w) => w === 1), 'weights not all 1');
+          // groups are OPTIONAL in the contract — absent, not empty.
+          assert(r.groups === undefined && r.groupNames === undefined, 'groups should be absent');
+        });
+
+        test('CSV: missing coordinate columns fails with a message naming the aliases', () => {
+          let msg = '';
+          try { parseCsvText('a,b\n1,2\n', {}); } catch (e) { msg = e.message; }
+          assert(/longitude/.test(msg) && /latitude/.test(msg), `unhelpful: ${msg}`);
+        });
+
+        const GJ_POINTS = {
+          type: 'FeatureCollection',
+          features: [
+            { type: 'Feature', properties: { value: 10, region: 'North' },
+              geometry: { type: 'Point', coordinates: [-2, 55] } },
+            { type: 'Feature', properties: { value: 20, region: 'South' },
+              geometry: { type: 'MultiPoint', coordinates: [[-1, 51], [0, 52]] } },
+          ],
+        };
+
+        test('GeoJSON points: weight and group properties picked by alias', () => {
+          const r = parseGeoJsonPoints(GJ_POINTS, {});
+          assert(r.coords.length === 3, `coords ${r.coords.length}`);
+          assert(r.groupNames.join() === 'North,South', r.groupNames.join());
+        });
+
+        test('GeoJSON: splitting a MultiPoint preserves the collection total', () => {
+          // The percentages depend on the total, so a MultiPoint's weight has
+          // to be shared out rather than repeated per position.
+          const r = parseGeoJsonPoints(GJ_POINTS, {});
+          const total = r.weights.reduce((a, b) => a + b, 0);
+          assert(near(total, 30, 1e-9), `total ${total}`);
+        });
+
+        test('GeoJSON: a non-numeric property is never chosen as the weight', () => {
+          const r = parseGeoJsonPoints({ type: 'FeatureCollection', features: [
+            { type: 'Feature', properties: { name: 'Aye', total: 'lots' },
+              geometry: { type: 'Point', coordinates: [-2, 55] } }] }, {});
+          assert(r.weights[0] === 1, `picked a string as weight: ${r.weights[0]}`);
+        });
+
+        const SQUARE = { type: 'FeatureCollection', features: [
+          { type: 'Feature', properties: { pop: 5 }, geometry: { type: 'Polygon',
+            coordinates: [[[-2, 54], [-1, 54], [-1, 55], [-2, 55], [-2, 54]]] } }] };
+
+        test('Polygons: centroid is area-weighted and computed in Mercator', () => {
+          const r = parseGeoJsonPolygons(SQUARE, {});
+          const [lng, lat] = r.coords[0];
+          assert(near(lng, -1.5, 1e-6), `lng ${lng}`);
+          // Mercator stretches northward, so the area centroid of a lat/lng
+          // square sits slightly NORTH of the arithmetic midpoint. Asserting
+          // the direction is the point: it proves the centroid was taken in
+          // the same space the split is later computed in.
+          assert(lat > 54.5 && lat < 54.51, `lat ${lat} not just north of 54.5`);
+          assert(r.weights[0] === 5, 'weight');
+          return `lat ${lat.toFixed(4)}`;
+        });
+
+        test('Polygons: a hole pulls the centroid away from itself', () => {
+          const withHole = { type: 'FeatureCollection', features: [
+            { type: 'Feature', properties: { pop: 1 }, geometry: { type: 'Polygon', coordinates: [
+              [[-2, 54], [-1, 54], [-1, 55], [-2, 55], [-2, 54]],
+              [[-1.4, 54.6], [-1.1, 54.6], [-1.1, 54.9], [-1.4, 54.9], [-1.4, 54.6]],
+            ] } }] };
+          const solid = parseGeoJsonPolygons(SQUARE, {}).coords[0];
+          const holed = parseGeoJsonPolygons(withHole, {}).coords[0];
+          // Hole sits north-east, so the centroid must move south-west.
+          assert(holed[0] < solid[0] && holed[1] < solid[1],
+            `moved to ${holed} from ${solid}`);
+        });
+
+        test('Polygons: degenerate ring falls back to the vertex mean, not NaN', () => {
+          const line = { type: 'FeatureCollection', features: [
+            { type: 'Feature', properties: { pop: 2 }, geometry: { type: 'Polygon',
+              coordinates: [[[-2, 54], [-1, 54], [-2, 54]]] } }] };
+          const r = parseGeoJsonPolygons(line, {});
+          assert(r.coords.length === 1 && r.coords[0].every(isFinite), `${r.coords[0]}`);
+        });
+
+        const GRID = { cols: 2, rows: 2, bbox: [-4, 50, -2, 52], values: [1, 2, 0, 4] };
+
+        test('Grid: values are row-major from the NORTH-WEST corner', () => {
+          const r = parseGridJson(GRID, {});
+          assert(near(r.coords[0][0], -3.5, 1e-9), `lng ${r.coords[0][0]}`);
+          assert(near(r.coords[0][1], 51.5, 1e-9), `lat ${r.coords[0][1]} — first row should be the NORTH one`);
+        });
+
+        test('Grid: zero cells are omitted from drawing but nothing else is lost', () => {
+          const r = parseGridJson(GRID, {});
+          assert(r.coords.length === 3, `cells ${r.coords.length}`);
+          assert(near(r.weights.reduce((a, b) => a + b, 0), 7, 1e-9), 'total');
+          // Empty cells are gaps, not broken records: `skipped` is reserved for
+          // cells whose COORDINATES are unusable, so that a grid in the wrong
+          // projection reads differently from one that is merely sparse.
+          assert(r.skipped === 0, `empty cells reported as skipped: ${r.skipped}`);
+          assert(r.notes.some((n) => /empty cells/.test(n)), r.notes.join(' | '));
+        });
+
+        test('Grid: a values/cols mismatch fails loudly rather than truncating', () => {
+          let msg = '';
+          try { parseGridJson({ cols: 3, rows: 2, bbox: [-4, 50, -2, 52], values: [1, 2] }, {}); }
+          catch (e) { msg = e.message; }
+          assert(/values/.test(msg), `got: ${msg}`);
+        });
+
+        const ASC = 'ncols 2\nnrows 2\nxllcorner -4\nyllcorner 50\ncellsize 1\n' +
+          'NODATA_value -9999\n1 2\n-9999 4\n';
+
+        test('ASCII grid: header parsed, NODATA dropped, origin converted to NW', () => {
+          const r = parseAsciiGrid(ASC, {});
+          assert(r.coords.length === 3, `cells ${r.coords.length}`);
+          assert(near(r.coords[0][1], 51.5, 1e-9), `lat ${r.coords[0][1]}`);
+          assert(r.skipped === 0, `NODATA misreported as bad coordinates: ${r.skipped}`);
+        });
+
+        test('ASCII grid and grid JSON agree cell for cell', () => {
+          // The same surface in two formats must produce identical features,
+          // which is the check that catches an origin or row-order slip.
+          const a = parseAsciiGrid(ASC, {});
+          const b = parseGridJson(GRID, {});
+          assert(JSON.stringify(a.coords) === JSON.stringify(b.coords),
+            `${JSON.stringify(a.coords)} vs ${JSON.stringify(b.coords)}`);
+          assert(JSON.stringify(a.weights) === JSON.stringify(b.weights), 'weights differ');
+        });
+
+        test('sniffing distinguishes all five input shapes', () => {
+          const cases = [
+            ['a.csv', CSV, 'csv'],
+            ['a.geojson', JSON.stringify(GJ_POINTS), 'geojson-points'],
+            ['a.json', JSON.stringify(SQUARE), 'geojson-polygons'],
+            ['a.json', JSON.stringify(GRID), 'grid-json'],
+            ['a.asc', ASC, 'ascii-grid'],
+          ];
+          for (const [name, text, want] of cases) {
+            const got = detectSourceType(name, text);
+            assert(got === want, `${name}: got ${got}, want ${want}`);
+          }
+          return '5 shapes';
+        });
+
+        // --- load-time column mapping helpers -------------------------------
+        // These feed the mapping dialog: they list a file's columns and the
+        // guess the alias logic would make, so the user can confirm or override
+        // before the full parse. Pure, so tested here.
+
+        test('describeCsvFields lists headers and guesses each role', () => {
+          const d = describeCsvFields(CSV, {});
+          assert(d.fields.join() === 'name,longitude,latitude,population', d.fields.join());
+          assert(d.guesses.lng === 'longitude' && d.guesses.lat === 'latitude',
+            JSON.stringify(d.guesses));
+          assert(d.guesses.weight === 'population', d.guesses.weight);
+          assert(d.guesses.group === 'name', d.guesses.group);
+        });
+
+        test('describeCsvFields returns null guesses when nothing matches', () => {
+          const d = describeCsvFields('a,b\n1,2\n', {});
+          assert(d.fields.join() === 'a,b', d.fields.join());
+          assert(d.guesses.lng === null && d.guesses.lat === null, 'lng/lat should be null');
+          assert(d.guesses.weight === null && d.guesses.group === null, 'weight/group null');
+        });
+
+        test('describeCsvFields honours the detected delimiter', () => {
+          const d = describeCsvFields('lon;lat;pop\n-3;54;5\n', {});
+          assert(d.fields.join() === 'lon,lat,pop', d.fields.join());
+          assert(d.guesses.lng === 'lon' && d.guesses.weight === 'pop', JSON.stringify(d.guesses));
+        });
+
+        test('describeGeojsonFields samples properties and guesses value/group', () => {
+          const d = describeGeojsonFields(GJ_POINTS, {});
+          assert(d.fields.join() === 'value,region', d.fields.join());
+          assert(d.guesses.weight === 'value', d.guesses.weight);
+          assert(d.guesses.group === 'region', d.guesses.group);
+        });
+
+        test('describeGeojsonFields never guesses a non-numeric property as value', () => {
+          const obj = { type: 'FeatureCollection', features: [
+            { type: 'Feature', properties: { label: 'x', n: 3 },
+              geometry: { type: 'Point', coordinates: [-2, 55] } },
+          ] };
+          const d = describeGeojsonFields(obj, {});
+          assert(d.fields.join() === 'label,n', d.fields.join());
+          assert(d.guesses.weight === 'n', d.guesses.weight);      // numeric only
+          assert(d.guesses.group === 'label', d.guesses.group);    // string is fine here
+        });
+
+        test('nearestPoint finds the closest point within the radius', () => {
+          const pts = [[0, 0], [10, 0], [10, 10]];
+          assert(nearestPoint(pts, [9, 0], 2) === 1, 'should hit index 1');
+          assert(nearestPoint(pts, [0.5, 0.5], 2) === 0, 'should hit index 0');
+        });
+
+        test('nearestPoint returns -1 when nothing is within the radius', () => {
+          assert(nearestPoint([[0, 0], [10, 0]], [5, 5], 2) === -1, 'should miss');
+          assert(nearestPoint([], [0, 0], 5) === -1, 'empty set misses');
+        });
+
+        test('NO_COLUMN forces no weight in CSV, overriding a real column', () => {
+          // The dialog's "— none —" for Value: population exists but is declined.
+          const r = parseCsvText(CSV, { weightColumn: NO_COLUMN });
+          assert(r.weights.every((w) => w === 1), `weights ${r.weights.join()}`);
+        });
+
+        test('NO_COLUMN forces no group in CSV, overriding a real column', () => {
+          const r = parseCsvText(CSV, { groupColumn: NO_COLUMN });
+          assert(r.groups === undefined && r.groupNames === undefined, 'groups should be absent');
+        });
+
+        test('NO_COLUMN forces no value in GeoJSON, overriding a real property', () => {
+          // Each of the 2 features now counts 1; the MultiPoint splits its 1
+          // evenly across its 2 positions, so the total is the feature count.
+          const r = parseGeoJsonPoints(GJ_POINTS, { weightProperty: NO_COLUMN });
+          const total = r.weights.reduce((a, w) => a + w, 0);
+          assert(near(total, 2, 1e-9), `total ${total}`);
+        });
+
+        // Stays synchronous on purpose: the harness's `test` does not await,
+        // so an async body would report a Promise as its detail and turn a
+        // failed assertion into an unhandled rejection instead of a red line.
+        test('every source honours the async contract, synthetic included', () => {
+          // Deliberately checks the SHAPE synchronously: the contract is that
+          // getFeatures() returns a thenable, not that it has resolved.
+          for (const src of [
+            createSyntheticSource({ count: 10, seed: 1 }),
+            createSourceFromText('x.csv', CSV, {}),
+            createGridSource(GRID, {}),
+          ]) {
+            const p = src.getFeatures();
+            assert(p && typeof p.then === 'function', `${src.label} is not a promise`);
+          }
+          return '3 sources';
+        });
+
+        test('parsed sources reconcile: breakdown columns sum to the side totals', () => {
+          // The same guarantee the synthetic source carries, now for a parsed
+          // one — groups must be attributed at parse time for this to hold.
+          const f = parseCsvText(CSV, {});
+          const sides = f.coords.map((_, i) => (i === 0 ? 'primary' : 'secondary'));
+          const stats = computeStats(sides, f.weights);
+          const sum = summariseContributors(sides, f.weights, f.groups, f.groupNames, 5);
+          for (const side of ['primary', 'secondary']) {
+            const col = sum[side];
+            const total = col.rows.reduce((a, r) => a + r.weight, 0) + col.moreWeight;
+            assert(near(total, stats[side].weight, 1e-9),
+              `${side}: ${total} vs ${stats[side].weight}`);
+          }
+        });
+
+        // --- screen ↔ world via the real CTM --------------------------------
+        test('screen↔world round-trip through getScreenCTM at 4 window sizes', () => {
+          const svg = document.getElementById('hidden');
+          // Same viewBox the app uses.
+          svg.setAttribute('viewBox', '0 0 29306 55249');
+          const sizes = [[320, 480], [800, 600], [1440, 900], [2560, 1440]];
+          for (const [w, h] of sizes) {
+            svg.setAttribute('width', w);
+            svg.setAttribute('height', h);
+            const ctm = svg.getScreenCTM();
+            assert(ctm && ctm.a, `no CTM at ${w}x${h}`);
+            const pt = svg.createSVGPoint();
+            pt.x = 123.5; pt.y = 456.25;
+            const world = pt.matrixTransform(ctm.inverse());
+            const back = new DOMPoint(world.x, world.y).matrixTransform(ctm);
+            // SVG's CTM is float32 internally, so the round-trip loses ~1e-6 of
+            // a pixel. A tolerance of 1e-3 px is still four orders of magnitude
+            // finer than anything a pointer can express.
+            assert(near(back.x, 123.5, 1e-3) && near(back.y, 456.25, 1e-3),
+              `${w}x${h}: ${back.x},${back.y}`);
+            // preserveAspectRatio="xMidYMid meet" ⇒ uniform scale.
+            assert(near(ctm.a, ctm.d, 1e-9), `non-uniform scale at ${w}x${h}`);
+          }
+          return '4 sizes';
+        });
+
+        test('grab radius stays a constant screen size across window sizes', () => {
+          const svg = document.getElementById('hidden');
+          svg.setAttribute('viewBox', '0 0 29306 55249');
+          const px = [];
+          for (const [w, h] of [[400, 300], [1600, 1200]]) {
+            svg.setAttribute('width', w);
+            svg.setAttribute('height', h);
+            const ctm = svg.getScreenCTM();
+            const unitsPerPx = 1 / ctm.a;
+            const radiusWorld = CONFIG.grabRadiusPx * unitsPerPx;
+            px.push(radiusWorld * ctm.a); // back to screen px
+          }
+          assert(near(px[0], CONFIG.grabRadiusPx, 1e-9) && near(px[1], CONFIG.grabRadiusPx, 1e-9),
+            `got ${px}`);
+        });
+
+
+
+        // === the daily game ===============================================
+
+        test('dayNumber counts whole UTC days, exact across a DST change', () => {
+          assert(dayNumber('2026-08-25', '2026-08-25') === 0, 'same day');
+          assert(dayNumber('2026-08-26', '2026-08-25') === 1, 'next day');
+          // 25 Oct 2026 is the UK DST switch. Local-time arithmetic would give
+          // a fraction; UTC parsing must give a clean integer.
+          assert(dayNumber('2026-11-01', '2026-08-25') === 68,
+            `got ${dayNumber('2026-11-01', '2026-08-25')}`);
+          assert(Number.isNaN(dayNumber('not-a-date', '2026-08-25')), 'garbage in');
+          return 'incl. DST boundary';
+        });
+
+        test('utcDateString reads UTC, not local time', () => {
+          // 23:30 UTC on the 25th is already the 26th in Sydney; the puzzle
+          // must not differ by time zone.
+          assert(utcDateString(Date.parse('2026-08-25T23:30:00Z')) === '2026-08-25');
+        });
+
+        test('bearingName maps a normal to the right compass word', () => {
+          // Mercator here is +x EAST, +y SOUTH.
+          assert(bearingName([0, -1]) === 'North', bearingName([0, -1]));
+          assert(bearingName([1, 0]) === 'East', bearingName([1, 0]));
+          assert(bearingName([0, 1]) === 'South', bearingName([0, 1]));
+          assert(bearingName([-1, 0]) === 'West', bearingName([-1, 0]));
+          const d = Math.SQRT1_2;
+          assert(bearingName([d, -d]) === 'North-east', bearingName([d, -d]));
+          assert(bearingName([-d, d]) === 'South-west', bearingName([-d, d]));
+          return '6 bearings';
+        });
+
+        test('axisSpec: cardinal presets name the conventional side first', () => {
+          // Derived from the angle alone, 90 degrees would read East/West and
+          // the target would be stated against the wrong side.
+          assert(axisSpec('ns').sides[0] === 'North', 'ns');
+          assert(axisSpec('we').sides[0] === 'West', 'we');
+          assert(axisSpec('ns').angle === 0 && axisSpec('we').angle === 90, 'angles');
+        });
+
+        test('axisSpec accepts a raw bearing, so a diagonal day needs no new code', () => {
+          const d = axisSpec(45);
+          assert(d && d.sides[0] === 'North-east', JSON.stringify(d && d.sides));
+          assert(d.sides[1] === 'South-west', d.sides[1]);
+          // A numeric axis must agree with the preset where they overlap.
+          assert(axisSpec(0).sides.join('/') === 'North/South', axisSpec(0).sides.join('/'));
+        });
+
+        test('axisSpec rejects nonsense rather than returning a broken spec', () => {
+          for (const bad of ['diagonal', '', null, undefined, NaN]) {
+            assert(axisSpec(bad) === null, `accepted ${String(bad)}`);
+          }
+          return '5 rejected';
+        });
+
+        test('axis normals are unit vectors at every angle', () => {
+          for (const a of ['ns', 'we', 0, 30, 45, 90, 135, 200, 359]) {
+            const n = axisSpec(a).normal;
+            assert(near(Math.hypot(n[0], n[1]), 1, 1e-12), `${a}: ${n}`);
+          }
+          return '9 angles';
+        });
+
+        test('lineAtOffset returns a line whose own offset is the one asked for', () => {
+          // The round trip that positioning depends on: build a line at t,
+          // measure any point on it, get t back.
+          for (const a of ['ns', 'we', 45, 135]) {
+            const spec = axisSpec(a);
+            const mid = lngLatToMerc([(CONFIG.padBbox[0] + CONFIG.padBbox[2]) / 2,
+                                      (CONFIG.padBbox[1] + CONFIG.padBbox[3]) / 2]);
+            const t = offsetOfPoint(mid, spec) + 0.002;
+            const ep = lineAtOffset(spec, t, CONFIG.padBbox);
+            for (const e of ep) {
+              const back = offsetOfPoint(lngLatToMerc(e), spec);
+              assert(near(back, t, 1e-9), `${a}: ${back} vs ${t}`);
+            }
+          }
+          return '4 axes x 2 endpoints';
+        });
+
+        test('lineAtOffset spans the whole bbox, so the line always crosses it', () => {
+          const spec = axisSpec(45);
+          const [A, B] = lineAtOffset(spec, offsetOfPoint(
+            lngLatToMerc([-3, 54]), spec), CONFIG.padBbox);
+          const split = computeSplit(A, B, CONFIG.padBbox);
+          assert(split.primary.length >= 3 && split.secondary.length >= 3,
+            `degenerate halves: ${split.primary.length}/${split.secondary.length}`);
+        });
+
+        test('shareAbove agrees with computeSplit on the same line', () => {
+          // Two independent routes to the same number: the game grades with
+          // shareAbove (projection only), the renderer uses computeSplit.
+          const f = SYN.n800;
+          const spec = axisSpec('ns');
+          const merc = f.coords.map(lngLatToMerc);
+          const values = merc.map((m) => offsetOfPoint(m, spec));
+          const t = quantilePosition(values, f.weights, 0.4);
+          const [A, B] = lineAtOffset(spec, t, CONFIG.padBbox);
+          const split = computeSplit(A, B, CONFIG.padBbox);
+          const sides = merc.map((m) =>
+            (sideValue(split.A, split.B, m) >= 0 ? 1 : -1) === split.primarySign
+              ? 'primary' : 'secondary');
+          const stats = computeStats(sides, f.weights);
+          const viaSplit = split.labels[0] === 'North' ? stats.primary.pct : stats.secondary.pct;
+          const viaShare = shareAbove(values, f.weights, t);
+          assert(near(viaShare, viaSplit, 1e-9), `${viaShare} vs ${viaSplit}`);
+          return `${viaShare.toFixed(2)}%`;
+        });
+
+        test('quantilePosition reproduces balancePosition at fraction 0.5', () => {
+          // The generalisation must not have moved the 50/50 answer, which the
+          // existing balance tests already pin down.
+          const f = SYN.n800;
+          const lats = f.coords.map((c) => c[1]);
+          assert(near(quantilePosition(lats, f.weights, 0.5),
+                      balancePosition(lats, f.weights), 1e-12));
+        });
+
+        test('quantilePosition actually delivers the requested share', () => {
+          const f = SYN.n800;
+          const spec = axisSpec('ns');
+          const values = f.coords.map((c) => offsetOfPoint(lngLatToMerc(c), spec));
+          for (const target of [10, 25, 50, 70, 90]) {
+            const t = targetOffset(values, f.weights, target);
+            const got = shareAbove(values, f.weights, t);
+            // Weights are lumpy, so the achievable share is granular; within
+            // one point is as exact as the data allows.
+            assert(Math.abs(got - target) < 1.0,
+              `target ${target} -> ${got.toFixed(2)}`);
+          }
+          return '5 targets';
+        });
+
+        test('quantilePosition puts 0% and 100% lines clear of every point', () => {
+          const f = SYN.n300;
+          const spec = axisSpec('ns');
+          const values = f.coords.map((c) => offsetOfPoint(lngLatToMerc(c), spec));
+          assert(near(shareAbove(values, f.weights, targetOffset(values, f.weights, 100)), 100, 1e-9),
+            'target 100');
+          assert(near(shareAbove(values, f.weights, targetOffset(values, f.weights, 0)), 0, 1e-9),
+            'target 0');
+        });
+
+        test('quantilePosition never lands exactly on a point', () => {
+          // A point sitting on the line would be counted on neither side.
+          const f = SYN.n500;
+          const spec = axisSpec('we');
+          const values = f.coords.map((c) => offsetOfPoint(lngLatToMerc(c), spec));
+          for (const target of [20, 50, 80]) {
+            const t = targetOffset(values, f.weights, target);
+            assert(!values.some((v) => v === t), `a point sits on the ${target}% line`);
+          }
+          return '3 targets';
+        });
+
+        test('quantilePosition survives degenerate input', () => {
+          assert(quantilePosition([], [], 0.5) === 0, 'empty');
+          assert(quantilePosition([5], [0], 0.5) === 5, 'zero weight -> midpoint');
+          const same = quantilePosition([2, 2, 2], [1, 1, 1], 0.5);
+          assert(isFinite(same), `all-equal gave ${same}`);
+        });
+
+        test('haversineKm matches known distances', () => {
+          // A degree of latitude is ~111 km anywhere.
+          assert(near(haversineKm([0, 53], [0, 54]), 111.19, 0.1),
+            haversineKm([0, 53], [0, 54]));
+          // A degree of longitude is ~67 km at 53N and ~59 km at 58N: the
+          // convergence that makes a single reference point necessary.
+          assert(near(haversineKm([-3, 53], [-2, 53]), 67.0, 0.3),
+            haversineKm([-3, 53], [-2, 53]));
+          assert(near(haversineKm([-3, 58], [-2, 58]), 59.0, 0.3),
+            haversineKm([-3, 58], [-2, 58]));
+          assert(haversineKm([0, 53], [0, 53]) === 0, 'zero distance');
+        });
+
+        test('offsetGapKm is zero for the same line and grows with separation', () => {
+          const spec = axisSpec('ns');
+          const ref = lngLatToMerc([-3, 54]);
+          const t0 = offsetOfPoint(ref, spec);
+          assert(offsetGapKm(t0, t0, spec, ref) === 0, 'identical lines');
+          let prev = 0;
+          for (const d of [0.001, 0.002, 0.004]) {
+            const km = offsetGapKm(t0 + d, t0, spec, ref);
+            assert(km > prev, `not increasing at ${d}`);
+            prev = km;
+          }
+          return `max ${prev.toFixed(1)} km`;
+        });
+
+        test('offsetGapKm on a level line matches a plain latitude distance', () => {
+          // A north/south gap is the one case with an independent check: the
+          // two lines are parallels, so the gap is just the latitude distance.
+          const spec = axisSpec('ns');
+          const a = lngLatToMerc([-3, 53]);
+          const b = lngLatToMerc([-3, 54]);
+          const km = offsetGapKm(offsetOfPoint(b, spec), offsetOfPoint(a, spec), spec, a);
+          assert(near(km, haversineKm([-3, 53], [-3, 54]), 0.5), km);
+          return `${km.toFixed(1)} km`;
+        });
+
+        test('missSide names the direction the player overshot', () => {
+          const spec = axisSpec('ns');
+          // A larger offset sits further along the normal, i.e. towards sides[0].
+          assert(missSide(5, 3, spec) === 'North', missSide(5, 3, spec));
+          assert(missSide(1, 3, spec) === 'South', missSide(1, 3, spec));
+          assert(missSide(3, 3, spec) === '', 'exact');
+          const we = axisSpec('we');
+          assert(missSide(5, 3, we) === 'West', missSide(5, 3, we));
+          assert(missSide(1, 3, we) === 'East', missSide(1, 3, we));
+        });
+
+        test('scoreRound grades DISTANCE, full marks at zero, never negative', () => {
+          assert(scoreRound(0, GAME) === GAME.maxPoints, scoreRound(0, GAME));
+          assert(scoreRound(GAME.zeroAtKm, GAME) === 0, 'zero at the falloff point');
+          assert(scoreRound(9999, GAME) === 0, 'clamped, not negative');
+          for (let km = 0; km < GAME.zeroAtKm; km += 10) {
+            assert(scoreRound(km, GAME) >= scoreRound(km + 10, GAME), `km ${km}`);
+          }
+          return `monotonic over ${GAME.zeroAtKm} km`;
+        });
+
+        test('the scoring gradient is reachable by dragging', () => {
+          // The bug this whole metric exists to fix. Percentage error moves
+          // 2.3-4.2 points per SCREEN PIXEL on real data, so a points-based
+          // band of 10 put the entire 1000-to-0 range inside ~3 px of travel
+          // and every score came out zero. Distance is linear in pixels, so
+          // assert the band is worth a usable number of them.
+          const KM_PER_PX = 2.4;                      // measured at ~595px of stage
+          const gradientPx = GAME.zeroAtKm / KM_PER_PX;
+          const bullseyePx = GAME.bullseyeKm / KM_PER_PX;
+          assert(gradientPx > 50, `only ${gradientPx.toFixed(0)} px of gradient`);
+          assert(bullseyePx >= 2, `bullseye is ${bullseyePx.toFixed(1)} px wide`);
+          return `${gradientPx.toFixed(0)} px gradient, ${bullseyePx.toFixed(1)} px bullseye`;
+        });
+
+        test('isSolved keys off distance, at the stated boundary', () => {
+          assert(isSolved(GAME.bullseyeKm, GAME), 'boundary counts');
+          assert(!isSolved(GAME.bullseyeKm + 1e-9, GAME), 'just outside does not');
+          assert(isSolved(0, GAME), 'exact');
+        });
+
+        test('scoreDay sums the rounds and dayMaxPoints scales with them', () => {
+          const rs = [{ points: 900 }, { points: 100 }, { points: 0 }];
+          assert(scoreDay(rs, GAME) === 1000, scoreDay(rs, GAME));
+          assert(scoreDay([], GAME) === 0, 'no rounds');
+          assert(dayMaxPoints(GAME, 3) === 3000, dayMaxPoints(GAME, 3));
+        });
+
+        test('puzzleForDate numbers from 1, wraps, and carries the axis spec', () => {
+          const cfg = { epoch: '2026-08-25', puzzles: [
+            { axis: 'ns', target: 70, stats: ['A', 'B', 'C'] },
+            { axis: 'we', target: 40, stats: ['D', 'E', 'F'] },
+          ] };
+          const p1 = puzzleForDate('2026-08-25', cfg);
+          assert(p1.n === 1 && p1.rounds[0].sides[0] === 'North',
+                 JSON.stringify(p1.rounds[0].sides));
+          assert(p1.rounds.length === 3, 'a round per statistic');
+          assert(p1.rounds.every((r) => r.target === 70), 'row target carried to every round');
+          assert(puzzleForDate('2026-08-26', cfg).rounds[0].sides[0] === 'West', 'second row');
+          assert(puzzleForDate('2026-08-27', cfg).rounds[0].sides[0] === 'North', 'wraps');
+          assert(puzzleForDate('2026-08-27', cfg).n === 3, 'number keeps climbing');
+        });
+
+        test('puzzleForDate mutating its rounds cannot corrupt the table', () => {
+          const cfg = { epoch: '2026-08-25',
+                        puzzles: [{ axis: 'ns', target: 70, stats: ['A', 'B'] }] };
+          puzzleForDate('2026-08-25', cfg).rounds.push({ stat: 'X' });
+          assert(cfg.puzzles[0].stats.length === 2, 'table was mutated');
+        });
+
+        // --- the authored puzzle list ---------------------------------------
+
+        test('a row naming today WINS over rotation, and rotation covers the rest', () => {
+          const cfg = { epoch: '2026-08-25', puzzles: [
+            { axis: 'ns', target: 70, stats: ['A', 'B', 'C'] },
+            { date: '2026-09-10', axis: 'we', target: 40, stats: ['D', 'E', 'F'] },
+          ] };
+          // Dates are authoritative: the dated row is used on its own day…
+          const dated = puzzleForDate('2026-09-10', cfg);
+          assert(dated.rounds[0].stat === 'D', dated.rounds[0].stat);
+          assert(dated.n === 17, 'the day number still counts from the epoch');
+          // …and every other day falls back to rotation rather than going blank.
+          assert(puzzleForDate('2026-08-25', cfg).rounds[0].stat === 'A', 'day 1');
+          assert(puzzleForDate('2026-08-26', cfg).rounds[0].stat === 'D', 'rotation');
+        });
+
+        test('parsePuzzleCsv builds days from rounds, keyed by file and column', () => {
+          const csv = [
+            'date,round,dataset,field,axis,target',
+            '2026-09-01,2,LA.csv,Population2024,we,55',
+            '2026-09-01,1,HMRC.csv,Total tax: Amount,ns,40',
+            '2026-09-02,1,LA.csv,Population2024,ns,',
+          ].join('\n');
+          const list = parsePuzzleCsv(csv, CONFIG.datasets);
+          assert(list.length === 2, `${list.length} days`);
+          assert(list[0].date === '2026-09-01');
+          // The `round` column orders them, so the file can be sorted any way.
+          assert(list[0].rounds[0].stat === 'HMRC 🇬🇧 Tax Amount', list[0].rounds[0].stat);
+          assert(list[0].rounds[1].stat === 'Population (LA 🇬🇧)', list[0].rounds[1].stat);
+          // Axis and target belong to the ROUND.
+          assert(list[0].rounds[0].axis === 'ns' && list[0].rounds[1].axis === 'we');
+          assert(list[0].rounds[0].target === 40 && list[0].rounds[1].target === 55);
+          // An empty target means "derive it".
+          assert(list[1].rounds[0].target === null, String(list[1].rounds[0].target));
+        });
+
+        test('parsePuzzleCsv fails loudly, naming the row', () => {
+          const bad = (csv) => {
+            try { parsePuzzleCsv(csv, CONFIG.datasets); return null; }
+            catch (e) { return e.message; }
+          };
+          assert(/header row/.test(bad('date,dataset,field')), 'no data rows');
+          assert(/date, dataset and field/.test(bad('a,b,c\n1,2,3')), 'wrong columns');
+          const nope = bad('date,dataset,field\n2026-09-01,NOPE.csv,Population2024');
+          assert(/row 2/.test(nope) && /NOPE\.csv/.test(nope), nope);
+          const axis = bad('date,dataset,field,axis\n2026-09-01,LA.csv,Population2024,sideways');
+          assert(/row 2/.test(axis) && /not an axis/.test(axis), axis);
+          const tgt = bad('date,dataset,field,target\n2026-09-01,LA.csv,Population2024,150');
+          assert(/row 2/.test(tgt) && /percentage/.test(tgt), tgt);
+        });
+
+        test('datasetForFile matches on file and column, never on the display label', () => {
+          const e = datasetForFile(CONFIG.datasets, 'LA.csv', 'Population2024');
+          assert(e && e.label === 'Population (LA 🇬🇧)', e && e.label);
+          // Path and case are irrelevant; the column is alias-normalised.
+          assert(datasetForFile(CONFIG.datasets, '../data/samples/la.csv', 'population 2024') === e);
+          assert(datasetForFile(CONFIG.datasets, 'LA.csv', 'Nope') === null);
+          assert(datasetForFile(CONFIG.datasets, 'Nope.csv', 'Population2024') === null);
+        });
+
+        test('a derived Pro target is deterministic and inside the measured band', () => {
+          for (const axis of ['ns', 'we']) {
+            const band = GAME.proTargets[axis];
+            for (let d = 0; d < 40; d++) {
+              for (let r = 0; r < 3; r++) {
+                const t = proTargetFor(d, r, axis, GAME);
+                assert(band.indexOf(t) >= 0, `${axis} day ${d} round ${r} gave ${t}`);
+                assert(proTargetFor(d, r, axis, GAME) === t, 'not deterministic');
+              }
+            }
+          }
+          // An unknown axis still yields something playable rather than NaN.
+          assert(GAME.proTargets['default'].indexOf(proTargetFor(3, 0, '45', GAME)) >= 0);
+        });
+
+        test('a date before the epoch still yields a playable puzzle', () => {
+          // A wrong system clock must not produce a negative index.
+          assert(puzzleForDate('2020-01-01', GAME).n === 1);
+        });
+
+        test('puzzleForDate returns null rather than throwing on a bad table', () => {
+          assert(puzzleForDate('2026-08-25', { epoch: '2026-08-25', puzzles: [] }) === null);
+          assert(puzzleForDate('2026-08-25', { epoch: '2026-08-25' }) === null);
+          assert(puzzleForDate('2026-08-25', { epoch: '2026-08-25', puzzles: [
+            { axis: 'sideways', target: 70, stats: ['A'] }] }) === null, 'bad axis');
+          assert(puzzleForDate('2026-08-25', { epoch: '2026-08-25', puzzles: [
+            { axis: 'ns', target: 70, stats: [] }] }) === null, 'no stats');
+        });
+
+        test('the shipped puzzle table is internally valid', () => {
+          // A typo here surfaces as a blank map at midnight, which is the worst
+          // possible time to find out.
+          GAME.puzzles.forEach((p, i) => {
+            assert(axisSpec(p.axis), `row ${i}: bad axis ${p.axis}`);
+            assert(p.target >= 0 && p.target <= 100, `row ${i}: target ${p.target}`);
+            assert(p.stats && p.stats.length, `row ${i}: no stats`);
+            p.stats.forEach((label) => {
+              assert(findDataset(label, CONFIG.datasets), `row ${i}: no dataset "${label}"`);
+            });
+          });
+          return `${GAME.puzzles.length} row(s), ${GAME.puzzles[0].stats.length} stats each`;
+        });
+
+        test('guessBar: only a bullseye shows five green', () => {
+          assert(guessBar(0, GAME) === '🟩🟩🟩🟩🟩', guessBar(0, GAME));
+          const nearMiss = guessBar(GAME.bullseyeKm + 1e-6, GAME);
+          assert(!/🟩/.test(nearMiss), nearMiss);
+          assert(guessBar(9999, GAME) === '⬜⬜⬜⬜⬜', guessBar(9999, GAME));
+        });
+
+        test('guessBar always renders five cells and fills monotonically', () => {
+          let prev = 5;
+          for (const km of [0, 10, 25, 49, 50, 120, 200, 249, 250, 900]) {
+            const bar = guessBar(km, GAME);
+            assert(Array.from(bar).length === 5, `${km} km: ${bar}`);
+            const filled = (bar.match(/[🟨🟩]/gu) || []).length;
+            assert(filled <= prev, `${km} km filled ${filled} after ${prev}`);
+            prev = filled;
+          }
+          return '10 distances';
+        });
+
+        test('groupDigits is locale-independent', () => {
+          assert(groupDigits(0) === '0', groupDigits(0));
+          assert(groupDigits(999) === '999');
+          assert(groupDigits(1000) === '1,000');
+          assert(groupDigits(3000) === '3,000');
+          assert(groupDigits(1234567) === '1,234,567');
+        });
+
+        // --- regions --------------------------------------------------------
+
+        test('every region declares an id, a label, a flag and a puzzle table', () => {
+          assert(REGIONS.length > 0, 'no regions');
+          const ids = new Set();
+          for (const r of REGIONS) {
+            assert(typeof r.id === 'string' && r.id, `bad id: ${r.id}`);
+            assert(!ids.has(r.id), `duplicate region id ${r.id}`);
+            ids.add(r.id);
+            assert(typeof r.label === 'string' && r.label, `${r.id}: no label`);
+            assert(typeof r.flag === 'string' && r.flag, `${r.id}: no flag`);
+            assert(Array.isArray(r.puzzles), `${r.id}: puzzles is not an array`);
+          }
+          return `${REGIONS.length} regions`;
+        });
+
+        test('at least one region is playable, or there is no game', () => {
+          const playable = REGIONS.filter(isPlayableRegion);
+          assert(playable.length > 0, 'no region has a puzzle table');
+          return playable.map((r) => r.id).join(', ');
+        });
+
+        test('isPlayableRegion is exactly "has a puzzle table"', () => {
+          for (const r of REGIONS) {
+            assert(isPlayableRegion(r) === (r.puzzles.length > 0), r.id);
+          }
+          assert(isPlayableRegion(null) === false);
+          assert(isPlayableRegion({ puzzles: [] }) === false);
+        });
+
+        test('findById finds by id and returns null for anything else', () => {
+          assert(findById(REGIONS, REGIONS[0].id).id === REGIONS[0].id);
+          assert(findById(MODES, MODES[0].id).id === MODES[0].id);
+          assert(findById(REGIONS, 'nope') === null);
+          assert(findById(REGIONS, undefined) === null);
+          assert(findById(null, 'uk') === null);
+        });
+
+        test('resolveChoice prefers the URL, then the saved choice, then the first', () => {
+          const a = REGIONS[0].id, b = REGIONS[1].id, c = REGIONS[2].id;
+          assert(resolveChoice(REGIONS, b, c) === b, 'url should win');
+          assert(resolveChoice(REGIONS, null, c) === c, 'saved should be used');
+          assert(resolveChoice(REGIONS, null, null) === a, 'first is the default');
+          // An unknown id in either slot falls through rather than blanking.
+          assert(resolveChoice(REGIONS, 'bogus', c) === c);
+          assert(resolveChoice(REGIONS, 'bogus', 'alsobogus') === a);
+          // Same helper drives the modes, and Normal is the default.
+          assert(resolveChoice(MODES, null, null) === 'normal');
+          assert(resolveChoice(MODES, 'pro', null) === 'pro');
+          assert(resolveChoice(MODES, 'bogus', 'bogus') === 'normal');
+        });
+
+        // --- difficulty -----------------------------------------------------
+
+        test('MODES declares exactly one default-target mode and one that forces a split', () => {
+          assert(MODES.length >= 2, 'need at least Normal and Pro');
+          const ids = MODES.map((m) => m.id);
+          assert(new Set(ids).size === ids.length, `duplicate mode id: ${ids}`);
+          assert(MODES[0].id === 'normal', 'Normal must be first — it is the default');
+          assert(MODES[0].target === 50, `Normal asks for ${MODES[0].target}%`);
+          const pro = findById(MODES, 'pro');
+          assert(pro && pro.target === null, 'Pro must defer to the puzzle row');
+          for (const m of MODES) {
+            assert(typeof m.label === 'string' && m.label, `${m.id}: no label`);
+            assert(typeof m.blurb === 'string' && m.blurb, `${m.id}: no blurb`);
+            assert(m.target === null || (m.target > 0 && m.target < 100),
+                   `${m.id}: target ${m.target} out of range`);
+          }
+        });
+
+        test('MODES states its axis policy, and only Normal snaps to a cardinal', () => {
+          assert(MODES[0].snapAxis === true, 'Normal must keep the line level or upright');
+          assert(findById(MODES, 'pro').snapAxis === false, 'Pro must play the bearing as written');
+        });
+
+        test('a derived bearing states its target against a northerly side', () => {
+          // The two presets carry an explicit normal so the target reads "40%
+          // North" / "40% West". A derived one has to match, or the SAME LINE
+          // is described as 40% North-west in one place and 60% South-east in
+          // another. Every axis names a northerly side first; on a level-normal
+          // tie (an upright line) it names the westerly one.
+          for (let deg = 0; deg < 360; deg += 5) {
+            const sides = axisSpec(deg).sides;
+            assert(!/^South/.test(sides[0]), `${deg}deg states its target as ${sides[0]}`);
+          }
+          // 'East' first IS allowed away from 90deg: a normal at 70deg points
+          // east-north-east, so it names the eastern side and that side really
+          // is the northern one. Only the exact upright line has to read as
+          // West, which the preset check below pins.
+          // and the derived form must agree exactly with the presets it duplicates
+          for (const [deg, id] of [[0, 'ns'], [90, 'we']]) {
+            assert(axisSpec(deg).sides.join() === axisSpec(id).sides.join(),
+                   `${deg}deg disagrees with '${id}'`);
+            assert(axisSpec(deg).normal.join() === axisSpec(id).normal.join(),
+                   `${deg}deg normal disagrees with '${id}'`);
+          }
+          return 'checked 0-355deg';
+        });
+
+        test('snapAxisToCardinal sends every bearing to the axis it most resembles', () => {
+          assert(snapAxisToCardinal('ns') === 'ns' && snapAxisToCardinal('we') === 'we',
+                 'a cardinal must survive untouched');
+          for (const [deg, want] of [[0, 'ns'], [15, 'ns'], [30, 'ns'], [44, 'ns'],
+                                     [45, 'we'], [60, 'we'], [90, 'we'], [120, 'we'],
+                                     [134, 'we'], [135, 'ns'], [165, 'ns'], [180, 'ns']]) {
+            assert(snapAxisToCardinal(String(deg)) === want,
+                   `${deg}deg snapped to ${snapAxisToCardinal(String(deg))}, wanted ${want}`);
+          }
+          // A snap must never invent an axis the engine cannot parse.
+          for (let deg = -360; deg <= 360; deg += 7) {
+            const id = snapAxisToCardinal(String(deg));
+            assert(id === 'ns' || id === 'we', `${deg}deg snapped to "${id}"`);
+          }
+        });
+
+        test('Normal levels a diagonal row; Pro plays it at its own angle', () => {
+          const uk = findById(REGIONS, 'uk');
+          const row = { date: null, axis: '135', target: 55, stats: ['a', 'b', 'c'] };
+          const cfg = (mode) => Object.assign(sessionGame(GAME, uk, findById(MODES, mode)),
+                                              { puzzles: [row], epoch: '2026-01-01' });
+          const pro = puzzleForDate('2026-01-01', cfg('pro'));
+          const normal = puzzleForDate('2026-01-01', cfg('normal'));
+          assert(pro.rounds[0].axis === '135', `Pro got ${pro.rounds[0].axis}`);
+          assert(pro.rounds[0].sides[0] === 'North-west', pro.rounds[0].sides.join('/'));
+          assert(normal.rounds[0].axis === 'ns', `Normal got ${normal.rounds[0].axis}`);
+          assert(normal.rounds[0].sides[0] === 'North', normal.rounds[0].sides.join('/'));
+          assert(normal.rounds[0].target === 50, `Normal target ${normal.rounds[0].target}`);
+          return `Pro ${pro.rounds[0].sides[0]} / Normal ${normal.rounds[0].sides[0]}`;
+        });
+
+        test('a snapped round draws its Pro target from the band it will be PLAYED on', () => {
+          // proTargetFor is keyed on the effective axis, not the authored one.
+          // A band measured on N/S says nothing about the same percentage on
+          // W/E (see the table on GAME.puzzles), so a 135deg row snapped to N/S
+          // must take an N/S target, never a diagonal one.
+          const uk = findById(REGIONS, 'uk');
+          const row = { date: null, axis: '135', target: null, stats: ['a'] };
+          const cfg = Object.assign(sessionGame(GAME, uk, findById(MODES, 'pro')),
+                                    { puzzles: [row], epoch: '2026-01-01' });
+          const diag = puzzleForDate('2026-01-01', cfg).rounds[0].target;
+          assert(GAME.proTargets.diag.indexOf(diag) >= 0,
+                 `${diag}% is not in the diag band ${GAME.proTargets.diag}`);
+          cfg.forceCardinal = true;
+          const snapped = puzzleForDate('2026-01-01', cfg).rounds[0];
+          assert(snapped.axis === 'ns', snapped.axis);
+          // forceCardinal without forceTarget is not a shipped combination, but
+          // it is the only way to see the band choice on its own.
+          assert(GAME.proTargets.ns.indexOf(snapped.target) >= 0,
+                 `snapped to ns but took ${snapped.target}% from the diagonal band`);
+        });
+
+        test('axisGlyph leans the way the line leans', () => {
+          assert(axisGlyph('ns') === '\u2195', 'level line');
+          assert(axisGlyph('we') === '\u2194', 'upright line');
+          // Mercator y runs SOUTH, so a 45deg line descends left-to-right: NW-SE.
+          assert(axisGlyph('45') === '\u27CD', '45deg is the NW-SE line');
+          assert(axisGlyph('135') === '\u27CB', '135deg is the NE-SW line');
+          assert(axisGlyph('nonsense') === '\u00B7', 'an unparseable axis still renders');
+          const glyphs = new Set(['ns', 'we', '45', '135'].map(axisGlyph));
+          assert(glyphs.size === 4, 'the four line directions must be distinguishable');
+        });
+
+        test('grading a diagonal agrees with grading a cardinal', () => {
+          // The whole claim behind "any angle" is that nothing downstream cares.
+          // shareAbove/targetOffset are angle-agnostic by construction; this
+          // pins it, because a silent asymmetry would score diagonals wrongly
+          // while every cardinal test kept passing.
+          const f = SYN.n800;
+          for (const ax of ['ns', 'we', '30', '45', '135', '167']) {
+            const spec = axisSpec(ax);
+            const vals = f.coords.map((c) => offsetOfPoint(lngLatToMerc(c), spec));
+            for (const target of [25, 50, 70]) {
+              const t = targetOffset(vals, f.weights, target);
+              const got = shareAbove(vals, f.weights, t);
+              assert(Math.abs(got - target) < 1,
+                     `${ax}deg @ ${target}%: the true line yields ${got.toFixed(2)}%`);
+            }
+          }
+          return 'six axes x three targets';
+        });
+
+        test('Normal forces 50% on every row; Pro uses the row\'s own target', () => {
+          const uk = findById(REGIONS, 'uk');
+          const normal = sessionGame(GAME, uk, findById(MODES, 'normal'));
+          const pro = sessionGame(GAME, uk, findById(MODES, 'pro'));
+          let sawDifferent = false;
+          for (let d = 0; d < uk.puzzles.length; d++) {
+            const date = utcDateString(Date.parse(GAME.epoch + 'T00:00:00Z') + d * 86400000);
+            const pn = puzzleForDate(date, normal);
+            const pp = puzzleForDate(date, pro);
+            pn.rounds.forEach((r, i) => {
+              assert(r.target === 50, `day ${d} round ${i}: normal asked for ${r.target}%`);
+              assert(pp.rounds[i].target === uk.puzzles[d].target,
+                     `day ${d} round ${i}: pro overrode the row`);
+              // Pro always plays the row's own axis. Normal plays it too unless
+              // it is a diagonal, which it snaps to the nearest cardinal — the
+              // ONLY way difficulty is allowed to change the axis, and it must
+              // land on a cardinal every time.
+              assert(pp.rounds[i].axis === uk.puzzles[d].axis,
+                     `day ${d} round ${i}: pro changed the axis`);
+              assert(r.axis === snapAxisToCardinal(uk.puzzles[d].axis),
+                     `day ${d} round ${i}: normal gave ${r.axis}`);
+              assert(r.axis === 'ns' || r.axis === 'we',
+                     `day ${d} round ${i}: normal left a diagonal in play (${r.axis})`);
+              assert(r.stat === pp.rounds[i].stat, `day ${d} round ${i}: mode changed the statistic`);
+              if (r.target !== pp.rounds[i].target) sawDifferent = true;
+            });
+            assert(pn.n === pp.n, `day ${d}: mode changed the puzzle number`);
+          }
+          assert(sawDifferent, 'the two modes are indistinguishable on the shipped table');
+        });
+
+        test('storeKeyFor separates every region × mode, and UK+Pro keeps the old key', () => {
+          // Everything already saved under the flat key was played at the
+          // table's own target — which is exactly what Pro means. Mapping it
+          // anywhere else would orphan every existing player's history.
+          assert(storeKeyFor('uk', 'pro') === 'mapsplit-game-v2', storeKeyFor('uk', 'pro'));
+          const keys = [];
+          for (const r of REGIONS) for (const m of MODES) keys.push(storeKeyFor(r.id, m.id));
+          assert(new Set(keys).size === keys.length, `collision: ${keys}`);
+          // The same day at 50% and at the day's own target are different
+          // games and must never share a store.
+          assert(storeKeyFor('uk', 'normal') !== storeKeyFor('uk', 'pro'));
+          // v1 was the abandoned five-guess shape and must never be reachable.
+          assert(keys.every((k) => !/-v1(\b|$)/.test(k)), keys.join(' '));
+        });
+
+        test('sessionGame carries region and mode and does not mutate GAME', () => {
+          const before = JSON.stringify(GAME);
+          const uk = findById(REGIONS, 'uk'), normal = MODES[0];
+          const g = sessionGame(GAME, uk, normal);
+          assert(JSON.stringify(GAME) === before, 'GAME was mutated');
+          assert(g.puzzles === uk.puzzles, 'wrong puzzle table');
+          assert(g.regionId === 'uk' && g.regionFlag === uk.flag);
+          assert(g.modeId === 'normal' && g.modeLabel === normal.label);
+          assert(g.forceTarget === 50, g.forceTarget);
+          assert(g.bullseyeKm === GAME.bullseyeKm, 'scoring config lost');
+          // UK + Normal is the default pair, so its link stays bare; anything
+          // else names itself, or the link opens on whatever the reader last saw.
+          assert(g.shareUrl === GAME.shareUrl, g.shareUrl);
+          assert(sessionGame(GAME, uk, findById(MODES, 'pro')).shareUrl
+                 === `${GAME.shareUrl}?m=pro`);
+          for (const r of REGIONS) {
+            if (r.id === 'uk') continue;
+            assert(sessionGame(GAME, r, normal).shareUrl === `${GAME.shareUrl}?r=${r.id}`);
+            assert(sessionGame(GAME, r, findById(MODES, 'pro')).shareUrl
+                   === `${GAME.shareUrl}?r=${r.id}&m=pro`);
+          }
+        });
+
+        test('a region with no puzzle table yields no puzzle in any mode', () => {
+          for (const r of REGIONS) {
+            if (isPlayableRegion(r)) continue;
+            for (const m of MODES) {
+              const g = sessionGame(GAME, r, m);
+              assert(puzzleForDate('2026-08-27', g) === null, `${r.id}/${m.id}`);
+              assert(puzzleForDate(GAME.epoch, g) === null, `${r.id}/${m.id}`);
+            }
+          }
+        });
+
+        test('every region has a coastline file with the fields a build needs', () => {
+          for (const r of REGIONS) {
+            const c = COASTS[r.id];
+            assert(!c.error, `${r.id}: ${c.error}`);
+            assert(c.id === r.id, `${r.id}: file says ${c.id}`);
+            for (const k of ['origin', 'scale', 'viewBox', 'displayBbox',
+                             'padBbox', 'defaultLine', 'subject', 'context']) {
+              assert(c[k] !== undefined, `${r.id}: missing ${k}`);
+            }
+            assert(c.viewBox[2] > 0 && c.viewBox[3] > 0, `${r.id}: empty viewBox`);
+            assert(c.subject.length > 0, `${r.id}: no subject paths`);
+            // padBbox must CONTAIN displayBbox, or the pre-layout clip box is
+            // smaller than the map it is meant to fall back for.
+            assert(c.padBbox[0] <= c.displayBbox[0] && c.padBbox[1] <= c.displayBbox[1] &&
+                   c.padBbox[2] >= c.displayBbox[2] && c.padBbox[3] >= c.displayBbox[3],
+                   `${r.id}: padBbox does not contain displayBbox`);
+            // The default line has to start inside the frame it is drawn on.
+            for (const pt of c.defaultLine) {
+              assert(pt[0] >= c.padBbox[0] && pt[0] <= c.padBbox[2] &&
+                     pt[1] >= c.padBbox[1] && pt[1] <= c.padBbox[3],
+                     `${r.id}: defaultLine point ${pt} outside padBbox`);
+            }
+          }
+          return REGIONS.map((r) => `${r.id}:${COASTS[r.id].subject.length}`).join(' ');
+        });
+
+        test('the UK coast file matches the projection the code is compiled with', () => {
+          // WORLD_ORIGIN/WORLD_SCALE default to the UK in the pure block, and
+          // useRegion() overwrites them from the file. If those two ever
+          // disagree, every UK coordinate silently shifts.
+          const uk = COASTS.uk;
+          assert(uk.scale === WORLD_SCALE, `${uk.scale} vs ${WORLD_SCALE}`);
+          assert(Math.abs(uk.origin[0] - WORLD_ORIGIN[0]) < 1e-12, 'origin x');
+          assert(Math.abs(uk.origin[1] - WORLD_ORIGIN[1]) < 1e-12, 'origin y');
+        });
+
+        // A result now carries its own axis, target and side, because the day
+        // no longer has one of each to lend it.
+        const shareResult = (stat, km, points, axis, target, side) => ({
+          stat, km, points, axis: axis || 'ns', target: target === undefined ? 70 : target,
+          sideName: side || 'North',
+        });
+
+        test('shareText names the region and the mode when they are set', () => {
+          const round = { n: 4, rounds: [{}],
+                          results: [shareResult('A', 10, 900, 'ns', 40)] };
+          const us = findById(REGIONS, 'us');
+          const pro = findById(MODES, 'pro');
+          const line = shareText(round, sessionGame(GAME, us, pro)).split('\n')[0];
+          assert(line === `MapSplit ${us.flag} #4 · ${pro.label}`, line);
+        });
+
+        test('shareText states each round\'s own axis, target and side', () => {
+          const round = { n: 7, rounds: [{}, {}, {}], results: [
+            shareResult('Pop', 120, 400, 'ns', 70, 'North'),
+            shareResult('Tax', 0, 1000, 'we', 55, 'West'),
+            shareResult('Self', 400, 0, 'ns', 45, 'North'),
+          ] };
+          const lines = shareText(round, GAME).split('\n');
+          assert(lines[0] === 'MapSplit #7', lines[0]);
+          assert(lines[1] === `${guessBar(120, GAME)} ↕ 70% North · Pop`, lines[1]);
+          // A mixed-axis day has to be readable, not mysterious: the glyph
+          // changes with the round.
+          assert(lines[2] === `${guessBar(0, GAME)} ↔ 55% West · Tax`, lines[2]);
+          assert(lines[3] === `${guessBar(400, GAME)} ↕ 45% North · Self`, lines[3]);
+          assert(lines[4] === '1,400/3,000 points', lines[4]);
+          assert(lines[5] === GAME.shareUrl, lines[5]);
+          assert(lines.length === 6, `${lines.length} lines`);
+        });
+
+        test('shareText leaks neither the achieved split nor the distance', () => {
+          // The grid gets pasted in public and must not hand the next player a
+          // shortcut. The TARGET is fair game — it is in the task on screen —
+          // but nothing about how the player did.
+          const round = { n: 1, rounds: [{}], results: [
+            { stat: 'D', error: 6.3, achieved: 76.3, km: 42.7, points: 370,
+              axis: 'ns', target: 70, sideName: 'North' },
+          ] };
+          const text = shareText(round, GAME);
+          assert(!text.includes('76.3'), 'leaked the achieved share');
+          assert(!text.includes('6.3'), 'leaked the error');
+          assert(!text.includes('42.7'), 'leaked the distance');
+        });
+
+        test('a full round grades and scores end to end', () => {
+          // The real machinery: solve for the target line, then grade that
+          // exact line. It must come back as a bullseye worth full marks.
+          const f = SYN.n800;
+          const spec = axisSpec('ns');
+          const values = f.coords.map((c) => offsetOfPoint(lngLatToMerc(c), spec));
+          const t = targetOffset(values, f.weights, 70);
+          const achieved = shareAbove(values, f.weights, t);
+          // The exact answer is zero km away, so it is a bullseye worth full
+          // marks — and the achieved share lands on target too.
+          const ref = weightedCentroidMerc(f.coords.map(lngLatToMerc), f.weights);
+          const km = offsetGapKm(t, t, spec, ref);
+          assert(km === 0, 'nonzero self-distance');
+          assert(isSolved(km, GAME), 'the answer is not a bullseye');
+          assert(scoreRound(km, GAME) === GAME.maxPoints, scoreRound(km, GAME));
+          assert(Math.abs(achieved - 70) < 1, `achieved ${achieved.toFixed(2)}`);
+          return `${achieved.toFixed(2)}% north`;
+        });
+
+        test('a line one degree off target scores less and reports real km', () => {
+          const f = SYN.n800;
+          const spec = axisSpec('ns');
+          const merc = f.coords.map(lngLatToMerc);
+          const values = merc.map((m) => offsetOfPoint(m, spec));
+          const tTrue = targetOffset(values, f.weights, 70);
+          const ref = weightedCentroidMerc(merc, f.weights);
+          const off = tTrue + offsetOfPoint(lngLatToMerc([-3, 54]), spec)
+                            - offsetOfPoint(lngLatToMerc([-3, 54.5]), spec);
+          const km = offsetGapKm(off, tTrue, spec, ref);
+          assert(km > 30 && km < 80, `half a degree of latitude gave ${km.toFixed(1)} km`);
+          assert(missSide(off, tTrue, spec) === 'South', missSide(off, tTrue, spec));
+          assert(scoreRound(km, GAME) < GAME.maxPoints, 'should not be full marks');
+          assert(scoreRound(km, GAME) > 0, 'and should not be a zero either');
+          return `${km.toFixed(1)} km off`;
+        });
+
+
+        test('the shipped table uses both axes and states a target per axis', () => {
+          // W/E is much less forgiving than N/S on UK data (see the comment on
+          // GAME.puzzles), so a target copied from one axis to the other is a
+          // real trap. This only checks the table exercises both; the spread
+          // test below is what proves each target is actually safe.
+          const axes = new Set(GAME.puzzles.map((p) => axisSpec(p.axis).sides.join('/')));
+          for (const row of GAME.puzzles) {
+            assert(axisSpec(row.axis), `unparseable axis: ${row.axis}`);
+            assert(row.target > 0 && row.target < 100, `target ${row.target}`);
+          }
+          return [...axes].join(' + ');
+        });
+
+        test('the shipped puzzle keeps its statistics further apart than a bullseye', () => {
+          // THE TEST THAT MATTERS AFTER EDITING THE PUZZLE CSV.
+          // If two statistics resolve to nearly the same line, a player can
+          // nail round 1, not move, and collect free bullseyes — the whole
+          // three-statistic format collapses. At target 70% these three sit
+          // 9 km apart, inside bullseyeKm, which is exactly the trap.
+          const pb = CONFIG.padBbox;
+          const ref = lngLatToMerc([(pb[0] + pb[2]) / 2, (pb[1] + pb[3]) / 2]);
+          //
+          // Checked at EVERY MODE'S effective AXIS AND TARGET, not the row's:
+          // Normal forces 50% and snaps a diagonal to the nearest cardinal, and
+          // it is the default, so a row that only held at its own axis and
+          // target would ship a broken default. The two vary independently —
+          // 135deg is one of the safest axes on this data and its N/S snap is a
+          // completely different question about a completely different line.
+          let worst = Infinity, worstPair = '';
+          MODES.forEach((mode) => {
+            GAME.puzzles.forEach((row, r) => {
+              const target = mode.target === null ? row.target : mode.target;
+              const axisId = mode.snapAxis ? snapAxisToCardinal(row.axis) : row.axis;
+              const spec = axisSpec(axisId);
+              const offs = row.stats.map((label) => {
+                const f = REAL[label];
+                assert(f, `row ${r}: ${label} did not load`);
+                const values = f.coords.map((c) => offsetOfPoint(lngLatToMerc(c), spec));
+                return { label, t: targetOffset(values, f.weights, target) };
+              });
+              for (let i = 0; i < offs.length; i++) {
+                for (let j = i + 1; j < offs.length; j++) {
+                  const km = offsetGapKm(offs[i].t, offs[j].t, spec, ref);
+                  if (km < worst) {
+                    worst = km;
+                    worstPair = `${mode.label} ${axisId} @ ${target}%: ` +
+                      `${offs[i].label} vs ${offs[j].label}`;
+                  }
+                }
+              }
+            });
+          });
+          assert(worst > GAME.bullseyeKm,
+            `closest pair is ${worst.toFixed(1)} km (${worstPair}), ` +
+            `within the ${GAME.bullseyeKm} km bullseye — pick a different target`);
+          return `closest pair ${worst.toFixed(0)} km apart`;
+        });
+
+        test('the AUTHORED puzzle list parses at all', () => {
+          assert(!AUTHORED_ERR, AUTHORED_ERR && AUTHORED_ERR.message);
+          assert(AUTHORED && AUTHORED.length, 'no days in the list');
+          const angles = new Set();
+          AUTHORED.forEach((day, i) => {
+            assert(day.rounds.length === 3, `${day.date}: ${day.rounds.length} rounds, wanted 3`);
+            day.rounds.forEach((r) => {
+              assert(axisSpec(r.axis), `${day.date}: unparseable axis ${r.axis}`);
+              angles.add(r.axis);
+              assert(REAL[r.stat], `${day.date}: ${r.stat} is not a catalogue entry`);
+            });
+          });
+          return `${AUTHORED.length} days, ${angles.size} angles: ${[...angles].join(' ')}`;
+        });
+
+        test('EVERY AUTHORED DAY keeps its statistics apart, in BOTH modes', () => {
+          // The one that matters after regenerating data/puzzles.csv. The
+          // fallback-table test above guards three hand-written rows; this
+          // guards the whole shipped file, at each mode's effective axis AND
+          // target — which for a diagonal row are two different questions about
+          // two different lines. One bad day out of 120 is invisible until the
+          // morning it comes up.
+          assert(AUTHORED, 'the list did not parse');
+          const pb = CONFIG.padBbox;
+          const ref = lngLatToMerc([(pb[0] + pb[2]) / 2, (pb[1] + pb[3]) / 2]);
+          const cache = new Map();
+          const offsetsFor = (stat, axisId, target) => {
+            const key = stat + '|' + axisId + '|' + target;
+            if (!cache.has(key)) {
+              const spec = axisSpec(axisId), f = REAL[stat];
+              const vals = f.coords.map((c) => offsetOfPoint(lngLatToMerc(c), spec));
+              cache.set(key, targetOffset(vals, f.weights, target));
+            }
+            return cache.get(key);
+          };
+          let worst = Infinity, worstWhere = '';
+          for (const day of AUTHORED) {
+            for (const mode of MODES) {
+              // Group by effective axis: two rounds on different axes are
+              // different questions and a player cannot trace one onto the
+              // other, so only same-axis rounds have to be far apart.
+              const byAxis = new Map();
+              day.rounds.forEach((r) => {
+                const axisId = mode.snapAxis ? snapAxisToCardinal(r.axis) : r.axis;
+                const target = mode.target === null
+                  ? (r.target === null ? proTargetFor(0, 0, axisId, GAME) : r.target)
+                  : mode.target;
+                const k = axisId + '@' + target;
+                if (!byAxis.has(k)) byAxis.set(k, { axisId, target, stats: [] });
+                byAxis.get(k).stats.push(r.stat);
+              });
+              for (const [k, g] of byAxis) {
+                const spec = axisSpec(g.axisId);
+                for (let i = 0; i < g.stats.length; i++) {
+                  for (let j = i + 1; j < g.stats.length; j++) {
+                    const km = offsetGapKm(offsetsFor(g.stats[i], g.axisId, g.target),
+                                           offsetsFor(g.stats[j], g.axisId, g.target),
+                                           spec, ref);
+                    if (km < worst) {
+                      worst = km;
+                      worstWhere = `${day.date} ${mode.label} ${k}: ` +
+                                   `${g.stats[i]} vs ${g.stats[j]}`;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          assert(worst > GAME.bullseyeKm,
+            `closest pair in the authored list is ${worst.toFixed(1)} km — ${worstWhere} — ` +
+            `inside the ${GAME.bullseyeKm} km bullseye. Rebuild with tools/puzzle_builder.html.`);
+          return `${AUTHORED.length} days; closest pair ${worst.toFixed(1)} km`;
+        });
+
+        test('every shipped statistic yields a nameable place for its answer', () => {
+          // A takeaway with no place still reads, but silently losing every
+          // name would mean the group column stopped being parsed.
+          GAME.puzzles.forEach((row) => {
+            const spec = axisSpec(row.axis);
+            row.stats.forEach((label) => {
+              const f = REAL[label];
+              const values = f.coords.map((c) => offsetOfPoint(lngLatToMerc(c), spec));
+              const t = targetOffset(values, f.weights, row.target);
+              const place = placeNearLine(values, f.weights, f.groups, f.groupNames, t, 20);
+              assert(place, `no place found for ${label}`);
+              // A diagonal is neither a parallel nor a meridian, so it has no
+              // single coordinate and lineCoordLabel says so rather than
+              // inventing one. The takeaway then leads with the place alone,
+              // which is why the place matters more here, not less.
+              const coord = lineCoordLabel(spec, t, CONFIG.padBbox);
+              if (row.axis === 'ns' || row.axis === 'we') {
+                assert(coord, `no coord for ${label} on a cardinal axis`);
+              } else {
+                assert(coord === null, `${row.axis}deg invented the coordinate ${coord}`);
+              }
+            });
+          });
+          return 'all named';
+        });
+
+        // === revealing the answer =========================================
+
+        test('easeOutCubic is clamped and monotonic', () => {
+          assert(easeOutCubic(0) === 0, easeOutCubic(0));
+          assert(easeOutCubic(1) === 1, easeOutCubic(1));
+          assert(easeOutCubic(-5) === 0, 'clamps below');
+          assert(easeOutCubic(9) === 1, 'clamps above');
+          let prev = -1;
+          for (let p = 0; p <= 1.0001; p += 0.1) {
+            const v = easeOutCubic(p);
+            assert(v >= prev, `not monotonic at ${p}`);
+            prev = v;
+          }
+          // Ease-OUT: most of the travel happens early.
+          assert(easeOutCubic(0.5) > 0.5, easeOutCubic(0.5));
+        });
+
+        test('lineEdgePoint lands on the line it is labelling', () => {
+          // The label anchor must sit ON the answer line, or it points at
+          // nothing. True at any angle.
+          for (const a of ['ns', 'we', 45, 135]) {
+            const spec = axisSpec(a);
+            const t = offsetOfPoint(lngLatToMerc([-3, 54]), spec);
+            const p = lineEdgePoint(spec, t, CONFIG.padBbox);
+            const back = offsetOfPoint(lngLatToMerc(p), spec);
+            assert(near(back, t, 1e-6), `${a}: ${back} vs ${t}`);
+          }
+          return '4 axes';
+        });
+
+        test('lineEdgePoint stays inside the bbox', () => {
+          // Off the canvas the label is invisible; the clamp is what stops a
+          // steep line pushing it there.
+          const pb = CONFIG.padBbox;
+          for (const a of ['ns', 'we', 20, 70, 160]) {
+            const spec = axisSpec(a);
+            for (const lat of [50.5, 54, 60]) {
+              const t = offsetOfPoint(lngLatToMerc([-3, lat]), spec);
+              const p = lineEdgePoint(spec, t, pb);
+              assert(p[0] >= pb[0] - 1e-6 && p[0] <= pb[2] + 1e-6, `lng ${p[0]} outside`);
+              assert(p[1] >= pb[1] - 1e-6 && p[1] <= pb[3] + 1e-6, `lat ${p[1]} outside`);
+            }
+          }
+          return '5 axes x 3 offsets';
+        });
+
+        test('lineEdgePoint picks the edge the line actually reaches', () => {
+          // A level line runs off the left/right edge; an upright one off the
+          // top/bottom. Picking the wrong one puts the label in a corner.
+          const pb = CONFIG.padBbox;
+          const ns = axisSpec('ns');
+          const pn = lineEdgePoint(ns, offsetOfPoint(lngLatToMerc([-3, 54]), ns), pb);
+          assert(near(pn[0], pb[0], 1e-6), `level line should hit the west edge, got lng ${pn[0]}`);
+          const we = axisSpec('we');
+          const pw = lineEdgePoint(we, offsetOfPoint(lngLatToMerc([-3, 54]), we), pb);
+          assert(near(pw[1], pb[3], 1e-6), `upright line should hit the north edge, got lat ${pw[1]}`);
+        });
+
+        // === the takeaway =================================================
+
+        test('tidyPlaceName strips statistical-geography codes', () => {
+          assert(tidyPlaceName('Leeds 001A') === 'Leeds', tidyPlaceName('Leeds 001A'));
+          assert(tidyPlaceName('Camden 004') === 'Camden', tidyPlaceName('Camden 004'));
+          // Real names that merely end in something numeric must survive.
+          assert(tidyPlaceName('Kingston upon Hull') === 'Kingston upon Hull');
+          assert(tidyPlaceName('Weston-super-Mare') === 'Weston-super-Mare');
+          assert(tidyPlaceName('  Leeds  ') === 'Leeds', 'trims');
+          assert(tidyPlaceName(null) === '', 'null');
+          assert(tidyPlaceName(undefined) === '', 'undefined');
+        });
+
+        test('placeNearLine names a heavy place, not merely the closest one', () => {
+          // The closest point is a hamlet; the pool should surface the city.
+          const values  = [0, 1, 2, 3, 100];
+          const weights = [1, 500000, 2, 3, 9999999];
+          const groups  = [0, 1, 2, 3, 4];
+          const names   = ['Hamlet', 'Bigtown', 'B', 'C', 'FarAwayMetropolis'];
+          const got = placeNearLine(values, weights, groups, names, 0.4, 4);
+          assert(got === 'Bigtown', got);
+          // The far-away giant must not be dragged in when the pool is small.
+          assert(placeNearLine(values, weights, groups, names, 0.4, 2) === 'Bigtown',
+            'pool of 2');
+        });
+
+        test('placeNearLine returns null rather than guessing when unnamed', () => {
+          assert(placeNearLine([1, 2], [1, 1], null, null, 1, 5) === null, 'no groups');
+          assert(placeNearLine([1, 2], [1, 1], [0, 1], [], 1, 5) === null, 'no names');
+          assert(placeNearLine([], [], [], ['A'], 1, 5) === null, 'no points');
+        });
+
+        test('placeNearLine tidies the name it returns', () => {
+          const got = placeNearLine([0], [5], [0], ['Sheffield 012C'], 0, 5);
+          assert(got === 'Sheffield', got);
+        });
+
+        test('takeawayText states the fact the answer encodes', () => {
+          const r = { stat: 'Population', place: 'Sheffield', coord: '53.38°N' };
+          const t = takeawayText(r, null, ['North', 'South'], 70);
+          assert(t === '70% of Population is north of 53.38°N — a line through Sheffield.', t);
+        });
+
+        test('takeawayText copes with a coordinate but no place, and vice versa', () => {
+          const only = takeawayText({ stat: 'Pop', coord: '53.38°N' }, null,
+                                    ['North', 'South'], 70);
+          assert(only === '70% of Pop is north of 53.38°N.', only);
+          const place = takeawayText({ stat: 'Pop', place: 'Sheffield' }, null,
+                                     ['North', 'South'], 70);
+          assert(place === '70% of Pop is north of a line through Sheffield.', place);
+        });
+
+        test('lineCoordLabel gives a latitude for level lines, longitude for upright', () => {
+          const ns = axisSpec('ns');
+          const t = offsetOfPoint(lngLatToMerc([-3, 53]), ns);
+          assert(lineCoordLabel(ns, t, CONFIG.padBbox) === '53.00°N',
+            lineCoordLabel(ns, t, CONFIG.padBbox));
+          const we = axisSpec('we');
+          const t2 = offsetOfPoint(lngLatToMerc([-3, 53]), we);
+          assert(lineCoordLabel(we, t2, CONFIG.padBbox) === '3.00°W',
+            lineCoordLabel(we, t2, CONFIG.padBbox));
+          // A diagonal is neither a parallel nor a meridian; inventing a single
+          // number for it would be worse than saying nothing.
+          assert(lineCoordLabel(axisSpec(45), 0, CONFIG.padBbox) === null, 'diagonal');
+        });
+
+        test('takeawayText compares with the previous round when it can', () => {
+          const prev = { stat: 'Population', place: 'Sheffield', trueOffset: 1 };
+          const r = { stat: 'Tax', place: 'Derby', coord: '52.81°N', trueOffset: 0.5,
+                      crossKm: 47.4, crossSide: 'South' };
+          const t = takeawayText(r, prev, ['North', 'South'], 70);
+          assert(t.startsWith('70% of Tax is north of 52.81°N — a line through Derby.'), t);
+          assert(t.includes('47 km south of the Population line'), t);
+        });
+
+        test('takeawayText degrades gracefully with no place and no comparison', () => {
+          const t = takeawayText({ stat: 'Tax', place: null, coord: null }, null,
+                                 ['West', 'East'], 40);
+          assert(t === '40% of Tax is west of today\'s line.', t);
+          assert(takeawayText(null, null, ['North', 'South'], 70) === '', 'no result');
+          // A previous round with no usable comparison must not append junk.
+          const t2 = takeawayText({ stat: 'Tax', place: 'Derby' },
+                                  { stat: 'Pop', place: 'Leeds' }, ['North', 'South'], 70);
+          assert(!/NaN|undefined/.test(t2), t2);
+          assert(t2 === '70% of Tax is north of a line through Derby.', t2);
+        });
+
+        test('the takeaway never appears before a guess is committed', () => {
+          // Structural, not cosmetic: takeawayText needs a committed result, so
+          // there is nothing it can render from an in-progress round.
+          assert(takeawayText(undefined, null, ['North', 'South'], 70) === '');
+        });
+
+        test('a real dataset yields a recognisable place for its true line', () => {
+          // Synthetic points carry city names, so this exercises the real path
+          // end to end: project, solve, name.
+          const f = SYN.n800;
+          assert(f.groups && f.groupNames, 'fixture has no names to work with');
+          const spec = axisSpec('ns');
+          const values = f.coords.map((c) => offsetOfPoint(lngLatToMerc(c), spec));
+          const t = targetOffset(values, f.weights, 70);
+          const place = placeNearLine(values, f.weights, f.groups, f.groupNames, t, 20);
+          assert(place && typeof place === 'string' && place.length > 1,
+            `got ${JSON.stringify(place)}`);
+          const text = takeawayText({ stat: 'Population', place: place }, null,
+                                    spec.sides, 70);
+          assert(/^70% of Population is north of a line through .+\.$/.test(text), text);
+          void 0;
+          return place;
+        });
+
+        render();
+      }
+
+      main();
+    </script>
+  </body>
+</html>

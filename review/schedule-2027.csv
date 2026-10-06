@@ -1,0 +1,366 @@
+date,weekday,theme,axis,round_1,round_2,round_3,closest_pair_km
+2027-01-01,Fri,Poles apart,West/East,Windmills (historic),Homes heated only by solid fuel,Pret A Manger shops,24
+2027-01-02,Sat,Supermarket sweep,West/East,Morrisons supermarkets,Waitrose shops,Sainsbury's shops (all formats),25
+2027-01-03,Sun,Home life,North/South,Households with 3+ cars,Households in semi-detached houses,Households in a caravan or mobile home,34
+2027-01-04,Mon,Power stations,North/South,Battery storage consented or being built (MW),Hydro-electric schemes,Solar farm capacity (MW),195
+2027-01-05,Tue,Food and drink,North/South,Distilleries,Breweries,Costa Coffee shops,41
+2027-01-06,Wed,Poles apart,North/South,Greggs shops,Onshore wind capacity (MW),Additional-rate (top-rate) taxpayers,123
+2027-01-07,Thu,Getting to work,North/South,People working mainly from home,Commuters by taxi,Commuters by car or van,47
+2027-01-08,Fri,Home life,West/East,Households that own outright,Households in purpose-built flats,Households in converted or shared houses,28
+2027-01-09,Sat,Power stations,West/East,Battery storage capacity (MW),Solar capacity consented or being built (MW),Offshore wind capacity (MW),35
+2027-01-10,Sun,Food and drink,North/South,Starbucks shops,Fish and chip shops,Nando's restaurants,30
+2027-01-11,Mon,Poles apart,West/East,Windmills (historic),Homes heated only by oil,"Commuters by underground, metro or tram",26
+2027-01-12,Tue,Supermarket sweep,North/South,Waitrose shops,Iceland shops,Aldi shops,54
+2027-01-13,Wed,Home life,North/South,Households in a commercial building,Households renting privately,Households renting socially,36
+2027-01-14,Thu,Getting to work,West/East,Commuters by train,Commuters by motorbike or moped,Commuters on foot,25
+2027-01-15,Fri,Food and drink,West/East,Distilleries,Pret A Manger shops,Costa Coffee shops,83
+2027-01-16,Sat,Poles apart,North/South,Greggs shops,Hydro-electric schemes,Lighthouses,182
+2027-01-17,Sun,Supermarket sweep,North/South,Morrisons supermarkets,Sainsbury's shops (all formats),Tesco shops (all formats),21
+2027-01-18,Mon,Power stations,North/South,Battery storage consented or being built (MW),Onshore wind capacity (MW),Solar farm capacity (MW),195
+2027-01-19,Tue,Home life,West/East,Households in purpose-built flats,Households in terraced houses,Households in converted or shared houses,26
+2027-01-20,Wed,Getting to work,North/South,Commuters by bicycle,Commuters by taxi,Commuters by car or van,47
+2027-01-21,Thu,Poles apart,West/East,Additional-rate (top-rate) taxpayers,Homes heated only by oil,Homes heated only by solid fuel,45
+2027-01-22,Fri,Food and drink,North/South,Fish and chip shops,Nando's restaurants,Breweries,27
+2027-01-23,Sat,Supermarket sweep,West/East,M&S shops,Waitrose shops,Aldi shops,31
+2027-01-24,Sun,Power stations,North/South,Solar capacity consented or being built (MW),Offshore wind capacity (MW),Battery storage capacity (MW),27
+2027-01-25,Mon,Getting to work,West/East,Commuters on foot,"Commuters by underground, metro or tram",Commuters by motorbike or moped,25
+2027-01-26,Tue,Poles apart,North/South,Lighthouses,Distilleries,Hydro-electric schemes,87
+2027-01-27,Wed,Home life,North/South,Households in a caravan or mobile home,Households with 3+ cars,Households that own outright,21
+2027-01-28,Thu,Food and drink,North/South,Costa Coffee shops,Pret A Manger shops,Greggs shops,58
+2027-01-29,Fri,Power stations,West/East,Onshore wind capacity (MW),Solar farm capacity (MW),Battery storage consented or being built (MW),38
+2027-01-30,Sat,Getting to work,North/South,Commuters by train,Commuters by car or van,Commuters by taxi,47
+2027-01-31,Sun,Poles apart,West/East,Homes heated only by oil,Homes heated only by solid fuel,Windmills (historic),45
+2027-02-01,Mon,Home life,West/East,Households in purpose-built flats,Households in converted or shared houses,Households renting socially,22
+2027-02-02,Tue,Supermarket sweep,North/South,Waitrose shops,Tesco shops (all formats),Sainsbury's shops (all formats),21
+2027-02-03,Wed,Keeping warm,North/South,Homes heated only by renewables,Homes heated only by electricity,Homes heated only by tank or bottled gas,29
+2027-02-04,Thu,Getting to work,West/East,Commuters by bicycle,Commuters on foot,"Commuters by underground, metro or tram",25
+2027-02-05,Fri,Poles apart,North/South,Additional-rate (top-rate) taxpayers,Hydro-electric schemes,Distilleries,87
+2027-02-06,Sat,Home life,North/South,Households with 3+ cars,Households in detached houses,Households in a commercial building,25
+2027-02-07,Sun,Food and drink,West/East,Greggs shops,Pret A Manger shops,Nando's restaurants,35
+2027-02-08,Mon,Supermarket sweep,North/South,Aldi shops,Lidl shops,M&S shops,54
+2027-02-09,Tue,Getting to work,North/South,Commuters by taxi,Commuters by motorbike or moped,People working mainly from home,29
+2027-02-10,Wed,Poles apart,West/East,Windmills (historic),Onshore wind capacity (MW),Lighthouses,34
+2027-02-11,Thu,Power stations,North/South,Solar farm capacity (MW),Battery storage capacity (MW),Battery storage consented or being built (MW),83
+2027-02-12,Fri,Food and drink,North/South,Costa Coffee shops,Starbucks shops,Fish and chip shops,30
+2027-02-13,Sat,Supermarket sweep,West/East,Sainsbury's shops (all formats),Waitrose shops,Iceland shops,25
+2027-02-14,Sun,Home life,West/East,Households in converted or shared houses,Households in a caravan or mobile home,Households that own outright,19
+2027-02-15,Mon,Poles apart,North/South,Distilleries,Homes heated only by solid fuel,Additional-rate (top-rate) taxpayers,189
+2027-02-16,Tue,Power stations,West/East,Solar capacity consented or being built (MW),Hydro-electric schemes,Offshore wind capacity (MW),98
+2027-02-17,Wed,Food and drink,West/East,Nando's restaurants,Pubs,Pret A Manger shops,31
+2027-02-18,Thu,Getting to work,West/East,Commuters on foot,Commuters by train,Commuters by bicycle,25
+2027-02-19,Fri,Supermarket sweep,North/South,Morrisons supermarkets,Tesco shops (all formats),Lidl shops,47
+2027-02-20,Sat,Poles apart,West/East,Lighthouses,Windmills (historic),"Commuters by underground, metro or tram",26
+2027-02-21,Sun,Power stations,North/South,Solar farm capacity (MW),Onshore wind capacity (MW),Battery storage capacity (MW),83
+2027-02-22,Mon,Food and drink,North/South,Costa Coffee shops,Breweries,Fish and chip shops,27
+2027-02-23,Tue,Home life,North/South,Households in a commercial building,Households renting socially,Households with 3+ cars,22
+2027-02-24,Wed,Getting to work,North/South,People working mainly from home,Commuters by motorbike or moped,Commuters by car or van,29
+2027-02-25,Thu,Poles apart,North/South,Distilleries,Homes heated only by solid fuel,Greggs shops,66
+2027-02-26,Fri,Power stations,West/East,Solar capacity consented or being built (MW),Battery storage consented or being built (MW),Offshore wind capacity (MW),71
+2027-02-27,Sat,Supermarket sweep,West/East,M&S shops,Waitrose shops,Iceland shops,25
+2027-02-28,Sun,Home life,West/East,Households in detached houses,Households in a caravan or mobile home,Households in converted or shared houses,19
+2027-03-01,Mon,Getting to work,West/East,Commuters by train,Commuters by bicycle,Commuters by taxi,42
+2027-03-02,Tue,Poles apart,West/East,Homes heated only by oil,Windmills (historic),Pret A Manger shops,24
+2027-03-03,Wed,Power stations,North/South,Hydro-electric schemes,Battery storage capacity (MW),Solar farm capacity (MW),83
+2027-03-04,Thu,Food and drink,North/South,Pubs,Nando's restaurants,Costa Coffee shops,32
+2027-03-05,Fri,Keeping warm,West/East,Homes heated only by wood,Homes heated only by tank or bottled gas,Homes heated only by electricity,36
+2027-03-06,Sat,Getting to work,North/South,Commuters by motorbike or moped,Commuters on foot,People working mainly from home,29
+2027-03-07,Sun,Poles apart,North/South,Greggs shops,Distilleries,Onshore wind capacity (MW),53
+2027-03-08,Mon,Supermarket sweep,North/South,Tesco shops (all formats),Sainsbury's shops (all formats),Aldi shops,21
+2027-03-09,Tue,Home life,North/South,Households renting privately,Households in purpose-built flats,Households in semi-detached houses,47
+2027-03-10,Wed,Castles and coastlines,West/East,Standing stones and other megaliths,Golf courses,Lighthouses,26
+2027-03-11,Thu,Getting to work,West/East,Commuters by train,Commuters by car or van,Commuters by bicycle,35
+2027-03-12,Fri,Poles apart,West/East,Waitrose shops,Homes heated only by solid fuel,Pret A Manger shops,40
+2027-03-13,Sat,Power stations,West/East,Offshore wind capacity (MW),Hydro-electric schemes,Battery storage consented or being built (MW),161
+2027-03-14,Sun,Home life,West/East,Households with 3+ cars,Households in a commercial building,Households in converted or shared houses,22
+2027-03-15,Mon,Food and drink,North/South,Starbucks shops,Costa Coffee shops,Nando's restaurants,32
+2027-03-16,Tue,Getting to work,North/South,Commuters by taxi,"Commuters by underground, metro or tram",People working mainly from home,36
+2027-03-17,Wed,Poles apart,North/South,Onshore wind capacity (MW),Windmills (historic),Additional-rate (top-rate) taxpayers,88
+2027-03-18,Thu,Power stations,North/South,Solar capacity consented or being built (MW),Solar farm capacity (MW),Battery storage capacity (MW),27
+2027-03-19,Fri,Home life,North/South,Households in terraced houses,Households renting privately,Households in a caravan or mobile home,31
+2027-03-20,Sat,Supermarket sweep,North/South,Morrisons supermarkets,Iceland shops,Sainsbury's shops (all formats),47
+2027-03-21,Sun,Food and drink,North/South,Distilleries,Greggs shops,Breweries,28
+2027-03-22,Mon,Poles apart,West/East,Waitrose shops,Homes heated only by solid fuel,Homes heated only by oil,45
+2027-03-23,Tue,Getting to work,West/East,Commuters by train,Commuters by car or van,Commuters by motorbike or moped,35
+2027-03-24,Wed,Home life,West/East,Households in purpose-built flats,Households in semi-detached houses,Households in converted or shared houses,24
+2027-03-25,Thu,Castles and coastlines,North/South,Golf courses,Lighthouses,Standing stones and other megaliths,100
+2027-03-26,Fri,Supermarket sweep,North/South,Lidl shops,Tesco shops (all formats),Aldi shops,54
+2027-03-27,Sat,Poles apart,North/South,Pret A Manger shops,Hydro-electric schemes,Windmills (historic),91
+2027-03-28,Sun,Keeping warm,North/South,Homes heated only by electricity,Homes heated only by wood,Homes heated only by mains gas,50
+2027-03-29,Mon,Getting to work,North/South,Commuters by taxi,Commuters on foot,People working mainly from home,57
+2027-03-30,Tue,Food and drink,North/South,Nando's restaurants,McDonald's restaurants,Costa Coffee shops,32
+2027-03-31,Wed,Supermarket sweep,North/South,M&S shops,Iceland shops,Morrisons supermarkets,47
+2027-04-01,Thu,Poles apart,West/East,Onshore wind capacity (MW),Homes heated only by solid fuel,Greggs shops,31
+2027-04-02,Fri,Power stations,West/East,Battery storage consented or being built (MW),Offshore wind capacity (MW),Battery storage capacity (MW),36
+2027-04-03,Sat,Keeping warm,North/South,Homes heated only by tank or bottled gas,Homes heated only by renewables,Homes heated only by oil,29
+2027-04-04,Sun,Food and drink,North/South,Fish and chip shops,Distilleries,Breweries,27
+2027-04-05,Mon,Supermarket sweep,West/East,Lidl shops,Waitrose shops,Sainsbury's shops (all formats),25
+2027-04-06,Tue,Poles apart,North/South,Lighthouses,Hydro-electric schemes,Windmills (historic),182
+2027-04-07,Wed,Home life,North/South,Households in converted or shared houses,Households in a caravan or mobile home,Households in semi-detached houses,31
+2027-04-08,Thu,Getting to work,West/East,Commuters by taxi,Commuters by motorbike or moped,Commuters by train,42
+2027-04-09,Fri,Food and drink,West/East,Nando's restaurants,McDonald's restaurants,Pret A Manger shops,25
+2027-04-10,Sat,Castles and coastlines,West/East,Standing stones and other megaliths,Golf courses,Castles,45
+2027-04-11,Sun,Poles apart,West/East,Greggs shops,Homes heated only by solid fuel,"Commuters by underground, metro or tram",31
+2027-04-12,Mon,Power stations,North/South,Battery storage capacity (MW),Battery storage consented or being built (MW),Solar capacity consented or being built (MW),27
+2027-04-13,Tue,Home life,North/South,Households in a commercial building,Households renting privately,Households that own outright,35
+2027-04-14,Wed,Supermarket sweep,North/South,Iceland shops,M&S shops,Aldi shops,54
+2027-04-15,Thu,Food and drink,North/South,Distilleries,Costa Coffee shops,Starbucks shops,38
+2027-04-16,Fri,Poles apart,North/South,Waitrose shops,Homes heated only by oil,Onshore wind capacity (MW),165
+2027-04-17,Sat,Keeping warm,West/East,Homes heated only by electricity,Homes heated only by wood,Homes heated only by renewables,39
+2027-04-18,Sun,Power stations,West/East,Solar farm capacity (MW),Hydro-electric schemes,Offshore wind capacity (MW),131
+2027-04-19,Mon,Home life,West/East,Households in detached houses,Households in converted or shared houses,Households in purpose-built flats,28
+2027-04-20,Tue,Food and drink,West/East,Fish and chip shops,Pret A Manger shops,Nando's restaurants,34
+2027-04-21,Wed,Poles apart,West/East,Homes heated only by solid fuel,Lighthouses,Greggs shops,31
+2027-04-22,Thu,Getting to work,North/South,Commuters by taxi,"Commuters by underground, metro or tram",Commuters by bicycle,45
+2027-04-23,Fri,Castles and coastlines,North/South,Windmills (historic),Golf courses,Castles,49
+2027-04-24,Sat,Supermarket sweep,North/South,Lidl shops,Sainsbury's shops (all formats),Aldi shops,54
+2027-04-25,Sun,Power stations,West/East,Solar capacity consented or being built (MW),Battery storage capacity (MW),Battery storage consented or being built (MW),35
+2027-04-26,Mon,Poles apart,North/South,Distilleries,Waitrose shops,Homes heated only by oil,165
+2027-04-27,Tue,Getting to work,West/East,People working mainly from home,Commuters by car or van,Commuters by train,24
+2027-04-28,Wed,Keeping warm,North/South,Homes heated only by renewables,Homes heated only by wood,Homes heated only by electricity,36
+2027-04-29,Thu,Home life,North/South,Households in purpose-built flats,Households renting socially,Households in converted or shared houses,24
+2027-04-30,Fri,Power stations,North/South,Onshore wind capacity (MW),Solar farm capacity (MW),Hydro-electric schemes,140
+2027-05-01,Sat,Poles apart,West/East,Greggs shops,Lighthouses,Pret A Manger shops,100
+2027-05-02,Sun,Food and drink,North/South,Nando's restaurants,Fish and chip shops,Costa Coffee shops,32
+2027-05-03,Mon,Castles and coastlines,West/East,Windmills (historic),Golf courses,Standing stones and other megaliths,100
+2027-05-04,Tue,Getting to work,North/South,Commuters by bicycle,Commuters by taxi,Commuters on foot,48
+2027-05-05,Wed,Home life,North/South,Households with no car,Households in a commercial building,Households renting privately,31
+2027-05-06,Thu,Poles apart,North/South,Homes heated only by solid fuel,Waitrose shops,Homes heated only by oil,26
+2027-05-07,Fri,Supermarket sweep,North/South,Morrisons supermarkets,Lidl shops,M&S shops,47
+2027-05-08,Sat,Keeping warm,West/East,Homes heated only by wood,Homes heated only by mains gas,Homes heated only by renewables,30
+2027-05-09,Sun,Work and life,North/South,"Managers, directors and senior officials",Carers giving 50+ hours a week,Degree-level qualifications,35
+2027-05-10,Mon,Power stations,West/East,Hydro-electric schemes,Solar farm capacity (MW),Onshore wind capacity (MW),60
+2027-05-11,Tue,Poles apart,West/East,Greggs shops,"Commuters by underground, metro or tram",Lighthouses,100
+2027-05-12,Wed,Supermarket sweep,North/South,Iceland shops,Tesco shops (all formats),Aldi shops,54
+2027-05-13,Thu,Castles and coastlines,North/South,Distilleries,Golf courses,Castles,175
+2027-05-14,Fri,Food and drink,West/East,Pret A Manger shops,Starbucks shops,Nando's restaurants,20
+2027-05-15,Sat,Home life,West/East,Households with 3+ cars,Households in converted or shared houses,Households in purpose-built flats,22
+2027-05-16,Sun,Poles apart,North/South,Homes heated only by oil,Homes heated only by solid fuel,Additional-rate (top-rate) taxpayers,26
+2027-05-17,Mon,Supermarket sweep,West/East,Waitrose shops,Morrisons supermarkets,M&S shops,31
+2027-05-18,Tue,Keeping warm,North/South,Homes heated only by tank or bottled gas,Homes heated only by renewables,Homes heated only by wood,29
+2027-05-19,Wed,Getting to work,West/East,Commuters by taxi,People working mainly from home,Commuters by train,32
+2027-05-20,Thu,Power stations,North/South,Offshore wind capacity (MW),Solar farm capacity (MW),Onshore wind capacity (MW),197
+2027-05-21,Fri,Poles apart,West/East,Windmills (historic),Greggs shops,"Commuters by underground, metro or tram",26
+2027-05-22,Sat,Home life,North/South,Households renting privately,Households in a caravan or mobile home,Households that own outright,35
+2027-05-23,Sun,Food and drink,North/South,Costa Coffee shops,Distilleries,Pubs,50
+2027-05-24,Mon,Castles and coastlines,West/East,Lighthouses,Castles,Golf courses,18
+2027-05-25,Tue,Power stations,West/East,Hydro-electric schemes,Battery storage capacity (MW),Battery storage consented or being built (MW),36
+2027-05-26,Wed,Poles apart,North/South,Homes heated only by solid fuel,Pret A Manger shops,Homes heated only by oil,26
+2027-05-27,Thu,Supermarket sweep,North/South,Waitrose shops,Iceland shops,Sainsbury's shops (all formats),21
+2027-05-28,Fri,Home life,West/East,Households in a commercial building,Households in converted or shared houses,Households in terraced houses,26
+2027-05-29,Sat,Keeping warm,West/East,Homes heated only by mains gas,Homes heated only by tank or bottled gas,Homes heated only by wood,26
+2027-05-30,Sun,Work and life,North/South,People working 49+ hours a week,Degree-level qualifications,Long-term sick or disabled,18
+2027-05-31,Mon,Poles apart,West/East,Greggs shops,Additional-rate (top-rate) taxpayers,Onshore wind capacity (MW),83
+2027-06-01,Tue,Getting to work,North/South,Commuters by car or van,Commuters by motorbike or moped,Commuters on foot,22
+2027-06-02,Wed,Castles and coastlines,North/South,Distilleries,Standing stones and other megaliths,Windmills (historic),195
+2027-06-03,Thu,Food and drink,North/South,Nando's restaurants,Breweries,Costa Coffee shops,32
+2027-06-04,Fri,Power stations,North/South,Battery storage consented or being built (MW),Hydro-electric schemes,Battery storage capacity (MW),112
+2027-06-05,Sat,Poles apart,North/South,Pret A Manger shops,Lighthouses,Homes heated only by solid fuel,193
+2027-06-06,Sun,Keeping warm,North/South,Homes heated only by oil,Homes heated only by renewables,Homes heated only by electricity,47
+2027-06-07,Mon,Supermarket sweep,West/East,Tesco shops (all formats),Aldi shops,Waitrose shops,28
+2027-06-08,Tue,Home life,North/South,Households renting socially,Households with 3+ cars,Households in purpose-built flats,22
+2027-06-09,Wed,Power stations,West/East,Solar farm capacity (MW),Solar capacity consented or being built (MW),Offshore wind capacity (MW),33
+2027-06-10,Thu,Poles apart,West/East,Onshore wind capacity (MW),Additional-rate (top-rate) taxpayers,"Commuters by underground, metro or tram",19
+2027-06-11,Fri,Work and life,North/South,People working 49+ hours a week,No qualifications,Degree-level qualifications,18
+2027-06-12,Sat,Castles and coastlines,West/East,Castles,Golf courses,Distilleries,20
+2027-06-13,Sun,Getting to work,North/South,Commuters on foot,Commuters by motorbike or moped,Commuters by bicycle,38
+2027-06-14,Mon,Food and drink,North/South,Starbucks shops,Costa Coffee shops,Greggs shops,31
+2027-06-15,Tue,Poles apart,North/South,Pret A Manger shops,Windmills (historic),Lighthouses,91
+2027-06-16,Wed,Keeping warm,West/East,Homes heated only by tank or bottled gas,Homes heated only by mains gas,Homes heated only by oil,26
+2027-06-17,Thu,Supermarket sweep,North/South,Iceland shops,Morrisons supermarkets,Waitrose shops,47
+2027-06-18,Fri,Work and life,North/South,Very bad health,"Managers, directors and senior officials",Skilled trades,23
+2027-06-19,Sat,Power stations,North/South,Offshore wind capacity (MW),Battery storage capacity (MW),Solar farm capacity (MW),83
+2027-06-20,Sun,Poles apart,West/East,Homes heated only by solid fuel,"Commuters by underground, metro or tram",Onshore wind capacity (MW),103
+2027-06-21,Mon,Home life,West/East,Households that own outright,Households in converted or shared houses,Households in a commercial building,27
+2027-06-22,Tue,Getting to work,North/South,Commuters by train,People working mainly from home,Commuters by taxi,35
+2027-06-23,Wed,Castles and coastlines,North/South,Standing stones and other megaliths,Golf courses,Distilleries,160
+2027-06-24,Thu,Food and drink,North/South,Nando's restaurants,Greggs shops,Breweries,28
+2027-06-25,Fri,Poles apart,North/South,Hydro-electric schemes,Additional-rate (top-rate) taxpayers,Windmills (historic),88
+2027-06-26,Sat,Supermarket sweep,North/South,Lidl shops,Tesco shops (all formats),Sainsbury's shops (all formats),21
+2027-06-27,Sun,Work and life,North/South,Degree-level qualifications,Carers giving 50+ hours a week,People working 49+ hours a week,18
+2027-06-28,Mon,Keeping warm,North/South,Homes heated only by oil,Homes heated only by electricity,Homes heated only by tank or bottled gas,49
+2027-06-29,Tue,Getting to work,North/South,Commuters by motorbike or moped,Commuters by bicycle,Commuters by car or van,38
+2027-06-30,Wed,Poles apart,West/East,Homes heated only by solid fuel,Lighthouses,Waitrose shops,70
+2027-07-01,Thu,Food and drink,North/South,Costa Coffee shops,Pret A Manger shops,McDonald's restaurants,51
+2027-07-02,Fri,Power stations,West/East,Battery storage consented or being built (MW),Solar farm capacity (MW),Solar capacity consented or being built (MW),33
+2027-07-03,Sat,Castles and coastlines,West/East,Standing stones and other megaliths,Golf courses,Distilleries,24
+2027-07-04,Sun,Getting to work,West/East,People working mainly from home,"Commuters by underground, metro or tram",Commuters by taxi,32
+2027-07-05,Mon,Poles apart,North/South,Onshore wind capacity (MW),Hydro-electric schemes,Windmills (historic),140
+2027-07-06,Tue,Food and drink,North/South,Greggs shops,Starbucks shops,Nando's restaurants,31
+2027-07-07,Wed,Home life,North/South,Households in terraced houses,Households in a commercial building,Households renting privately,31
+2027-07-08,Thu,Keeping warm,West/East,Homes heated only by mains gas,Homes heated only by oil,Homes heated only by renewables,30
+2027-07-09,Fri,Supermarket sweep,North/South,Sainsbury's shops (all formats),Tesco shops (all formats),Iceland shops,21
+2027-07-10,Sat,Poles apart,West/East,Additional-rate (top-rate) taxpayers,Homes heated only by solid fuel,Waitrose shops,23
+2027-07-11,Sun,Follow the money,North/South,Income tax paid,Taxpayers with pension income,Higher-rate taxpayers,23
+2027-07-12,Mon,Power stations,North/South,Solar farm capacity (MW),Solar capacity consented or being built (MW),Battery storage consented or being built (MW),85
+2027-07-13,Tue,Keeping warm,North/South,Homes heated only by wood,Homes heated only by electricity,Homes heated only by tank or bottled gas,49
+2027-07-14,Wed,Food and drink,West/East,Pret A Manger shops,Breweries,Distilleries,97
+2027-07-15,Thu,Poles apart,North/South,Onshore wind capacity (MW),Lighthouses,"Commuters by underground, metro or tram",43
+2027-07-16,Fri,Castles and coastlines,North/South,Golf courses,Standing stones and other megaliths,Windmills (historic),49
+2027-07-17,Sat,Home life,West/East,Households in detached houses,Households in converted or shared houses,Households in a commercial building,28
+2027-07-18,Sun,Getting to work,North/South,Commuters by car or van,Commuters by train,People working mainly from home,35
+2027-07-19,Mon,Food and drink,North/South,Greggs shops,Nando's restaurants,Costa Coffee shops,32
+2027-07-20,Tue,Poles apart,West/East,Homes heated only by oil,Waitrose shops,Additional-rate (top-rate) taxpayers,23
+2027-07-21,Wed,Supermarket sweep,North/South,Tesco shops (all formats),Morrisons supermarkets,Iceland shops,47
+2027-07-22,Thu,Home life,North/South,Households in purpose-built flats,Households renting privately,Households with no car,31
+2027-07-23,Fri,Follow the money,West/East,Taxpayers with pension income,Income tax paid,Self-employed taxpayers,20
+2027-07-24,Sat,Power stations,West/East,Battery storage consented or being built (MW),Offshore wind capacity (MW),Solar farm capacity (MW),38
+2027-07-25,Sun,Poles apart,North/South,Homes heated only by solid fuel,Hydro-electric schemes,"Commuters by underground, metro or tram",190
+2027-07-26,Mon,Work and life,North/South,Skilled trades,People working 49+ hours a week,Very bad health,23
+2027-07-27,Tue,Castles and coastlines,West/East,Windmills (historic),Distilleries,Castles,20
+2027-07-28,Wed,Getting to work,North/South,Commuters by train,Commuters by taxi,Commuters by bicycle,44
+2027-07-29,Thu,Food and drink,West/East,Breweries,Nando's restaurants,Pret A Manger shops,32
+2027-07-30,Fri,Poles apart,West/East,Lighthouses,Greggs shops,Additional-rate (top-rate) taxpayers,83
+2027-07-31,Sat,Keeping warm,West/East,Homes heated only by oil,Homes heated only by electricity,Homes heated only by renewables,39
+2027-08-01,Sun,Supermarket sweep,West/East,Waitrose shops,Tesco shops (all formats),Lidl shops,28
+2027-08-02,Mon,Work and life,North/South,Long-term sick or disabled,Degree-level qualifications,"Managers, directors and senior officials",35
+2027-08-03,Tue,Follow the money,North/South,Income taxpayers,Income tax paid,Self-employed taxpayers,26
+2027-08-04,Wed,Poles apart,North/South,Onshore wind capacity (MW),Hydro-electric schemes,Homes heated only by solid fuel,140
+2027-08-05,Thu,Power stations,North/South,Solar farm capacity (MW),Solar capacity consented or being built (MW),Offshore wind capacity (MW),87
+2027-08-06,Fri,Castles and coastlines,North/South,Golf courses,Distilleries,Windmills (historic),49
+2027-08-07,Sat,Getting to work,West/East,"Commuters by underground, metro or tram",Commuters by bicycle,Commuters by taxi,42
+2027-08-08,Sun,Work and life,North/South,Skilled trades,Apprenticeships,People working 49+ hours a week,21
+2027-08-09,Mon,Poles apart,North/South,Additional-rate (top-rate) taxpayers,Lighthouses,Greggs shops,123
+2027-08-10,Tue,Home life,West/East,Households in converted or shared houses,Households in semi-detached houses,Households in a commercial building,24
+2027-08-11,Wed,Keeping warm,North/South,Homes heated only by oil,Homes heated only by mains gas,Homes heated only by electricity,60
+2027-08-12,Thu,Supermarket sweep,North/South,Tesco shops (all formats),Iceland shops,Waitrose shops,43
+2027-08-13,Fri,Food and drink,North/South,Pret A Manger shops,Fish and chip shops,Starbucks shops,30
+2027-08-14,Sat,Poles apart,West/East,Homes heated only by solid fuel,Onshore wind capacity (MW),Hydro-electric schemes,60
+2027-08-15,Sun,Follow the money,West/East,Income tax paid,Income taxpayers,Higher-rate taxpayers,19
+2027-08-16,Mon,Castles and coastlines,West/East,Castles,Standing stones and other megaliths,Distilleries,20
+2027-08-17,Tue,Getting to work,North/South,Commuters by train,Commuters on foot,People working mainly from home,35
+2027-08-18,Wed,Work and life,North/South,Degree-level qualifications,People working 49+ hours a week,Apprenticeships,18
+2027-08-19,Thu,Poles apart,North/South,Lighthouses,Greggs shops,"Commuters by underground, metro or tram",123
+2027-08-20,Fri,Follow the money,North/South,Taxpayers with pension income,Additional-rate (top-rate) taxpayers,Self-employed taxpayers,38
+2027-08-21,Sat,Keeping warm,West/East,Homes heated only by oil,Homes heated only by tank or bottled gas,Homes heated only by electricity,36
+2027-08-22,Sun,Getting to work,North/South,Commuters by motorbike or moped,Commuters by bicycle,Commuters by taxi,38
+2027-08-23,Mon,Supermarket sweep,West/East,M&S shops,Waitrose shops,Lidl shops,31
+2027-08-24,Tue,Poles apart,West/East,Pret A Manger shops,Hydro-electric schemes,Onshore wind capacity (MW),60
+2027-08-25,Wed,Follow the money,North/South,Income tax paid,Higher-rate taxpayers,Income taxpayers,23
+2027-08-26,Thu,Castles and coastlines,North/South,Castles,Windmills (historic),Distilleries,180
+2027-08-27,Fri,Home life,North/South,Households in a commercial building,Households renting privately,Households in detached houses,38
+2027-08-28,Sat,Keeping warm,North/South,Homes heated only by wood,Homes heated only by renewables,Homes heated only by solid fuel,36
+2027-08-29,Sun,Food and drink,North/South,Greggs shops,Costa Coffee shops,Breweries,28
+2027-08-30,Mon,Poles apart,West/East,Additional-rate (top-rate) taxpayers,Lighthouses,"Commuters by underground, metro or tram",19
+2027-08-31,Tue,Supermarket sweep,North/South,Sainsbury's shops (all formats),Iceland shops,Aldi shops,54
+2027-09-01,Wed,Home life,North/South,Households in a caravan or mobile home,Households renting socially,Households with 3+ cars,22
+2027-09-02,Thu,Work and life,North/South,"Process, plant and machine operatives","Managers, directors and senior officials",Degree-level qualifications,35
+2027-09-03,Fri,Power stations,West/East,Offshore wind capacity (MW),Onshore wind capacity (MW),Solar capacity consented or being built (MW),98
+2027-09-04,Sat,Poles apart,North/South,Waitrose shops,Homes heated only by oil,Hydro-electric schemes,165
+2027-09-05,Sun,Castles and coastlines,West/East,Castles,Windmills (historic),Golf courses,60
+2027-09-06,Mon,Getting to work,North/South,Commuters by train,Commuters by taxi,Commuters on foot,69
+2027-09-07,Tue,Food and drink,West/East,Distilleries,Fish and chip shops,Pret A Manger shops,99
+2027-09-08,Wed,Keeping warm,West/East,Homes heated only by wood,Homes heated only by solid fuel,Homes heated only by mains gas,37
+2027-09-09,Thu,Poles apart,West/East,Additional-rate (top-rate) taxpayers,Greggs shops,"Commuters by underground, metro or tram",19
+2027-09-10,Fri,Supermarket sweep,North/South,Sainsbury's shops (all formats),Morrisons supermarkets,Lidl shops,47
+2027-09-11,Sat,Follow the money,West/East,Income tax paid,Higher-rate taxpayers,Taxpayers with pension income,24
+2027-09-12,Sun,Home life,West/East,Households renting socially,Households in a commercial building,Households in converted or shared houses,22
+2027-09-13,Mon,Power stations,North/South,Onshore wind capacity (MW),Battery storage capacity (MW),Offshore wind capacity (MW),114
+2027-09-14,Tue,Poles apart,North/South,Homes heated only by oil,Waitrose shops,Lighthouses,165
+2027-09-15,Wed,Castles and coastlines,West/East,Standing stones and other megaliths,Windmills (historic),Castles,45
+2027-09-16,Thu,Work and life,North/South,Degree-level qualifications,Long-term sick or disabled,Skilled trades,26
+2027-09-17,Fri,Getting to work,North/South,Commuters by bicycle,Commuters by car or van,Commuters by train,44
+2027-09-18,Sat,Power stations,West/East,Hydro-electric schemes,Solar farm capacity (MW),Battery storage consented or being built (MW),38
+2027-09-19,Sun,Poles apart,West/East,Greggs shops,Distilleries,Pret A Manger shops,100
+2027-09-20,Mon,Keeping warm,North/South,Homes heated only by solid fuel,Homes heated only by electricity,Homes heated only by mains gas,65
+2027-09-21,Tue,Home life,North/South,Households that own outright,Households renting privately,Households in purpose-built flats,35
+2027-09-22,Wed,Getting to work,West/East,Commuters by taxi,Commuters by motorbike or moped,"Commuters by underground, metro or tram",42
+2027-09-23,Thu,Power stations,North/South,Solar capacity consented or being built (MW),Onshore wind capacity (MW),Battery storage capacity (MW),27
+2027-09-24,Fri,Poles apart,North/South,Lighthouses,Additional-rate (top-rate) taxpayers,Homes heated only by oil,164
+2027-09-25,Sat,Follow the money,North/South,Income tax paid,Self-employed taxpayers,Taxpayers with pension income,26
+2027-09-26,Sun,Work and life,North/South,Degree-level qualifications,Skilled trades,Apprenticeships,21
+2027-09-27,Mon,Supermarket sweep,West/East,Sainsbury's shops (all formats),Aldi shops,Waitrose shops,25
+2027-09-28,Tue,Home life,North/South,Households in converted or shared houses,Households in a commercial building,Households with no car,23
+2027-09-29,Wed,Poles apart,West/East,Pret A Manger shops,Windmills (historic),Distilleries,24
+2027-09-30,Thu,Keeping warm,West/East,Homes heated only by electricity,Homes heated only by wood,Homes heated only by solid fuel,37
+2027-10-01,Fri,Power stations,North/South,Hydro-electric schemes,Offshore wind capacity (MW),Solar farm capacity (MW),197
+2027-10-02,Sat,Getting to work,North/South,Commuters by bicycle,Commuters on foot,"Commuters by underground, metro or tram",45
+2027-10-03,Sun,Home life,North/South,Households with 3+ cars,Households in purpose-built flats,Households that own outright,21
+2027-10-04,Mon,Poles apart,North/South,Homes heated only by oil,Greggs shops,Lighthouses,41
+2027-10-05,Tue,Follow the money,West/East,Income tax paid,Additional-rate (top-rate) taxpayers,Higher-rate taxpayers,27
+2027-10-06,Wed,Work and life,North/South,"Managers, directors and senior officials",Degree-level qualifications,No qualifications,35
+2027-10-07,Thu,Supermarket sweep,North/South,Waitrose shops,Lidl shops,Tesco shops (all formats),43
+2027-10-08,Fri,Power stations,West/East,Solar capacity consented or being built (MW),Battery storage consented or being built (MW),Onshore wind capacity (MW),71
+2027-10-09,Sat,Poles apart,North/South,Windmills (historic),Pret A Manger shops,Distilleries,91
+2027-10-10,Sun,Keeping warm,North/South,Homes heated only by wood,Homes heated only by solid fuel,Homes heated only by electricity,36
+2027-10-11,Mon,Work and life,North/South,Skilled trades,Long-term sick or disabled,People working 49+ hours a week,26
+2027-10-12,Tue,Home life,North/South,Households renting socially,Households in converted or shared houses,Households in a commercial building,23
+2027-10-13,Wed,Power stations,North/South,Hydro-electric schemes,Offshore wind capacity (MW),Battery storage capacity (MW),114
+2027-10-14,Thu,Poles apart,West/East,Greggs shops,Homes heated only by oil,Lighthouses,27
+2027-10-15,Fri,Follow the money,North/South,Higher-rate taxpayers,Additional-rate (top-rate) taxpayers,Income taxpayers,35
+2027-10-16,Sat,Getting to work,West/East,Commuters by car or van,"Commuters by underground, metro or tram",Commuters by bicycle,35
+2027-10-17,Sun,Supermarket sweep,West/East,Morrisons supermarkets,Tesco shops (all formats),Waitrose shops,28
+2027-10-18,Mon,Work and life,North/South,"Managers, directors and senior officials",Very bad health,Degree-level qualifications,35
+2027-10-19,Tue,Castles and coastlines,West/East,Standing stones and other megaliths,Windmills (historic),Distilleries,24
+2027-10-20,Wed,Poles apart,North/South,Pret A Manger shops,Homes heated only by solid fuel,Onshore wind capacity (MW),193
+2027-10-21,Thu,Home life,North/South,Households renting privately,Households in a caravan or mobile home,Households in semi-detached houses,42
+2027-10-22,Fri,Getting to work,North/South,Commuters by taxi,Commuters on foot,Commuters by motorbike or moped,69
+2027-10-23,Sat,Power stations,West/East,Hydro-electric schemes,Solar farm capacity (MW),Solar capacity consented or being built (MW),33
+2027-10-24,Sun,Castles and coastlines,North/South,Castles,Golf courses,Lighthouses,84
+2027-10-25,Mon,Poles apart,West/East,Greggs shops,Additional-rate (top-rate) taxpayers,Homes heated only by oil,77
+2027-10-26,Tue,Election night,North/South,"Green votes, 2024","Liberal Democrat votes, 2024","Registered voters who did not vote, 2024",46
+2027-10-27,Wed,Supermarket sweep,North/South,Aldi shops,Waitrose shops,Tesco shops (all formats),43
+2027-10-28,Thu,Work and life,North/South,Skilled trades,Degree-level qualifications,Very bad health,23
+2027-10-29,Fri,Food and drink,North/South,Distilleries,Costa Coffee shops,McDonald's restaurants,51
+2027-10-30,Sat,Poles apart,North/South,Windmills (historic),Onshore wind capacity (MW),"Commuters by underground, metro or tram",88
+2027-10-31,Sun,Keeping warm,North/South,Homes heated only by solid fuel,Homes heated only by electricity,Homes heated only by tank or bottled gas,49
+2027-11-01,Mon,Home life,North/South,Households in converted or shared houses,Households with 3+ cars,Households renting socially,22
+2027-11-02,Tue,Power stations,North/South,Solar capacity consented or being built (MW),Hydro-electric schemes,Battery storage capacity (MW),27
+2027-11-03,Wed,Castles and coastlines,West/East,Lighthouses,Standing stones and other megaliths,Castles,18
+2027-11-04,Thu,Food and drink,North/South,Pret A Manger shops,Fish and chip shops,Breweries,27
+2027-11-05,Fri,Follow the money,West/East,Additional-rate (top-rate) taxpayers,Income tax paid,Taxpayers with pension income,27
+2027-11-06,Sat,Poles apart,West/East,Greggs shops,Homes heated only by oil,Waitrose shops,61
+2027-11-07,Sun,Work and life,North/South,Skilled trades,"Managers, directors and senior officials",Long-term sick or disabled,26
+2027-11-08,Mon,Getting to work,North/South,Commuters on foot,Commuters by train,Commuters by bicycle,44
+2027-11-09,Tue,Food and drink,West/East,Nando's restaurants,Starbucks shops,Distilleries,20
+2027-11-10,Wed,Keeping warm,North/South,Homes heated only by solid fuel,Homes heated only by tank or bottled gas,Homes heated only by renewables,29
+2027-11-11,Thu,Poles apart,West/East,Onshore wind capacity (MW),Windmills (historic),"Commuters by underground, metro or tram",26
+2027-11-12,Fri,Election night,North/South,"Liberal Democrat votes, 2024","Labour votes, 2024","Green votes, 2024",46
+2027-11-13,Sat,Power stations,West/East,Battery storage capacity (MW),Offshore wind capacity (MW),Hydro-electric schemes,133
+2027-11-14,Sun,Food and drink,North/South,Pret A Manger shops,Costa Coffee shops,Pubs,50
+2027-11-15,Mon,Follow the money,North/South,Higher-rate taxpayers,Additional-rate (top-rate) taxpayers,Taxpayers with pension income,35
+2027-11-16,Tue,Poles apart,North/South,Greggs shops,Lighthouses,Waitrose shops,124
+2027-11-17,Wed,Getting to work,North/South,Commuters by car or van,Commuters by taxi,Commuters by motorbike or moped,47
+2027-11-18,Thu,Home life,North/South,Households in purpose-built flats,Households in terraced houses,Households renting privately,31
+2027-11-19,Fri,Food and drink,West/East,Nando's restaurants,Distilleries,Fish and chip shops,34
+2027-11-20,Sat,Keeping warm,West/East,Homes heated only by mains gas,Homes heated only by oil,Homes heated only by solid fuel,40
+2027-11-21,Sun,Power stations,North/South,Onshore wind capacity (MW),Solar capacity consented or being built (MW),Battery storage consented or being built (MW),85
+2027-11-22,Mon,Work and life,North/South,Very bad health,People working 49+ hours a week,Degree-level qualifications,18
+2027-11-23,Tue,Poles apart,West/East,Windmills (historic),Hydro-electric schemes,"Commuters by underground, metro or tram",26
+2027-11-24,Wed,Food and drink,North/South,Costa Coffee shops,Pret A Manger shops,Starbucks shops,38
+2027-11-25,Thu,Follow the money,West/East,Additional-rate (top-rate) taxpayers,Income tax paid,Income taxpayers,27
+2027-11-26,Fri,Supermarket sweep,North/South,Iceland shops,M&S shops,Waitrose shops,32
+2027-11-27,Sat,Election night,North/South,"Reform UK votes, 2024","Green votes, 2024","Liberal Democrat votes, 2024",46
+2027-11-28,Sun,Home life,North/South,Households in detached houses,Households in a commercial building,Households in converted or shared houses,23
+2027-11-29,Mon,Castles and coastlines,North/South,Lighthouses,Distilleries,Golf courses,95
+2027-11-30,Tue,Keeping warm,North/South,Homes heated only by oil,Homes heated only by mains gas,Homes heated only by solid fuel,26
+2027-12-01,Wed,Power stations,West/East,Onshore wind capacity (MW),Battery storage consented or being built (MW),Battery storage capacity (MW),36
+2027-12-02,Thu,Getting to work,North/South,Commuters on foot,Commuters by car or van,Commuters by train,22
+2027-12-03,Fri,Poles apart,North/South,Greggs shops,Windmills (historic),"Commuters by underground, metro or tram",35
+2027-12-04,Sat,Food and drink,North/South,Pret A Manger shops,Fish and chip shops,Nando's restaurants,26
+2027-12-05,Sun,Follow the money,North/South,Income taxpayers,Self-employed taxpayers,Additional-rate (top-rate) taxpayers,38
+2027-12-06,Mon,Supermarket sweep,North/South,Lidl shops,Waitrose shops,Aldi shops,54
+2027-12-07,Tue,Election night,North/South,"Reform UK votes, 2024","Conservative votes, 2024","Liberal Democrat votes, 2024",44
+2027-12-08,Wed,Work and life,North/South,Skilled trades,Apprenticeships,"Managers, directors and senior officials",21
+2027-12-09,Thu,Castles and coastlines,North/South,Standing stones and other megaliths,Lighthouses,Distilleries,95
+2027-12-10,Fri,Keeping warm,West/East,Homes heated only by oil,Homes heated only by electricity,Homes heated only by solid fuel,45
+2027-12-11,Sat,Power stations,North/South,Offshore wind capacity (MW),Solar capacity consented or being built (MW),Onshore wind capacity (MW),87
+2027-12-12,Sun,Home life,North/South,Households in a caravan or mobile home,Households in detached houses,Households in converted or shared houses,31
+2027-12-13,Mon,Poles apart,West/East,Hydro-electric schemes,Windmills (historic),Greggs shops,76
+2027-12-14,Tue,Food and drink,North/South,Pret A Manger shops,Pubs,Nando's restaurants,26
+2027-12-15,Wed,Follow the money,West/East,Taxpayers with pension income,Additional-rate (top-rate) taxpayers,Higher-rate taxpayers,24
+2027-12-16,Thu,Supermarket sweep,North/South,Morrisons supermarkets,Lidl shops,Waitrose shops,47
+2027-12-17,Fri,Getting to work,West/East,People working mainly from home,Commuters by car or van,"Commuters by underground, metro or tram",24
+2027-12-18,Sat,Election night,North/South,"Registered voters who did not vote, 2024","Liberal Democrat votes, 2024","Conservative votes, 2024",44
+2027-12-19,Sun,Castles and coastlines,North/South,Distilleries,Lighthouses,Castles,84
+2027-12-20,Mon,Keeping warm,North/South,Homes heated only by tank or bottled gas,Homes heated only by wood,Homes heated only by solid fuel,36
+2027-12-21,Tue,Work and life,North/South,Skilled trades,People working 49+ hours a week,Degree-level qualifications,18
+2027-12-22,Wed,Power stations,West/East,Battery storage consented or being built (MW),Onshore wind capacity (MW),Offshore wind capacity (MW),104
+2027-12-23,Thu,Poles apart,North/South,Greggs shops,Hydro-electric schemes,Homes heated only by oil,41
+2027-12-24,Fri,Food and drink,North/South,Breweries,Nando's restaurants,Pret A Manger shops,26
+2027-12-25,Sat,Follow the money,West/East,Additional-rate (top-rate) taxpayers,Taxpayers with pension income,Self-employed taxpayers,20
+2027-12-26,Sun,Supermarket sweep,North/South,Waitrose shops,Morrisons supermarkets,Sainsbury's shops (all formats),21
+2027-12-27,Mon,Getting to work,North/South,Commuters by taxi,Commuters by car or van,"Commuters by underground, metro or tram",47
+2027-12-28,Tue,Home life,North/South,Households renting privately,Households in converted or shared houses,Households that own outright,35
+2027-12-29,Wed,Castles and coastlines,West/East,Windmills (historic),Distilleries,Golf courses,78
+2027-12-30,Thu,Keeping warm,North/South,Homes heated only by wood,Homes heated only by mains gas,Homes heated only by solid fuel,36
+2027-12-31,Fri,Work and life,North/South,"Process, plant and machine operatives",Degree-level qualifications,People working 49+ hours a week,18

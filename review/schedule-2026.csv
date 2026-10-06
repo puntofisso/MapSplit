@@ -1,0 +1,87 @@
+date,weekday,theme,axis,round_1,round_2,round_3,closest_pair_km
+2026-10-07,Wed,Home life,North/South,Households renting privately,Households in purpose-built flats,Households in detached houses,38
+2026-10-08,Thu,Castles and coastlines,North/South,Golf courses,Distilleries,Standing stones and other megaliths,160
+2026-10-09,Fri,Power stations,West/East,Hydro-electric schemes,Solar capacity consented or being built (MW),Battery storage capacity (MW),35
+2026-10-10,Sat,Follow the money,North/South,Additional-rate (top-rate) taxpayers,Self-employed taxpayers,Income taxpayers,38
+2026-10-11,Sun,Getting to work,North/South,"Commuters by underground, metro or tram",Commuters by taxi,Commuters by car or van,47
+2026-10-12,Mon,Work and life,North/South,"Managers, directors and senior officials",Very bad health,Degree-level qualifications,35
+2026-10-13,Tue,Food and drink,West/East,Pret A Manger shops,Nando's restaurants,Fish and chip shops,34
+2026-10-14,Wed,Supermarket sweep,North/South,Iceland shops,Waitrose shops,Aldi shops,54
+2026-10-15,Thu,Keeping warm,North/South,Homes heated only by oil,Homes heated only by renewables,Homes heated only by tank or bottled gas,29
+2026-10-16,Fri,Castles and coastlines,West/East,Lighthouses,Castles,Windmills (historic),18
+2026-10-17,Sat,Power stations,North/South,Onshore wind capacity (MW),Battery storage consented or being built (MW),Solar farm capacity (MW),195
+2026-10-18,Sun,Getting to work,West/East,Commuters by motorbike or moped,Commuters on foot,Commuters by train,25
+2026-10-19,Mon,Supermarket sweep,North/South,Lidl shops,Tesco shops (all formats),Morrisons supermarkets,47
+2026-10-20,Tue,Keeping warm,West/East,Homes heated only by wood,Homes heated only by solid fuel,Homes heated only by mains gas,37
+2026-10-21,Wed,Home life,West/East,Households in detached houses,Households in converted or shared houses,Households in purpose-built flats,28
+2026-10-22,Thu,Follow the money,West/East,Income taxpayers,Income tax paid,Higher-rate taxpayers,19
+2026-10-23,Fri,Food and drink,North/South,Nando's restaurants,Starbucks shops,Greggs shops,31
+2026-10-24,Sat,Work and life,North/South,People working 49+ hours a week,Skilled trades,Very bad health,23
+2026-10-25,Sun,Supermarket sweep,West/East,Waitrose shops,M&S shops,Iceland shops,25
+2026-10-26,Mon,Castles and coastlines,North/South,Standing stones and other megaliths,Lighthouses,Windmills (historic),100
+2026-10-27,Tue,Power stations,West/East,Battery storage capacity (MW),Hydro-electric schemes,Onshore wind capacity (MW),60
+2026-10-28,Wed,Follow the money,North/South,Self-employed taxpayers,Additional-rate (top-rate) taxpayers,Taxpayers with pension income,38
+2026-10-29,Thu,Getting to work,North/South,Commuters by train,Commuters by taxi,Commuters by bicycle,44
+2026-10-30,Fri,Home life,North/South,Households in a caravan or mobile home,Households renting privately,Households renting socially,36
+2026-10-31,Sat,Work and life,North/South,No qualifications,"Managers, directors and senior officials",Degree-level qualifications,35
+2026-11-01,Sun,Keeping warm,North/South,Homes heated only by electricity,Homes heated only by wood,Homes heated only by tank or bottled gas,49
+2026-11-02,Mon,Food and drink,West/East,Costa Coffee shops,Pret A Manger shops,Distilleries,83
+2026-11-03,Tue,Follow the money,North/South,Income taxpayers,Higher-rate taxpayers,Income tax paid,23
+2026-11-04,Wed,Getting to work,West/East,Commuters by car or van,"Commuters by underground, metro or tram",People working mainly from home,24
+2026-11-05,Thu,Supermarket sweep,North/South,Tesco shops (all formats),Lidl shops,Waitrose shops,43
+2026-11-06,Fri,Work and life,North/South,People working 49+ hours a week,Apprenticeships,Skilled trades,21
+2026-11-07,Sat,Keeping warm,West/East,Homes heated only by renewables,Homes heated only by mains gas,Homes heated only by oil,30
+2026-11-08,Sun,Castles and coastlines,West/East,Windmills (historic),Castles,Standing stones and other megaliths,45
+2026-11-09,Mon,Food and drink,North/South,Breweries,Nando's restaurants,Greggs shops,28
+2026-11-10,Tue,Home life,West/East,Households in detached houses,Households in converted or shared houses,Households in a caravan or mobile home,19
+2026-11-11,Wed,Power stations,North/South,Battery storage consented or being built (MW),Onshore wind capacity (MW),Battery storage capacity (MW),112
+2026-11-12,Thu,Supermarket sweep,North/South,Sainsbury's shops (all formats),Iceland shops,Morrisons supermarkets,47
+2026-11-13,Fri,Castles and coastlines,North/South,Golf courses,Distilleries,Lighthouses,95
+2026-11-14,Sat,Work and life,North/South,"Managers, directors and senior officials",Degree-level qualifications,Long-term sick or disabled,35
+2026-11-15,Sun,Home life,North/South,Households renting socially,Households in purpose-built flats,Households with 3+ cars,22
+2026-11-16,Mon,Getting to work,North/South,Commuters on foot,Commuters by car or van,People working mainly from home,22
+2026-11-17,Tue,Food and drink,North/South,Costa Coffee shops,Starbucks shops,Pret A Manger shops,38
+2026-11-18,Wed,Power stations,West/East,Solar capacity consented or being built (MW),Offshore wind capacity (MW),Solar farm capacity (MW),33
+2026-11-19,Thu,Follow the money,West/East,Income tax paid,Taxpayers with pension income,Additional-rate (top-rate) taxpayers,27
+2026-11-20,Fri,Keeping warm,North/South,Homes heated only by wood,Homes heated only by solid fuel,Homes heated only by tank or bottled gas,36
+2026-11-21,Sat,Supermarket sweep,West/East,Waitrose shops,Lidl shops,Tesco shops (all formats),28
+2026-11-22,Sun,Getting to work,West/East,Commuters by taxi,"Commuters by underground, metro or tram",Commuters by bicycle,42
+2026-11-23,Mon,Home life,West/East,Households that own outright,Households in a caravan or mobile home,Households in converted or shared houses,19
+2026-11-24,Tue,Castles and coastlines,West/East,Standing stones and other megaliths,Lighthouses,Castles,18
+2026-11-25,Wed,Work and life,North/South,Long-term sick or disabled,Skilled trades,People working 49+ hours a week,26
+2026-11-26,Thu,Keeping warm,West/East,Homes heated only by oil,Homes heated only by renewables,Homes heated only by electricity,39
+2026-11-27,Fri,Power stations,North/South,Hydro-electric schemes,Battery storage capacity (MW),Battery storage consented or being built (MW),112
+2026-11-28,Sat,Food and drink,West/East,Pret A Manger shops,Breweries,Distilleries,97
+2026-11-29,Sun,Follow the money,North/South,Income tax paid,Income taxpayers,Self-employed taxpayers,26
+2026-11-30,Mon,Work and life,North/South,"Managers, directors and senior officials",Degree-level qualifications,Carers giving 50+ hours a week,35
+2026-12-01,Tue,Home life,North/South,Households renting privately,Households with no car,Households in a commercial building,31
+2026-12-02,Wed,Power stations,West/East,Solar capacity consented or being built (MW),Onshore wind capacity (MW),Offshore wind capacity (MW),98
+2026-12-03,Thu,Keeping warm,North/South,Homes heated only by wood,Homes heated only by solid fuel,Homes heated only by mains gas,36
+2026-12-04,Fri,Food and drink,North/South,Nando's restaurants,Starbucks shops,Costa Coffee shops,32
+2026-12-05,Sat,Castles and coastlines,North/South,Castles,Lighthouses,Windmills (historic),84
+2026-12-06,Sun,Getting to work,North/South,Commuters by motorbike or moped,People working mainly from home,Commuters by car or van,29
+2026-12-07,Mon,Poles apart,West/East,Greggs shops,Hydro-electric schemes,Additional-rate (top-rate) taxpayers,83
+2026-12-08,Tue,Supermarket sweep,North/South,Aldi shops,Lidl shops,M&S shops,54
+2026-12-09,Wed,Follow the money,West/East,Income tax paid,Self-employed taxpayers,Taxpayers with pension income,20
+2026-12-10,Thu,Work and life,North/South,Degree-level qualifications,Very bad health,People working 49+ hours a week,18
+2026-12-11,Fri,Power stations,North/South,Battery storage consented or being built (MW),Solar farm capacity (MW),Battery storage capacity (MW),83
+2026-12-12,Sat,Castles and coastlines,West/East,Distilleries,Standing stones and other megaliths,Golf courses,24
+2026-12-13,Sun,Supermarket sweep,West/East,Morrisons supermarkets,Waitrose shops,Tesco shops (all formats),28
+2026-12-14,Mon,Poles apart,North/South,Pret A Manger shops,Homes heated only by solid fuel,Homes heated only by oil,26
+2026-12-15,Tue,Home life,West/East,Households in converted or shared houses,Households in a commercial building,Households in detached houses,28
+2026-12-16,Wed,Getting to work,West/East,"Commuters by underground, metro or tram",Commuters by motorbike or moped,Commuters on foot,25
+2026-12-17,Thu,Food and drink,North/South,Costa Coffee shops,Greggs shops,Nando's restaurants,32
+2026-12-18,Fri,Keeping warm,West/East,Homes heated only by wood,Homes heated only by mains gas,Homes heated only by renewables,30
+2026-12-19,Sat,Election night,North/South,"Labour votes, 2024","Conservative votes, 2024","Liberal Democrat votes, 2024",44
+2026-12-20,Sun,Follow the money,North/South,Higher-rate taxpayers,Taxpayers with pension income,Income tax paid,23
+2026-12-21,Mon,Work and life,North/South,"Managers, directors and senior officials",Degree-level qualifications,Apprenticeships,35
+2026-12-22,Tue,Supermarket sweep,North/South,Aldi shops,Iceland shops,Sainsbury's shops (all formats),54
+2026-12-23,Wed,Getting to work,North/South,Commuters by train,Commuters by taxi,Commuters by car or van,47
+2026-12-24,Thu,Keeping warm,North/South,Homes heated only by solid fuel,Homes heated only by electricity,Homes heated only by tank or bottled gas,49
+2026-12-25,Fri,Poles apart,West/East,Distilleries,Waitrose shops,Hydro-electric schemes,91
+2026-12-26,Sat,Food and drink,North/South,Fish and chip shops,Pret A Manger shops,Starbucks shops,30
+2026-12-27,Sun,Power stations,West/East,Battery storage capacity (MW),Solar capacity consented or being built (MW),Battery storage consented or being built (MW),35
+2026-12-28,Mon,Home life,North/South,Households that own outright,Households renting privately,Households in a caravan or mobile home,35
+2026-12-29,Tue,Election night,North/South,"Liberal Democrat votes, 2024","Registered voters who did not vote, 2024","Conservative votes, 2024",44
+2026-12-30,Wed,Follow the money,West/East,Self-employed taxpayers,Taxpayers with pension income,Additional-rate (top-rate) taxpayers,20
+2026-12-31,Thu,Castles and coastlines,North/South,Golf courses,Lighthouses,Castles,84

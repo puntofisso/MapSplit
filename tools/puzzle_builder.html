@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MapSplit — puzzle list builder</title>
+    <!-- Dev tool, not deployed. Builds data/puzzles.csv.
+
+         It extracts the /* BEGIN PURE */ block from Play/app-game.js and loads
+         the real datasets, exactly like tests-game.html, so the numbers it
+         reports are the numbers the game will produce. Reimplementing the
+         geometry here in order to plan puzzles would guarantee the plan and
+         the game eventually disagree.
+
+         Why this exists: of 2,640 candidate (axis x target x statistic-trio)
+         combinations on the current UK data, only 696 satisfy the bullseye
+         invariant, and which ones is not guessable — 135deg is the richest axis
+         in the table while 45deg is almost entirely dead. Hand-authoring a year
+         of puzzles blind would be mostly invalid rows. -->
+    <style>
+      :root {
+        --ink: #16212e; --muted: #64798c; --line: #d3dde6; --ground: #f2f5f8;
+        --surface: #fff; --accent: #2f6f9f; --trap: #b8324a; --safe: #04705a;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; padding: 28px; background: var(--ground); color: var(--ink);
+             font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+      .wrap { max-width: 1080px; margin: 0 auto; }
+      h1 { font-size: 21px; margin: 0 0 4px; }
+      .sub { color: var(--muted); margin: 0 0 22px; font-size: 14px; }
+      fieldset { border: 1px solid var(--line); border-radius: 10px; background: var(--surface);
+                 padding: 16px 18px; margin: 0 0 18px; }
+      legend { font: 600 11px/1 ui-monospace, monospace; letter-spacing: .12em;
+               text-transform: uppercase; color: var(--muted); padding: 0 6px; }
+      .row { display: flex; flex-wrap: wrap; gap: 16px 22px; align-items: flex-end; }
+      label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+      input, select { font: inherit; padding: 6px 9px; border: 1px solid var(--line);
+                      border-radius: 6px; background: var(--surface); color: var(--ink); }
+      input[type="number"] { width: 92px; }
+      button { font: 600 14px/1 inherit; padding: 10px 16px; border-radius: 8px;
+               border: 1px solid var(--accent); background: var(--accent); color: #fff;
+               cursor: pointer; }
+      button.ghost { background: transparent; color: var(--accent); }
+      button:disabled { opacity: .5; cursor: default; }
+      #status { margin: 0 0 18px; font-size: 14px; color: var(--muted); }
+      .stat { display: flex; gap: 26px; flex-wrap: wrap; margin: 0 0 18px; }
+      .stat div { font-size: 13px; color: var(--muted); }
+      .stat b { display: block; font-size: 22px; color: var(--ink);
+                font-variant-numeric: tabular-nums; }
+      .stat b.warn { color: var(--trap); }
+      table { border-collapse: collapse; width: 100%; font-size: 13px; background: var(--surface); }
+      th, td { padding: 6px 10px; border-bottom: 1px solid var(--line); text-align: left; }
+      th { font: 600 10.5px/1.3 ui-monospace, monospace; letter-spacing: .09em;
+           text-transform: uppercase; color: var(--muted); position: sticky; top: 0;
+           background: var(--surface); }
+      td.n { text-align: right; font-variant-numeric: tabular-nums; }
+      .scroll { max-height: 420px; overflow: auto; border: 1px solid var(--line);
+                border-radius: 10px; margin: 0 0 18px; }
+      textarea { width: 100%; height: 220px; font: 12px/1.5 ui-monospace, monospace;
+                 border: 1px solid var(--line); border-radius: 10px; padding: 12px;
+                 background: var(--surface); color: var(--ink); }
+      .warn { color: var(--trap); }
+      .ok { color: var(--safe); }
+      ul.dupes { margin: 8px 0 0; padding-left: 20px; font-size: 13px; color: var(--trap); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Puzzle list builder</h1>
+      <p class="sub">Enumerates every valid (axis × target × statistic trio) against the real
+         datasets, then lays them out one per day. Paste the result into
+         <code>data/puzzles.csv</code>.</p>
+
+      <p id="status">Loading the pure block and the datasets…</p>
+
+      <div id="app" hidden>
+        <div class="stat" id="summary"></div>
+        <div id="dupewrap"></div>
+
+        <fieldset>
+          <legend>Plan</legend>
+          <div class="row">
+            <div><label for="days">Days</label>
+              <input type="number" id="days" value="60" min="1" max="1000" /></div>
+            <div><label for="start">First day</label>
+              <input type="date" id="start" /></div>
+            <div><label for="seed">Shuffle seed</label>
+              <input type="number" id="seed" value="1" min="0" /></div>
+            <div><label for="margin">Min gap (km)</label>
+              <input type="number" id="margin" value="15" min="0" max="100" /></div>
+            <div><label for="mix">Axis mix</label>
+              <select id="mix">
+                <option value="alternate">Rotate through every angle</option>
+                <option value="any">Whatever scores best</option>
+                <option value="cardinal">Cardinal only (N/S and W/E)</option>
+                <option value="diagonal">Diagonals only</option>
+                <option value="ns">North / South only</option>
+                <option value="we">West / East only</option>
+              </select></div>
+            <div><button id="build">Build list</button></div>
+          </div>
+        </fieldset>
+
+        <div class="scroll"><table id="plan"><thead><tr>
+          <th>#</th><th>Date</th><th>Axis</th><th class="n">Target</th>
+          <th>Statistics</th><th class="n">Pro gap</th><th class="n">Normal gap</th>
+        </tr></thead><tbody></tbody></table></div>
+
+        <fieldset>
+          <legend>data/puzzles.csv</legend>
+          <textarea id="out" spellcheck="false" readonly></textarea>
+          <div class="row" style="margin-top:12px">
+            <button id="copy" class="ghost">Copy</button>
+            <button id="download" class="ghost">Download</button>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const status = $('#status');
+
+      (async function main() {
+        // Same extraction as tests-game.html: the tool and the game must never
+        // hold two copies of this logic.
+        let pure;
+        try {
+          const src = await fetch('../Play/app-game.js').then((r) => {
+            if (!r.ok) throw new Error(r.status);
+            return r.text();
+          });
+          const m = src.match(/\/\* BEGIN PURE \*\/([\s\S]*?)\/\* END PURE \*\//);
+          if (!m) throw new Error('PURE markers not found');
+          pure = m[1];
+        } catch (e) {
+          status.innerHTML = '<span class="warn">Could not load Play/app-game.js: ' +
+            e.message + '. Serve this over HTTP.</span>';
+          return;
+        }
+        (0, eval)(pure);
+
+        // The catalogue's URLs are written relative to Play/, and this page is
+        // in tools/ — same depth, so they resolve unchanged.
+        const cat = CONFIG.datasets;
+        const feats = {};
+        for (const e of cat) {
+          status.textContent = 'Loading ' + e.label + '…';
+          const text = await fetch(e.url).then((r) => r.text());
+          feats[e.label] = await createSourceFromText(
+            e.url, text, Object.assign({}, e)).getFeatures();
+        }
+
+        // Every 15deg of bearing, cardinals included. Sliding is one-dimensional
+        // at any angle, so a diagonal costs the engine nothing — and diagonals
+        // are where most of the pool turns out to live. The dead ones (on UK
+        // data, 45-60deg, which lies ALONG the population spine) need no special
+        // case: they simply fail the validity filter below and never enter the
+        // pool. Let the measurement exclude them, not a hard-coded list.
+        const AXIS_IDS = [];
+        for (let d = 0; d < 180; d += 15) AXIS_IDS.push(d === 0 ? 'ns' : (d === 90 ? 'we' : String(d)));
+        const CARDINALS = ['ns', 'we'];
+        const axisLabel = (a) => a === 'ns' ? 'N/S' : a === 'we' ? 'W/E' : a + '\u00B0';
+        const TARGETS = [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75];
+        const pb = CONFIG.padBbox;
+        const ref = lngLatToMerc([(pb[0] + pb[2]) / 2, (pb[1] + pb[3]) / 2]);
+
+        const spec = {}, off = {};
+        for (const ax of AXIS_IDS) {
+          spec[ax] = axisSpec(ax);
+          off[ax] = {};
+          for (const e of cat) {
+            const f = feats[e.label];
+            const vals = f.coords.map((c) => offsetOfPoint(lngLatToMerc(c), spec[ax]));
+            off[ax][e.label] = {};
+            for (const t of TARGETS) off[ax][e.label][t] = targetOffset(vals, f.weights, t);
+          }
+        }
+        const gap = (ax, a, b, t) =>
+          offsetGapKm(off[ax][a][t], off[ax][b][t], spec[ax], ref);
+
+        // Two catalogue entries can be the same statistic wearing different
+        // labels: Population (LA) and its grouped twin are the same numbers
+        // with a different group column, and HMRC Employed and Taxpayers are
+        // 0 km apart on both axes. Pairing those in one puzzle is meaningless
+        // whatever the target, so they are collapsed out of the pool.
+        //
+        // ONLY the identical ones. An earlier version collapsed any pair inside
+        // the bullseye on both axes, which threw away statistics that are close
+        // on one axis and far apart on the other — and a row only ever uses one
+        // axis. Merely-close pairs are left to the per-row validity filter
+        // below, which checks the pair on that row's own axis.
+        const IDENTICAL_KM = 1;
+        const labels = cat.map((e) => e.label);
+        const dupes = [];
+        const distinct = [];
+        for (const label of labels) {
+          const twin = distinct.find((k) => gap('ns', k, label, 50) < IDENTICAL_KM &&
+                                            gap('we', k, label, 50) < IDENTICAL_KM);
+          if (twin) dupes.push([label, twin, +gap('ns', twin, label, 50).toFixed(1)]);
+          else distinct.push(label);
+        }
+
+        const minGap = (ax, trio, t) => {
+          let w = Infinity;
+          for (let i = 0; i < 3; i++)
+            for (let j = i + 1; j < 3; j++) w = Math.min(w, gap(ax, trio[i], trio[j], t));
+          return w;
+        };
+
+        // A row is valid only if it clears the bullseye BOTH as Pro plays it —
+        // its own axis at its own target — and as Normal plays it, which is the
+        // SNAPPED cardinal at 50%. Those are two different lines through two
+        // different questions, and a diagonal row has to survive both.
+        const valid = [];
+        for (const ax of AXIS_IDS)
+          for (const t of TARGETS)
+            for (let a = 0; a < distinct.length; a++)
+              for (let b = a + 1; b < distinct.length; b++)
+                for (let c = b + 1; c < distinct.length; c++) {
+                  const trio = [distinct[a], distinct[b], distinct[c]];
+                  const pro = minGap(ax, trio, t);
+                  const norm = minGap(snapAxisToCardinal(ax), trio, 50);
+                  if (pro > GAME.bullseyeKm && norm > GAME.bullseyeKm) {
+                    valid.push({ axis: ax, target: t, trio,
+                                 pro: +pro.toFixed(1), normal: +norm.toFixed(1),
+                                 key: ax + '|' + trio.join('|') });
+                  }
+                }
+
+        const keys = new Set(valid.map((v) => v.key));
+        $('#summary').innerHTML = [
+          ['Catalogue entries', cat.length, ''],
+          ['Distinct statistics', distinct.length, ''],
+          ['Candidates tested', AXIS_IDS.length * TARGETS.length *
+            (distinct.length * (distinct.length - 1) * (distinct.length - 2) / 6), ''],
+          ['Valid rows', valid.length, valid.length < 60 ? 'warn' : ''],
+          ['Distinct puzzles', keys.size, keys.size < 30 ? 'warn' : ''],
+        ].map(([k, v, cls]) => '<div><b class="' + cls + '">' + v + '</b>' + k + '</div>').join('');
+
+        if (dupes.length) {
+          $('#dupewrap').innerHTML = '<fieldset><legend>Collapsed duplicates</legend>' +
+            '<p style="margin:0;font-size:13px;color:var(--muted)">These entries resolve to ' +
+            'the same line as another, so they are never paired in one puzzle:</p>' +
+            '<ul class="dupes">' + dupes.map((d) =>
+              '<li><b>' + d[0] + '</b> ≡ ' + d[1] + ' (' + d[2] + ' km apart)</li>').join('') +
+            '</ul></fieldset>';
+        }
+
+        // Deterministic shuffle, so the same seed always yields the same year.
+        function rng(seed) {
+          let s = seed >>> 0 || 1;
+          return () => { s ^= s << 13; s ^= s >>> 17; s ^= s << 5; return (s >>> 0) / 4294967296; };
+        }
+
+        function build() {
+          const days = Math.max(1, +$('#days').value || 1);
+          const seed = +$('#seed').value || 0;
+          const mix = $('#mix').value;
+          // A BARE PASS OF THE BULLSEYE IS NOT ENOUGH TO SHIP. The invariant
+          // says >10 km; a row at 10.1 km satisfies it and still hands out a
+          // near-free round. Worse, requiring only a pass makes near-dead axes
+          // look usable: on UK data 60deg has exactly ONE valid combination, so
+          // an even rotation ships the same puzzle ten times at the thinnest
+          // margin available. Ask for headroom and such an axis disappears by
+          // measurement rather than by a hard-coded exclusion list.
+          const margin = Math.max(GAME.bullseyeKm, +$('#margin').value || 0);
+          const start = $('#start').value || GAME.epoch;
+          const rand = rng(seed + 1);
+
+          let pool = valid.filter((v) => v.pro >= margin && v.normal >= margin);
+          if (mix === 'ns' || mix === 'we') pool = pool.filter((v) => v.axis === mix);
+          if (mix === 'cardinal') pool = pool.filter((v) => CARDINALS.indexOf(v.axis) >= 0);
+          if (mix === 'diagonal') pool = pool.filter((v) => CARDINALS.indexOf(v.axis) < 0);
+          // Only the axes that survived the filter can be rotated through; on
+          // this data 45deg and 60deg mostly do not, and asking for a day at an
+          // angle no trio clears would silently fall through to any row at all.
+          const liveAxes = AXIS_IDS.filter((a) => pool.some((v) => v.axis === a));
+          if (!pool.length) { alert('No rows clear ' + margin + ' km for that axis.'); return; }
+
+          // Sort by a stable random key, then walk the pool placing each row as
+          // far from the last use of its own (axis, trio) as the pool allows.
+          // Repeats are unavoidable past `pool.length` days; spacing them is
+          // the most that can be done without more datasets.
+          const shuffled = pool.map((v) => ({ v, k: rand() }))
+                               .sort((a, b) => a.k - b.k).map((x) => x.v);
+          const lastUsed = new Map();
+          const rows = [];
+          let cursor = 0;
+          for (let d = 0; d < days; d++) {
+            const wantAxis = mix === 'alternate' ? liveAxes[d % liveAxes.length] : null;
+            let pick = null, best = -Infinity, scanned = 0;
+            while (scanned < shuffled.length) {
+              const cand = shuffled[(cursor + scanned) % shuffled.length];
+              scanned++;
+              if (wantAxis && cand.axis !== wantAxis) continue;
+              const since = d - (lastUsed.has(cand.key) ? lastUsed.get(cand.key) : -999);
+              if (since > best) { best = since; pick = cand; }
+              if (since >= 999) break;      // never used — take it immediately
+            }
+            if (!pick) pick = shuffled[cursor % shuffled.length];
+            cursor++;
+            lastUsed.set(pick.key, d);
+            const date = new Date(Date.parse(start + 'T00:00:00Z') + d * 86400000);
+            rows.push({ date: date.toISOString().slice(0, 10), ...pick });
+          }
+
+          const tb = $('#plan tbody');
+          tb.innerHTML = rows.map((r, i) =>
+            '<tr><td class="n">' + (i + 1) + '</td><td>' + r.date + '</td>' +
+            '<td>' + axisLabel(r.axis) + ' <span style="color:var(--muted)">' +
+              axisSpec(r.axis).sides[0] + '</span></td>' +
+            '<td class="n">' + r.target + '%</td>' +
+            '<td>' + r.trio.join(' · ') + '</td>' +
+            '<td class="n">' + r.pro + '</td><td class="n">' + r.normal + '</td></tr>').join('');
+
+          // ONE ROW PER ROUND — three rows share a date. A round is the unit a
+          // person thinks about, and it lets axis and target belong to the
+          // round rather than the day.
+          //
+          // The file names each dataset by FILE and COLUMN, never by the
+          // catalogue's display label: those carry emoji and are written for
+          // the screen, and nobody should have to reproduce them by hand.
+          const byLabel = {};
+          cat.forEach((e) => { byLabel[e.label] = e; });
+          const q = (s) => '"' + String(s).replace(/"/g, '""') + '"';
+          const out = ['date,round,dataset,field,axis,target'];
+          rows.forEach((r) => {
+            r.trio.forEach((label, i) => {
+              const e = byLabel[label];
+              const file = String(e.url).split('/').pop();
+              const field = e.weightColumn || e.weightProperty || '';
+              out.push([r.date, i + 1, file, field, r.axis, r.target].map(q).join(','));
+            });
+          });
+          $('#out').value = out.join('\n') + '\n';
+        }
+
+        $('#start').value = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+        $('#build').addEventListener('click', build);
+        $('#copy').addEventListener('click', () => {
+          $('#out').select();
+          navigator.clipboard.writeText($('#out').value).then(
+            () => { $('#copy').textContent = 'Copied'; setTimeout(() => { $('#copy').textContent = 'Copy'; }, 1400); },
+            () => { $('#copy').textContent = 'Select and copy'; });
+        });
+        $('#download').addEventListener('click', () => {
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(new Blob([$('#out').value], { type: 'text/csv' }));
+          a.download = 'puzzles.csv';
+          a.click();
+          URL.revokeObjectURL(a.href);
+        });
+
+        status.hidden = true;
+        $('#app').hidden = false;
+        build();
+      })();
+    </script>
+  </body>
+</html>

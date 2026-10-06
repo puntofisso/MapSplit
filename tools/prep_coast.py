@@ -8,7 +8,8 @@ integers rather than long decimals. The app converts between world units and
 normalised Mercator with two multiplies.
 
 Usage:
-    curl -sLO https://raw.githubusercontent.com/nvkelso/natural-earth-vector/refs/heads/master/geojson/ne_10m_admin_0_countries.geojson
+    curl -sLO https://raw.githubusercontent.com/martynafford/\
+natural-earth-geojson/master/10m/cultural/ne_10m_admin_0_countries.json
     mv ne_10m_admin_0_countries.json ne10m.json
     python3 prep_coast.py 10 4000     # tolerance, min-ring-area (world units)
 

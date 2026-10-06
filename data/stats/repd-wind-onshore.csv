@@ -1,0 +1,786 @@
+lon,lat,value,name
+-1.3003,54.6936,5.5,Hartlepool
+-1.3206,54.6468,12.5,Hartlepool
+-1.2624,54.4959,4,Stockton-on-Tees
+-1.2585,54.4942,6,Stockton-on-Tees
+-1.3263,54.5462,8,Stockton-on-Tees
+-1.4972,54.5746,12,Darlington
+-0.3304,53.7585,3,"Kingston upon Hull, City of"
+0.0994,53.6689,9,East Riding of Yorkshire
+-1.0841,53.677,2,East Riding of Yorkshire
+-1.0072,53.6823,3,East Riding of Yorkshire
+-0.2365,53.7444,1.3,East Riding of Yorkshire
+-0.9377,53.7568,1.3,East Riding of Yorkshire
+-0.2885,54.0071,30,East Riding of Yorkshire
+-0.5389,53.7144,5,East Riding of Yorkshire
+-0.7998,53.7952,12.5,East Riding of Yorkshire
+-0.6099,53.8451,10,East Riding of Yorkshire
+-0.0265,53.7523,7.5,East Riding of Yorkshire
+-0.2348,53.7518,1.7,East Riding of Yorkshire
+-0.0697,53.7518,17.1,East Riding of Yorkshire
+-0.8114,53.738,33,East Riding of Yorkshire
+-0.3609,53.8737,24.6,East Riding of Yorkshire
+-0.1726,53.8457,18,East Riding of Yorkshire
+-0.1135,53.7492,10.2,East Riding of Yorkshire
+-0.8868,53.6768,34.9,East Riding of Yorkshire
+-0.5967,53.8349,15,East Riding of Yorkshire
+-0.8893,53.6659,32.8,East Riding of Yorkshire
+-0.1656,53.859,8.2,East Riding of Yorkshire
+-0.2307,54.0479,29.7,East Riding of Yorkshire
+-0.1141,53.6775,7.5,East Riding of Yorkshire
+-0.5336,53.7172,5,East Riding of Yorkshire
+-0.6672,53.6277,16,North Lincolnshire
+-0.7001,53.6379,12.3,North Lincolnshire
+-0.7637,53.6118,68,North Lincolnshire
+-1.4131,52.9081,5,Derby
+-2.7057,51.5142,6,"Bristol, City of"
+-2.6735,51.5115,8.2,"Bristol, City of"
+-2.6739,51.5383,5,"Bristol, City of"
+-2.6988,51.5029,9,"Bristol, City of"
+-2.6891,51.517,2.5,"Bristol, City of"
+-2.6741,51.538,4.2,"Bristol, City of"
+-2.4999,51.5723,6.9,South Gloucestershire
+-0.0323,52.6422,26,Peterborough
+-0.1043,52.6635,4,Peterborough
+0.2776,51.5225,1,Thurrock
+0.3368,51.4573,12,Thurrock
+-0.9855,51.419,2,Wokingham
+-0.6865,52.1328,14,Milton Keynes
+-1.8228,54.7638,2.6,County Durham
+-1.815,54.7638,24,County Durham
+-1.7607,54.7502,8,County Durham
+-1.4312,54.7875,4,County Durham
+-1.3375,54.8403,2.6,County Durham
+-1.4151,54.7616,2.7,County Durham
+-1.3969,54.6636,20.5,County Durham
+-1.4349,54.7222,5.2,County Durham
+-1.6758,54.8237,8,County Durham
+-1.7575,54.7637,5.2,County Durham
+-1.7575,54.7637,2.4,County Durham
+-1.6776,54.8471,2.8,County Durham
+-1.4151,54.7616,1.3,County Durham
+-1.4096,54.7658,10,County Durham
+-1.3969,54.6636,14,County Durham
+-1.9282,54.8478,6,County Durham
+-1.7487,54.8497,4,County Durham
+-1.4022,54.8404,7.5,County Durham
+-1.4426,54.7204,5.2,County Durham
+-2.7689,53.3006,50.4,Cheshire West and Chester
+-4.7053,50.6378,9.2,Cornwall
+-5.2002,50.0504,12,Cornwall
+-5.1875,50.1799,10,Cornwall
+-5.1316,50.1773,1.7,Cornwall
+-4.9556,50.4703,9.8,Cornwall
+-4.4881,50.9119,2.4,Cornwall
+-4.5467,50.6455,6.6,Cornwall
+-5.1374,50.2889,4.5,Cornwall
+-4.8851,50.3069,4,Cornwall
+-4.9606,50.3497,1,Cornwall
+-4.6103,50.6849,3.2,Cornwall
+-5.0306,50.3509,20,Cornwall
+-4.8141,50.4253,4.6,Cornwall
+-4.8213,50.4956,10,Cornwall
+-4.9615,50.4659,10,Cornwall
+-5.0556,50.3208,2.3,Cornwall
+-0.6089,52.2363,8.6,Bedford
+-0.5354,52.0647,1.5,Central Bedfordshire
+-0.6343,51.9519,1.5,Central Bedfordshire
+-0.2453,52.059,20,Central Bedfordshire
+-0.6314,51.9549,4.1,Central Bedfordshire
+-1.989,55.0865,1.8,Northumberland
+-1.6222,55.1035,4,Northumberland
+-1.4952,55.1254,2.7,Northumberland
+-1.5396,55.2016,26,Northumberland
+-1.7964,55.2753,15,Northumberland
+-1.6248,55.265,18.45,Northumberland
+-1.9144,54.886,12,Northumberland
+-1.5572,55.2152,2.3,Northumberland
+-1.7678,55.4986,54,Northumberland
+-2.0714,55.1822,54.4,Northumberland
+-2.127,55.1323,36,Northumberland
+-2.0251,55.6373,13.8,Northumberland
+-1.6182,55.2499,8.2,Northumberland
+-1.7642,55.5196,20.5,Northumberland
+-1.4992,55.1292,3.4,Northumberland
+-2.1777,50.6861,9.2,Dorset
+-0.836,51.8424,1.5,Buckinghamshire
+-0.5373,52.3076,10,North Northamptonshire
+-0.5366,52.3012,12.5,North Northamptonshire
+-0.6518,52.3616,14.4,North Northamptonshire
+-0.7554,52.4502,14.4,North Northamptonshire
+-0.6431,52.3608,20,North Northamptonshire
+-0.6565,52.3536,7.5,North Northamptonshire
+-1.2793,52.1742,1.5,West Northamptonshire
+-1.1669,52.3942,10,West Northamptonshire
+-1.1511,52.3748,16,West Northamptonshire
+-0.9598,52.4028,12.5,West Northamptonshire
+-1.0622,52.3657,12.3,West Northamptonshire
+-0.8617,52.1617,7.2,West Northamptonshire
+-1.1069,52.3265,12.5,West Northamptonshire
+-1.1577,52.3495,4,West Northamptonshire
+-3.072,54.8706,2.3,Cumberland
+-3.2746,54.7231,10.4,Cumberland
+-3.543,54.6741,4.2,Cumberland
+-3.5564,54.6596,5.4,Cumberland
+-3.3245,54.204,2.4,Cumberland
+-3.5401,54.6712,4,Cumberland
+-3.4968,54.6423,6,Cumberland
+-3.3475,54.8533,9.2,Cumberland
+-3.0067,54.869,1.6,Cumberland
+-3.0767,54.8715,4,Cumberland
+-3.5041,54.6288,8.8,Cumberland
+-3.571,54.5974,4.7,Cumberland
+-3.5204,54.5788,6.5,Cumberland
+-3.3245,54.204,1.2,Cumberland
+-3.5231,54.6741,2.3,Cumberland
+-3.514,54.6871,6.2,Cumberland
+-3.1912,54.7895,3.9,Cumberland
+-3.3595,54.7069,12,Cumberland
+-3.3463,54.7795,6.2,Cumberland
+-3.5031,54.6027,6,Cumberland
+-2.9153,55.0096,13.2,Cumberland
+-3.0263,55.0107,31,Cumberland
+-3.1467,54.2049,2.5,Westmorland and Furness
+-3.1357,54.2575,4.8,Westmorland and Furness
+-2.6351,54.3363,6.5,Westmorland and Furness
+-3.1814,54.1839,4.6,Westmorland and Furness
+-2.6388,54.276,12,Westmorland and Furness
+-3.1476,54.2091,11.5,Westmorland and Furness
+-1.9142,53.9624,1.2,North Yorkshire
+-1.9142,53.9624,1.3,North Yorkshire
+-1.6496,53.999,16,North Yorkshire
+-0.948,53.7303,24,North Yorkshire
+-2.5834,51.2544,2,Somerset
+0.1215,52.5713,2,Fenland
+0.0314,52.5127,6,Fenland
+0.0373,52.5106,4,Fenland
+-0.1719,52.558,9,Fenland
+0.0893,52.5731,2,Fenland
+0.1233,52.5698,18,Fenland
+-0.1088,52.5186,16,Fenland
+0.1149,52.603,14,Fenland
+0.1406,52.5926,14,Fenland
+0.0951,52.5972,16,Fenland
+-0.0337,52.5373,6,Fenland
+0.1233,52.5698,2,Fenland
+-0.1088,52.5186,12,Fenland
+0.0606,52.5351,10.3,Fenland
+-0.0046,52.5207,1.5,Fenland
+-0.1063,52.4469,1.8,Huntingdonshire
+-0.0292,52.4305,24,Huntingdonshire
+-0.1952,52.2615,20,Huntingdonshire
+-0.2877,52.2773,6.2,Huntingdonshire
+-0.308,52.3398,10,Huntingdonshire
+-0.1224,52.4681,8,Huntingdonshire
+0.316,52.166,26,South Cambridgeshire
+-1.6284,53.0909,2.3,Derbyshire Dales
+-1.6214,53.0916,5,Derbyshire Dales
+-1.6336,53.0845,8,Derbyshire Dales
+-4.1027,51.1569,66,North Devon
+-3.6891,50.9717,18,North Devon
+-4.3354,50.7443,1.5,Torridge
+-4.1189,50.9719,2.6,Torridge
+-4.4465,50.9173,4,Torridge
+-4.2597,50.8079,7.5,Torridge
+-4.2715,50.9187,9.2,Torridge
+-3.8666,50.7801,18,West Devon
+0.2709,50.8295,7.5,Wealden
+0.821,51.7098,20,Maldon
+0.8678,51.6515,17.5,Maldon
+0.8925,51.6631,20.7,Maldon
+1.0042,51.8631,1.5,Tendring
+1.1109,51.8092,10.3,Tendring
+-2.4809,51.723,2,Stroud
+-2.387,51.6025,1,Stroud
+0.8227,50.9638,59.8,Folkestone and Hythe
+0.8509,51.395,4.6,Swale
+0.7479,51.443,8.2,Swale
+0.8632,51.396,8.8,Swale
+-2.15,53.7497,9.6,Burnley
+-2.3062,53.771,7.5,Burnley
+-2.15,53.7497,16,Burnley
+-2.3034,53.7732,4.5,Burnley
+-2.7803,53.6335,2.3,Chorley
+-2.389,53.7143,24,Hyndburn
+-2.654,54.0698,16,Lancaster
+-2.8719,54.0379,1.5,Lancaster
+-2.7795,54.0072,2,Lancaster
+-2.865,54.0342,7.5,Lancaster
+-2.2679,53.669,65,Rossendale
+-2.159,53.7006,12.3,Rossendale
+-2.1671,53.7002,10.2,Rossendale
+-2.786,53.8883,2,Wyre
+-2.8657,53.9001,4,Wyre
+-1.1179,52.698,2.5,Charnwood
+-1.1792,52.5024,8,Harborough
+-1.1663,52.4119,22,Harborough
+-1.3252,52.6398,1.6,Hinckley and Bosworth
+-1.0343,52.8065,7.2,Melton
+-1.3427,52.8262,1,North West Leicestershire
+-0.2178,52.9379,26.7,Boston
+0.2384,53.3213,4.6,East Lindsey
+0.2384,53.3213,9.6,East Lindsey
+0.2411,53.143,2.6,East Lindsey
+0.069,53.4233,16,East Lindsey
+0.009,53.5093,4.6,East Lindsey
+-0.0007,53.5099,16.4,East Lindsey
+0.166,53.3626,16.4,East Lindsey
+0.1068,52.8362,12,South Holland
+-0.2257,52.7326,16.4,South Holland
+0.1662,52.7506,14,South Holland
+0.6833,52.6567,1.5,Breckland
+0.7007,52.6577,1.8,Breckland
+1.0915,52.6953,3.6,Breckland
+0.7335,52.6256,4,Breckland
+0.7321,52.6292,14.4,Breckland
+1.6545,52.7099,1.5,Great Yarmouth
+1.6644,52.707,1,Great Yarmouth
+0.3857,52.7712,1.5,King's Lynn and West Norfolk
+0.6874,52.8841,13.8,King's Lynn and West Norfolk
+0.6908,52.8569,8.2,King's Lynn and West Norfolk
+-1.0757,53.2998,2,Bassetlaw
+-1.2979,52.9988,2.5,Broxtowe
+-1.044,52.9758,1.5,Gedling
+-1.2178,53.0753,1.5,Gedling
+-1.1516,53.1175,15,Newark and Sherwood
+-1.0146,53.1511,10.3,Newark and Sherwood
+-0.8142,53.0482,9,Newark and Sherwood
+-1.6661,51.6158,6.5,Vale of White Horse
+-2.271,53.0019,1.9,Newcastle-under-Lyme
+-2.1172,52.7024,4,South Staffordshire
+1.1266,52.3367,5,Mid Suffolk
+-2.3184,52.129,1.2,Malvern Hills
+-2.1427,52.1643,1.3,Wychavon
+1.7028,52.4148,4.1,East Suffolk
+1.761,52.4804,2.3,East Suffolk
+1.5311,52.3665,11.5,East Suffolk
+-2.1117,53.6681,13.6,Rochdale
+-2.1148,53.6705,23.8,Rochdale
+-2.7378,53.5113,1,St. Helens
+-3.0393,53.4652,3,Sefton
+-3.005,53.4496,10,Sefton
+-0.905,53.6082,28.7,Doncaster
+-0.9356,53.6223,44,Doncaster
+-1.255,53.5766,8,Doncaster
+-1.2397,53.533,8,Doncaster
+-1.3779,53.3876,2.6,Rotherham
+-1.236,53.3145,4.5,Rotherham
+-1.2975,53.3834,19.8,Rotherham
+-1.4272,54.8273,3,Sunderland
+-1.4808,54.9139,4,Sunderland
+-1.4272,54.8273,8.2,Sunderland
+-1.4808,54.9139,2,Sunderland
+-1.9333,53.7789,18,Calderdale
+-1.3355,53.8119,10.3,Leeds
+-1.6922,53.5368,6.9,Barnsley
+-1.6696,53.5322,5.9,Barnsley
+-1.7312,53.5316,6,Barnsley
+-1.7062,53.5433,7.5,Barnsley
+-1.4021,53.574,8.6,Barnsley
+0.1504,51.5287,2,Barking and Dagenham
+0.1508,51.5187,5.9,Barking and Dagenham
+0.1421,51.5022,2.5,Bexley
+0.0799,51.5256,2.2,Newham
+-6.0196,54.6879,2.3,Antrim and Newtownabbey
+-6.119,54.7389,5,Antrim and Newtownabbey
+-6.3071,54.7661,1.7,Antrim and Newtownabbey
+-5.9118,54.7313,13.8,Antrim and Newtownabbey
+-6.3,54.6333,13.8,Antrim and Newtownabbey
+-6.1778,54.7902,5,Antrim and Newtownabbey
+-6.8692,54.8991,10,Causeway Coast and Glens
+-6.2873,55.0436,5,Causeway Coast and Glens
+-6.8198,55.0219,5,Causeway Coast and Glens
+-6.5649,55.0018,15,Causeway Coast and Glens
+-6.2857,55.0188,25,Causeway Coast and Glens
+-6.9996,54.9702,11.7,Causeway Coast and Glens
+-7.0341,54.9626,26,Causeway Coast and Glens
+-6.2578,55.0847,17.9,Causeway Coast and Glens
+-6.2797,55.0445,2.5,Causeway Coast and Glens
+-7.0296,54.976,18.4,Causeway Coast and Glens
+-7.0348,54.9705,27.6,Causeway Coast and Glens
+-6.4124,55.0101,2.3,Causeway Coast and Glens
+-6.4124,55.0101,6.9,Causeway Coast and Glens
+-6.889,55.0687,21,Causeway Coast and Glens
+-6.8886,55.0804,42,Causeway Coast and Glens
+-6.3958,55.1185,12,Causeway Coast and Glens
+-6.765,54.9806,37.5,Causeway Coast and Glens
+-6.8011,54.9952,23.5,Causeway Coast and Glens
+-6.442,54.9841,27.6,Causeway Coast and Glens
+-7.3341,54.8066,5.1,Derry City and Strabane
+-7.4405,54.704,5,Derry City and Strabane
+-7.6054,54.6414,9,Derry City and Strabane
+-7.339,54.8097,5,Derry City and Strabane
+-7.4265,54.705,9,Derry City and Strabane
+-7.3167,54.9293,15,Derry City and Strabane
+-7.3129,54.9679,4.6,Derry City and Strabane
+-7.7526,54.6399,32.2,Derry City and Strabane
+-7.1997,54.8949,20.7,Derry City and Strabane
+-7.7128,54.654,18.4,Derry City and Strabane
+-7.2889,54.9203,27.6,Derry City and Strabane
+-7.591,54.705,34.5,Derry City and Strabane
+-7.1341,54.9791,12,Derry City and Strabane
+-7.2136,54.8838,13.8,Derry City and Strabane
+-7.6052,54.6343,10.5,Derry City and Strabane
+-7.6284,54.1903,5,Fermanagh and Omagh
+-7.6956,54.5471,19.5,Fermanagh and Omagh
+-7.1064,54.5086,30,Fermanagh and Omagh
+-7.0886,54.6863,20,Fermanagh and Omagh
+-7.3329,54.4624,19.5,Fermanagh and Omagh
+-7.009,54.5516,2.5,Fermanagh and Omagh
+-7.0197,54.544,15,Fermanagh and Omagh
+-7.0168,54.5502,15,Fermanagh and Omagh
+-7.5596,54.6064,9.2,Fermanagh and Omagh
+-7.1064,54.5086,18.8,Fermanagh and Omagh
+-7.5692,54.6355,6.9,Fermanagh and Omagh
+-7.6365,54.1979,15,Fermanagh and Omagh
+-7.5596,54.6064,9.2,Fermanagh and Omagh
+-7.441,54.5683,38.4,Fermanagh and Omagh
+-7.5872,54.6309,25,Fermanagh and Omagh
+-7.0946,54.5222,7.1,Fermanagh and Omagh
+-7.5141,54.5778,30,Fermanagh and Omagh
+-7.3985,54.3031,11,Fermanagh and Omagh
+-7.0096,54.5669,13.8,Fermanagh and Omagh
+-7.0477,54.553,7.5,Fermanagh and Omagh
+-7.0494,54.5689,12.5,Fermanagh and Omagh
+-7.6284,54.1903,54,Fermanagh and Omagh
+-7.1113,54.5128,7.1,Fermanagh and Omagh
+-6.9791,54.6226,13.8,Fermanagh and Omagh
+-7.8959,54.3385,15,Fermanagh and Omagh
+-8.093,54.4178,22.8,Fermanagh and Omagh
+-7.6956,54.5471,9,Fermanagh and Omagh
+-7.3535,54.4143,20.7,Fermanagh and Omagh
+-6.2332,54.8795,4.7,Mid and East Antrim
+-6.0806,54.8043,8.8,Mid and East Antrim
+-6.1986,54.8728,4.6,Mid and East Antrim
+-6.1757,54.9515,21,Mid and East Antrim
+-6.1929,54.9326,22,Mid and East Antrim
+-7.3415,54.439,20,Mid Ulster
+-7.1489,54.3938,7.3,Mid Ulster
+-7.1834,54.3927,5.9,Mid Ulster
+-6.6477,54.769,1,Mid Ulster
+-6.9552,54.6145,2,Mid Ulster
+-6.943,54.5506,6.9,Mid Ulster
+-6.7719,54.7395,15,Mid Ulster
+-7.09,54.4766,16.1,Mid Ulster
+-6.7082,54.8112,6,Mid Ulster
+-5.9287,54.2456,0.2,"Newry, Mourne and Down"
+-3.7728,56.2091,26,Clackmannanshire
+-3.7824,56.2042,12,Clackmannanshire
+-3.76,56.2091,10.8,Clackmannanshire
+-4.312,55.2672,67.1,Dumfries and Galloway
+-3.3339,55.1071,36.8,Dumfries and Galloway
+-3.3339,55.1071,13.8,Dumfries and Galloway
+-4.0321,55.1199,52.9,Dumfries and Galloway
+-3.5742,55.239,136,Dumfries and Galloway
+-4.8017,54.9885,239,Dumfries and Galloway
+-4.2031,55.2922,90,Dumfries and Galloway
+-4.7879,54.8657,8.1,Dumfries and Galloway
+-3.5148,55.2488,25,Dumfries and Galloway
+-4.0466,55.3442,32.4,Dumfries and Galloway
+-4.5165,54.8725,9.1,Dumfries and Galloway
+-3.1078,55.1002,30,Dumfries and Galloway
+-4.6577,54.8021,35,Dumfries and Galloway
+-5.0871,54.8685,2.5,Dumfries and Galloway
+-3.7602,54.9563,2.4,Dumfries and Galloway
+-4.728,54.8591,15.3,Dumfries and Galloway
+-4.0294,55.3574,25.3,Dumfries and Galloway
+-5.0881,54.8771,22,Dumfries and Galloway
+-3.9489,55.379,1,Dumfries and Galloway
+-3.3529,55.1221,36.8,Dumfries and Galloway
+-4.7746,54.9704,19.5,Dumfries and Galloway
+-4.0452,55.2231,18.2,Dumfries and Galloway
+-3.6506,55.1841,30,Dumfries and Galloway
+-3.069,55.1641,10,Dumfries and Galloway
+-4.1829,55.2971,21.6,Dumfries and Galloway
+-4.9897,55.0007,22,Dumfries and Galloway
+-3.1729,55.1761,48,Dumfries and Galloway
+-4.7543,54.9634,27.5,Dumfries and Galloway
+-4.0513,55.3721,81.6,Dumfries and Galloway
+-4.1786,55.2747,43,Dumfries and Galloway
+-4.1263,55.3628,13.2,East Ayrshire
+-4.3176,55.6394,109,East Ayrshire
+-4.2791,55.6812,322,East Ayrshire
+-4.2351,55.3558,70,East Ayrshire
+-4.2868,55.6772,108,East Ayrshire
+-4.1263,55.3628,29.8,East Ayrshire
+-4.1743,55.3116,50,East Ayrshire
+-3.9754,55.5396,66,East Ayrshire
+-4.2932,55.3173,240,East Ayrshire
+-2.5455,55.9129,20.7,East Lothian
+-2.5345,55.9264,13.8,East Lothian
+-2.4901,55.9172,60.8,East Lothian
+-2.4901,55.9172,48,East Lothian
+-2.4526,55.8934,81.7,East Lothian
+-2.8421,55.8395,4.8,East Lothian
+-2.4178,55.9148,1.5,East Lothian
+-4.279,55.6919,1.8,East Renfrewshire
+-4.2844,55.6907,4.7,East Renfrewshire
+-4.3426,55.7751,12,East Renfrewshire
+-4.2521,55.7102,4.3,East Renfrewshire
+-4.4667,55.7541,9.2,East Renfrewshire
+-4.2537,55.72,7.2,East Renfrewshire
+-6.4383,58.1766,3.9,Na h-Eileanan Siar
+-7.3479,57.2337,6.9,Na h-Eileanan Siar
+-6.493,58.3836,2.7,Na h-Eileanan Siar
+-6.5108,58.2572,13.8,Na h-Eileanan Siar
+-6.4807,58.2079,9,Na h-Eileanan Siar
+-6.8318,57.9417,1.5,Na h-Eileanan Siar
+-3.8621,56.0325,12,Falkirk
+-3.7748,55.9121,26,Falkirk
+-3.779,55.9043,8.5,Falkirk
+-3.9787,57.9924,20,Highland
+-4.8836,57.1552,15,Highland
+-4.3487,58.0027,7.5,Highland
+-4.2482,57.7882,4.6,Highland
+-3.0854,58.4435,48.3,Highland
+-3.4434,58.2999,13,Highland
+-6.4583,57.4298,23,Highland
+-4.0588,58.0404,47.5,Highland
+-4.5,58.0019,38,Highland
+-3.2498,58.4488,3.9,Highland
+-3.2015,58.4385,6.2,Highland
+-4.4267,57.7055,9,Highland
+-4.427,57.71,17,Highland
+-3.6881,58.6024,4.9,Highland
+-4.1947,58.5356,5,Highland
+-3.137,58.5719,2.3,Highland
+-3.9589,58.0882,47,Highland
+-4.8912,57.1502,10,Highland
+-4.9655,57.0956,23.8,Highland
+-4.0488,57.3888,66,Highland
+-3.9591,58.0595,70,Highland
+-6.4583,57.4298,4.6,Highland
+-4.7511,57.2791,10,Highland
+-3.2257,58.4393,10,Highland
+-4.9655,57.0956,85,Highland
+-4.3732,57.7696,29.9,Highland
+-3.2715,58.4087,50,Highland
+-4.427,57.71,36.8,Highland
+-3.677,58.5679,52.5,Highland
+-4.547,57.9956,24.7,Highland
+-4.2558,57.2515,94,Highland
+-4.773,57.6687,54.4,Highland
+-3.1324,58.5793,29.9,Highland
+-3.2039,58.3568,22.5,Highland
+-4.8167,57.6546,51,Highland
+-3.2629,58.5951,9.2,Highland
+-4.5112,58.2193,92.4,Highland
+-3.4546,58.4489,10,Highland
+-3.2206,58.4178,36,Highland
+-4.0857,57.3207,48.5,Highland
+-4.8414,57.6801,18,Highland
+-3.8917,57.3929,39,Highland
+-3.2159,58.4352,18.5,Highland
+-4.5264,57.1269,227.7,Highland
+-4.0336,58.49,67.7,Highland
+-3.4444,58.4309,34,Highland
+-4.5819,57.2191,110,Highland
+-3.4292,58.4205,26.7,Highland
+-4.3596,57.1901,69.5,Highland
+-4.329,57.8053,29.8,Highland
+-6.4322,57.4691,41.4,Highland
+-4.6315,57.5329,43,Highland
+-4.103,57.3339,92,Highland
+-3.6881,58.6024,5.2,Highland
+-4.8836,57.1552,40,Highland
+-3.6798,58.6013,1.5,Highland
+-3.742,58.5285,79.8,Highland
+-3.6881,58.6024,2.6,Highland
+-3.7138,58.5284,21,Highland
+-3.3377,58.3085,0.2,Highland
+-4.7289,55.9185,24,Inverclyde
+-3.363,57.5373,50.6,Moray
+-2.8559,57.6027,4.6,Moray
+-2.8425,57.599,1.6,Moray
+-3.363,57.5373,41.4,Moray
+-3.341,57.6228,48,Moray
+-2.9625,57.5057,18,Moray
+-3.1317,57.3509,177,Moray
+-3.4754,57.4466,66.7,Moray
+-3.6156,57.5105,27.6,Moray
+-3.4762,57.4462,65,Moray
+-4.8061,55.6439,24,North Ayrshire
+-4.8062,55.7563,28,North Ayrshire
+-4.775,55.7307,18,North Ayrshire
+-4.6339,55.5979,7.5,North Ayrshire
+-4.7809,55.7358,6.4,North Ayrshire
+-4.6182,55.5929,2.5,North Ayrshire
+-4.8061,55.6439,6,North Ayrshire
+-4.7895,55.7225,18,North Ayrshire
+-3.0727,59.0957,4.3,Orkney Islands
+-3.1231,58.827,2,Orkney Islands
+-3.1438,59.1131,1.5,Orkney Islands
+-3.1492,59.1176,5,Orkney Islands
+-3.1404,59.109,2.3,Orkney Islands
+-2.8689,58.9133,1,Orkney Islands
+-3.1492,59.1176,2.3,Orkney Islands
+-2.6601,59.0973,2.7,Orkney Islands
+-2.9822,59.2766,1.8,Orkney Islands
+-2.6925,59.1893,10,Orkney Islands
+-2.7156,58.9217,1.8,Orkney Islands
+-2.6601,59.0973,2.7,Orkney Islands
+-3.0973,58.8412,1.8,Orkney Islands
+-2.2879,55.8666,2.4,Scottish Borders
+-2.5075,55.883,62.5,Scottish Borders
+-3.0176,55.7648,6,Scottish Borders
+-3.0677,55.7046,31.2,Scottish Borders
+-2.2508,55.9039,1,Scottish Borders
+-2.5293,55.8995,138,Scottish Borders
+-2.8774,55.7686,27.6,Scottish Borders
+-3.4205,55.5385,22,Scottish Borders
+-2.846,55.8065,17.2,Scottish Borders
+-2.4322,55.7992,28.6,Scottish Borders
+-2.8423,55.7868,29.8,Scottish Borders
+-2.8275,55.6692,38,Scottish Borders
+-2.2619,55.8979,28.6,Scottish Borders
+-2.688,55.8313,144,Scottish Borders
+-2.3527,55.8674,29.9,Scottish Borders
+-2.833,55.8218,5.1,Scottish Borders
+-2.8255,55.8173,4.5,Scottish Borders
+-2.3915,55.9207,6.9,Scottish Borders
+-2.3213,55.8969,28.7,Scottish Borders
+-2.3637,55.9348,5,Scottish Borders
+-2.9399,55.4707,16,Scottish Borders
+-2.7303,55.3537,33.6,Scottish Borders
+-2.281,55.8976,16,Scottish Borders
+-1.2361,60.1648,3.7,Shetland Islands
+-1.0052,60.6661,4.5,Shetland Islands
+-1.1671,60.1924,3,Shetland Islands
+-1.2084,60.3393,443,Shetland Islands
+-4.7319,55.2568,120,South Ayrshire
+-4.7971,55.0688,120,South Ayrshire
+-4.7463,55.1284,56,South Ayrshire
+-4.8062,55.2498,20,South Ayrshire
+-4.9096,55.1806,42,South Ayrshire
+-4.4882,55.3043,69,South Ayrshire
+-4.7787,55.2265,25,South Ayrshire
+-4.7399,55.3064,18.8,South Ayrshire
+-3.7626,55.7622,124,South Lanarkshire
+-3.9203,55.5666,26,South Lanarkshire
+-3.9201,55.5553,7.8,South Lanarkshire
+-3.9823,55.6959,6,South Lanarkshire
+-3.9203,55.5554,7.8,South Lanarkshire
+-3.9606,55.7247,2.2,South Lanarkshire
+-3.9216,55.5995,15,South Lanarkshire
+-4.2119,55.6374,28,South Lanarkshire
+-4.09,55.7416,9,South Lanarkshire
+-3.6055,55.7584,6.8,South Lanarkshire
+-3.9221,55.6495,2.4,South Lanarkshire
+-3.5427,55.4416,350,South Lanarkshire
+-4.1342,55.5783,14.3,South Lanarkshire
+-3.8463,55.5093,36,South Lanarkshire
+-3.5479,55.5041,172.8,South Lanarkshire
+-4.09,55.7416,7.5,South Lanarkshire
+-3.7626,55.7622,48.4,South Lanarkshire
+-3.6055,55.7584,8.3,South Lanarkshire
+-3.9842,55.624,36,South Lanarkshire
+-4.0977,55.6086,29.9,South Lanarkshire
+-4.2091,55.659,30,South Lanarkshire
+-3.804,55.5129,51,South Lanarkshire
+-3.7626,55.7622,15,South Lanarkshire
+-4.0361,55.6327,67.2,South Lanarkshire
+-4.0361,55.6327,88.4,South Lanarkshire
+-3.5858,55.7669,12.3,South Lanarkshire
+-3.8901,55.5874,45,South Lanarkshire
+-3.9589,55.5718,48,South Lanarkshire
+-3.9334,55.6871,1.5,South Lanarkshire
+-3.9105,55.6333,2.6,South Lanarkshire
+-3.8162,55.6045,48,South Lanarkshire
+-3.871,55.5594,84,South Lanarkshire
+-4.0497,56.0543,20,Stirling
+-4.0589,56.2698,72,Stirling
+-4.0955,56.0708,37.5,Stirling
+-3.8281,56.055,2.4,Stirling
+-4.1231,56.089,22.5,Stirling
+-4.0685,56.0455,1.5,Stirling
+-2.6518,57.6607,2.3,Aberdeenshire
+-2.5811,57.6262,2.3,Aberdeenshire
+-2.8137,57.3153,2.6,Aberdeenshire
+-1.9111,57.572,6,Aberdeenshire
+-2.241,57.4724,1.7,Aberdeenshire
+-2.261,57.392,2.3,Aberdeenshire
+-2.6462,57.6599,2.3,Aberdeenshire
+-2.2906,56.9335,5.2,Aberdeenshire
+-2.2724,56.8935,7.7,Aberdeenshire
+-2.5811,57.6262,4.6,Aberdeenshire
+-2.0425,57.6219,5,Aberdeenshire
+-2.0091,57.5876,1.6,Aberdeenshire
+-2.3252,57.4266,2.4,Aberdeenshire
+-2.1898,57.4208,3.2,Aberdeenshire
+-2.2108,56.9639,17.5,Aberdeenshire
+-2.6915,57.4511,12.3,Aberdeenshire
+-2.6361,57.4253,26,Aberdeenshire
+-2.4007,56.9229,4.6,Aberdeenshire
+-2.341,57.4112,2.3,Aberdeenshire
+-2.3076,57.4287,4.6,Aberdeenshire
+-2.424,57.5936,2.3,Aberdeenshire
+-2.0598,57.4064,2.4,Aberdeenshire
+-2.3933,57.3761,2.5,Aberdeenshire
+-2.2431,57.4276,12,Aberdeenshire
+-2.7244,57.6114,4.6,Aberdeenshire
+-2.4828,57.4619,12.5,Aberdeenshire
+-2.0268,57.4938,2.4,Aberdeenshire
+-2.2011,57.5946,4.6,Aberdeenshire
+-3.1772,56.9552,6.9,Aberdeenshire
+-2.4477,57.2828,2.4,Aberdeenshire
+-2.2901,57.607,4.5,Aberdeenshire
+-1.9419,57.4308,1,Aberdeenshire
+-2.8752,57.3233,1.7,Aberdeenshire
+-2.542,57.4998,6.9,Aberdeenshire
+-1.8993,57.5822,9.2,Aberdeenshire
+-2.6468,57.5814,2.4,Aberdeenshire
+-2.4191,57.6204,4.6,Aberdeenshire
+-2.4101,56.844,7.5,Aberdeenshire
+-2.4175,57.6606,1.5,Aberdeenshire
+-2.4166,57.587,4.6,Aberdeenshire
+-2.3353,57.4182,3.2,Aberdeenshire
+-2.6104,57.3441,9.6,Aberdeenshire
+-2.1096,57.3109,6.9,Aberdeenshire
+-2.0667,57.6153,2.4,Aberdeenshire
+-2.2724,56.8886,7.65,Aberdeenshire
+-2.3933,57.3761,2,Aberdeenshire
+-2.2783,57.0188,10,Aberdeenshire
+-2.7029,57.2253,18.4,Aberdeenshire
+-2.6219,57.157,1.6,Aberdeenshire
+-2.1647,57.4535,6.9,Aberdeenshire
+-2.2999,57.5663,2.3,Aberdeenshire
+-2.3791,56.8399,7.5,Aberdeenshire
+-2.8992,57.4639,10,Aberdeenshire
+-2.6157,57.5907,6.9,Aberdeenshire
+-2.3957,56.8364,25,Aberdeenshire
+-2.3718,56.8147,4.6,Aberdeenshire
+-2.4049,56.8274,10,Aberdeenshire
+-2.3866,56.9399,6.8,Aberdeenshire
+-2.8661,57.3665,37,Aberdeenshire
+-2.4862,56.9688,18.4,Aberdeenshire
+-2.4862,56.9688,57.5,Aberdeenshire
+-2.639,57.6653,16.7,Aberdeenshire
+-2.613,57.6223,2.4,Aberdeenshire
+-2.6082,57.572,4.7,Aberdeenshire
+-5.5874,55.5732,29.7,Argyll and Bute
+-5.5681,55.58,15,Argyll and Bute
+-5.2977,56.3823,7.8,Argyll and Bute
+-5.2194,56.2187,19.3,Argyll and Bute
+-4.9429,56.2881,15,Argyll and Bute
+-5.6666,55.4953,12.8,Argyll and Bute
+-5.544,55.6293,15.8,Argyll and Bute
+-5.1559,56.039,33.3,Argyll and Bute
+-5.4774,55.9334,10.8,Argyll and Bute
+-5.4849,55.6807,20.5,Argyll and Bute
+-5.4706,55.777,22.5,Argyll and Bute
+-5.5305,55.4786,6,Argyll and Bute
+-5.6602,55.5447,6.9,Argyll and Bute
+-5.4805,55.9341,6,Argyll and Bute
+-5.3102,56.1528,48.3,Argyll and Bute
+-5.5874,55.5732,43.7,Argyll and Bute
+-5.6435,55.5683,35,Argyll and Bute
+-5.2945,56.339,46,Argyll and Bute
+-3.6113,55.8164,14,West Lothian
+-3.5624,55.8205,19.2,West Lothian
+-3.5322,55.8087,51.7,West Lothian
+-3.6721,55.8048,30.75,West Lothian
+-3.0481,56.5709,6.4,Angus
+-2.5582,56.6477,1,Angus
+-2.8938,56.4836,4,Dundee City
+-3.4466,56.0564,1.5,Fife
+-3.4443,56.054,1.5,Fife
+-3.3177,56.0905,4.6,Fife
+-2.7467,56.2594,1.5,Fife
+-3.2949,56.1453,10,Fife
+-3.2522,56.1194,25,Fife
+-3.2526,56.1177,6.9,Fife
+-3.3203,56.0864,2,Fife
+-3.1593,56.1665,1.5,Fife
+-3.1645,56.1537,6.4,Fife
+-3.0813,56.1737,18.4,Fife
+-3.1593,56.1641,1.5,Fife
+-3.2794,56.637,9.2,Perth and Kinross
+-3.6663,56.2492,27,Perth and Kinross
+-3.4329,56.3054,9.6,Perth and Kinross
+-3.232,56.6222,36.8,Perth and Kinross
+-3.8761,56.6277,32.2,Perth and Kinross
+-3.7338,56.5812,156,Perth and Kinross
+-3.7689,56.2154,4,Perth and Kinross
+-3.3134,56.6549,14.4,Perth and Kinross
+-3.3296,56.3061,10,Perth and Kinross
+-4.2153,55.7971,3,Glasgow City
+-3.9032,55.912,4,North Lanarkshire
+-3.9335,55.8539,2.5,North Lanarkshire
+-3.7461,55.8718,9,North Lanarkshire
+-3.7452,55.8766,5.7,North Lanarkshire
+-3.912,55.9011,24,North Lanarkshire
+-3.765,55.8363,27.2,North Lanarkshire
+-3.7295,55.8711,1.5,North Lanarkshire
+-3.8438,55.7745,8.4,North Lanarkshire
+-4.3465,53.3748,5.6,Isle of Anglesey
+-4.4656,53.3544,20.4,Isle of Anglesey
+-4.4003,53.3938,4.6,Isle of Anglesey
+-3.9576,52.5951,3.9,Gwynedd
+-3.5883,52.9962,2.6,Conwy
+-3.725,53.1363,2.6,Conwy
+-3.725,53.1363,11.7,Conwy
+-3.4892,53.071,96,Conwy
+-3.4988,53.0175,1.5,Conwy
+-3.4059,53.0255,9.2,Denbighshire
+-3.4911,53.117,21.3,Denbighshire
+-3.5031,53.109,37.6,Denbighshire
+-3.2008,53.2897,1.8,Flintshire
+-3.971,52.4663,10.2,Ceredigion
+-3.7507,52.405,58.5,Ceredigion
+-4.0292,52.3069,9.4,Ceredigion
+-3.8772,52.4076,2.4,Ceredigion
+-5.0609,51.7263,1,Pembrokeshire
+-5.0128,51.72,3.2,Pembrokeshire
+-4.6844,51.772,1.6,Pembrokeshire
+-5.0008,51.7745,1.6,Pembrokeshire
+-4.9965,51.7021,8.2,Pembrokeshire
+-4.4413,51.9971,3.9,Carmarthenshire
+-4.5297,51.7569,3.6,Carmarthenshire
+-4.5337,51.7592,8.4,Carmarthenshire
+-4.5907,51.9112,5.5,Carmarthenshire
+-4.1234,51.9606,57.4,Carmarthenshire
+-4.238,51.9778,23,Carmarthenshire
+-3.9381,51.7492,32.8,Swansea
+-3.6596,51.7365,26,Neath Port Talbot
+-3.8472,51.7784,4.7,Neath Port Talbot
+-3.929,51.7728,34.5,Neath Port Talbot
+-3.7457,51.583,8,Neath Port Talbot
+-3.7479,51.5633,1.5,Neath Port Talbot
+-3.6442,51.7406,2.5,Neath Port Talbot
+-3.6957,51.6555,228,Neath Port Talbot
+-3.6147,51.6427,6,Neath Port Talbot
+-3.6211,51.6449,24,Neath Port Talbot
+-3.6287,51.683,32,Neath Port Talbot
+-3.669,51.5022,5,Bridgend
+-3.496,51.6065,17.5,Bridgend
+-3.4947,51.611,10,Bridgend
+-3.505,51.6129,25,Bridgend
+-3.522,51.5872,20,Bridgend
+-3.6711,51.5077,2.5,Bridgend
+-3.1042,51.5067,2.3,Cardiff
+-3.4648,51.5694,9,Rhondda Cynon Taf
+-3.4512,51.6511,6.4,Rhondda Cynon Taf
+-3.5098,51.7147,22.5,Rhondda Cynon Taf
+-3.4597,51.5564,9.4,Rhondda Cynon Taf
+-3.5179,51.6978,24,Rhondda Cynon Taf
+-3.4496,51.5604,12,Rhondda Cynon Taf
+-3.3914,51.5589,1.5,Rhondda Cynon Taf
+-3.4255,51.5588,2.5,Rhondda Cynon Taf
+-3.1714,51.6869,4,Caerphilly
+-3.2759,51.7749,4,Caerphilly
+-2.9626,51.5666,5,Newport
+-2.9591,51.5511,2.5,Newport
+-2.9738,51.5559,2.3,Newport
+-2.8486,51.5708,3.5,Newport
+-3.6082,52.5494,16.8,Powys
+-3.5792,52.5423,16.8,Powys
+-3.6721,52.6579,3.4,Powys
+-3.6743,52.6399,15.3,Powys
+-3.5943,52.4196,13.8,Powys
+-3.5656,52.3672,9.9,Powys
+-3.4308,52.4421,31,Powys
+-3.5792,52.5423,15.6,Powys
+-3.707,52.4147,16.4,Powys
+-3.4791,52.6105,24.6,Powys
+-3.2841,52.4131,34,Powys
+-3.4285,52.5784,14.5,Powys

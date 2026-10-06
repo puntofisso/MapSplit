@@ -1,0 +1,89 @@
+{
+ "id": "ge2024",
+ "title": "General election 4 July 2024: candidate-level results",
+ "publisher": "House of Commons Library",
+ "page": "https://electionresults.parliament.uk/general-elections/6",
+ "vintage": "general election, 4 July 2024",
+ "refresh": "None until the next general election. Then add a new source (ge20XX) alongside this one rather than replacing it, so days already authored keep their meaning.",
+ "licence": {
+  "name": "Open Parliament Licence v3.0",
+  "url": "https://www.parliament.uk/site-information/copyright-parliament/open-parliament-licence/"
+ },
+ "attribution": "Contains Parliamentary information licensed under the Open Parliament Licence v3.0.",
+ "uses": [
+  "boundaries"
+ ],
+ "fetch": [
+  {
+   "file": "candidacies.csv",
+   "url": "https://electionresults.parliament.uk/general-elections/6/candidacies.csv"
+  }
+ ],
+ "caveats": [
+  "Each constituency's votes sit at one point, ONS's label point for the constituency (650 points)."
+ ],
+ "stats": [
+  {
+   "id": "ge24-labour",
+   "label": "Labour votes, 2024",
+   "question": "votes cast for Labour in 2024",
+   "unit": "votes",
+   "family": "Election night",
+   "party": "Lab",
+   "absentFrom": {
+    "Northern Ireland": "Labour does not stand candidates in Northern Ireland"
+   }
+  },
+  {
+   "id": "ge24-con",
+   "label": "Conservative votes, 2024",
+   "question": "votes cast for the Conservatives in 2024",
+   "unit": "votes",
+   "family": "Election night",
+   "party": "Con"
+  },
+  {
+   "id": "ge24-libdem",
+   "label": "Liberal Democrat votes, 2024",
+   "question": "votes cast for the Liberal Democrats in 2024",
+   "unit": "votes",
+   "family": "Election night",
+   "party": "LD",
+   "absentFrom": {
+    "Northern Ireland": "The Liberal Democrats do not stand candidates in Northern Ireland"
+   }
+  },
+  {
+   "id": "ge24-reform",
+   "label": "Reform UK votes, 2024",
+   "question": "votes cast for Reform UK in 2024",
+   "unit": "votes",
+   "family": "Election night",
+   "party": "RUK",
+   "absentFrom": {
+    "Northern Ireland": "Reform UK stood no candidates in Northern Ireland in 2024"
+   }
+  },
+  {
+   "id": "ge24-green",
+   "label": "Green votes, 2024",
+   "question": "votes cast for the Greens in 2024",
+   "unit": "votes",
+   "family": "Election night",
+   "party": "Green"
+  },
+  {
+   "id": "ge24-nonvoters",
+   "label": "Registered voters who did not vote, 2024",
+   "question": "registered voters who stayed at home in 2024",
+   "unit": "people",
+   "family": "Election night",
+   "party": null
+  }
+ ],
+ "derivedLicence": {
+  "name": "Open Parliament Licence v3.0",
+  "url": "https://www.parliament.uk/site-information/copyright-parliament/open-parliament-licence/",
+  "note": "for the vote counts; the constituency points come from ONS under the Open Government Licence v3.0, whose terms are equivalent. Both attributions below apply."
+ }
+}

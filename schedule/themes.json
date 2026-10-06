@@ -1,0 +1,183 @@
+{
+ "_readme": "DRAFT themes for the daily game. A theme is a named family of statistics; a day picks three of them. Edit freely: add/remove ids (see data/stats.json), rename, retitle. 'blurb' is the one-line framing a player could see. Counted by tools/pipeline/themes.mjs. 'maxDaysPerYear' caps how often a theme may appear in one year. A theme marked 'filler' has no cap and fills whatever the capped themes leave.",
+ "rules": {
+  "_readme": "Used by tools/pipeline/schedule.mjs. Caps are per calendar year.",
+  "mode": "normal",
+  "defaultMaxDaysPerYear": 40,
+  "minDaysBetweenSameTheme": 5,
+  "minDaysBetweenSameStat": 10
+ },
+ "themes": [
+  {
+   "id": "supermarkets",
+   "title": "Supermarket sweep",
+   "blurb": "Where does each chain really live?",
+   "stats": [
+    "osm-waitrose",
+    "osm-sainsburys",
+    "osm-mands",
+    "osm-tesco",
+    "osm-lidl",
+    "osm-iceland",
+    "osm-aldi",
+    "osm-morrisons"
+   ]
+  },
+  {
+   "id": "highstreet",
+   "title": "Food and drink",
+   "blurb": "Sourdough, sausage rolls and single malts.",
+   "stats": [
+    "osm-pret",
+    "osm-nandos",
+    "osm-costa",
+    "osm-starbucks",
+    "osm-mcdonalds",
+    "osm-greggs",
+    "osm-chippies",
+    "osm-distilleries",
+    "osm-pubs",
+    "osm-breweries"
+   ]
+  },
+  {
+   "id": "heating",
+   "title": "Keeping warm",
+   "blurb": "How Britain heats its homes.",
+   "stats": [
+    "census-heat-oil",
+    "census-heat-solid",
+    "census-heat-wood",
+    "census-heat-gas",
+    "census-heat-electric",
+    "census-heat-bottled",
+    "census-heat-renewable"
+   ]
+  },
+  {
+   "id": "power",
+   "title": "Power stations",
+   "blurb": "Where the electricity comes from — and where it is going to.",
+   "stats": [
+    "repd-hydro",
+    "repd-wind-onshore",
+    "repd-wind-offshore",
+    "repd-solar",
+    "repd-solar-pipeline",
+    "repd-battery",
+    "repd-battery-pipeline"
+   ]
+  },
+  {
+   "id": "commute",
+   "title": "Getting to work",
+   "blurb": "Tube, taxi or bike?",
+   "stats": [
+    "census-commute-metro",
+    "census-commute-train",
+    "census-commute-taxi",
+    "census-commute-motorbike",
+    "census-commute-bike",
+    "census-commute-car",
+    "census-commute-foot",
+    "census-work-from-home"
+   ]
+  },
+  {
+   "id": "election",
+   "title": "Election night",
+   "blurb": "Where the votes were in July 2024.",
+   "stats": [
+    "ge24-libdem",
+    "ge24-con",
+    "ge24-green",
+    "ge24-labour",
+    "ge24-reform",
+    "ge24-nonvoters"
+   ],
+   "maxDaysPerYear": 10
+  },
+  {
+   "id": "money",
+   "title": "Follow the money",
+   "blurb": "Tax, top earners and who works for themselves.",
+   "stats": [
+    "hmrc-additional-rate",
+    "hmrc-tax-amount",
+    "hmrc-higher-rate",
+    "hmrc-self-employed",
+    "hmrc-pension",
+    "hmrc-taxpayers"
+   ]
+  },
+  {
+   "id": "homes",
+   "title": "Home life",
+   "blurb": "Bedsits, caravans, landlords and the family car.",
+   "stats": [
+    "census-home-converted",
+    "census-home-flat",
+    "census-home-commercial",
+    "census-home-caravan",
+    "census-home-detached",
+    "census-home-semi",
+    "census-home-terraced",
+    "census-tenure-private",
+    "census-tenure-outright",
+    "census-tenure-social",
+    "census-cars-3plus",
+    "census-cars-none"
+   ]
+  },
+  {
+   "id": "work",
+   "title": "Work and life",
+   "blurb": "Jobs, hours, qualifications, health and care.",
+   "stats": [
+    "census-job-managers",
+    "census-hours-49plus",
+    "census-qual-degree",
+    "census-job-trades",
+    "census-job-operatives",
+    "census-qual-apprentice",
+    "census-qual-none",
+    "census-sick",
+    "census-health-verybad",
+    "census-carers-50h"
+   ]
+  },
+  {
+   "id": "heritage",
+   "title": "Castles and coastlines",
+   "blurb": "Old stones, old towers, old sails.",
+   "stats": [
+    "osm-castles",
+    "osm-standing-stones",
+    "osm-lighthouses",
+    "osm-windmills",
+    "osm-golf",
+    "osm-distilleries"
+   ]
+  },
+  {
+   "id": "contrasts",
+   "title": "Poles apart",
+   "blurb": "Three things that could hardly live further apart.",
+   "stats": [
+    "repd-hydro",
+    "osm-pret",
+    "osm-waitrose",
+    "osm-distilleries",
+    "census-commute-metro",
+    "repd-wind-onshore",
+    "hmrc-additional-rate",
+    "osm-lighthouses",
+    "census-heat-solid",
+    "osm-windmills",
+    "census-heat-oil",
+    "osm-greggs"
+   ],
+   "filler": true
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+theme,title,stats,trios_possible,trios_valid_somewhere,valid_days,valid_days_by_axis,stats_never_in_a_valid_day
+supermarkets,Supermarket sweep,8,56,33,44,ns:33 we:11,
+highstreet,Food and drink,10,120,56,76,ns:56 we:20,
+heating,Keeping warm,7,35,25,33,ns:21 we:12,
+power,Power stations,7,35,35,60,ns:30 we:30,
+commute,Getting to work,8,56,40,50,ns:34 we:16,
+election,Election night,6,20,6,6,ns:6,
+money,Follow the money,6,20,12,18,ns:8 we:10,
+homes,Home life,12,220,64,78,ns:64 we:14,
+work,Work and life,10,120,23,23,ns:23,
+heritage,Castles and coastlines,6,20,20,32,ns:16 we:16,
+contrasts,Poles apart,12,220,197,341,ns:168 we:173,

@@ -1,0 +1,19 @@
+data/*.pmtiles
+bak/
+node_modules/
+.DS_Store
+
+# Runtime state for the AdSense URL switch, not source.
+Google-Ads-Dropin/.ads-enabled
+data/raw/
+
+# Raw downloads behind data-scripts/ (up to 281 MB — over GitHub's 100 MB
+# limit). The files the repo already tracked there stay tracked; everything
+# new in the folder is local only. The current pipeline is sources/ + tools/pipeline/.
+data-scripts/*
+
+# Names the server login and path; kept out of the public repo.
+deploy.sh
+
+# Python bytecode from the pipeline.
+__pycache__/

@@ -1,0 +1,583 @@
+      :root {
+        --primary: #2f6f9f;
+        --secondary: #c93b52;
+        --panel-bg: rgba(255, 255, 255, 0.94);
+        --ink: #1f2937;
+        --muted: #6b7280;
+        --sea: #dfe8ee;
+        --land: #f4f1ea;
+        --coast: #a9b4bd;
+        /* The play column. ONE number decides the width of the map box and the
+           prose under it, because a map wider than the text it sits above reads
+           as two pages stapled together. */
+        --col: 760px;
+        /* Reserved either side for a lateral ad. 160px is a wide skyscraper;
+           raise to 300 for a 300x600 and the rail breakpoint follows it,
+           because that is computed from these two. */
+        --rail: 160px;
+        --rail-gap: 24px;
+        /* The page behind the box. Deliberately not --sea: the map has to read
+           as an object sitting ON the page, not as the page itself. */
+        --page: #e6ecf1;
+      }
+      * { box-sizing: border-box; }
+      /* The page SCROLLS, deliberately. It used to be a fixed, non-scrolling
+         shell, and that turned out to break Google's consent toolbar: the badge
+         is scroll-triggered, and on a page where scrollTop is permanently 0 and
+         scrollHeight === clientHeight, its placement logic falls back to an
+         arbitrary mid-page offset over the map. An ordinary scrolling document
+         gets the ordinary bottom-left placement. Do not put `overflow: hidden`
+         back on html/body. */
+      html, body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        color: var(--ink);
+        background: var(--page);
+      }
+
+
+      /* --- page shell ---
+         Two stacked rows, in NORMAL FLOW rather than a fixed overlay:
+
+             topbar   the puzzle, the guess button and the links
+             stage    the map
+
+         #stage needs an explicit height now that it is not filling a fixed
+         viewport — the SVG inside is absolutely positioned and would otherwise
+         collapse to nothing. Sized so the map still owns the first screen while
+         leaving a clear hint that there is more below. */
+      #shell {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: "topbar" "play";
+      }
+
+      /* --- the play area ---
+         One column on a narrow screen, three once there is room for a rail
+         either side. The rails are EMPTY — no ad goes in them yet — but the
+         grid is what makes adding one a markup change rather than a relayout:
+         the map keeps its width and its centre whether the rails are filled or
+         not. Below the breakpoint the columns collapse to one and the rails
+         stack under the box, which is where a lateral unit would have to go
+         anyway on a phone. */
+      #play {
+        grid-area: play; min-width: 0;
+        display: grid; gap: var(--rail-gap);
+        grid-template-columns: minmax(0, var(--col));
+        grid-template-areas: "stage";
+        justify-content: center;
+        padding: 16px 14px 20px;
+      }
+      .rail { min-width: 0; display: flex; justify-content: center; }
+      /* An EMPTY rail must occupy nothing. `gap` applies between tracks whether
+         or not they hold anything, so two empty stacked rails would otherwise
+         open 48px of dead space under the box. */
+      .rail:empty { display: none; }
+      /* Narrow: "rail-l"/"rail-r" are not areas in this template, so a filled
+         rail is auto-placed — it lands in a new row under the box, which is
+         where a lateral unit has to go on a phone anyway.
+
+         Wide: col + two rails + two gaps = the breakpoint, written out so the
+         relationship is visible. Change --rail and the breakpoint follows. */
+      @media (min-width: 1140px) {
+        #play {
+          grid-template-columns: var(--rail) minmax(0, var(--col)) var(--rail);
+          grid-template-areas: "rail-l stage rail-r";
+        }
+        .rail-l { grid-area: rail-l; }
+        .rail-r { grid-area: rail-r; }
+      }
+
+      /* The map box. Capped in height as well as width: past a point a taller
+         box is just more sea, and the content below has to stay findable. */
+      #stage {
+        grid-area: stage; position: relative; min-width: 0;
+        height: clamp(360px, 68vh, 620px);
+        overflow: hidden;
+        background: var(--sea);
+        border: 1px solid #c2ced8;
+        border-radius: 14px;
+        box-shadow: 0 6px 22px rgba(31, 41, 55, 0.10);
+      }
+
+      /* --- map --- */
+      #map { position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+             touch-action: none; user-select: none; }
+      .land { fill: var(--land); stroke: var(--coast); stroke-width: 1; }
+      .land.context { fill: #ece9e2; stroke: #c3ccd3; }
+      .half-primary { fill: #3d7ea6; opacity: 0.18; }
+      .half-secondary { fill: #d1495b; opacity: 0.18; }
+      .pt-primary { fill: #2f6f9f; }
+      .pt-secondary { fill: #c93b52; }
+      #pts-primary, #pts-secondary { opacity: 0.75; }
+      #divider-ext { stroke: #111827; stroke-width: 1.5; stroke-dasharray: 6 4; opacity: 0.55; fill: none; }
+      #divider-seg { stroke: #111827; stroke-width: 3; fill: none; }
+      #hit-seg { display: none; }
+      /* The whole map is the slider. The line has one degree of freedom, so
+         there is no thin target to hunt for and the cursor says so everywhere
+         over the stage. */
+      #stage { cursor: grab; }
+      body.dragging, body.dragging #stage { cursor: grabbing; }
+      /* The map is one big 1-D control, so the whole of it says "grab me". */
+      #map { cursor: grab; }
+      /* Strokes stay in screen pixels despite the tiny world-unit scale. */
+      .land, #divider-ext, #divider-seg, #hit-seg, .answer-line { vector-effect: non-scaling-stroke; }
+
+      /* --- bar controls ---
+         These all used to live in the floating panel. The panel is gone; the
+         status bar is the app's only chrome, so its widgets are laid out in a
+         wrapping row rather than a column. */
+
+      .link-info {
+        border: none; background: none; padding: 0; font: inherit; font-size: 11px;
+        cursor: pointer; color: var(--accent, #2563eb); text-decoration: underline;
+        white-space: nowrap;
+      }
+      .link-info:hover { color: var(--ink); }
+      .lbl-short { display: none; }
+      #btn-info {
+        flex: none; width: 20px; height: 20px; line-height: 1;
+        font-size: 12px; font-weight: 700; font-style: italic;
+        font-family: Georgia, 'Times New Roman', serif;
+        color: var(--muted); background: #fff;
+        border: 1.5px solid #d1d5db; border-radius: 50%;
+        cursor: pointer; padding: 0;
+      }
+      #btn-info:hover { background: #f3f4f6; border-color: #9ca3af; color: var(--ink); }
+      /* Provenance now lives in #sources-modal. Every dataset has an entry —
+         including the synthetic one and an uploaded file — so the list is
+         never empty; see the data-source contract. */
+      #sources-list { margin: 0; padding-left: 16px; }
+      #sources-list li { margin: 3px 0; overflow-wrap: anywhere; }
+
+      /* --- column-mapping modal --- */
+      .modal {
+        position: fixed; inset: 0; z-index: 50; display: flex;
+        align-items: center; justify-content: center;
+        background: rgba(17, 24, 39, 0.45); padding: 16px;
+      }
+      .modal[hidden] { display: none; }
+      .modal-card {
+        background: #fff; border-radius: 14px; padding: 20px 22px;
+        width: min(420px, 100%); box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
+        max-height: 90vh; overflow-y: auto;
+      }
+      .modal-card h2 { margin: 0 0 4px; font-size: 17px; }
+      .modal-sub { margin: 0 0 16px; font-size: 12px; color: var(--muted); }
+      .modal-field { margin-bottom: 12px; }
+      .modal-field label {
+        display: block; font-size: 12px; font-weight: 600; margin-bottom: 4px;
+      }
+      .modal-field select {
+        width: 100%; padding: 8px 10px; font-size: 13px; font-family: inherit;
+        color: var(--ink); background: #fff; border: 1px solid #d1d5db;
+        border-radius: 8px;
+      }
+      .modal-req { color: var(--muted); font-weight: 400; }
+      .modal-actions { display: flex; gap: 8px; margin-top: 18px; }
+      .modal-actions button {
+        flex: 1; padding: 9px 12px; font-size: 13px; font-weight: 600;
+        font-family: inherit; border-radius: 8px; cursor: pointer;
+        border: 1px solid #d1d5db; background: #fff; color: var(--ink);
+      }
+      #modal-confirm {
+        background: #2f6f9f; border-color: #2f6f9f; color: #fff;
+      }
+      #modal-confirm:disabled { opacity: 0.5; cursor: not-allowed; }
+      .modal-actions button:hover { filter: brightness(0.97); }
+
+      /* --- About / info dialog body --- */
+      #info-modal .modal-card { width: min(520px, 100%); }
+      .info-body { font-size: 13px; line-height: 1.5; color: var(--ink); }
+      .info-body h3 {
+        margin: 16px 0 4px; font-size: 13px; font-weight: 700;
+      }
+      .info-body h3:first-child { margin-top: 4px; }
+      .info-body p { margin: 0 0 8px; }
+      .info-body ul { margin: 0 0 8px; padding-left: 18px; }
+      .info-body li { margin-bottom: 6px; }
+      .info-body a { color: #2f6f9f; }
+      .info-body .info-src { color: var(--muted); font-size: 12px; }
+
+      /* --- hover tooltip --- */
+      #point-tip {
+        position: fixed; z-index: 40; pointer-events: none;
+        background: rgba(17, 24, 39, 0.92); color: #fff;
+        padding: 5px 9px; border-radius: 7px; font-size: 12px; line-height: 1.35;
+        max-width: 240px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        white-space: nowrap;
+      }
+      #point-tip[hidden] { display: none; }
+      #point-tip .tip-name { font-weight: 700; }
+      #point-tip .tip-val { opacity: 0.85; }
+      /* Notes and errors from the ingest layer. Guessing a weight column
+         silently is how a plausible wrong answer gets believed, so this is
+         never hidden while a source has something to say. */
+      .notice {
+        margin: 0 0 12px; font-size: 11px; line-height: 1.45; color: var(--muted);
+        border-left: 3px solid #d1d5db; padding: 4px 0 4px 8px;
+      }
+      .notice.error { color: #9f1239; border-left-color: var(--secondary); }
+      /* --- below the fold ---
+         Content under the map. It exists partly to be read and partly because
+         the page MUST be taller than the viewport: Google's consent badge only
+         appears after a scroll, and a page with nothing to scroll to is the
+         problem this layout change was made to fix. */
+      #below {
+        max-width: var(--col); margin: 0 auto; padding: 28px 20px 56px;
+        background: #fff;
+      }
+      #below h2 {
+        margin: 28px 0 8px; font-size: 13px; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted);
+      }
+      #below h2:first-child { margin-top: 0; }
+      #below p, #below li { font-size: 14px; line-height: 1.6; }
+      #below ul { padding-left: 20px; }
+      #below li { margin: 5px 0; }
+      .site-foot {
+        margin-top: 32px; padding-top: 16px; border-top: 1px solid #e5e7eb;
+        font-size: 12px; color: var(--muted); line-height: 1.6;
+      }
+      .site-foot a { color: var(--primary); }
+
+      /* --- the ad ---
+         In the content flow below the fold, so it can never cover the map.
+         The height is on the CONTAINER, not the <ins>: adsbygoogle.js rewrites
+         the unit's inline style once it picks a creative, so anything set there
+         is overwritten — but it cannot escape a container that clips.
+
+         The space is reserved whether or not an ad arrives. Everything below it
+         would otherwise jump down the moment the creative lands, and the player
+         may be mid-read. */
+      .adbox {
+        display: block; margin: 28px 0; text-align: center;
+      }
+      .ad-tag {
+        display: block; font-size: 9px; line-height: 1.4;
+        letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+        margin-bottom: 3px;
+      }
+      #ad-slot {
+        width: 100%; height: 100px; overflow: hidden;
+        min-height: 0;
+        display: flex; align-items: center; justify-content: center;
+      }
+      /* THE size of the ad, and the only place it is declared. adsbygoogle.js
+         reads the unit's COMPUTED size when it requests the ad, and rewrites
+         the inline style afterwards — hence !important. */
+      #ad-slot .adsbygoogle {
+        display: inline-block !important;
+        width: 320px !important; height: 100px !important;
+      }
+      @media (min-width: 800px) {
+        #ad-slot { height: 90px; }
+        #ad-slot .adsbygoogle { width: 728px !important; height: 90px !important; }
+      }
+      /* No ad came back. AdSense stamps data-ad-status="unfilled"; a label over
+         an empty box reads as broken, so hide the contents — but keep the
+         height, or the content below shifts after load. */
+      .adbox:has(.adsbygoogle[data-ad-status="unfilled"]) > * { visibility: hidden; }
+      .ad-placeholder {
+        margin: 0; width: 320px; height: 100px; display: flex;
+        align-items: center; justify-content: center;
+        font-size: 11px; color: var(--muted);
+        border: 1px dashed #cbd5e1; border-radius: 6px; background: #f8fafc;
+      }
+      @media (min-width: 800px) {
+        .ad-placeholder { width: 728px; height: 90px; }
+      }
+
+      /* --- top bar / HUD ---
+         The task on top, the controls under it, the ingest notice below both.
+         Deliberately never shows the split: renderHud() writes the puzzle and
+         the guesses used, and nothing else. */
+      /* The task box. The question is the only thing in this bar the player
+         has to read, and as one run-on sentence with the puzzle number and the
+         round it read as a status line. Boxed, tinted and last in the bar, it
+         reads as the question it is. */
+      #hud {
+        /* Full column width: .bar-inner already caps it, and an inset box
+           would not line up with the map box directly under it. */
+        margin: 0; width: 100%; box-sizing: border-box; text-align: center;
+        padding: 9px 14px 8px; border-radius: 12px;
+        border: 1px solid #bcd3e6; border-left: 4px solid var(--primary);
+        background: #eff6fc;
+      }
+      /* ?date= preview only (the owner checking a schedule). Dashed and amber
+         so it can never be mistaken for part of the real game. */
+      #preview-bar {
+        display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: center;
+        align-items: center; margin: 0 0 6px; padding: 5px 10px;
+        border: 1px dashed #c58a1a; border-radius: 8px; background: #fff7e6;
+        font-size: 13px; color: var(--ink);
+      }
+      #preview-bar a { color: var(--primary); text-decoration: none; font-weight: 600; }
+      #hud-task {
+        margin: 0; font-size: 19px; line-height: 1.3; font-weight: 600;
+        color: var(--ink); font-variant-numeric: tabular-nums;
+      }
+      /* The affordance in words, next to the same hand that sits on the line. */
+      .hud-hint {
+        margin: 5px 0 0; font-size: 12px; line-height: 1.35; color: var(--muted);
+      }
+      /* Puzzle number and round: chrome, not the question. Small, in the meta
+         row, and visibly a different kind of thing from the task. */
+      #hud-no { font-weight: 800; color: var(--primary); font-size: 15px; }
+      .res-learn-head {
+        margin: 16px 0 6px; font-size: 11px; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted);
+      }
+      .res-learn {
+        margin: 0 0 14px; padding-left: 18px;
+        font-size: 13px; line-height: 1.45;
+      }
+      .res-learn li { margin: 4px 0; }
+      /* --- the revealed answer ---
+         Green, so it can never read as the player's own line. The newest is
+         solid and full strength; earlier rounds fade back to history but stay,
+         because the takeaway compares against them and a line you can see beats
+         a line described in words. */
+      .answer-line {
+        stroke: #047857; stroke-width: 2; fill: none;
+        stroke-dasharray: 7 5; opacity: 0.4;
+      }
+      .answer.fresh .answer-line { stroke-width: 3; opacity: 1; stroke-dasharray: none; }
+      .answer-tag text {
+        font: 700 10px/1 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        fill: #047857; opacity: 0.55; paint-order: stroke;
+        stroke: rgba(255, 255, 255, 0.85); stroke-width: 3px;
+      }
+      .answer.fresh .answer-tag text { opacity: 1; font-size: 11px; }
+
+      /* --- the reveal toast ---
+         Lives inside #stage, so it can never overlap the ad bar, and sits low
+         because the country occupies the middle of the map. */
+      .toast {
+        position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
+        z-index: 15; width: min(440px, calc(100% - 24px));
+        background: var(--panel-bg, #fff); color: var(--ink);
+        border: 1px solid #cfdae2; border-radius: 12px;
+        box-shadow: 0 8px 28px rgba(15, 23, 42, 0.18);
+        padding: 12px 14px;
+        animation: toast-in 180ms ease-out;
+      }
+      @keyframes toast-in {
+        from { opacity: 0; transform: translate(-50%, 8px); }
+        to   { opacity: 1; transform: translate(-50%, 0); }
+      }
+      @media (prefers-reduced-motion: reduce) { .toast { animation: none; } }
+      #toast-verdict {
+        margin: 0; font-size: 15px; font-weight: 700;
+        font-variant-numeric: tabular-nums;
+      }
+      #toast-verdict.fb-hit { color: #047857; }
+      #toast-verdict.fb-miss { color: var(--secondary); }
+      #toast-fact {
+        margin: 5px 0 0; font-size: 13px; line-height: 1.4; color: var(--muted);
+      }
+      .toast-actions {
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 12px; margin-top: 10px;
+      }
+      #toast-points { font-size: 15px; font-weight: 800; font-variant-numeric: tabular-nums; }
+      #toast-next {
+        font-size: 13px; font-weight: 700; padding: 8px 14px;
+        border-radius: 8px; border: 1px solid var(--primary);
+        background: var(--primary); color: #fff; cursor: pointer;
+      }
+      #toast-next:hover { filter: brightness(1.08); }
+
+      /* Guesses used, as five pips. Filled = spent, green = solved. */
+      #hud-dots { display: inline-flex; gap: 4px; align-items: center; }
+      .g-dot {
+        width: 9px; height: 9px; border-radius: 50%;
+        border: 1.5px solid #94a3b8; background: transparent;
+      }
+      .g-dot.g-used { background: #94a3b8; }
+      .g-dot.g-hit { background: #047857; border-color: #047857; }
+
+      /* The meta row: which puzzle, which round, how many guesses spent. */
+      .bar-meta { gap: 9px; }
+      /* The round marker. Separated from the puzzle number by a rule rather
+         than by a space, so the two read as two facts and not as a title. */
+      .hud-round {
+        font-size: 12px; font-weight: 700; color: var(--muted);
+        text-transform: uppercase; letter-spacing: 0.06em;
+        padding-left: 9px; border-left: 1px solid #cbd5e1;
+      }
+
+      /* The grab affordance on the line itself. Pointer events off: the whole
+         map is the drag target, and a hand that swallowed the pointerdown
+         under itself would be the one place the line could not be grabbed. */
+      #grip { pointer-events: none; }
+      #grip-disc { fill: #fff; stroke: var(--primary); stroke-width: 1.5; opacity: 0.9; }
+      #grip-hand {
+        font-size: 15px; text-anchor: middle;
+        /* Emoji are colour glyphs; a fill is set anyway for the fallback. */
+        fill: var(--ink);
+      }
+
+      /* The scorecard: one row per statistic. Selectable text rather than an
+         image, so a refused clipboard API still leaves something copyable. */
+      .res-rows {
+        list-style: none; margin: 12px 0; padding: 0;
+        display: grid; gap: 8px; user-select: text;
+      }
+      .res-rows li {
+        display: grid; grid-template-columns: auto 1fr auto;
+        gap: 4px 10px; align-items: baseline;
+      }
+      .res-rows .r-bar { font-size: 17px; letter-spacing: 1px; }
+      .res-rows .r-name { font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
+      .res-rows .r-detail {
+        font-size: 12px; color: var(--muted); white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+      }
+      #res-score { margin: 0; font-weight: 800; font-size: 18px;
+                   font-variant-numeric: tabular-nums; }
+      .share-note { margin: 8px 0 0; font-size: 12px; color: var(--muted); }
+      #btn-share {
+        border-color: var(--primary); background: var(--primary); color: #fff;
+        font-weight: 700;
+      }
+      #topbar {
+        grid-area: topbar; min-width: 0;
+        display: block;
+        padding: 8px 14px 10px;
+        background: var(--panel-bg); border-bottom: 1px solid #cfdae2;
+        /* Sticky now that the page scrolls: the task and the guess button must
+           stay reachable while the player is reading below the map. Opaque
+           background, or the map would show through it. */
+        position: sticky; top: 0; z-index: 20;
+        background: #fff;
+        /* Never let the chrome eat the map: past this the controls scroll
+           inside the bar instead of pushing the coastline off-screen. */
+        max-height: 45vh; overflow-y: auto;
+      }
+      /* The bar's column. Same width and same centre as the map box and the
+         prose, so the three read as one page rather than three. */
+      .bar-inner {
+        width: 100%; max-width: var(--col); margin: 0 auto;
+        display: flex; flex-direction: column; align-items: center; gap: 7px;
+      }
+      /* Wordmark left, links right. */
+      .bar-top {
+        width: 100%; display: flex; flex-wrap: wrap; align-items: center;
+        justify-content: space-between; gap: 6px 14px;
+      }
+      .bar-group { display: flex; align-items: center; gap: 6px; min-width: 0; }
+
+      /* --- the map picker ---
+         Flags, because the region IS the identity here and four words would
+         crowd the bar. Each button carries a title and an aria-label with the
+         full name, so the flag is a shorthand and never the only cue. */
+      .bar-regions { gap: 2px; }
+      .region-btn {
+        border: 1px solid transparent; background: transparent;
+        border-radius: 8px; cursor: pointer; line-height: 1;
+        padding: 5px 7px; font-size: 17px;
+        /* 44px is the touch minimum and these are the one control a player
+           uses before anything else works. */
+        min-width: 34px; min-height: 34px;
+        filter: grayscale(1); opacity: 0.55;
+        transition: opacity 120ms, filter 120ms;
+      }
+      .region-btn:hover { opacity: 0.9; filter: grayscale(0.2); }
+      .region-btn.is-active {
+        opacity: 1; filter: none;
+        border-color: var(--primary); background: #eff6fc;
+      }
+      /* A region with no statistics is still selectable — going and looking at
+         the map is the point — but it should not look like the others. */
+      .region-btn.is-maponly .region-flag { opacity: 0.75; }
+      .region-btn.is-maponly.is-active { border-style: dashed; }
+      .region-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 1px; }
+
+      /* --- difficulty ---
+         A segmented pair, so the alternative is always readable. Normal is
+         first because it is the default: 50/50 is the question the map makes
+         you want to answer. */
+      .bar-modes {
+        gap: 0; border: 1px solid #cbd5e1; border-radius: 999px;
+        padding: 2px; background: #f1f5f9;
+      }
+      .mode-btn {
+        border: 0; background: transparent; color: var(--muted);
+        font: 700 11px/1 inherit; letter-spacing: 0.04em; text-transform: uppercase;
+        padding: 6px 11px; border-radius: 999px; cursor: pointer;
+        min-height: 26px;
+      }
+      .mode-btn:hover { color: var(--ink); }
+      .mode-btn.is-active {
+        background: #fff; color: var(--primary);
+        box-shadow: 0 1px 2px rgba(31, 41, 55, 0.16);
+      }
+      .mode-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 1px; }
+      /* The wordmark. Sized and weighted to read as a logo rather than as one
+         more label in the bar, and pinned left so the bar has a fixed anchor
+         whatever the controls beside it wrap to. */
+      .bar-brand {
+        flex: none; display: flex; align-items: center; gap: 7px;
+        align-self: center;
+      }
+      .bar-brand h1 {
+        margin: 0; font-size: 23px; font-weight: 800; letter-spacing: -0.03em;
+        white-space: nowrap; color: var(--ink);
+      }
+      .bar-links { flex-wrap: wrap; gap: 6px 12px; }
+      #topbar .notice {
+        margin: 0; max-width: 640px; text-align: center;
+        border-left: 0; border-radius: 999px; padding: 3px 12px;
+        background: #f1f5f9;
+      }
+      #topbar .notice.error { background: #fee2e2; color: #9f1239; }
+      /* --- narrow screens ---
+         No layout swap to make: the three rows are the same shape at every
+         width. Only the packing changes. */
+      @media (max-width: 640px) {
+        .bar-brand h1 { font-size: 18px; }
+        .bar-inner { gap: 6px; }
+        /* Long labels give way to short ones; both stay in the DOM for
+           screen readers. */
+        .lbl-long { display: none; }
+        .lbl-short { display: inline; }
+        /* Four items in one wrapping row cost three rows and 229px of chrome
+           on a 390px phone — the map is what the page is for. Two fixed rows
+           instead: identity and links above, the two pickers below. */
+        .bar-top {
+          display: grid; gap: 5px 10px;
+          grid-template-columns: auto auto;
+          grid-template-areas: "brand links" "regions modes";
+          align-items: center; justify-content: space-between;
+        }
+        .bar-brand { grid-area: brand; }
+        .bar-links { grid-area: links; justify-self: end; }
+        .bar-regions { grid-area: regions; }
+        .bar-modes { grid-area: modes; justify-self: end; }
+        .region-btn { min-width: 44px; min-height: 44px; font-size: 19px; }
+        .mode-btn { padding: 9px 12px; min-height: 38px; font-size: 11px; }
+        /* Never let the chrome eat the map: past this the top bar scrolls
+           inside itself rather than pushing the coastline off-screen. */
+        #topbar { max-height: 42vh; overflow-y: auto; padding: 7px 10px 8px; }
+
+        .toast { bottom: 10px; padding: 11px 12px; }
+        #toast-verdict { font-size: 14px; }
+        #toast-fact { font-size: 12px; }
+        /* 44px minimum touch target — it is the only way forward, so it has to
+           be comfortably hittable. */
+        #toast-next { padding: 14px 18px; font-size: 14px; min-height: 44px; }
+        /* Match the bar's narrow padding, or the map box and the task box
+           above it sit on different left edges. */
+        #play { padding: 12px 10px 16px; }
+        #hud { padding: 8px 11px 7px; border-radius: 10px; }
+        #hud-task { font-size: 15px; }
+        .hud-hint { font-size: 11px; }
+        .res-rows li { grid-template-columns: auto 1fr; }
+        .res-rows .r-detail { grid-column: 2; white-space: normal; }
+      }
+
+      /* The picker's own display:flex beats the [hidden] attribute, so hiding it
+         (one visible mode — Pro is hidden) needs saying explicitly. */
+      #mode-picker[hidden] { display: none; }

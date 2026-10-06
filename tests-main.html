@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MapSplit — tests</title>
+    <style>
+      body { font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+             margin: 24px; color: #1f2937; }
+      h1 { font-size: 18px; margin: 0 0 4px; }
+      .note { color: #6b7280; font-size: 12px; margin: 0 0 18px; }
+      #summary { font-size: 16px; font-weight: 700; padding: 10px 14px;
+                 border-radius: 8px; margin-bottom: 14px; }
+      .ok { background: #dcfce7; color: #166534; }
+      .bad { background: #fee2e2; color: #991b1b; }
+      li { margin: 2px 0; }
+      li.pass::marker { content: '✓ '; color: #16a34a; }
+      li.fail::marker { content: '✗ '; color: #dc2626; }
+      li.fail { color: #991b1b; }
+      ul { list-style-position: inside; padding-left: 0; }
+      .detail { color: #6b7280; }
+      #hidden { position: absolute; visibility: hidden; pointer-events: none; }
+    </style>
+  </head>
+  <body>
+    <h1>MapSplit — pure logic tests</h1>
+    <p class="note">
+      Extracts the <code>/* BEGIN PURE */ … /* END PURE */</code> block from
+      <code>app-main.js</code> and runs assertions against it, so these tests
+      cannot drift from the implementation.<br />
+      Must be served over HTTP (<code>fetch()</code> of a sibling file is blocked
+      under <code>file://</code>) — e.g. <code>http://localhost/MapSplit/tests.html</code>.
+    </p>
+    <div id="summary">running…</div>
+    <ul id="results"></ul>
+
+    <!-- A real SVG, used to test the screen↔world CTM round-trip. -->
+    <svg id="hidden" preserveAspectRatio="xMidYMid meet"></svg>
+
+    <script>
+      const results = [];
+      const near = (a, b, eps = 1e-9) => Math.abs(a - b) <= eps;
+
+      function test(name, fn) {
+        try {
+          const detail = fn();
+          results.push({ name, pass: true, detail: detail || '' });
+        } catch (e) {
+          results.push({ name, pass: false, detail: e && e.message ? e.message : String(e) });
+        }
+      }
+      function assert(cond, msg) {
+        if (!cond) throw new Error(msg || 'assertion failed');
+      }
+
+      function render() {
+        const ul = document.getElementById('results');
+        ul.innerHTML = results
+          .map(
+            (r) =>
+              `<li class="${r.pass ? 'pass' : 'fail'}">${r.name}` +
+              (r.detail ? ` <span class="detail">— ${r.detail}</span>` : '') +
+              `</li>`
+          )
+          .join('');
+        const failed = results.filter((r) => !r.pass).length;
+        const el = document.getElementById('summary');
+        el.className = failed ? 'bad' : 'ok';
+        el.textContent = failed
+          ? `${failed} of ${results.length} FAILED`
+          : `all ${results.length} passed`;
+      }
+
+      async function main() {
+        let src;
+        try {
+          const html = await fetch('app-main.js').then((r) => {
+            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            return r.text();
+          });
+          const m = html.match(/\/\* BEGIN PURE \*\/([\s\S]*?)\/\* END PURE \*\//);
+          if (!m) throw new Error('PURE markers not found in app-main.js');
+          src = m[1];
+        } catch (e) {
+          document.getElementById('summary').className = 'bad';
+          document.getElementById('summary').textContent =
+            `Could not load app-main.js: ${e.message}. Serve this page over HTTP.`;
+          return;
+        }
+
+        // Indirect eval → the block's declarations land on globalThis.
+        (0, eval)(src);
+
+        // --- projection ----------------------------------------------------
+        test('lngLatToMerc / mercToLngLat round-trip', () => {
+          for (const ll of [[-8.65, 61], [1.9, 49.8], [0, 0], [-3.6, 54.6], [1.3, 52.63]]) {
+            const back = mercToLngLat(lngLatToMerc(ll));
+            assert(near(back[0], ll[0], 1e-9), `lng ${back[0]} != ${ll[0]}`);
+            assert(near(back[1], ll[1], 1e-9), `lat ${back[1]} != ${ll[1]}`);
+          }
+          return '5 coordinates';
+        });
+
+        test('Mercator is monotonic: higher latitude → smaller y', () => {
+          assert(lngLatToMerc([0, 61])[1] < lngLatToMerc([0, 49.8])[1]);
+        });
+
+        test('mercToWorld / worldToMerc round-trip', () => {
+          for (const m of [[0.4, 0.3], [0.5, 0.28], [0.47597, 0.2848]]) {
+            const back = worldToMerc(mercToWorld(m));
+            assert(near(back[0], m[0], 1e-12) && near(back[1], m[1], 1e-12));
+          }
+        });
+
+        test('lngLatToWorld / worldToLngLat round-trip', () => {
+          const ll = [-2.5, 54.3];
+          const back = worldToLngLat(lngLatToWorld(ll));
+          assert(near(back[0], ll[0], 1e-8) && near(back[1], ll[1], 1e-8));
+        });
+
+        test('display bbox maps to the viewBox origin', () => {
+          const w = lngLatToWorld([CONFIG.displayBbox[0], CONFIG.displayBbox[3]]);
+          assert(near(w[0], 0, 1e-6) && near(w[1], 0, 1e-6), `got ${w}`);
+        });
+
+        // --- classification ------------------------------------------------
+        test('sideValue sign separates the two sides', () => {
+          const A = lngLatToMerc([-5, 54]);
+          const B = lngLatToMerc([2, 54]);
+          const north = lngLatToMerc([-1, 58]);
+          const south = lngLatToMerc([-1, 51]);
+          assert(Math.sign(sideValue(A, B, north)) !== Math.sign(sideValue(A, B, south)));
+        });
+
+        test('sideValue is ~0 for a point on the line', () => {
+          const A = lngLatToMerc([-5, 54]);
+          const B = lngLatToMerc([2, 54]);
+          assert(Math.abs(sideValue(A, B, lngLatToMerc([-1, 54]))) < 1e-12);
+        });
+
+        test('clipToHalfPlane splits a square into two halves', () => {
+          const sq = [[0, 0], [1, 0], [1, 1], [0, 1]];
+          const A = [0, 0.5], B = [1, 0.5];
+          const pos = clipToHalfPlane(sq, A, B, +1);
+          const neg = clipToHalfPlane(sq, A, B, -1);
+          assert(pos.length >= 3 && neg.length >= 3, 'both halves non-degenerate');
+          const area = (p) => Math.abs(p.reduce((s, c, i) => {
+            const n = p[(i + 1) % p.length];
+            return s + c[0] * n[1] - n[0] * c[1];
+          }, 0)) / 2;
+          assert(near(area(pos), 0.5, 1e-12) && near(area(neg), 0.5, 1e-12),
+            `areas ${area(pos)} / ${area(neg)}`);
+        });
+
+        // --- computeSplit ---------------------------------------------------
+        test('an E–W divide puts the northern half in .primary and says North/South', () => {
+          const s = computeSplit([-5, 54], [2, 54], CONFIG.padBbox);
+          const latOf = (ring) =>
+            ring.reduce((a, p) => a + mercToLngLat(p)[1], 0) / ring.length;
+          assert(latOf(s.primary) > latOf(s.secondary),
+            `primary ${latOf(s.primary).toFixed(2)} vs secondary ${latOf(s.secondary).toFixed(2)}`);
+          assert(s.orientation === 'ns', `orientation ${s.orientation}`);
+          assert(s.labels[0] === 'North' && s.labels[1] === 'South', s.labels.join('/'));
+        });
+
+        // These are the regression tests for the inverted-labelling bug: the
+        // labelling must not depend on the clip rectangle, and a known city
+        // must land on the side a human would name.
+        test('labelling is independent of the clip rectangle', () => {
+          const boxes = [
+            [-13, 47, 5, 62],      // the old fixed padBbox
+            [-30, 45, 25, 65],     // wide window
+            [-9, 49, 2, 61],       // tight
+            [-60, 40, 60, 70],     // very wide
+          ];
+          for (const line of [[[-5, 54], [2, 54]], [[-3.6, 54.6], [0.9, 51.2]], [[-8, 50], [3, 60]]]) {
+            const signs = boxes.map((b) => computeSplit(line[0], line[1], b).primarySign);
+            assert(new Set(signs).size === 1,
+              `line ${JSON.stringify(line)} gave primarySigns ${signs}`);
+          }
+          return '3 lines × 4 boxes';
+        });
+
+        test('Edinburgh is North and Brighton is South of a mid-UK divide', () => {
+          const edinburgh = [-3.1883, 55.9533];
+          const brighton = [-0.1372, 50.8225];
+          for (const box of [[-13, 47, 5, 62], [-60, 40, 60, 70]]) {
+            const s = computeSplit([-5, 54], [2, 54], box);
+            const labelOf = (ll) =>
+              s.labels[(sideValue(s.A, s.B, lngLatToMerc(ll)) >= 0 ? 1 : -1) === s.primarySign ? 0 : 1];
+            assert(labelOf(edinburgh) === 'North', `Edinburgh got ${labelOf(edinburgh)}`);
+            assert(labelOf(brighton) === 'South', `Brighton got ${labelOf(brighton)}`);
+          }
+        });
+
+        test('Aberystwyth is West and Norwich is East of a N–S divide', () => {
+          // The relabelling case: a vertical divide splits west/east, and the
+          // cards must say so rather than "North"/"South".
+          const aberystwyth = [-4.0819, 52.4153];
+          const norwich = [1.2974, 52.6309];
+          const s = computeSplit([-2.5, 50], [-2.5, 60], CONFIG.padBbox);
+          assert(s.orientation === 'we', `orientation ${s.orientation}`);
+          assert(s.labels[0] === 'West' && s.labels[1] === 'East', s.labels.join('/'));
+          const labelOf = (ll) =>
+            s.labels[(sideValue(s.A, s.B, lngLatToMerc(ll)) >= 0 ? 1 : -1) === s.primarySign ? 0 : 1];
+          assert(labelOf(aberystwyth) === 'West', `Aberystwyth got ${labelOf(aberystwyth)}`);
+          assert(labelOf(norwich) === 'East', `Norwich got ${labelOf(norwich)}`);
+        });
+
+        test('the canonical NW–SE divide is still called North/South', () => {
+          // The threshold is tan(22.5°), NOT 45°, precisely so the Alasdair Rae
+          // style diagonal this app exists to draw keeps its North/South naming.
+          const s = computeSplit(...CONFIG.defaultLine, CONFIG.padBbox);
+          assert(s.orientation === 'ns', `default line got ${s.orientation}`);
+        });
+
+        test('reversing the endpoints does not swap the two halves', () => {
+          for (const box of [[-13, 47, 5, 62], [-60, 40, 60, 70]]) {
+            const fwd = computeSplit([-5, 54], [2, 54], box);
+            const rev = computeSplit([2, 54], [-5, 54], box);
+            const p = lngLatToMerc([-3, 58]); // definitely northern
+            const labelIn = (s) =>
+              s.labels[(sideValue(s.A, s.B, p) >= 0 ? 1 : -1) === s.primarySign ? 0 : 1];
+            assert(labelIn(fwd) === 'North' && labelIn(rev) === 'North',
+              `fwd ${labelIn(fwd)}, rev ${labelIn(rev)}`);
+          }
+        });
+
+        test('no flip at vertical any more — the West/East regime is stable there', () => {
+          // This is what the relabelling bought: rotating through exactly
+          // vertical no longer swaps the halves, because inside the West/East
+          // band the sign rule keys off dy, which does not change sign there.
+          const at = (d) => computeSplit([-4, 50], [-4 + d, 60], CONFIG.padBbox);
+          const across = [-0.5, -0.05, 0, 0.05, 0.5].map(at);
+          assert(across.every((s) => s.orientation === 'we'), 'all should be West/East');
+          assert(new Set(across.map((s) => s.primarySign)).size === 1,
+            `flipped at vertical: ${across.map((s) => s.primarySign)}`);
+        });
+
+        test('the single unavoidable flip sits at a regime boundary', () => {
+          // One discontinuity is topologically unavoidable (rotating 180°
+          // returns the same line with its halves exchanged). It must land on
+          // the North/South ↔ West/East boundary, where the words change too.
+          const at = (t) => computeSplit([-4, 54], [-4 + Math.cos(t), 54 + Math.sin(t)],
+                                         CONFIG.padBbox);
+          let flips = 0, relabels = 0, prev = at(0);
+          for (let i = 1; i <= 180; i++) {
+            const cur = at((i * Math.PI) / 180);
+            const flipped = cur.primarySign !== prev.primarySign;
+            const relabelled = cur.orientation !== prev.orientation;
+            if (flipped) { flips++; assert(relabelled, `flip without relabel at ${i}°`); }
+            if (relabelled) relabels++;
+            prev = cur;
+          }
+          assert(flips === 1, `expected exactly 1 flip over 180°, got ${flips}`);
+          return `${flips} flip, ${relabels} relabels over 180°`;
+        });
+
+        test('the Vertical snap button gives a deterministic labelling', () => {
+          const runs = [
+            snapEndpoints([-3.6, 54.6], [0.9, 51.2], 'vertical'),
+            snapEndpoints([-1, 52], [1, 56], 'vertical'),
+          ].map(([a, b]) => computeSplit(a, b, CONFIG.padBbox));
+          assert(new Set(runs.map((s) => s.primarySign)).size === 1,
+            `primarySigns ${runs.map((s) => s.primarySign)}`);
+          assert(runs.every((s) => s.orientation === 'we'), 'vertical snap must read West/East');
+        });
+
+        test('the Horizontal snap button reads North/South', () => {
+          const [a, b] = snapEndpoints([-3.6, 54.6], [0.9, 51.2], 'horizontal');
+          assert(computeSplit(a, b, CONFIG.padBbox).orientation === 'ns');
+        });
+
+        // --- balancePosition (50/50 boundary) -------------------------------
+        test('balancePosition centres an even, symmetric, equal-weight set', () => {
+          const m = balancePosition([-2, -1, 1, 2], [1, 1, 1, 1]);
+          assert(near(m, 0, 1e-9), `expected 0, got ${m}`);
+        });
+
+        test('balancePosition puts a heavy tail point alone on its side', () => {
+          // values 0..4 with weight 6 on the last: best split is {4} vs the
+          // rest (6 vs 4), so the boundary sits between 3 and 4, NOT past 4.
+          const m = balancePosition([0, 1, 2, 3, 4], [1, 1, 1, 1, 6]);
+          assert(m > 3 && m < 4, `expected boundary in (3,4), got ${m}`);
+        });
+
+        test('balancePosition weights the median, not the midpoint', () => {
+          // Nearly all weight at value 0 → boundary above 0, below 10.
+          const m = balancePosition([0, 10], [3, 1]);
+          assert(m > 0 && m < 10, `expected boundary in (0,10), got ${m}`);
+        });
+
+        test('balancePosition falls back to the range midpoint with no weight', () => {
+          const m = balancePosition([2, 8], [0, 0]);
+          assert(near(m, 5, 1e-9), `expected 5, got ${m}`);
+        });
+
+        test('balancePosition never returns a value that sits on a point', () => {
+          const vals = [1, 2, 2, 3, 5, 8];
+          const m = balancePosition(vals, [2, 1, 1, 4, 1, 1]);
+          assert(vals.every((v) => v !== m), `boundary ${m} landed on a point`);
+        });
+
+        test('computeSplit primarySign classifies a known northern point', () => {
+          const s = computeSplit([-5, 54], [2, 54], CONFIG.padBbox);
+          const sgn = sideValue(s.A, s.B, lngLatToMerc([-3, 58])) >= 0 ? 1 : -1;
+          assert(sgn === s.primarySign);
+        });
+
+        test('swapping A/B keeps the same half in .primary', () => {
+          const fwd = computeSplit([-5, 54], [2, 54], CONFIG.padBbox);
+          const rev = computeSplit([2, 54], [-5, 54], CONFIG.padBbox);
+          const latOf = (ring) =>
+            ring.reduce((a, p) => a + mercToLngLat(p)[1], 0) / ring.length;
+          assert(near(latOf(fwd.primary), latOf(rev.primary), 1e-9),
+            'primary half must be the same regardless of endpoint order');
+        });
+
+        test('computeSplit returns a divider crossing the bbox', () => {
+          const s = computeSplit([-5, 54], [2, 54], CONFIG.padBbox);
+          assert(s.dividerLine && s.dividerLine.length === 2);
+        });
+
+        test('a vertical line yields east/west halves of equal-ish area', () => {
+          const s = computeSplit([-4, 50], [-4, 60], CONFIG.padBbox);
+          assert(s.primary.length >= 3 && s.secondary.length >= 3);
+        });
+
+        // --- stats ----------------------------------------------------------
+        test('computeStats sums to the totals', () => {
+          const sides = ['primary','secondary','primary','secondary'];
+          const weights = [10, 20, 30, 40];
+          const st = computeStats(sides, weights);
+          assert(st.primary.weight === 40 && st.secondary.weight === 60);
+          assert(st.totalWeight === 100 && st.totalCount === 4);
+        });
+
+        test('computeStats percentages sum to 100', () => {
+          const st = computeStats(['primary','secondary','secondary'], [5, 3, 2]);
+          assert(near(st.primary.pct + st.secondary.pct, 100, 1e-9));
+        });
+
+        test('computeStats handles zero total weight', () => {
+          const st = computeStats(['primary','secondary'], [0, 0]);
+          assert(st.primary.pct === 0 && st.secondary.pct === 0 && st.totalCount === 2);
+        });
+
+        // --- source provenance -----------------------------------------------
+
+        test('normalizeSources keeps well-formed entries', () => {
+          const out = normalizeSources([
+            { label: 'ONS estimates', url: 'https://ons.gov.uk/x' },
+            { label: 'LAD boundaries', url: 'https://geoportal/y' },
+          ]);
+          assert(out.length === 2);
+          assert(out[0].label === 'ONS estimates' && out[0].url === 'https://ons.gov.uk/x');
+          assert(out[1].url === 'https://geoportal/y');
+        });
+
+        test('normalizeSources gives a url-less entry url null', () => {
+          const out = normalizeSources([{ label: 'Loaded from your file: LA.csv' }, { label: 'x', url: '  ' }]);
+          assert(out.length === 2);
+          assert(out[0].url === null, 'missing url becomes null, not undefined');
+          assert(out[1].url === null, 'blank url becomes null too');
+        });
+
+        test('normalizeSources drops junk and defaults to an empty list', () => {
+          assert(normalizeSources(undefined).length === 0);
+          assert(normalizeSources([]).length === 0);
+          // No label means nothing to show, so the entry goes rather than
+          // rendering an empty bullet.
+          assert(normalizeSources([null, {}, { url: 'https://a' }, { label: '  ' }]).length === 0);
+        });
+
+        test('makeSource exposes normalized sources', () => {
+          const s = makeSource({
+            label: 'x', unit: 'people',
+            sources: [{ label: 'Some table', url: 'https://a' }, { label: 'note' }],
+            features: { coords: [[0, 0]], weights: [1] },
+          });
+          assert(s.sources.length === 2 && s.sources[1].url === null);
+          // A source that declares none still answers with a list.
+          assert(makeSource({ label: 'y', features: {} }).sources.length === 0);
+        });
+
+        test('every catalogue dataset declares at least one source', () => {
+          CONFIG.datasets.forEach((d) => {
+            assert(normalizeSources(d.sources).length > 0, `${d.label} has no sources`);
+          });
+          assert(normalizeSources(CONFIG.synthetic.sources).length > 0, 'synthetic has no sources');
+        });
+
+        // The wiring, not just the config: a source built the way the picker
+        // and the file:// boot fallback build it must carry its provenance
+        // through to the object setSource() reads.
+        test('the synthetic source carries CONFIG.synthetic.sources through', () => {
+          const s = createSyntheticSource(CONFIG.synthetic);
+          assert(s.sources.length === normalizeSources(CONFIG.synthetic.sources).length);
+          assert(s.sources[0].url === null, 'the synthetic note is plain text, not a link');
+        });
+
+        test('a catalogue entry carries its sources through createSourceFromText', () => {
+          const entry = CONFIG.datasets[0];
+          const csv = 'lng,lat,Population2024,Name\n-1,52,100,Placeville\n';
+          const s = createSourceFromText(entry.url, csv, entry);
+          assert(s.sources.length === 2, `got ${s.sources.length}`);
+          assert(s.sources[0].url.indexOf('http') === 0);
+        });
+
+        // --- data source ------------------------------------------------------
+        // getFeatures() resolves a promise in EVERY source, synthetic included,
+        // so the fixtures are resolved once here and the assertions below stay
+        // synchronous — the harness's `test` does not await.
+        const synth = (opts) => createSyntheticSource(opts).getFeatures();
+        const SYN = {
+          a50: await synth({ count: 50, seed: 42 }),
+          b50: await synth({ count: 50, seed: 42 }), // separate call, same seed
+          c50: await synth({ count: 50, seed: 43 }),
+          n200: await synth({ count: 200, seed: 7 }),
+          n300: await synth({ count: 300, seed: 42 }),
+          n500: await synth({ count: 500, seed: 42 }),
+          n800: await synth({ count: 800, seed: 3 }),
+        };
+
+        test('synthetic source is deterministic for a fixed seed', () => {
+          const a = SYN.a50, b = SYN.b50;
+          assert(JSON.stringify(a.coords) === JSON.stringify(b.coords));
+          assert(JSON.stringify(a.weights) === JSON.stringify(b.weights));
+        });
+
+        test('synthetic source honours count, and weights are positive', () => {
+          const f = SYN.n200;
+          assert(f.coords.length === 200 && f.weights.length === 200);
+          assert(f.weights.every((w) => w > 0));
+        });
+
+        test('a different seed gives different data', () => {
+          const a = SYN.a50, b = SYN.c50;
+          assert(JSON.stringify(a.coords) !== JSON.stringify(b.coords));
+        });
+
+        test('every classified point lands on exactly one side', () => {
+          const f = SYN.n500;
+          const s = computeSplit([-5, 54], [2, 54], CONFIG.padBbox);
+          const sides = f.coords.map((c) => {
+            const sgn = sideValue(s.A, s.B, lngLatToMerc(c)) >= 0 ? 1 : -1;
+            return sgn === s.primarySign ? 'primary' : 'secondary';
+          });
+          const st = computeStats(sides, f.weights);
+          const total = f.weights.reduce((a, b) => a + b, 0);
+          assert(st.totalCount === 500, `count ${st.totalCount}`);
+          assert(near(st.totalWeight, total, 1e-9), 'no weight lost or double-counted');
+        });
+
+        // The balance boundary, fed back through the real split + stats, must
+        // reconcile both sides to within the single straddling point's weight
+        // — the tightest a discrete 50/50 can be. maxW bounds that.
+        const balanceReconciles = (f, orientation) => {
+          const axis = orientation === 'horizontal' ? 1 : 0;
+          const med = balancePosition(f.coords.map((c) => c[axis]), f.weights);
+          const [a, b] = orientation === 'horizontal'
+            ? [[-12, med], [4, med]] : [[med, 49], [med, 61]];
+          const s = computeSplit(a, b, CONFIG.padBbox);
+          const sides = f.coords.map((c) =>
+            (sideValue(s.A, s.B, lngLatToMerc(c)) >= 0 ? 1 : -1) === s.primarySign
+              ? 'primary' : 'secondary');
+          const st = computeStats(sides, f.weights);
+          const maxW = Math.max(...f.weights);
+          return { s, gap: Math.abs(st.primary.weight - st.secondary.weight), maxW };
+        };
+
+        test('a horizontal balance line halves the weight (~50/50)', () => {
+          const r = balanceReconciles(SYN.n800, 'horizontal');
+          assert(r.s.orientation === 'ns', 'a horizontal balance line reads North/South');
+          assert(r.gap <= r.maxW, `imbalance ${r.gap} exceeds max point weight ${r.maxW}`);
+        });
+
+        test('a vertical balance line halves the weight (~50/50)', () => {
+          const r = balanceReconciles(SYN.n800, 'vertical');
+          assert(r.s.orientation === 'we', 'a vertical balance line reads West/East');
+          assert(r.gap <= r.maxW, `imbalance ${r.gap} exceeds max point weight ${r.maxW}`);
+        });
+
+        // --- contribution breakdown ---------------------------------------
+        test('synthetic source attributes every point to a named group', () => {
+          const f = SYN.n300;
+          assert(f.groups.length === 300 && f.groupNames.length === 23,
+            `${f.groups.length} groups, ${f.groupNames.length} names`);
+          assert(f.groups.every((g) => Number.isInteger(g) && f.groupNames[g] !== undefined),
+            'every point must index a real group name');
+          assert(f.groupNames[f.groupNames.length - 1] === 'Rural scatter');
+        });
+
+        test('breakdown columns reconcile exactly with the side totals', () => {
+          // The whole point of attributing at synthesis time: the parts must
+          // sum to the totals shown on the cards, with nothing lost or double
+          // counted.
+          const f = SYN.n800;
+          const s = computeSplit([-5, 54], [2, 54], CONFIG.padBbox);
+          const sides = f.coords.map((c) =>
+            (sideValue(s.A, s.B, lngLatToMerc(c)) >= 0 ? 1 : -1) === s.primarySign
+              ? 'primary' : 'secondary');
+          const stats = computeStats(sides, f.weights);
+          // limit = every group, so nothing is rolled up
+          const all = summariseContributors(sides, f.weights, f.groups, f.groupNames, 999);
+          const sumOf = (col) => col.rows.reduce((a, r) => a + r.weight, 0) + col.moreWeight;
+          assert(near(sumOf(all.primary), stats.primary.weight, 1e-9),
+            `${sumOf(all.primary)} vs ${stats.primary.weight}`);
+          assert(near(sumOf(all.secondary), stats.secondary.weight, 1e-9),
+            `${sumOf(all.secondary)} vs ${stats.secondary.weight}`);
+        });
+
+        test('the roll-up preserves the total when the list is truncated', () => {
+          const f = SYN.n800;
+          const s = computeSplit([-5, 54], [2, 54], CONFIG.padBbox);
+          const sides = f.coords.map((c) =>
+            (sideValue(s.A, s.B, lngLatToMerc(c)) >= 0 ? 1 : -1) === s.primarySign
+              ? 'primary' : 'secondary');
+          const stats = computeStats(sides, f.weights);
+          const top = summariseContributors(sides, f.weights, f.groups, f.groupNames, 3);
+          assert(top.primary.rows.length <= 3 && top.secondary.rows.length <= 3);
+          const sumOf = (col) => col.rows.reduce((a, r) => a + r.weight, 0) + col.moreWeight;
+          assert(near(sumOf(top.primary), stats.primary.weight, 1e-9), 'primary roll-up lost weight');
+          assert(near(sumOf(top.secondary), stats.secondary.weight, 1e-9), 'secondary roll-up lost weight');
+        });
+
+        test('rows are ordered by contribution, descending', () => {
+          const f = SYN.n800;
+          const s = computeSplit(...CONFIG.defaultLine, CONFIG.padBbox);
+          const sides = f.coords.map((c) =>
+            (sideValue(s.A, s.B, lngLatToMerc(c)) >= 0 ? 1 : -1) === s.primarySign
+              ? 'primary' : 'secondary');
+          const sum = summariseContributors(sides, f.weights, f.groups, f.groupNames, 5);
+          for (const col of [sum.primary, sum.secondary]) {
+            for (let i = 1; i < col.rows.length; i++) {
+              assert(col.rows[i - 1].weight >= col.rows[i].weight, 'out of order');
+            }
+          }
+        });
+
+        test('a cluster the divider cuts is flagged split in both columns', () => {
+          // A line straight through the middle of one cluster must mark it,
+          // otherwise the same name in both columns just looks like a bug.
+          const groupNames = ['Cut', 'North only', 'South only'];
+          const groups = [0, 0, 1, 2];
+          const weights = [10, 20, 30, 40];
+          const sides = ['primary', 'secondary', 'primary', 'secondary'];
+          const sum = summariseContributors(sides, weights, groups, groupNames, 5);
+          const find = (col, n) => col.rows.find((r) => r.name === n);
+          assert(find(sum.primary, 'Cut').split === true, 'primary side not flagged');
+          assert(find(sum.secondary, 'Cut').split === true, 'secondary side not flagged');
+          assert(find(sum.primary, 'North only').split === false, 'wrongly flagged');
+          assert(find(sum.secondary, 'South only').split === false, 'wrongly flagged');
+        });
+
+        test('groups contributing nothing to a side are omitted from it', () => {
+          const sum = summariseContributors(
+            ['primary', 'primary'], [5, 5], [0, 1], ['A', 'B', 'C'], 5);
+          assert(sum.primary.rows.length === 2, 'both contributing groups listed');
+          assert(sum.secondary.rows.length === 0 && sum.secondary.moreCount === 0,
+            'empty side must be empty, not zero-weight rows');
+          assert(!sum.primary.rows.some((r) => r.name === 'C'), 'C contributes nothing');
+        });
+
+        // --- hit testing --------------------------------------------------
+        test('hitTest returns null well away from the line', () => {
+          assert(hitTest([100, 100], [0, 0], [10, 0], 2) === null);
+        });
+
+        test('hitTest finds the segment body', () => {
+          assert(hitTest([5, 1], [0, 0], [10, 0], 2) === 'line');
+        });
+
+        test('hitTest prefers an endpoint over the segment', () => {
+          // [0.5, 0] is within radius of BOTH endpoint A and the line body.
+          assert(hitTest([0.5, 0], [0, 0], [10, 0], 2) === 'a');
+        });
+
+        test('hitTest picks the nearer endpoint', () => {
+          assert(hitTest([9.5, 0], [0, 0], [10, 0], 2) === 'b');
+        });
+
+        test('distSqToSegment clamps beyond the endpoints', () => {
+          // Off the end of the segment: distance is to the endpoint, not the
+          // infinite line (which would give 0).
+          assert(near(distSqToSegment([15, 0], [0, 0], [10, 0]), 25, 1e-12));
+        });
+
+        // --- snapping -------------------------------------------------------
+        test('snapEndpoints horizontal gives two equal latitudes', () => {
+          const [a, b] = snapEndpoints([-3.6, 54.6], [0.9, 51.2], 'horizontal');
+          assert(a[1] === b[1], `${a[1]} != ${b[1]}`);
+          assert(a[0] !== b[0], 'must still have length');
+        });
+
+        test('snapEndpoints vertical gives two equal longitudes', () => {
+          const [a, b] = snapEndpoints([-3.6, 54.6], [0.9, 51.2], 'vertical');
+          assert(a[0] === b[0], `${a[0]} != ${b[0]}`);
+          assert(a[1] !== b[1], 'must still have length');
+        });
+
+        test('snapEndpoints preserves the midpoint', () => {
+          const a0 = [-3.6, 54.6], b0 = [0.9, 51.2];
+          const mid0 = [(a0[0] + b0[0]) / 2, (a0[1] + b0[1]) / 2];
+          for (const o of ['horizontal', 'vertical']) {
+            const [a, b] = snapEndpoints(a0, b0, o);
+            const mid = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+            assert(near(mid[0], mid0[0], 1e-12) && near(mid[1], mid0[1], 1e-12), o);
+          }
+        });
+
+        test('snapping is idempotent (to within float noise)', () => {
+          // Re-snapping recomputes the midpoint and length from the previous
+          // result, so it drifts by ~1 ULP. Measured worst case: 2.2e-16.
+          // (The prototype's TerraDraw validator rejected exactly this kind of
+          // noise as "excessive precision"; nothing here cares.)
+          const once = snapEndpoints([-3.6, 54.6], [0.9, 51.2], 'horizontal');
+          const twice = snapEndpoints(once[0], once[1], 'horizontal');
+          for (let i = 0; i < 2; i++) {
+            assert(near(once[i][0], twice[i][0], 1e-12) && near(once[i][1], twice[i][1], 1e-12),
+              `drifted at endpoint ${i}`);
+          }
+        });
+
+        // --- data ingest ----------------------------------------------------
+        // Parsing is inside the PURE markers precisely so it can be tested
+        // here; the FileReader/fetch that produced the text is not.
+
+        const CSV = 'name,longitude,latitude,population\n' +
+          '"Newcastle, Staffs",-2.23,53.01,1200\n' +
+          'London,-0.1278,51.5074,9000\n' +
+          'nowhere,999,999,5\n';
+
+        test('CSV: finds lng/lat/weight columns by alias', () => {
+          const r = parseCsvText(CSV, {});
+          assert(r.coords.length === 2, `kept ${r.coords.length}`);
+          assert(r.weights[0] === 1200 && r.weights[1] === 9000, 'weights');
+          assert(r.unit === 'population', `unit ${r.unit}`);
+        });
+
+        test('CSV: quoted field containing the delimiter survives', () => {
+          const r = parseCsvText(CSV, {});
+          assert(r.groupNames[0] === 'Newcastle, Staffs', r.groupNames[0]);
+        });
+
+        test('CSV: out-of-range coordinates are skipped, not clamped', () => {
+          const r = parseCsvText(CSV, {});
+          assert(r.skipped === 1, `skipped ${r.skipped}`);
+          assert(r.coords.every(([lng, lat]) => Math.abs(lng) <= 180 && Math.abs(lat) <= 85));
+        });
+
+        test('CSV: semicolon delimiter detected; no weight column ⇒ every row counts 1', () => {
+          const r = parseCsvText('lon;lat\n-3;54\n-2;55\n', {});
+          assert(r.coords.length === 2, `rows ${r.coords.length}`);
+          assert(r.weights.every((w) => w === 1), 'weights not all 1');
+          // groups are OPTIONAL in the contract — absent, not empty.
+          assert(r.groups === undefined && r.groupNames === undefined, 'groups should be absent');
+        });
+
+        test('CSV: missing coordinate columns fails with a message naming the aliases', () => {
+          let msg = '';
+          try { parseCsvText('a,b\n1,2\n', {}); } catch (e) { msg = e.message; }
+          assert(/longitude/.test(msg) && /latitude/.test(msg), `unhelpful: ${msg}`);
+        });
+
+        const GJ_POINTS = {
+          type: 'FeatureCollection',
+          features: [
+            { type: 'Feature', properties: { value: 10, region: 'North' },
+              geometry: { type: 'Point', coordinates: [-2, 55] } },
+            { type: 'Feature', properties: { value: 20, region: 'South' },
+              geometry: { type: 'MultiPoint', coordinates: [[-1, 51], [0, 52]] } },
+          ],
+        };
+
+        test('GeoJSON points: weight and group properties picked by alias', () => {
+          const r = parseGeoJsonPoints(GJ_POINTS, {});
+          assert(r.coords.length === 3, `coords ${r.coords.length}`);
+          assert(r.groupNames.join() === 'North,South', r.groupNames.join());
+        });
+
+        test('GeoJSON: splitting a MultiPoint preserves the collection total', () => {
+          // The percentages depend on the total, so a MultiPoint's weight has
+          // to be shared out rather than repeated per position.
+          const r = parseGeoJsonPoints(GJ_POINTS, {});
+          const total = r.weights.reduce((a, b) => a + b, 0);
+          assert(near(total, 30, 1e-9), `total ${total}`);
+        });
+
+        test('GeoJSON: a non-numeric property is never chosen as the weight', () => {
+          const r = parseGeoJsonPoints({ type: 'FeatureCollection', features: [
+            { type: 'Feature', properties: { name: 'Aye', total: 'lots' },
+              geometry: { type: 'Point', coordinates: [-2, 55] } }] }, {});
+          assert(r.weights[0] === 1, `picked a string as weight: ${r.weights[0]}`);
+        });
+
+        const SQUARE = { type: 'FeatureCollection', features: [
+          { type: 'Feature', properties: { pop: 5 }, geometry: { type: 'Polygon',
+            coordinates: [[[-2, 54], [-1, 54], [-1, 55], [-2, 55], [-2, 54]]] } }] };
+
+        test('Polygons: centroid is area-weighted and computed in Mercator', () => {
+          const r = parseGeoJsonPolygons(SQUARE, {});
+          const [lng, lat] = r.coords[0];
+          assert(near(lng, -1.5, 1e-6), `lng ${lng}`);
+          // Mercator stretches northward, so the area centroid of a lat/lng
+          // square sits slightly NORTH of the arithmetic midpoint. Asserting
+          // the direction is the point: it proves the centroid was taken in
+          // the same space the split is later computed in.
+          assert(lat > 54.5 && lat < 54.51, `lat ${lat} not just north of 54.5`);
+          assert(r.weights[0] === 5, 'weight');
+          return `lat ${lat.toFixed(4)}`;
+        });
+
+        test('Polygons: a hole pulls the centroid away from itself', () => {
+          const withHole = { type: 'FeatureCollection', features: [
+            { type: 'Feature', properties: { pop: 1 }, geometry: { type: 'Polygon', coordinates: [
+              [[-2, 54], [-1, 54], [-1, 55], [-2, 55], [-2, 54]],
+              [[-1.4, 54.6], [-1.1, 54.6], [-1.1, 54.9], [-1.4, 54.9], [-1.4, 54.6]],
+            ] } }] };
+          const solid = parseGeoJsonPolygons(SQUARE, {}).coords[0];
+          const holed = parseGeoJsonPolygons(withHole, {}).coords[0];
+          // Hole sits north-east, so the centroid must move south-west.
+          assert(holed[0] < solid[0] && holed[1] < solid[1],
+            `moved to ${holed} from ${solid}`);
+        });
+
+        test('Polygons: degenerate ring falls back to the vertex mean, not NaN', () => {
+          const line = { type: 'FeatureCollection', features: [
+            { type: 'Feature', properties: { pop: 2 }, geometry: { type: 'Polygon',
+              coordinates: [[[-2, 54], [-1, 54], [-2, 54]]] } }] };
+          const r = parseGeoJsonPolygons(line, {});
+          assert(r.coords.length === 1 && r.coords[0].every(isFinite), `${r.coords[0]}`);
+        });
+
+        const GRID = { cols: 2, rows: 2, bbox: [-4, 50, -2, 52], values: [1, 2, 0, 4] };
+
+        test('Grid: values are row-major from the NORTH-WEST corner', () => {
+          const r = parseGridJson(GRID, {});
+          assert(near(r.coords[0][0], -3.5, 1e-9), `lng ${r.coords[0][0]}`);
+          assert(near(r.coords[0][1], 51.5, 1e-9), `lat ${r.coords[0][1]} — first row should be the NORTH one`);
+        });
+
+        test('Grid: zero cells are omitted from drawing but nothing else is lost', () => {
+          const r = parseGridJson(GRID, {});
+          assert(r.coords.length === 3, `cells ${r.coords.length}`);
+          assert(near(r.weights.reduce((a, b) => a + b, 0), 7, 1e-9), 'total');
+          // Empty cells are gaps, not broken records: `skipped` is reserved for
+          // cells whose COORDINATES are unusable, so that a grid in the wrong
+          // projection reads differently from one that is merely sparse.
+          assert(r.skipped === 0, `empty cells reported as skipped: ${r.skipped}`);
+          assert(r.notes.some((n) => /empty cells/.test(n)), r.notes.join(' | '));
+        });
+
+        test('Grid: a values/cols mismatch fails loudly rather than truncating', () => {
+          let msg = '';
+          try { parseGridJson({ cols: 3, rows: 2, bbox: [-4, 50, -2, 52], values: [1, 2] }, {}); }
+          catch (e) { msg = e.message; }
+          assert(/values/.test(msg), `got: ${msg}`);
+        });
+
+        const ASC = 'ncols 2\nnrows 2\nxllcorner -4\nyllcorner 50\ncellsize 1\n' +
+          'NODATA_value -9999\n1 2\n-9999 4\n';
+
+        test('ASCII grid: header parsed, NODATA dropped, origin converted to NW', () => {
+          const r = parseAsciiGrid(ASC, {});
+          assert(r.coords.length === 3, `cells ${r.coords.length}`);
+          assert(near(r.coords[0][1], 51.5, 1e-9), `lat ${r.coords[0][1]}`);
+          assert(r.skipped === 0, `NODATA misreported as bad coordinates: ${r.skipped}`);
+        });
+
+        test('ASCII grid and grid JSON agree cell for cell', () => {
+          // The same surface in two formats must produce identical features,
+          // which is the check that catches an origin or row-order slip.
+          const a = parseAsciiGrid(ASC, {});
+          const b = parseGridJson(GRID, {});
+          assert(JSON.stringify(a.coords) === JSON.stringify(b.coords),
+            `${JSON.stringify(a.coords)} vs ${JSON.stringify(b.coords)}`);
+          assert(JSON.stringify(a.weights) === JSON.stringify(b.weights), 'weights differ');
+        });
+
+        test('sniffing distinguishes all five input shapes', () => {
+          const cases = [
+            ['a.csv', CSV, 'csv'],
+            ['a.geojson', JSON.stringify(GJ_POINTS), 'geojson-points'],
+            ['a.json', JSON.stringify(SQUARE), 'geojson-polygons'],
+            ['a.json', JSON.stringify(GRID), 'grid-json'],
+            ['a.asc', ASC, 'ascii-grid'],
+          ];
+          for (const [name, text, want] of cases) {
+            const got = detectSourceType(name, text);
+            assert(got === want, `${name}: got ${got}, want ${want}`);
+          }
+          return '5 shapes';
+        });
+
+        // --- load-time column mapping helpers -------------------------------
+        // These feed the mapping dialog: they list a file's columns and the
+        // guess the alias logic would make, so the user can confirm or override
+        // before the full parse. Pure, so tested here.
+
+        test('describeCsvFields lists headers and guesses each role', () => {
+          const d = describeCsvFields(CSV, {});
+          assert(d.fields.join() === 'name,longitude,latitude,population', d.fields.join());
+          assert(d.guesses.lng === 'longitude' && d.guesses.lat === 'latitude',
+            JSON.stringify(d.guesses));
+          assert(d.guesses.weight === 'population', d.guesses.weight);
+          assert(d.guesses.group === 'name', d.guesses.group);
+        });
+
+        test('describeCsvFields returns null guesses when nothing matches', () => {
+          const d = describeCsvFields('a,b\n1,2\n', {});
+          assert(d.fields.join() === 'a,b', d.fields.join());
+          assert(d.guesses.lng === null && d.guesses.lat === null, 'lng/lat should be null');
+          assert(d.guesses.weight === null && d.guesses.group === null, 'weight/group null');
+        });
+
+        test('describeCsvFields honours the detected delimiter', () => {
+          const d = describeCsvFields('lon;lat;pop\n-3;54;5\n', {});
+          assert(d.fields.join() === 'lon,lat,pop', d.fields.join());
+          assert(d.guesses.lng === 'lon' && d.guesses.weight === 'pop', JSON.stringify(d.guesses));
+        });
+
+        test('describeGeojsonFields samples properties and guesses value/group', () => {
+          const d = describeGeojsonFields(GJ_POINTS, {});
+          assert(d.fields.join() === 'value,region', d.fields.join());
+          assert(d.guesses.weight === 'value', d.guesses.weight);
+          assert(d.guesses.group === 'region', d.guesses.group);
+        });
+
+        test('describeGeojsonFields never guesses a non-numeric property as value', () => {
+          const obj = { type: 'FeatureCollection', features: [
+            { type: 'Feature', properties: { label: 'x', n: 3 },
+              geometry: { type: 'Point', coordinates: [-2, 55] } },
+          ] };
+          const d = describeGeojsonFields(obj, {});
+          assert(d.fields.join() === 'label,n', d.fields.join());
+          assert(d.guesses.weight === 'n', d.guesses.weight);      // numeric only
+          assert(d.guesses.group === 'label', d.guesses.group);    // string is fine here
+        });
+
+        test('nearestPoint finds the closest point within the radius', () => {
+          const pts = [[0, 0], [10, 0], [10, 10]];
+          assert(nearestPoint(pts, [9, 0], 2) === 1, 'should hit index 1');
+          assert(nearestPoint(pts, [0.5, 0.5], 2) === 0, 'should hit index 0');
+        });
+
+        test('nearestPoint returns -1 when nothing is within the radius', () => {
+          assert(nearestPoint([[0, 0], [10, 0]], [5, 5], 2) === -1, 'should miss');
+          assert(nearestPoint([], [0, 0], 5) === -1, 'empty set misses');
+        });
+
+        test('NO_COLUMN forces no weight in CSV, overriding a real column', () => {
+          // The dialog's "— none —" for Value: population exists but is declined.
+          const r = parseCsvText(CSV, { weightColumn: NO_COLUMN });
+          assert(r.weights.every((w) => w === 1), `weights ${r.weights.join()}`);
+        });
+
+        test('NO_COLUMN forces no group in CSV, overriding a real column', () => {
+          const r = parseCsvText(CSV, { groupColumn: NO_COLUMN });
+          assert(r.groups === undefined && r.groupNames === undefined, 'groups should be absent');
+        });
+
+        test('NO_COLUMN forces no value in GeoJSON, overriding a real property', () => {
+          // Each of the 2 features now counts 1; the MultiPoint splits its 1
+          // evenly across its 2 positions, so the total is the feature count.
+          const r = parseGeoJsonPoints(GJ_POINTS, { weightProperty: NO_COLUMN });
+          const total = r.weights.reduce((a, w) => a + w, 0);
+          assert(near(total, 2, 1e-9), `total ${total}`);
+        });
+
+        // Stays synchronous on purpose: the harness's `test` does not await,
+        // so an async body would report a Promise as its detail and turn a
+        // failed assertion into an unhandled rejection instead of a red line.
+        test('every source honours the async contract, synthetic included', () => {
+          // Deliberately checks the SHAPE synchronously: the contract is that
+          // getFeatures() returns a thenable, not that it has resolved.
+          for (const src of [
+            createSyntheticSource({ count: 10, seed: 1 }),
+            createSourceFromText('x.csv', CSV, {}),
+            createGridSource(GRID, {}),
+          ]) {
+            const p = src.getFeatures();
+            assert(p && typeof p.then === 'function', `${src.label} is not a promise`);
+          }
+          return '3 sources';
+        });
+
+        test('parsed sources reconcile: breakdown columns sum to the side totals', () => {
+          // The same guarantee the synthetic source carries, now for a parsed
+          // one — groups must be attributed at parse time for this to hold.
+          const f = parseCsvText(CSV, {});
+          const sides = f.coords.map((_, i) => (i === 0 ? 'primary' : 'secondary'));
+          const stats = computeStats(sides, f.weights);
+          const sum = summariseContributors(sides, f.weights, f.groups, f.groupNames, 5);
+          for (const side of ['primary', 'secondary']) {
+            const col = sum[side];
+            const total = col.rows.reduce((a, r) => a + r.weight, 0) + col.moreWeight;
+            assert(near(total, stats[side].weight, 1e-9),
+              `${side}: ${total} vs ${stats[side].weight}`);
+          }
+        });
+
+        // --- screen ↔ world via the real CTM --------------------------------
+        test('screen↔world round-trip through getScreenCTM at 4 window sizes', () => {
+          const svg = document.getElementById('hidden');
+          // Same viewBox the app uses.
+          svg.setAttribute('viewBox', '0 0 29306 55249');
+          const sizes = [[320, 480], [800, 600], [1440, 900], [2560, 1440]];
+          for (const [w, h] of sizes) {
+            svg.setAttribute('width', w);
+            svg.setAttribute('height', h);
+            const ctm = svg.getScreenCTM();
+            assert(ctm && ctm.a, `no CTM at ${w}x${h}`);
+            const pt = svg.createSVGPoint();
+            pt.x = 123.5; pt.y = 456.25;
+            const world = pt.matrixTransform(ctm.inverse());
+            const back = new DOMPoint(world.x, world.y).matrixTransform(ctm);
+            // SVG's CTM is float32 internally, so the round-trip loses ~1e-6 of
+            // a pixel. A tolerance of 1e-3 px is still four orders of magnitude
+            // finer than anything a pointer can express.
+            assert(near(back.x, 123.5, 1e-3) && near(back.y, 456.25, 1e-3),
+              `${w}x${h}: ${back.x},${back.y}`);
+            // preserveAspectRatio="xMidYMid meet" ⇒ uniform scale.
+            assert(near(ctm.a, ctm.d, 1e-9), `non-uniform scale at ${w}x${h}`);
+          }
+          return '4 sizes';
+        });
+
+        test('grab radius stays a constant screen size across window sizes', () => {
+          const svg = document.getElementById('hidden');
+          svg.setAttribute('viewBox', '0 0 29306 55249');
+          const px = [];
+          for (const [w, h] of [[400, 300], [1600, 1200]]) {
+            svg.setAttribute('width', w);
+            svg.setAttribute('height', h);
+            const ctm = svg.getScreenCTM();
+            const unitsPerPx = 1 / ctm.a;
+            const radiusWorld = CONFIG.grabRadiusPx * unitsPerPx;
+            px.push(radiusWorld * ctm.a); // back to screen px
+          }
+          assert(near(px[0], CONFIG.grabRadiusPx, 1e-9) && near(px[1], CONFIG.grabRadiusPx, 1e-9),
+            `got ${px}`);
+        });
+
+        render();
+      }
+
+      main();
+    </script>
+  </body>
+</html>

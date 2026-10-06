@@ -1,0 +1,449 @@
+lon,lat,value,name
+-2.5277,53.4194,1,Warrington
+-0.4767,53.8437,1,East Riding of Yorkshire
+-1.0812,53.9591,1,York
+-1.0776,53.9222,1,York
+-1.0927,53.9579,1,York
+-1.1477,52.9533,1,Nottingham
+-2.3603,51.3814,1,Bath and North East Somerset
+-2.3579,51.3789,1,Bath and North East Somerset
+-2.5849,51.4588,1,"Bristol, City of"
+-2.6057,51.4559,1,"Bristol, City of"
+-2.5864,51.485,1,"Bristol, City of"
+-2.5885,51.4527,1,"Bristol, City of"
+-2.5937,51.4533,1,"Bristol, City of"
+-2.5953,51.5256,1,South Gloucestershire
+-0.3751,51.8808,1,Luton
+-0.3753,51.88,1,Luton
+-0.3753,51.8796,1,Luton
+0.2837,51.4857,1,Thurrock
+-0.7504,51.4176,1,Bracknell Forest
+-1.0373,51.4238,1,West Berkshire
+-1.3113,51.4489,1,West Berkshire
+-1.0353,51.4261,1,West Berkshire
+-1.3245,51.4023,1,West Berkshire
+-0.9706,51.4551,1,Reading
+-0.9729,51.4582,1,Reading
+-0.9461,51.4276,1,Reading
+-0.6103,51.482,1,Windsor and Maidenhead
+-0.7535,52.0441,1,Milton Keynes
+-0.7733,52.0341,1,Milton Keynes
+-0.7578,52.0416,1,Milton Keynes
+-0.144,50.8236,1,Brighton and Hove
+-0.1405,50.8289,1,Brighton and Hove
+-0.139,50.8217,1,Brighton and Hove
+-1.1058,50.7966,1,Portsmouth
+-1.3978,50.9377,1,Southampton
+-2.8789,53.2658,1,Cheshire West and Chester
+-2.8918,53.1911,1,Cheshire West and Chester
+-2.7544,52.7084,1,Shropshire
+-2.1586,51.5096,1,Wiltshire
+-2.1581,51.5118,1,Wiltshire
+-1.7957,51.0682,1,Wiltshire
+-0.5028,51.9473,1,Central Bedfordshire
+-1.881,50.7201,1,"Bournemouth, Christchurch and Poole"
+-0.6244,52.3016,1,North Northamptonshire
+-2.8719,54.798,1,Westmorland and Furness
+-2.8522,54.3801,1,Westmorland and Furness
+-1.3688,53.9465,1,North Yorkshire
+-1.5387,53.9924,1,North Yorkshire
+-3.1465,50.9761,1,Somerset
+-2.7401,51.1291,1,Somerset
+0.1196,52.2058,1,Cambridge
+0.1369,52.1949,1,Cambridge
+-0.2713,52.428,1,Huntingdonshire
+0.1311,52.0963,1,South Cambridgeshire
+-3.4639,50.7165,1,East Devon
+-3.5339,50.7351,1,Exeter
+-3.5286,50.7251,1,Exeter
+0.2864,50.7682,1,Eastbourne
+0.3025,51.6202,1,Brentwood
+0.4738,51.7338,1,Chelmsford
+0.9004,51.8886,1,Colchester
+0.1951,51.8713,1,Uttlesford
+0.2602,51.8898,1,Uttlesford
+0.2615,51.8903,1,Uttlesford
+-2.0733,51.9005,1,Cheltenham
+-2.2525,51.8604,1,Gloucester
+-2.1146,51.9963,1,Tewkesbury
+-1.0879,51.2656,1,Basingstoke and Deane
+-1.3135,51.0622,1,Winchester
+-0.2218,51.6877,1,Hertsmere
+-0.398,51.6568,1,Watford
+0.8781,51.1375,1,Ashford
+0.8723,51.143,1,Ashford
+1.0624,51.2714,1,Canterbury
+1.0807,51.2788,1,Canterbury
+0.272,51.4396,1,Dartford
+0.5212,51.2753,1,Maidstone
+0.2636,51.1343,1,Tunbridge Wells
+-0.9201,52.4774,1,Harborough
+1.2935,52.6271,1,Norwich
+-0.7783,53.0486,1,Newark and Sherwood
+-1.1987,51.95,1,Cherwell
+-1.1564,51.8922,1,Cherwell
+-1.2584,51.7534,1,Oxford
+-1.2577,51.7522,1,Oxford
+-1.2617,51.7497,1,Oxford
+-1.2699,51.7536,1,Oxford
+-1.2222,51.7651,1,Oxford
+-1.2643,51.7766,1,Oxford
+-2.057,52.643,1,South Staffordshire
+-2.1737,52.8858,1,Stafford
+-0.4107,51.3282,1,Elmbridge
+-0.458,51.3727,1,Elmbridge
+-0.2673,51.3331,1,Epsom and Ewell
+-0.5743,51.2363,1,Guildford
+-0.2055,51.2377,1,Reigate and Banstead
+-0.5104,51.4344,1,Spelthorne
+-0.5587,51.3197,1,Woking
+-1.6405,52.6074,1,North Warwickshire
+-1.2498,52.4108,1,Rugby
+-1.5027,52.2194,1,Stratford-on-Avon
+-1.7073,52.1931,1,Stratford-on-Avon
+-0.7764,50.8364,1,Chichester
+-0.1625,51.1556,1,Crawley
+-0.178,51.1595,1,Crawley
+-0.1704,51.1552,1,Crawley
+-0.177,51.1611,1,Crawley
+-0.3306,51.0626,1,Horsham
+-0.0124,51.1279,1,Mid Sussex
+-0.3395,50.816,1,Worthing
+-0.3383,51.7532,1,St Albans
+-0.3128,51.7518,1,St Albans
+0.1598,51.8704,1,East Hertfordshire
+0.5349,52.3373,1,West Suffolk
+-2.2469,53.4821,1,Manchester
+-2.2519,53.4798,1,Manchester
+-2.2443,53.4818,1,Manchester
+-2.2429,53.4762,1,Manchester
+-2.2353,53.4679,1,Manchester
+-2.2421,53.4839,1,Manchester
+-2.236,53.4805,1,Manchester
+-2.2159,53.4735,1,Manchester
+-2.2315,53.4776,1,Manchester
+-2.232,53.5684,1,Rochdale
+-2.2968,53.4728,1,Salford
+-2.3479,53.4662,1,Trafford
+-2.9864,53.4035,1,Liverpool
+-2.9932,53.4082,1,Liverpool
+-2.9897,53.4054,1,Liverpool
+-1.3512,53.3975,1,Rotherham
+-1.6137,54.9771,1,Newcastle upon Tyne
+-1.9013,52.4812,1,Birmingham
+-1.9134,52.4778,1,Birmingham
+-1.8929,52.4779,1,Birmingham
+-1.9,52.4794,1,Birmingham
+-1.898,52.482,1,Birmingham
+-1.8988,52.4777,1,Birmingham
+-1.5611,52.3786,1,Coventry
+-1.7781,52.4129,1,Solihull
+-1.7339,52.4534,1,Solihull
+-1.5486,53.7976,1,Leeds
+-1.5435,53.7977,1,Leeds
+-1.5475,53.7954,1,Leeds
+-1.5381,53.7983,1,Leeds
+-1.2664,53.6977,1,Wakefield
+-1.4118,53.4145,1,Sheffield
+-1.4715,53.3787,1,Sheffield
+-0.1174,51.5061,1,City of London
+-0.081,51.5147,1,City of London
+-0.0806,51.5151,1,City of London
+-0.0812,51.5128,1,City of London
+-0.0821,51.512,1,City of London
+-0.097,51.5172,1,City of London
+-0.0798,51.5121,1,City of London
+-0.0867,51.5099,1,City of London
+-0.0975,51.512,1,City of London
+-0.0877,51.5127,1,City of London
+-0.1095,51.5159,1,City of London
+-0.0795,51.5194,1,City of London
+-0.0795,51.5209,1,City of London
+-0.0829,51.5152,1,City of London
+-0.0827,51.5173,1,City of London
+-0.0905,51.5118,1,City of London
+-0.0844,51.5108,1,City of London
+-0.1037,51.5166,1,City of London
+-0.0857,51.5148,1,City of London
+-0.095,51.508,1,City of London
+-0.1044,51.5157,1,City of London
+-0.0812,51.5179,1,City of London
+-0.0925,51.512,1,City of London
+-0.0856,51.5106,1,City of London
+-0.0845,51.5124,1,City of London
+-0.0922,51.5134,1,City of London
+-0.0924,51.515,1,City of London
+-0.0826,51.5102,1,City of London
+-0.0933,51.5135,1,City of London
+-0.0879,51.5173,1,City of London
+-0.1071,51.5143,1,City of London
+-0.0834,51.518,1,City of London
+-0.0827,51.5184,1,City of London
+-0.0934,51.5172,1,City of London
+-0.0896,51.5164,1,City of London
+-0.0882,51.5189,1,City of London
+-0.0959,51.5146,1,City of London
+-0.0992,51.515,1,City of London
+-0.1014,51.5137,1,City of London
+-0.0797,51.5179,1,City of London
+-0.0841,51.516,1,City of London
+0.1673,51.5263,1,Barking and Dagenham
+-0.224,51.5772,1,Barnet
+-0.1333,51.6336,1,Barnet
+-0.2837,51.5562,1,Brent
+-0.1941,51.5383,1,Brent
+0.0151,51.4029,1,Bromley
+-0.0285,51.4067,1,Bromley
+0.1125,51.393,1,Bromley
+-0.117,51.5204,1,Camden
+-0.1276,51.5283,1,Camden
+-0.1128,51.5182,1,Camden
+-0.1089,51.5186,1,Camden
+-0.119,51.5176,1,Camden
+-0.1422,51.5381,1,Camden
+-0.1394,51.5251,1,Camden
+-0.1247,51.5233,1,Camden
+-0.1437,51.54,1,Camden
+-0.1267,51.5323,1,Camden
+-0.1442,51.5405,1,Camden
+-0.1244,51.5307,1,Camden
+-0.1284,51.5254,1,Camden
+-0.1269,51.5315,1,Camden
+-0.1247,51.5221,1,Camden
+-0.1261,51.5318,1,Camden
+-0.1158,51.5179,1,Camden
+-0.1646,51.5505,1,Camden
+-0.1212,51.5176,1,Camden
+-0.191,51.5472,1,Camden
+-0.1801,51.5469,1,Camden
+-0.1273,51.517,1,Camden
+-0.1326,51.5278,1,Camden
+-0.1411,51.5505,1,Camden
+-0.1368,51.5228,1,Camden
+-0.1343,51.5202,1,Camden
+-0.1247,51.5316,1,Camden
+-0.139,51.5241,1,Camden
+-0.1311,51.5178,1,Camden
+-0.1249,51.5141,1,Camden
+-0.0946,51.3746,1,Croydon
+-0.3046,51.513,1,Ealing
+-0.0821,51.6518,1,Enfield
+-0.0106,51.4818,1,Greenwich
+0.004,51.5003,1,Greenwich
+-0.0873,51.5244,1,Hackney
+-0.0774,51.5239,1,Hackney
+-0.087,51.5227,1,Hackney
+-0.0555,51.5473,1,Hackney
+-0.0894,51.5278,1,Hackney
+-0.0782,51.5268,1,Hackney
+-0.0811,51.5246,1,Hackney
+-0.2204,51.4854,1,Hammersmith and Fulham
+-0.2202,51.5072,1,Hammersmith and Fulham
+-0.2218,51.5094,1,Hammersmith and Fulham
+-0.2242,51.4922,1,Hammersmith and Fulham
+-0.222,51.5096,1,Hammersmith and Fulham
+-0.1945,51.4803,1,Hammersmith and Fulham
+-0.2125,51.4944,1,Hammersmith and Fulham
+-0.2256,51.493,1,Hammersmith and Fulham
+-0.1083,51.594,1,Haringey
+-0.0635,51.5869,1,Haringey
+-0.0605,51.5882,1,Haringey
+-0.055,51.6033,1,Haringey
+-0.1429,51.591,1,Haringey
+-0.3368,51.5816,1,Harrow
+-0.4489,51.4701,1,Hillingdon
+-0.4799,51.5462,1,Hillingdon
+-0.4492,51.459,1,Hillingdon
+-0.4594,51.4708,1,Hillingdon
+-0.4886,51.4722,1,Hillingdon
+-0.4875,51.4724,1,Hillingdon
+-0.2758,51.4957,1,Hounslow
+-0.2623,51.4927,1,Hounslow
+-0.1064,51.5329,1,Islington
+-0.1222,51.5334,1,Islington
+-0.1031,51.5245,1,Islington
+-0.1074,51.5223,1,Islington
+-0.1058,51.5652,1,Islington
+-0.0925,51.522,1,Islington
+-0.0894,51.5206,1,Islington
+-0.1098,51.5256,1,Islington
+-0.1058,51.5341,1,Islington
+-0.1058,51.531,1,Islington
+-0.1081,51.5652,1,Islington
+-0.1046,51.5202,1,Islington
+-0.0979,51.5198,1,Islington
+-0.1019,51.52,1,Islington
+-0.0985,51.523,1,Islington
+-0.1035,51.5458,1,Islington
+-0.1043,51.5203,1,Islington
+-0.0875,51.5208,1,Islington
+-0.162,51.4903,1,Kensington and Chelsea
+-0.1657,51.4988,1,Kensington and Chelsea
+-0.1931,51.4921,1,Kensington and Chelsea
+-0.1742,51.4936,1,Kensington and Chelsea
+-0.1646,51.4993,1,Kensington and Chelsea
+-0.21,51.5178,1,Kensington and Chelsea
+-0.1821,51.494,1,Kensington and Chelsea
+-0.1925,51.5007,1,Kensington and Chelsea
+-0.2062,51.5072,1,Kensington and Chelsea
+-0.1967,51.5088,1,Kensington and Chelsea
+-0.1816,51.4854,1,Kensington and Chelsea
+-0.302,51.4108,1,Kingston upon Thames
+-0.3058,51.4101,1,Kingston upon Thames
+-0.3053,51.3929,1,Kingston upon Thames
+-0.1225,51.4727,1,Lambeth
+-0.1248,51.4862,1,Lambeth
+-0.1102,51.5022,1,Lambeth
+-0.1133,51.4991,1,Lambeth
+-0.1145,51.4631,1,Lambeth
+-0.1121,51.5031,1,Lambeth
+-0.016,51.452,1,Lewisham
+-0.0126,51.4648,1,Lewisham
+-0.2067,51.4211,1,Merton
+-0.2075,51.421,1,Merton
+-0.0027,51.5417,1,Newham
+-0.0094,51.5414,1,Newham
+0.0485,51.5041,1,Newham
+0.009,51.5151,1,Newham
+-0.0073,51.5433,1,Newham
+-0.0046,51.5428,1,Newham
+-0.3037,51.4609,1,Richmond upon Thames
+-0.1077,51.5071,1,Southwark
+-0.085,51.5055,1,Southwark
+-0.0913,51.5068,1,Southwark
+-0.0818,51.5049,1,Southwark
+-0.1042,51.5068,1,Southwark
+-0.1044,51.5018,1,Southwark
+-0.0853,51.5048,1,Southwark
+-0.1011,51.4935,1,Southwark
+-0.1026,51.5037,1,Southwark
+-0.0898,51.5047,1,Southwark
+-0.0797,51.4617,1,Southwark
+-0.0918,51.5027,1,Southwark
+-0.0888,51.5054,1,Southwark
+-0.0993,51.5057,1,Southwark
+-0.1924,51.3624,1,Sutton
+-0.0757,51.5115,1,Tower Hamlets
+-0.0762,51.5136,1,Tower Hamlets
+-0.0793,51.5122,1,Tower Hamlets
+-0.0159,51.499,1,Tower Hamlets
+-0.0733,51.5138,1,Tower Hamlets
+-0.0769,51.515,1,Tower Hamlets
+-0.0781,51.5151,1,Tower Hamlets
+-0.0169,51.5005,1,Tower Hamlets
+-0.0198,51.5048,1,Tower Hamlets
+-0.0201,51.5051,1,Tower Hamlets
+-0.0183,51.503,1,Tower Hamlets
+-0.0258,51.5061,1,Tower Hamlets
+-0.019,51.505,1,Tower Hamlets
+-0.0178,51.5048,1,Tower Hamlets
+-0.0793,51.5082,1,Tower Hamlets
+-0.0172,51.504,1,Tower Hamlets
+-0.0726,51.5151,1,Tower Hamlets
+-0.0681,51.5081,1,Tower Hamlets
+-0.1675,51.4613,1,Wandsworth
+-0.175,51.4269,1,Wandsworth
+-0.1676,51.428,1,Wandsworth
+-0.169,51.4637,1,Wandsworth
+-0.1445,51.4813,1,Wandsworth
+-0.153,51.4437,1,Wandsworth
+-0.2161,51.4624,1,Wandsworth
+-0.1932,51.4566,1,Wandsworth
+-0.1268,51.5094,1,Westminster
+-0.1325,51.4996,1,Westminster
+-0.1419,51.5138,1,Westminster
+-0.1491,51.5,1,Westminster
+-0.141,51.5128,1,Westminster
+-0.1184,51.5141,1,Westminster
+-0.1273,51.5116,1,Westminster
+-0.18,51.5192,1,Westminster
+-0.1879,51.5135,1,Westminster
+-0.1286,51.5073,1,Westminster
+-0.1421,51.5164,1,Westminster
+-0.1423,51.4963,1,Westminster
+-0.1443,51.516,1,Westminster
+-0.1474,51.5167,1,Westminster
+-0.1315,51.5102,1,Westminster
+-0.1364,51.5083,1,Westminster
+-0.1407,51.5147,1,Westminster
+-0.1389,51.5164,1,Westminster
+-0.1636,51.5224,1,Westminster
+-0.1517,51.5179,1,Westminster
+-0.1424,51.4943,1,Westminster
+-0.1295,51.4947,1,Westminster
+-0.1215,51.5103,1,Westminster
+-0.1468,51.4944,1,Westminster
+-0.1454,51.5123,1,Westminster
+-0.1581,51.5229,1,Westminster
+-0.1372,51.5187,1,Westminster
+-0.1438,51.5234,1,Westminster
+-0.1383,51.5112,1,Westminster
+-0.1435,51.5066,1,Westminster
+-0.1791,51.5256,1,Westminster
+-0.145,51.496,1,Westminster
+-0.1359,51.4987,1,Westminster
+-0.1716,51.534,1,Westminster
+-0.1326,51.4903,1,Westminster
+-0.1311,51.5127,1,Westminster
+-0.1551,51.5174,1,Westminster
+-0.1378,51.5058,1,Westminster
+-0.1873,51.5107,1,Westminster
+-0.1292,51.4968,1,Westminster
+-0.1427,51.498,1,Westminster
+-0.1611,51.5141,1,Westminster
+-0.1332,51.5168,1,Westminster
+-0.1629,51.5152,1,Westminster
+-0.1486,51.4926,1,Westminster
+-0.13,51.5082,1,Westminster
+-0.1396,51.5138,1,Westminster
+-0.176,51.5169,1,Westminster
+-0.1776,51.5165,1,Westminster
+-0.1754,51.5166,1,Westminster
+-0.1424,51.5242,1,Westminster
+-0.1373,51.5091,1,Westminster
+-0.1252,51.5012,1,Westminster
+-0.1238,51.5082,1,Westminster
+-0.1193,51.511,1,Westminster
+-0.1693,51.5189,1,Westminster
+-0.1354,51.4973,1,Westminster
+-0.1445,51.5095,1,Westminster
+-0.1491,51.5139,1,Westminster
+-0.15,51.515,1,Westminster
+-0.1363,51.5133,1,Westminster
+-0.1337,51.5128,1,Westminster
+-0.1379,51.5089,1,Westminster
+-0.1401,51.5078,1,Westminster
+-0.1439,51.5145,1,Westminster
+-0.1426,51.5202,1,Westminster
+-0.1588,51.5136,1,Westminster
+-0.1127,51.5133,1,Westminster
+-0.133,51.5081,1,Westminster
+-0.1227,51.5139,1,Westminster
+-6.216,54.6614,1,Antrim and Newtownabbey
+-5.9317,54.5965,1,Belfast
+-5.9395,54.5947,1,Belfast
+-2.1071,57.1444,1,Aberdeen City
+-2.0996,57.1487,1,Aberdeen City
+-3.2077,55.9369,1,City of Edinburgh
+-3.2059,55.9459,1,City of Edinburgh
+-3.2063,55.9506,1,City of Edinburgh
+-3.203,55.952,1,City of Edinburgh
+-3.1968,55.9532,1,City of Edinburgh
+-3.1882,55.9509,1,City of Edinburgh
+-3.1895,55.9519,1,City of Edinburgh
+-3.3619,55.9491,1,City of Edinburgh
+-3.1901,55.9551,1,City of Edinburgh
+-3.3653,55.9484,1,City of Edinburgh
+-3.1796,55.9625,1,City of Edinburgh
+-3.216,55.9459,1,City of Edinburgh
+-4.4332,55.8648,1,Renfrewshire
+-2.8743,56.4672,1,Dundee City
+-2.7967,56.3405,1,Fife
+-4.2543,55.8645,1,Glasgow City
+-4.2612,55.8611,1,Glasgow City
+-4.2554,55.8604,1,Glasgow City
+-4.2514,55.8607,1,Glasgow City
+-4.2932,55.8756,1,Glasgow City
+-4.2584,55.8596,1,Glasgow City
+-3.1795,51.4765,1,Cardiff
+-3.1742,51.4794,1,Cardiff

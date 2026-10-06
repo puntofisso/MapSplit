@@ -1,0 +1,121 @@
+{
+ "id": "hmrc",
+ "title": "Personal incomes statistics, Table 3.14: income and tax by borough and district or unitary authority, tax year 2023 to 2024",
+ "publisher": "HM Revenue & Customs",
+ "page": "https://www.gov.uk/government/statistics/personal-incomes-statistics-for-the-tax-year-2023-to-2024",
+ "vintage": "tax year 2023 to 2024",
+ "refresh": "Yearly, around March–April. Find the new 'Collated_Tables_3_12_to_3_15a_YYZZ.ods' on the new year's page, update the URL, file names and vintage, re-run, and re-check knownGaps (suppressed areas change year to year).",
+ "licence": {
+  "name": "Open Government Licence v3.0",
+  "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+ },
+ "attribution": "Contains HM Revenue & Customs data © Crown copyright, licensed under the Open Government Licence v3.0.",
+ "uses": [
+  "boundaries"
+ ],
+ "fetch": [
+  {
+   "file": "Collated_Tables_3_12_to_3_15a_2324.ods",
+   "url": "https://assets.publishing.service.gov.uk/media/69f1f17cc42061e837e3ac3b/Collated_Tables_3_12_to_3_15a_2324.ods"
+  }
+ ],
+ "caveats": [
+  "Survey of Personal Incomes: a sample of taxpayers, so local figures are estimates, published rounded to the nearest thousand people / £1m.",
+  "Covers taxpayers only. In 2023-24 people whose only income is the state pension are largely not captured."
+ ],
+ "knownGaps": {
+  "E06000053": "Isles of Scilly — suppressed by HMRC ([Not available]) in 2023-24",
+  "E06000027": "Torbay — suppressed by HMRC ([Not available]) for most columns in 2023-24"
+ },
+ "stats": [
+  {
+   "id": "hmrc-self-employed",
+   "label": "Self-employed taxpayers",
+   "question": "self-employed taxpayers",
+   "unit": "people",
+   "family": "Income & tax",
+   "column": "Self-employment income: Number of individuals",
+   "scale": 1000
+  },
+  {
+   "id": "hmrc-employed",
+   "label": "Taxpayers with a job",
+   "question": "taxpayers with income from a job",
+   "unit": "people",
+   "family": "Income & tax",
+   "column": "Employment income: Number of individuals",
+   "scale": 1000
+  },
+  {
+   "id": "hmrc-pension",
+   "label": "Taxpayers with pension income",
+   "question": "taxpayers drawing a pension",
+   "unit": "people",
+   "family": "Income & tax",
+   "column": "Pension income: Number of individuals",
+   "scale": 1000,
+   "caveats": [
+    "Taxpayers with pension income — not all retired people (see the state-pension caveat)."
+   ]
+  },
+  {
+   "id": "hmrc-taxpayers",
+   "label": "Income taxpayers",
+   "question": "income taxpayers",
+   "unit": "people",
+   "family": "Income & tax",
+   "column": "Total tax: Number of individuals",
+   "scale": 1000
+  },
+  {
+   "id": "hmrc-tax-amount",
+   "label": "Income tax paid",
+   "question": "all income tax paid",
+   "unit": "GBP",
+   "family": "Income & tax",
+   "column": "Total tax: Amount",
+   "scale": 1000000
+  },
+  {
+   "id": "hmrc-higher-rate",
+   "label": "Higher-rate taxpayers",
+   "question": "higher-rate taxpayers",
+   "unit": "people",
+   "family": "Income & tax",
+   "column": "Higher rate: Number of Individuals",
+   "scale": 1000,
+   "caveats": [
+    "Scotland has its own income-tax bands; HMRC maps Scottish taxpayers onto the UK higher-rate category."
+   ]
+  },
+  {
+   "id": "hmrc-additional-rate",
+   "label": "Additional-rate (top-rate) taxpayers",
+   "question": "top-rate taxpayers",
+   "unit": "people",
+   "family": "Income & tax",
+   "column": "Additional rate: Number of Individuals",
+   "scale": 1000,
+   "maxPointShare": 0.12,
+   "caveats": [
+    "Small counts rounded to thousands: many authorities report 0 or are suppressed."
+   ],
+   "knownGaps": {
+    "E06000009": "suppressed by HMRC: count too small to publish in 2023-24",
+    "E06000010": "suppressed by HMRC: count too small to publish in 2023-24",
+    "E07000117": "suppressed by HMRC: count too small to publish in 2023-24",
+    "E07000120": "suppressed by HMRC: count too small to publish in 2023-24",
+    "E07000136": "suppressed by HMRC: count too small to publish in 2023-24",
+    "E07000199": "suppressed by HMRC: count too small to publish in 2023-24",
+    "S12000013": "suppressed by HMRC: count too small to publish in 2023-24",
+    "S12000023": "suppressed by HMRC: count too small to publish in 2023-24",
+    "S12000027": "suppressed by HMRC: count too small to publish in 2023-24",
+    "S12000039": "suppressed by HMRC: count too small to publish in 2023-24",
+    "W06000001": "suppressed by HMRC: count too small to publish in 2023-24",
+    "W06000019": "suppressed by HMRC: count too small to publish in 2023-24",
+    "W06000020": "suppressed by HMRC: count too small to publish in 2023-24",
+    "W06000024": "suppressed by HMRC: count too small to publish in 2023-24"
+   }
+  }
+ ]
+}

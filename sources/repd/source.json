@@ -1,0 +1,149 @@
+{
+ "id": "repd",
+ "title": "Renewable Energy Planning Database (REPD), quarterly extract Q2 2026",
+ "publisher": "Department for Energy Security and Net Zero",
+ "page": "https://www.gov.uk/government/publications/renewable-energy-planning-database-quarterly-extract",
+ "vintage": "Q2 2026 (published July 2026)",
+ "refresh": "Quarterly; take the latest each November. The file name and media URL change every quarter — copy the new CSV link from the page.",
+ "licence": {
+  "name": "Open Government Licence v3.0",
+  "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+ },
+ "attribution": "Contains public sector information from the Department for Energy Security and Net Zero, licensed under the Open Government Licence v3.0.",
+ "uses": [
+  "boundaries"
+ ],
+ "fetch": [
+  {
+   "file": "REPD_Publication_Q2_2026.csv",
+   "url": "https://assets.publishing.service.gov.uk/media/6a6cbdc00c36759b5ccaa305/REPD_Publication_Q2_2026.csv"
+  }
+ ],
+ "caveats": [
+  "Projects of 150 kW and above only: rooftop and small solar is not in REPD.",
+  "Coordinates are British National Grid for the whole UK, including Northern Ireland."
+ ],
+ "maxMissingCoordShare": 0.01,
+ "stats": [
+  {
+   "id": "repd-wind-onshore",
+   "label": "Onshore wind capacity (MW)",
+   "question": "onshore wind power capacity",
+   "unit": "MW",
+   "family": "Power",
+   "technologies": [
+    "Wind Onshore"
+   ],
+   "statuses": [
+    "Operational"
+   ],
+   "weight": "mw"
+  },
+  {
+   "id": "repd-wind-offshore",
+   "label": "Offshore wind capacity (MW)",
+   "question": "offshore wind power capacity",
+   "unit": "MW",
+   "family": "Power",
+   "technologies": [
+    "Wind Offshore"
+   ],
+   "statuses": [
+    "Operational"
+   ],
+   "weight": "mw",
+   "caveats": [
+    "Each wind farm sits at the coordinates REPD gives for it, out at sea; it is named after the nearest local authority.",
+    "Some North Sea farms (Hornsea, East Anglia) lie east of the map edge at 1.9°E: they count towards the answer but are not drawn."
+   ],
+   "frame": [
+    -8.7,
+    49.8,
+    3.5,
+    61.0
+   ],
+   "absentFrom": {
+    "Northern Ireland": "Northern Ireland has no operating offshore wind farm."
+   }
+  },
+  {
+   "id": "repd-solar",
+   "label": "Solar farm capacity (MW)",
+   "question": "solar farm capacity",
+   "unit": "MW",
+   "family": "Power",
+   "technologies": [
+    "Solar Photovoltaics"
+   ],
+   "statuses": [
+    "Operational"
+   ],
+   "weight": "mw"
+  },
+  {
+   "id": "repd-solar-pipeline",
+   "label": "Solar capacity consented or being built (MW)",
+   "question": "solar capacity that is consented or under construction",
+   "unit": "MW",
+   "family": "Power",
+   "technologies": [
+    "Solar Photovoltaics"
+   ],
+   "statuses": [
+    "Awaiting Construction",
+    "Under Construction"
+   ],
+   "weight": "mw"
+  },
+  {
+   "id": "repd-battery",
+   "label": "Battery storage capacity (MW)",
+   "question": "grid battery storage capacity",
+   "unit": "MW",
+   "family": "Power",
+   "technologies": [
+    "Battery"
+   ],
+   "statuses": [
+    "Operational"
+   ],
+   "weight": "mw"
+  },
+  {
+   "id": "repd-battery-pipeline",
+   "label": "Battery storage consented or being built (MW)",
+   "question": "battery storage capacity that is consented or under construction",
+   "unit": "MW",
+   "family": "Power",
+   "technologies": [
+    "Battery"
+   ],
+   "statuses": [
+    "Awaiting Construction",
+    "Under Construction"
+   ],
+   "weight": "mw"
+  },
+  {
+   "id": "repd-hydro",
+   "label": "Hydro-electric schemes",
+   "question": "hydro-electric schemes",
+   "unit": "schemes",
+   "family": "Power",
+   "technologies": [
+    "Large Hydro",
+    "Small Hydro"
+   ],
+   "statuses": [
+    "Operational"
+   ],
+   "weight": "count",
+   "caveats": [
+    "Counted as schemes, not megawatts: by capacity a handful of large Highland schemes decide the line on their own. Pumped storage is excluded."
+   ],
+   "absentFrom": {
+    "Northern Ireland": "Northern Ireland has no hydro scheme of 150 kW or more in REPD."
+   }
+  }
+ ]
+}

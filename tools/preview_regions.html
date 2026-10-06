@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MapSplit — region coastline preview</title>
+    <!-- Dev tool. Draws every generated region exactly the way a build would:
+         same world units, same subject/context split, same "xMidYMid meet".
+         Not deployed (deploy.sh lists files explicitly). -->
+    <style>
+      body { font: 14px system-ui, sans-serif; margin: 24px; background: #eef2f6; color: #1f2937; }
+      h1 { font-size: 16px; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 20px; }
+      figure { margin: 0; background: #fff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 12px; }
+      figcaption { font-size: 12px; color: #6b7280; margin-bottom: 8px; }
+      figcaption b { color: #1f2937; font-size: 14px; }
+      svg { width: 100%; height: 320px; background: #dfe8ee; border-radius: 8px; display: block; }
+      .land { fill: #f4f1ea; stroke: #a9b4bd; stroke-width: 1; vector-effect: non-scaling-stroke; }
+      .land.context { fill: #ece9e2; stroke: #c3ccd3; }
+      .probe { stroke: #c93b52; stroke-width: 2; vector-effect: non-scaling-stroke; }
+    </style>
+  </head>
+  <body>
+    <h1>Region coastlines</h1>
+    <p>Each map is drawn from <code>data/coast/&lt;id&gt;.js</code> alone. The red
+       line is that region's <code>defaultLine</code>, projected through its own
+       origin — it is here to prove the geometry and the coastline share one
+       coordinate system.</p>
+    <div class="grid" id="grid"></div>
+
+    <script src="../data/coast/uk.js"></script>
+    <script src="../data/coast/eu.js"></script>
+    <script src="../data/coast/us.js"></script>
+    <script src="../data/coast/world.js"></script>
+    <script>
+      var NS = 'http://www.w3.org/2000/svg';
+      var grid = document.getElementById('grid');
+
+      function merc(lng, lat) {
+        var x = lng / 360 + 0.5;
+        var s = Math.max(-0.9999, Math.min(0.9999, Math.sin(lat * Math.PI / 180)));
+        return [x, 0.5 - (0.25 * Math.log((1 + s) / (1 - s))) / Math.PI];
+      }
+
+      ['uk', 'eu', 'us', 'world'].forEach(function (id) {
+        var R = window.MapSplitCoast[id];
+        var fig = document.createElement('figure');
+        var cap = document.createElement('figcaption');
+        var bytes = JSON.stringify(R).length;
+        cap.innerHTML = '<b>' + R.flag + ' ' + R.label + '</b> &middot; ' + id +
+          '<br>viewBox ' + R.viewBox[2] + ' × ' + R.viewBox[3] +
+          ' &middot; ' + R.subject.length + ' subject / ' + R.context.length +
+          ' context paths &middot; ' + Math.round(bytes / 1024) + ' KB';
+        fig.appendChild(cap);
+
+        var svg = document.createElementNS(NS, 'svg');
+        svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+        var W = R.viewBox[2], H = R.viewBox[3], m = 0.04;
+        svg.setAttribute('viewBox',
+          (-W * m) + ' ' + (-H * m) + ' ' + (W * 1.08) + ' ' + (H * 1.08));
+
+        function toWorld(ll) {
+          var p = merc(ll[0], ll[1]);
+          return [(p[0] - R.origin[0]) * R.scale, (p[1] - R.origin[1]) * R.scale];
+        }
+
+        [['context', 'land context'], ['subject', 'land']].forEach(function (spec) {
+          R[spec[0]].forEach(function (d) {
+            var p = document.createElementNS(NS, 'path');
+            p.setAttribute('d', d);
+            p.setAttribute('class', spec[1]);
+            svg.appendChild(p);
+          });
+        });
+
+        var a = toWorld(R.defaultLine[0]), b = toWorld(R.defaultLine[1]);
+        var ln = document.createElementNS(NS, 'line');
+        ln.setAttribute('x1', a[0]); ln.setAttribute('y1', a[1]);
+        ln.setAttribute('x2', b[0]); ln.setAttribute('y2', b[1]);
+        ln.setAttribute('class', 'probe');
+        svg.appendChild(ln);
+
+        fig.appendChild(svg);
+        grid.appendChild(fig);
+      });
+    </script>
+  </body>
+</html>

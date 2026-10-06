@@ -1,0 +1,42 @@
+{
+ "id": "population",
+ "title": "Mid-year population estimates for the UK, mid-2025 (MYE2, all ages)",
+ "publisher": "Office for National Statistics",
+ "page": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland",
+ "vintage": "mid-2025",
+ "refresh": "Yearly, published around June–July. Change the mid2025/mye25 parts of the URL to the new year, re-run, and update vintage.",
+ "licence": {
+  "name": "Open Government Licence v3.0",
+  "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+ },
+ "attribution": "Source: Office for National Statistics licensed under the Open Government Licence v3.0. Contains data from National Records of Scotland and the Northern Ireland Statistics and Research Agency.",
+ "uses": [
+  "boundaries"
+ ],
+ "fetch": [
+  {
+   "file": "mye25tablesuk.xlsx",
+   "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland/mid2025/mye25tablesuk.xlsx"
+  }
+ ],
+ "caveats": [
+  "One point per local authority (361), placed at ONS's label point for that authority."
+ ],
+ "stats": [
+  {
+   "id": "pop-all",
+   "label": "Population",
+   "question": "the UK's population",
+   "unit": "people",
+   "family": "Population",
+   "ages": [
+    0,
+    999
+   ],
+   "expectTotal": [
+    65000000,
+    75000000
+   ]
+  }
+ ]
+}

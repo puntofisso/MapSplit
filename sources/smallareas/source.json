@@ -1,0 +1,27 @@
+{
+ "id": "smallareas",
+ "title": "Census small areas: LSOA 2021 (England & Wales), Data Zones 2022 (Scotland), Data Zones 2021 (Northern Ireland)",
+ "publisher": "ONS, National Records of Scotland and NISRA",
+ "page": "https://geoportal.statistics.gov.uk/",
+ "vintage": "2021 (E, W, NI) and 2022 (S) census geographies",
+ "refresh": "Only when the census geographies change (next after the 2031 census).",
+ "licence": {"name": "Open Government Licence v3.0", "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"},
+ "attribution": "Source: Office for National Statistics licensed under the Open Government Licence v3.0; contains OS data © Crown copyright and database right. © Crown copyright, National Records of Scotland, licensed under the Open Government Licence v3.0. Contains NISRA data and Ordnance Survey of Northern Ireland information licensed under the Open Government Licence v3.0.",
+ "notes": "Geography only — yields no statistics. Groups census Output Areas into ~47,000 LSOA-sized areas across the UK and gives each a population-weighted point. England & Wales: ONS LSOA 2021 population-weighted centroids. Northern Ireland: NISRA Data Zone 2021 population-weighted centroids (Irish Grid). Scotland: Data Zone 2022 points computed here as the population-weighted mean of NRS Output Area 2022 centroids — the method the Scottish Government documents for its own DZ centroids, whose service was not answering queries.",
+ "fetch": [
+  {"file": "oa21_lsoa21_lookup_ew.csv",
+   "url": "https://hub.arcgis.com/api/v3/datasets/b9ca90c10aaa4b8d9791e9859a38ca67_0/downloads/data?format=csv&spatialRefId=4326&where=1%3D1",
+   "page": "https://www.arcgis.com/home/item.html?id=b9ca90c10aaa4b8d9791e9859a38ca67"},
+  {"file": "lsoa21_pwc_ew.geojson",
+   "arcgis": "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/LSOA_PopCentroids_EW_2021_V4/FeatureServer/0",
+   "fields": "LSOA21CD"},
+  {"file": "oa22_dz22_iz22.zip", "unzip": true,
+   "url": "https://www.nrscotland.gov.uk/media/iz3evrqt/oa22_dz22_iz22.zip",
+   "page": "https://www.nrscotland.gov.uk/publications/2022-census-geography-products"},
+  {"file": "output-area-2022-pwc.zip", "unzip": true,
+   "url": "https://www.nrscotland.gov.uk/media/gm4dvdsv/output-area-2022-pwc.zip"},
+  {"file": "ni-dz21-pwc.zip", "unzip": true,
+   "url": "https://www.nisra.gov.uk/system/files/statistics/geography-census-2021-population-weighted-centroids-csv.zip",
+   "page": "https://www.nisra.gov.uk/publications/census-2021-population-weighted-centroids-data-zones-and-super-data-zones"}
+ ]
+}

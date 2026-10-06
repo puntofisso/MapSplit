@@ -1,0 +1,384 @@
+{
+ "id": "unified_census",
+ "title": "Unified UK Census Data (2021/22): harmonised small-area tables",
+ "publisher": "Geographic Data Service (GeoDS)",
+ "page": "https://data.geods.ac.uk/dataset/unified-uk-census-data",
+ "vintage": "Census 2021 (England, Wales, Northern Ireland) and 2022 (Scotland)",
+ "refresh": "None until the next census (2031/32). The download needs a free GeoDS registration, so it cannot be fetched automatically.",
+ "licence": {
+  "name": "Open Government Licence v3.0",
+  "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+ },
+ "attribution": "The data have been provided by the Geographic Data Service (geods.ac.uk), a Smart Data Research UK Investment: ES/Z504464/1. These were created as part of an ESRC Census data opportunity grant - ES/Z50273X/1. Contains data from: ONS, NRS, NISRA. Licensed under the Open Government Licence v3.0.",
+ "citation": "Goodwin, O. and Singleton, A. (2026) A unified dataset of UK census variables for small areas: harmonised data tables from the 2021 England, Wales, and Northern Ireland censuses and the 2022 Scotland census. Environment and Planning B: Urban Analytics and City Science.",
+ "uses": [
+  "smallareas",
+  "boundaries"
+ ],
+ "fetch": [
+  {
+   "file": "unified_census_variable_metadata.csv",
+   "manual": "Register at https://data.geods.ac.uk/, download the Unified UK Census variable metadata and the per-table CSVs, and put them in data/raw/unified_census/ (CSVs in csv/)."
+  },
+  {
+   "file": "csv/uk001.csv",
+   "manual": "See above."
+  }
+ ],
+ "caveats": [
+  "Scotland's census was a year later (March 2022) than the rest of the UK's (March 2021).",
+  "Aggregated to local authorities (361 points): each authority's total sits at the weighted centre of that statistic within the authority."
+ ],
+ "excludedTables": {
+  "uk021": "ethnicity — owner's rule",
+  "uk023": "ethnicity — owner's rule",
+  "uk030": "religion — owner's rule",
+  "uk004": "country of birth — owner's rule",
+  "uk015": "year of arrival — owner's rule",
+  "uk029": "English proficiency — owner's rule",
+  "uk007a": "age — owner's rule (all bands sat on the population line)"
+ },
+ "stats": [
+  {
+   "id": "census-population",
+   "variable": "uk001001",
+   "label": "Usual residents (census)",
+   "question": "the UK's residents",
+   "unit": "people",
+   "family": "Population"
+  },
+  {
+   "id": "census-heat-oil",
+   "variable": "uk046006",
+   "label": "Homes heated only by oil",
+   "question": "homes heated only by oil",
+   "unit": "households",
+   "family": "Heating"
+  },
+  {
+   "id": "census-heat-solid",
+   "variable": "uk046008",
+   "label": "Homes heated only by solid fuel",
+   "question": "homes heated only by solid fuel (coal, peat)",
+   "unit": "households",
+   "family": "Heating"
+  },
+  {
+   "id": "census-heat-wood",
+   "variable": "uk046007",
+   "label": "Homes heated only by wood",
+   "question": "homes heated only by wood",
+   "unit": "households",
+   "family": "Heating"
+  },
+  {
+   "id": "census-heat-gas",
+   "variable": "uk046003",
+   "label": "Homes heated only by mains gas",
+   "question": "homes heated only by mains gas",
+   "unit": "households",
+   "family": "Heating"
+  },
+  {
+   "id": "census-heat-electric",
+   "variable": "uk046005",
+   "label": "Homes heated only by electricity",
+   "question": "homes heated only by electricity",
+   "unit": "households",
+   "family": "Heating"
+  },
+  {
+   "id": "census-heat-bottled",
+   "variable": "uk046004",
+   "label": "Homes heated only by tank or bottled gas",
+   "question": "homes heated only by tank or bottled gas",
+   "unit": "households",
+   "family": "Heating"
+  },
+  {
+   "id": "census-heat-renewable",
+   "variable": "uk046009",
+   "label": "Homes heated only by renewables",
+   "question": "homes heated only by renewable energy",
+   "unit": "households",
+   "family": "Heating"
+  },
+  {
+   "id": "census-commute-metro",
+   "variable": "uk061003",
+   "label": "Commuters by underground, metro or tram",
+   "question": "people who commute by underground, metro or tram",
+   "unit": "people",
+   "family": "Getting to work",
+   "caveats": [
+    "England, Wales and Northern Ireland were counted in March 2021, during a COVID-19 lockdown; Scotland in March 2022. Travel to work therefore under-counts commuting outside Scotland and over-counts working from home."
+   ],
+   "absentFrom": {
+    "Northern Ireland": "Northern Ireland has no underground, metro or tram system."
+   }
+  },
+  {
+   "id": "census-commute-train",
+   "variable": "uk061004",
+   "label": "Commuters by train",
+   "question": "people who commute by train",
+   "unit": "people",
+   "family": "Getting to work",
+   "caveats": [
+    "England, Wales and Northern Ireland were counted in March 2021, during a COVID-19 lockdown; Scotland in March 2022. Travel to work therefore under-counts commuting outside Scotland and over-counts working from home."
+   ]
+  },
+  {
+   "id": "census-commute-taxi",
+   "variable": "uk061006",
+   "label": "Commuters by taxi",
+   "question": "people who get to work by taxi",
+   "unit": "people",
+   "family": "Getting to work",
+   "caveats": [
+    "England, Wales and Northern Ireland were counted in March 2021, during a COVID-19 lockdown; Scotland in March 2022. Travel to work therefore under-counts commuting outside Scotland and over-counts working from home."
+   ]
+  },
+  {
+   "id": "census-commute-motorbike",
+   "variable": "uk061007",
+   "label": "Commuters by motorbike or moped",
+   "question": "people who ride a motorbike or moped to work",
+   "unit": "people",
+   "family": "Getting to work",
+   "caveats": [
+    "England, Wales and Northern Ireland were counted in March 2021, during a COVID-19 lockdown; Scotland in March 2022. Travel to work therefore under-counts commuting outside Scotland and over-counts working from home."
+   ]
+  },
+  {
+   "id": "census-commute-car",
+   "variable": "uk061008",
+   "label": "Commuters by car or van",
+   "question": "people who drive to work",
+   "unit": "people",
+   "family": "Getting to work",
+   "caveats": [
+    "England, Wales and Northern Ireland were counted in March 2021, during a COVID-19 lockdown; Scotland in March 2022. Travel to work therefore under-counts commuting outside Scotland and over-counts working from home."
+   ]
+  },
+  {
+   "id": "census-commute-bike",
+   "variable": "uk061009",
+   "label": "Commuters by bicycle",
+   "question": "people who cycle to work",
+   "unit": "people",
+   "family": "Getting to work",
+   "caveats": [
+    "England, Wales and Northern Ireland were counted in March 2021, during a COVID-19 lockdown; Scotland in March 2022. Travel to work therefore under-counts commuting outside Scotland and over-counts working from home."
+   ]
+  },
+  {
+   "id": "census-commute-foot",
+   "variable": "uk061010",
+   "label": "Commuters on foot",
+   "question": "people who walk to work",
+   "unit": "people",
+   "family": "Getting to work",
+   "caveats": [
+    "England, Wales and Northern Ireland were counted in March 2021, during a COVID-19 lockdown; Scotland in March 2022. Travel to work therefore under-counts commuting outside Scotland and over-counts working from home."
+   ]
+  },
+  {
+   "id": "census-work-from-home",
+   "variable": "uk061002",
+   "label": "People working mainly from home",
+   "question": "people who work mainly from home",
+   "unit": "people",
+   "family": "Getting to work",
+   "caveats": [
+    "England, Wales and Northern Ireland were counted in March 2021, during a COVID-19 lockdown; Scotland in March 2022. Travel to work therefore under-counts commuting outside Scotland and over-counts working from home."
+   ]
+  },
+  {
+   "id": "census-home-caravan",
+   "variable": "uk044008",
+   "label": "Households in a caravan or mobile home",
+   "question": "households living in a caravan or mobile home",
+   "unit": "households",
+   "family": "Homes"
+  },
+  {
+   "id": "census-home-flat",
+   "variable": "uk044005",
+   "label": "Households in purpose-built flats",
+   "question": "households in a purpose-built block of flats",
+   "unit": "households",
+   "family": "Homes"
+  },
+  {
+   "id": "census-home-converted",
+   "variable": "uk044006",
+   "label": "Households in converted or shared houses",
+   "question": "households in converted or shared houses, including bedsits",
+   "unit": "households",
+   "family": "Homes"
+  },
+  {
+   "id": "census-home-commercial",
+   "variable": "uk044007",
+   "label": "Households in a commercial building",
+   "question": "households living above a shop, in an office building or hotel",
+   "unit": "households",
+   "family": "Homes"
+  },
+  {
+   "id": "census-home-detached",
+   "variable": "uk044002",
+   "label": "Households in detached houses",
+   "question": "households in a detached house",
+   "unit": "households",
+   "family": "Homes"
+  },
+  {
+   "id": "census-home-semi",
+   "variable": "uk044003",
+   "label": "Households in semi-detached houses",
+   "question": "households in a semi-detached house",
+   "unit": "households",
+   "family": "Homes"
+  },
+  {
+   "id": "census-home-terraced",
+   "variable": "uk044004",
+   "label": "Households in terraced houses",
+   "question": "households in a terraced house",
+   "unit": "households",
+   "family": "Homes"
+  },
+  {
+   "id": "census-tenure-outright",
+   "variable": "uk054003",
+   "label": "Households that own outright",
+   "question": "households that own their home outright",
+   "unit": "households",
+   "family": "Owning & renting"
+  },
+  {
+   "id": "census-tenure-social",
+   "variable": "uk054005",
+   "label": "Households renting socially",
+   "question": "households in social housing",
+   "unit": "households",
+   "family": "Owning & renting"
+  },
+  {
+   "id": "census-tenure-private",
+   "variable": "uk054006",
+   "label": "Households renting privately",
+   "question": "households renting privately",
+   "unit": "households",
+   "family": "Owning & renting"
+  },
+  {
+   "id": "census-cars-none",
+   "variable": "uk045002",
+   "label": "Households with no car",
+   "question": "households with no car or van",
+   "unit": "households",
+   "family": "Owning & renting"
+  },
+  {
+   "id": "census-cars-3plus",
+   "variable": "uk045005",
+   "label": "Households with 3+ cars",
+   "question": "households with three or more cars or vans",
+   "unit": "households",
+   "family": "Owning & renting"
+  },
+  {
+   "id": "census-job-managers",
+   "variable": "uk063002",
+   "label": "Managers, directors and senior officials",
+   "question": "managers, directors and senior officials",
+   "unit": "people",
+   "family": "Work & qualifications"
+  },
+  {
+   "id": "census-job-operatives",
+   "variable": "uk063009",
+   "label": "Process, plant and machine operatives",
+   "question": "process, plant and machine operatives",
+   "unit": "people",
+   "family": "Work & qualifications"
+  },
+  {
+   "id": "census-job-trades",
+   "variable": "uk063006",
+   "label": "Skilled trades",
+   "question": "people working in skilled trades",
+   "unit": "people",
+   "family": "Work & qualifications"
+  },
+  {
+   "id": "census-hours-49plus",
+   "variable": "uk059007",
+   "label": "People working 49+ hours a week",
+   "question": "people working 49 or more hours a week",
+   "unit": "people",
+   "family": "Work & qualifications"
+  },
+  {
+   "id": "census-qual-degree",
+   "variable": "uk067006",
+   "label": "Degree-level qualifications",
+   "question": "people with a degree-level qualification or above",
+   "unit": "people",
+   "family": "Work & qualifications",
+   "caveats": [
+    "Qualification levels are harmonised across four different education systems; Scotland's levels in particular are not exact equivalents."
+   ]
+  },
+  {
+   "id": "census-qual-none",
+   "variable": "uk067002",
+   "label": "No qualifications",
+   "question": "adults with no qualifications",
+   "unit": "people",
+   "family": "Work & qualifications",
+   "caveats": [
+    "Qualification levels are harmonised across four different education systems; Scotland's levels in particular are not exact equivalents."
+   ]
+  },
+  {
+   "id": "census-qual-apprentice",
+   "variable": "uk067004",
+   "label": "Apprenticeships",
+   "question": "people whose highest qualification is an apprenticeship",
+   "unit": "people",
+   "family": "Work & qualifications",
+   "caveats": [
+    "Qualification levels are harmonised across four different education systems; Scotland's levels in particular are not exact equivalents."
+   ]
+  },
+  {
+   "id": "census-health-verybad",
+   "variable": "uk037006",
+   "label": "Very bad health",
+   "question": "people in very bad health",
+   "unit": "people",
+   "family": "Health & care"
+  },
+  {
+   "id": "census-sick",
+   "variable": "uk066018",
+   "label": "Long-term sick or disabled",
+   "question": "people out of work because they are long-term sick or disabled",
+   "unit": "people",
+   "family": "Health & care"
+  },
+  {
+   "id": "census-carers-50h",
+   "variable": "uk039006",
+   "label": "Carers giving 50+ hours a week",
+   "question": "people giving 50 or more hours of unpaid care a week",
+   "unit": "people",
+   "family": "Health & care"
+  }
+ ],
+ "aggregate": "lad"
+}

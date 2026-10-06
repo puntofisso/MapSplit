@@ -293,6 +293,63 @@
       }
       #ad img { display: block; width: 300px; height: 250px; }
       #ad-mobile { display: none; }
+      /* AdSense variant (index-ads.php only): the child is an <ins> the network
+         sizes, not an <img> we size, so the container is what constrains it.
+         Inert on index.html, which never emits .adsbygoogle. */
+      /* !important because adsbygoogle.js writes its chosen size onto the <ins>
+         as an inline style, which outranks any ordinary rule. The container
+         also carries an explicit height: overflow:hidden clips nothing on an
+         auto-height box, since the box just grows to fit. Belt and braces, and
+         both are load-bearing — without them a creative covers the map. */
+      #ad .adsbygoogle { display: block; width: 300px !important; height: 250px !important; }
+      #ad.ad-live { box-sizing: border-box; width: 306px; height: 272px; }
+      /* A visible label is what stops an ad that overlays a draggable map from
+         reading as part of the map. That misreading is the accidental-click
+         exposure — a user reaching for the divider under the box mouses down
+         and up on the ad — and it is also why .ad-live takes an opaque backing
+         instead of floating straight on the coastline. */
+      .ad-live { position: relative; line-height: normal; background: #fff; padding: 3px 3px 4px; }
+      /* Dismissal is the escape hatch for an ad parked over a divider handle:
+         the handle can still be dragged from under it (the SVG takes pointer
+         capture at pointerdown) but it cannot be grabbed, and hiding the ad is
+         a cheaper fix than teaching the drag code where the advert is. */
+      .ad-close {
+        position: absolute; top: 1px; right: 2px; width: 18px; height: 18px; padding: 0;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 14px; line-height: 1; color: var(--muted);
+        background: rgba(255, 255, 255, 0.9); border: 0; border-radius: 50%;
+        cursor: pointer;
+      }
+      .ad-close:hover { color: var(--ink); background: #fff; }
+      /* #ad-mobile's display:block is an id selector and outranks the browser's
+         [hidden]{display:none}, so dismissal needs an id-level rule to win. */
+      #ad[hidden], #ad-mobile[hidden] { display: none; }
+
+      /* --- Google consent UI ---
+         Google injects its consent dialog and its persistent "Privacy and
+         cookie settings" control as STATIC elements, the way they would sit in
+         a normal page's flow. #map is position:absolute, and positioned
+         elements always paint above non-positioned ones whatever the DOM
+         order — so the SVG covered them and swallowed their clicks. z-index
+         alone cannot fix that: it is ignored on static elements.
+
+         Making them positioned is the whole fix, and it is all we do. Nothing
+         here sets offsets, so Google's own layout still decides where its UI
+         goes — position:relative moves an element not at all, it only lets it
+         paint above the map and honour a z-index. .fc-consent-root is excluded
+         because the dialog positions itself and must be left alone.
+
+         z-index 30 clears the map, the ads (9) and the panel (10) while
+         staying under the tooltip (40) and the modals (50).
+
+         .fc-* are Google's class names, not ours — they can rename them. If
+         consent misbehaves again, check these selectors still match. */
+      body > [class*="fc-"]:not(.fc-consent-root) { position: relative; z-index: 30; }
+
+      .ad-tag {
+        display: block; font-size: 9px; line-height: 1.4; text-align: center;
+        letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+      }
 
       /* --- narrow screens --- */
       @media (max-width: 640px) {
@@ -312,4 +369,11 @@
           line-height: 0; box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.16);
         }
         #ad-mobile img { display: block; width: 100%; height: auto; }
+        /* Pinned at 100px so a responsive unit serves 320x100 or 320x50 and
+           cannot grow into a 250px box that would cover half the map. */
+        #ad-mobile.ad-live { box-sizing: border-box; height: 122px; overflow: hidden; }
+        #ad-mobile .ad-close { width: 28px; height: 28px; font-size: 18px; }
+        #ad-mobile .adsbygoogle {
+          display: block; width: 320px !important; height: 100px !important; margin: 0 auto;
+        }
       }

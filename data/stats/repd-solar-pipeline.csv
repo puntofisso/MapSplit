@@ -1,0 +1,3846 @@
+lon,lat,value,name
+-1.2123,54.688,0.6,Hartlepool
+-1.2125,54.6814,0.64,Hartlepool
+-1.2706,54.695,49.99,Hartlepool
+-1.321,54.6826,49.9,Hartlepool
+-1.2278,54.7024,0.61,Hartlepool
+-1.1978,54.6925,0.5,Hartlepool
+-1.2326,54.7101,0.56,Hartlepool
+-1.2088,54.673,0.94,Hartlepool
+-1.2556,54.5789,0.28,Middlesbrough
+-1.2368,54.5237,0.17,Middlesbrough
+-1.2203,54.5694,0.19,Middlesbrough
+-1.2738,54.5602,0.3,Middlesbrough
+-1.2164,54.5244,0.34,Middlesbrough
+-1.2476,54.5862,0.56,Middlesbrough
+-1.2287,54.5866,1.2,Middlesbrough
+-1.0666,54.5881,49.9,Redcar and Cleveland
+-1.0719,54.6164,0.17,Redcar and Cleveland
+-1.062,54.543,49.9,Redcar and Cleveland
+-1.1578,54.579,0.23,Redcar and Cleveland
+-1.0882,54.5916,0.41,Redcar and Cleveland
+-1.1403,54.6021,1,Redcar and Cleveland
+-1.0578,54.5304,0.19,Redcar and Cleveland
+-1.3818,54.5879,49.9,Stockton-on-Tees
+-1.3718,54.5895,10.8,Stockton-on-Tees
+-1.3363,54.5439,0.17,Stockton-on-Tees
+-1.3159,54.6306,3.96,Stockton-on-Tees
+-1.2915,54.5661,0.46,Stockton-on-Tees
+-1.3089,54.5634,0.26,Stockton-on-Tees
+-1.3106,54.6172,0.54,Stockton-on-Tees
+-1.3917,54.612,120,Stockton-on-Tees
+-1.2954,54.5616,0.16,Stockton-on-Tees
+-1.2741,54.5735,0.15,Stockton-on-Tees
+-1.3159,54.6306,0.31,Stockton-on-Tees
+-1.3597,54.5672,0.16,Stockton-on-Tees
+-1.3393,54.5722,0.28,Stockton-on-Tees
+-1.5746,54.5432,49.9,Darlington
+-1.5465,54.5214,0.37,Darlington
+-1.6071,54.5183,9,Darlington
+-1.5533,54.5382,0.74,Darlington
+-1.416,54.576,49.99,Darlington
+-1.5281,54.5931,33,Darlington
+-1.4844,54.5811,180,Darlington
+-1.4718,54.5706,49.9,Darlington
+-1.5542,54.5482,0.29,Darlington
+-1.539,54.4831,0.32,Darlington
+-1.5382,54.5179,0.21,Darlington
+-1.5541,54.5237,0.16,Darlington
+-1.548,54.4788,0.15,Darlington
+-1.5652,54.5258,0.37,Darlington
+-1.5263,54.527,0.27,Darlington
+-1.5984,54.5379,0.36,Darlington
+-1.5637,54.5304,0.21,Darlington
+-2.7467,53.3525,3.5,Halton
+-2.6511,53.3105,0.24,Halton
+-2.6515,53.3093,0.43,Halton
+-2.7639,53.3579,4,Halton
+-2.6691,53.3527,0.42,Halton
+-2.6042,53.3604,1,Warrington
+-2.6003,53.4203,0.23,Warrington
+-2.5115,53.402,0.2,Warrington
+-2.5024,53.4376,5,Warrington
+-2.6549,53.4133,0.99,Warrington
+-2.6584,53.4163,1.75,Warrington
+-2.6507,53.412,1,Warrington
+-2.4645,53.3741,2.5,Warrington
+-2.5764,53.3375,0.16,Warrington
+-2.6584,53.4163,0.64,Warrington
+-2.5269,53.4035,0.7,Warrington
+-2.6676,53.4025,0.87,Warrington
+-2.5006,53.4685,10,Warrington
+-2.6007,53.4191,0.19,Warrington
+-2.5282,53.425,0.33,Warrington
+-2.6228,53.4166,0.23,Warrington
+-2.6595,53.412,6.8,Warrington
+-2.5341,53.4087,0.35,Warrington
+-2.6595,53.412,1.5,Warrington
+-2.5881,53.408,0.24,Warrington
+-2.5948,53.3967,0.34,Warrington
+-2.6107,53.394,0.45,Warrington
+-2.468,53.6951,0.27,Blackburn with Darwen
+-2.4565,53.7626,0.52,Blackburn with Darwen
+-3.0283,53.8008,0.3,Blackpool
+-2.995,53.7958,0.35,Blackpool
+-3.0163,53.8207,0.15,Blackpool
+-3.04,53.8358,0.24,Blackpool
+-3.0185,53.7976,0.5,Blackpool
+-2.991,53.7946,0.7,Blackpool
+-0.361,53.7336,0.5,"Kingston upon Hull, City of"
+-0.353,53.7925,0.19,"Kingston upon Hull, City of"
+-0.2928,53.7643,0.35,"Kingston upon Hull, City of"
+-0.3168,53.7723,0.31,"Kingston upon Hull, City of"
+-0.3328,53.7779,1.27,"Kingston upon Hull, City of"
+-0.3364,53.7762,0.88,"Kingston upon Hull, City of"
+-0.3363,53.7761,0.53,"Kingston upon Hull, City of"
+-0.3363,53.7761,0.53,"Kingston upon Hull, City of"
+-0.3363,53.7761,0.67,"Kingston upon Hull, City of"
+-0.2756,53.7527,0.35,"Kingston upon Hull, City of"
+-0.3266,53.7441,0.55,"Kingston upon Hull, City of"
+-0.353,53.7925,0.38,"Kingston upon Hull, City of"
+-0.3614,53.7332,0.65,"Kingston upon Hull, City of"
+-0.2776,53.7518,0.15,"Kingston upon Hull, City of"
+-0.3767,53.73,0.44,"Kingston upon Hull, City of"
+-0.3224,53.7539,0.53,"Kingston upon Hull, City of"
+-0.3536,53.7374,0.22,"Kingston upon Hull, City of"
+-0.3271,53.7493,0.18,"Kingston upon Hull, City of"
+-0.3581,53.7441,0.17,"Kingston upon Hull, City of"
+-0.2992,53.763,0.46,"Kingston upon Hull, City of"
+-0.3637,53.7297,0.63,"Kingston upon Hull, City of"
+-0.2399,53.7729,25.7,East Riding of Yorkshire
+-0.4392,53.8756,2.3,East Riding of Yorkshire
+-0.3466,53.8685,40,East Riding of Yorkshire
+-0.8076,53.9068,49.99,East Riding of Yorkshire
+-0.4187,53.7806,49.9,East Riding of Yorkshire
+-0.9044,53.8333,0.2,East Riding of Yorkshire
+-0.4464,53.8245,0.6,East Riding of Yorkshire
+-0.3151,53.8291,49.9,East Riding of Yorkshire
+-0.3567,53.8292,49.9,East Riding of Yorkshire
+-0.0981,53.7555,1,East Riding of Yorkshire
+-0.8654,53.7469,400,East Riding of Yorkshire
+-0.3819,53.8613,49.9,East Riding of Yorkshire
+-0.4372,53.983,49.9,East Riding of Yorkshire
+-0.6379,53.9395,0.43,East Riding of Yorkshire
+-0.408,53.9833,45,East Riding of Yorkshire
+-0.4094,53.9521,49.9,East Riding of Yorkshire
+-0.2898,54.072,39,East Riding of Yorkshire
+-0.4609,53.7255,0.38,East Riding of Yorkshire
+-0.118,54.1262,0.42,East Riding of Yorkshire
+-0.1987,53.9592,0.21,East Riding of Yorkshire
+-0.2315,53.7657,49.9,East Riding of Yorkshire
+-0.4887,53.8396,0.36,East Riding of Yorkshire
+-0.4618,53.9999,0.29,East Riding of Yorkshire
+-0.2784,53.924,0.38,East Riding of Yorkshire
+-0.9469,53.6755,0.36,East Riding of Yorkshire
+-0.4084,53.7839,0.37,East Riding of Yorkshire
+-0.9001,53.7002,0.29,East Riding of Yorkshire
+-0.3568,53.8292,49.9,East Riding of Yorkshire
+-0.256,54.0614,0.4,East Riding of Yorkshire
+-0.3337,53.8394,320,East Riding of Yorkshire
+-0.5585,53.9338,0.83,East Riding of Yorkshire
+-0.6891,53.7659,1.5,East Riding of Yorkshire
+-0.5202,53.8359,0.27,East Riding of Yorkshire
+-0.8482,53.7533,2.95,East Riding of Yorkshire
+-0.4351,53.7394,0.29,East Riding of Yorkshire
+-0.3413,54.1039,0.53,East Riding of Yorkshire
+-0.2749,53.926,0.97,East Riding of Yorkshire
+-0.1461,53.7518,35,East Riding of Yorkshire
+-0.7431,53.7569,0.41,East Riding of Yorkshire
+-0.9504,53.6841,6,East Riding of Yorkshire
+-0.2567,54.0602,0.1,East Riding of Yorkshire
+-0.7156,53.7458,1.5,East Riding of Yorkshire
+-0.4308,53.9952,0.85,East Riding of Yorkshire
+-0.8218,53.8439,0.3,East Riding of Yorkshire
+-0.9042,53.697,0.6,East Riding of Yorkshire
+-0.8423,53.8766,0.3,East Riding of Yorkshire
+-0.2294,53.7572,49.9,East Riding of Yorkshire
+-0.8533,53.9301,0.29,East Riding of Yorkshire
+0.0243,53.7321,0.3,East Riding of Yorkshire
+-0.008,53.7631,0.27,East Riding of Yorkshire
+-0.5272,53.7226,0.26,East Riding of Yorkshire
+-0.5373,53.7113,1.7,East Riding of Yorkshire
+-0.2784,53.924,0.4,East Riding of Yorkshire
+-0.0805,53.5486,0.2,North East Lincolnshire
+-0.1735,53.5603,49.9,North East Lincolnshire
+-0.0697,53.5756,0.36,North East Lincolnshire
+-0.1402,53.5507,0.45,North East Lincolnshire
+-0.1165,53.5733,0.66,North East Lincolnshire
+-0.0934,53.5535,0.19,North East Lincolnshire
+-0.0527,53.5367,0.38,North East Lincolnshire
+-0.1228,53.5465,43.7,North East Lincolnshire
+-0.1873,53.6282,1.07,North East Lincolnshire
+-0.1873,53.6282,1.37,North East Lincolnshire
+-0.1787,53.6178,0.43,North East Lincolnshire
+-0.2049,53.6067,49.9,North East Lincolnshire
+-0.1139,53.5643,0.19,North East Lincolnshire
+-0.2217,53.6064,37.4,North East Lincolnshire
+-0.0752,53.5758,0.8,North East Lincolnshire
+-0.0675,53.5749,1.5,North East Lincolnshire
+-0.1155,53.5809,0.15,North East Lincolnshire
+-0.1262,53.5821,0.81,North East Lincolnshire
+-0.0963,53.5449,0.81,North East Lincolnshire
+-0.6188,53.5765,150,North Lincolnshire
+-0.6321,53.6757,5,North Lincolnshire
+-0.5683,53.6555,9,North Lincolnshire
+-0.3091,53.6266,39,North Lincolnshire
+-0.6136,53.5646,0.62,North Lincolnshire
+-0.4165,53.6087,0.29,North Lincolnshire
+-0.4194,53.6086,0.31,North Lincolnshire
+-0.641,53.5601,0.21,North Lincolnshire
+-0.7996,53.4559,0.35,North Lincolnshire
+-0.5008,53.5584,0.5,North Lincolnshire
+-0.2657,53.627,0.78,North Lincolnshire
+-0.2122,53.6402,0.51,North Lincolnshire
+-0.3561,53.5849,0.23,North Lincolnshire
+-0.6686,53.5745,0.27,North Lincolnshire
+-0.6585,53.5905,0.18,North Lincolnshire
+-0.6651,53.6203,1.1,North Lincolnshire
+-0.6622,53.615,0.65,North Lincolnshire
+-0.6689,53.5856,1.11,North Lincolnshire
+-0.4155,53.6067,0.15,North Lincolnshire
+-0.4985,53.556,0.24,North Lincolnshire
+-0.6676,53.5876,0.21,North Lincolnshire
+-0.6168,53.5648,0.18,North Lincolnshire
+-0.6772,53.6088,0.3,North Lincolnshire
+-0.6676,53.5876,0.24,North Lincolnshire
+-0.6619,53.62,1.23,North Lincolnshire
+-0.4056,53.6796,6.6,North Lincolnshire
+-1.1975,53.9736,40,York
+-1.1809,53.9956,32.6,York
+-1.1053,53.957,0.82,York
+-0.977,53.9081,0.23,York
+-0.96,53.914,0.22,York
+-1.1086,53.9573,0.46,York
+-1.015,54.0471,0.27,York
+-1.0925,53.9661,0.15,York
+-1.1392,53.9501,0.21,York
+-1.0411,53.9524,0.46,York
+-1.1801,53.9592,28,York
+-1.1343,54.022,0.27,York
+-1.0535,53.9484,0.15,York
+-1.0446,53.9487,0.23,York
+-1.0475,53.9648,0.22,York
+-1.0535,53.986,0.31,York
+-0.93,53.9269,3,York
+-1.1136,53.9297,0.28,York
+-1.0885,53.9051,0.37,York
+-1.0535,53.9484,0.22,York
+-1.0573,53.9488,0.15,York
+-1.0526,53.9835,0.21,York
+-1.1983,53.9838,0.25,York
+-0.9778,53.9731,0.69,York
+-1.0746,53.9744,0.18,York
+-1.4623,52.9437,0.61,Derby
+-1.4718,52.8909,1.26,Derby
+-1.4566,52.9232,0.25,Derby
+-1.4524,52.912,0.35,Derby
+-1.4779,52.8952,0.19,Derby
+-1.4528,52.9011,0.16,Derby
+-1.4538,52.9164,0.77,Derby
+-1.473,52.9193,0.31,Derby
+-1.4779,52.8952,0.23,Derby
+-1.4686,52.9143,0.74,Derby
+-1.425,52.9347,0.21,Derby
+-1.4732,52.9272,0.49,Derby
+-1.5015,52.9167,0.18,Derby
+-1.1462,52.6721,1.7,Leicester
+-1.1665,52.6663,0.4,Leicester
+-1.0895,52.6583,0.17,Leicester
+-1.1577,52.6688,3.25,Leicester
+-1.1011,52.6264,0.27,Leicester
+-1.1452,52.6744,0.18,Leicester
+-1.0911,52.6578,0.17,Leicester
+-1.2028,52.6308,1.57,Leicester
+-1.0731,52.6517,0.15,Leicester
+-1.0508,52.6515,0.28,Leicester
+-0.7717,52.6898,28,Rutland
+-0.4497,52.6912,350,Rutland
+-0.6498,52.6158,49.9,Rutland
+-0.7188,52.6992,0.17,Rutland
+-0.7725,52.7195,49.99,Rutland
+-0.7302,52.6687,0.33,Rutland
+-1.1839,52.9272,6.3,Nottingham
+-1.1746,52.9413,0.26,Nottingham
+-1.1834,52.9542,0.18,Nottingham
+-1.2119,53.0061,0.27,Nottingham
+-1.228,52.959,0.33,Nottingham
+-1.1527,52.9558,0.19,Nottingham
+-1.1735,52.9299,0.31,Nottingham
+-1.177,52.933,0.45,Nottingham
+-1.228,52.959,0.27,Nottingham
+-1.2176,52.9666,0.3,Nottingham
+-1.1807,52.931,0.31,Nottingham
+-1.2122,52.9666,0.32,Nottingham
+-1.1722,52.931,0.16,Nottingham
+-1.1957,53.0073,0.15,Nottingham
+-1.1932,52.9607,0.15,Nottingham
+-1.1719,52.9358,0.2,Nottingham
+-1.1434,52.9491,0.18,Nottingham
+-2.644,51.8629,1,"Herefordshire, County of"
+-2.9399,52.2476,0.3,"Herefordshire, County of"
+-2.6028,51.8757,0.15,"Herefordshire, County of"
+-2.6954,52.0377,0.26,"Herefordshire, County of"
+-2.7586,52.2231,0.23,"Herefordshire, County of"
+-2.7384,52.1995,0.61,"Herefordshire, County of"
+-2.8583,52.0359,0.17,"Herefordshire, County of"
+-2.7204,52.3097,0.53,"Herefordshire, County of"
+-2.9052,52.0933,0.33,"Herefordshire, County of"
+-2.8805,52.2434,0.3,"Herefordshire, County of"
+-2.5764,52.0919,20.6,"Herefordshire, County of"
+-2.4289,52.0488,0.37,"Herefordshire, County of"
+-2.5512,52.1493,0.18,"Herefordshire, County of"
+-2.6534,52.75,49.9,Telford and Wrekin
+-2.4469,52.6768,1.82,Telford and Wrekin
+-2.5113,52.6835,30,Telford and Wrekin
+-2.4279,52.7454,25,Telford and Wrekin
+-2.4652,52.7138,0.39,Telford and Wrekin
+-2.4564,52.6776,0.27,Telford and Wrekin
+-2.431,52.6417,0.52,Telford and Wrekin
+-2.5917,52.7651,0.81,Telford and Wrekin
+-2.589,52.7674,49.9,Telford and Wrekin
+-2.588,52.7307,0.44,Telford and Wrekin
+-2.4468,52.6766,0.7,Telford and Wrekin
+-2.4465,52.6737,0.23,Telford and Wrekin
+-2.4984,52.7004,0.27,Telford and Wrekin
+-2.4652,52.7138,0.17,Telford and Wrekin
+-2.5747,52.7035,14,Telford and Wrekin
+-2.4147,52.6778,0.53,Telford and Wrekin
+-2.4227,52.706,3.8,Telford and Wrekin
+-2.4464,52.6753,0.58,Telford and Wrekin
+-2.4699,52.7125,0.81,Telford and Wrekin
+-2.5115,52.7121,2.08,Telford and Wrekin
+-2.1599,53.0214,1.06,Stoke-on-Trent
+-2.2225,53.068,0.99,Stoke-on-Trent
+-2.1298,53.0038,0.37,Stoke-on-Trent
+-2.2225,53.068,0.39,Stoke-on-Trent
+-2.2225,53.068,0.16,Stoke-on-Trent
+-2.091,52.9707,0.84,Stoke-on-Trent
+-2.2125,53.0453,0.31,Stoke-on-Trent
+-2.2103,53.0534,0.23,Stoke-on-Trent
+-2.0965,52.9719,0.37,Stoke-on-Trent
+-2.1649,53.0102,0.18,Stoke-on-Trent
+-2.1678,53.0549,0.31,Stoke-on-Trent
+-2.2023,52.9993,0.41,Stoke-on-Trent
+-2.1897,53.0222,0.24,Stoke-on-Trent
+-2.1071,52.973,0.16,Stoke-on-Trent
+-2.5804,51.3417,49.9,Bath and North East Somerset
+-2.4938,51.3504,15,Bath and North East Somerset
+-2.5085,51.3818,2.1,Bath and North East Somerset
+-2.4363,51.2939,0.3,Bath and North East Somerset
+-2.3437,51.3865,0.22,Bath and North East Somerset
+-2.467,51.2774,0.32,Bath and North East Somerset
+-2.4875,51.4095,0.15,Bath and North East Somerset
+-2.4892,51.2977,9.2,Bath and North East Somerset
+-2.5014,51.2942,0.19,Bath and North East Somerset
+-2.3912,51.3917,0.31,Bath and North East Somerset
+-2.6813,51.5164,0.53,"Bristol, City of"
+-2.5996,51.4051,0.47,"Bristol, City of"
+-2.5924,51.4109,0.99,"Bristol, City of"
+-2.6573,51.5148,3.81,"Bristol, City of"
+-2.5598,51.448,0.15,"Bristol, City of"
+-2.5757,51.4553,0.19,"Bristol, City of"
+-2.6676,51.5143,0.97,"Bristol, City of"
+-2.6909,51.5061,0.3,"Bristol, City of"
+-2.5848,51.418,0.24,"Bristol, City of"
+-2.6694,51.5156,0.24,"Bristol, City of"
+-2.6029,51.4489,0.17,"Bristol, City of"
+-2.8386,51.3922,1,North Somerset
+-2.859,51.3529,19.8,North Somerset
+-2.7157,51.4839,0.77,North Somerset
+-2.8091,51.3752,0.5,North Somerset
+-2.6918,51.3553,9.1,North Somerset
+-2.8371,51.3907,0.84,North Somerset
+-2.7858,51.3461,0.63,North Somerset
+-2.8655,51.4201,0.29,North Somerset
+-2.8266,51.336,49.9,North Somerset
+-2.947,51.3739,24.5,North Somerset
+-2.6772,51.4652,5,North Somerset
+-2.7957,51.3531,30,North Somerset
+-2.8386,51.3922,2.93,North Somerset
+-2.631,51.4377,0.7,North Somerset
+-2.7714,51.3511,39.99,North Somerset
+-2.6443,51.436,1.05,North Somerset
+-2.913,51.3523,0.35,North Somerset
+-2.7594,51.4827,0.15,North Somerset
+-2.7108,51.4897,5.9,North Somerset
+-2.7108,51.4897,6.17,North Somerset
+-2.9687,51.3245,0.3,North Somerset
+-2.9687,51.3245,0.42,North Somerset
+-2.8079,51.3631,49.9,North Somerset
+-2.6918,51.3553,10,North Somerset
+-2.8665,51.3938,49.99,North Somerset
+-2.9643,51.3347,0.32,North Somerset
+-2.4969,51.5453,49.9,South Gloucestershire
+-2.4247,51.5927,49.9,South Gloucestershire
+-2.6205,51.5408,2.97,South Gloucestershire
+-2.5276,51.6639,49.9,South Gloucestershire
+-2.6414,51.5415,1.5,South Gloucestershire
+-2.4674,51.6352,0.19,South Gloucestershire
+-2.6305,51.5234,0.5,South Gloucestershire
+-2.498,51.4498,0.17,South Gloucestershire
+-2.4355,51.6128,25,South Gloucestershire
+-2.4201,51.5123,18.75,South Gloucestershire
+-2.4834,51.5059,1,South Gloucestershire
+-2.6028,51.5231,0.44,South Gloucestershire
+-2.4766,51.4968,0.69,South Gloucestershire
+-2.5687,51.5204,0.15,South Gloucestershire
+-2.4814,51.5031,0.21,South Gloucestershire
+-2.5964,51.5286,0.18,South Gloucestershire
+-2.5457,51.5362,0.41,South Gloucestershire
+-2.5695,51.6469,0.15,South Gloucestershire
+-2.4823,51.4949,0.26,South Gloucestershire
+-2.5603,51.5055,0.32,South Gloucestershire
+-2.5602,51.5063,0.88,South Gloucestershire
+-2.3904,51.539,0.25,South Gloucestershire
+-2.5932,51.5526,49.9,South Gloucestershire
+-2.4979,51.4467,0.2,South Gloucestershire
+-2.4667,51.5018,0.47,South Gloucestershire
+-2.4745,51.4929,0.5,South Gloucestershire
+-2.6508,51.5349,0.95,South Gloucestershire
+-2.4162,51.5405,0.37,South Gloucestershire
+-2.5776,51.5133,3.14,South Gloucestershire
+-2.6429,51.5453,0.47,South Gloucestershire
+-2.5647,51.5501,0.24,South Gloucestershire
+-2.5288,51.599,0.18,South Gloucestershire
+-2.498,51.4498,0.15,South Gloucestershire
+-2.6474,51.5334,1.4,South Gloucestershire
+-2.5475,51.5011,0.59,South Gloucestershire
+-2.4484,51.5092,1.2,South Gloucestershire
+-2.647,51.5348,2.4,South Gloucestershire
+-2.6493,51.5491,0.94,South Gloucestershire
+-2.478,51.4564,0.3,South Gloucestershire
+-2.4237,51.5276,0.15,South Gloucestershire
+-2.643,51.5454,0.72,South Gloucestershire
+-4.0721,50.3899,0.18,Plymouth
+-4.1631,50.3691,0.7,Plymouth
+-4.099,50.3778,13,Plymouth
+-4.0983,50.3659,0.67,Plymouth
+-4.1259,50.4127,0.23,Plymouth
+-4.1222,50.4377,2.65,Plymouth
+-4.1224,50.4373,2.65,Plymouth
+-4.1481,50.366,0.15,Plymouth
+-4.044,50.3963,0.27,Plymouth
+-4.0826,50.3949,0.3,Plymouth
+-4.0826,50.3949,0.75,Plymouth
+-4.0811,50.3912,0.55,Plymouth
+-4.0811,50.3912,0.7,Plymouth
+-4.1049,50.3675,0.26,Plymouth
+-4.0872,50.3893,0.91,Plymouth
+-4.1266,50.4219,0.16,Plymouth
+-4.1105,50.3817,0.34,Plymouth
+-4.0897,50.4176,0.16,Plymouth
+-3.5565,50.3962,2.7,Torbay
+-3.549,50.4878,3.2,Torbay
+-3.5658,50.4241,0.17,Torbay
+-3.5844,50.4268,0.29,Torbay
+-1.8015,51.5103,1.2,Swindon
+-1.7376,51.6148,49.9,Swindon
+-1.7586,51.5834,0.52,Swindon
+-1.7749,51.5981,0.91,Swindon
+-1.7854,51.5299,0.6,Swindon
+-1.7187,51.5791,3.26,Swindon
+-1.8246,51.5692,0.23,Swindon
+-1.7769,51.5278,0.18,Swindon
+-1.7559,51.5682,0.16,Swindon
+-1.7249,51.5881,1.09,Swindon
+-1.8089,51.5571,1.96,Swindon
+-1.8105,51.5581,0.38,Swindon
+-1.8085,51.5975,2,Swindon
+-1.7317,51.5975,0.4,Swindon
+-1.7976,51.6238,15,Swindon
+-1.7929,51.5092,0.8,Swindon
+-1.7317,51.5975,0.3,Swindon
+-1.7578,51.5829,0.16,Swindon
+-0.0415,52.6449,49.9,Peterborough
+-0.2146,52.5837,1.17,Peterborough
+-0.3011,52.5309,0.69,Peterborough
+-0.2847,52.5533,0.28,Peterborough
+-0.1957,52.6143,0.5,Peterborough
+-0.241,52.5965,14,Peterborough
+-0.4268,52.6148,11,Peterborough
+-0.2709,52.5985,0.2,Peterborough
+-0.2831,52.6079,1.3,Peterborough
+-0.2548,52.5458,0.96,Peterborough
+-0.2632,52.5512,1.44,Peterborough
+-0.283,52.6079,0.25,Peterborough
+-0.283,52.6079,0.3,Peterborough
+-0.2428,52.6129,1.2,Peterborough
+-0.3112,52.5428,0.34,Peterborough
+-0.2302,52.5868,0.59,Peterborough
+-0.3765,51.8804,0.47,Luton
+-0.3725,51.8841,0.48,Luton
+-0.4143,51.9038,0.3,Luton
+-0.3913,51.9109,0.4,Luton
+-0.3926,51.908,0.39,Luton
+-0.4093,51.8653,0.46,Luton
+-0.4771,51.9152,0.35,Luton
+-0.4914,51.8969,0.25,Luton
+0.7261,51.5317,0.2,Southend-on-Sea
+0.7894,51.5314,1,Southend-on-Sea
+0.7276,51.5544,0.21,Southend-on-Sea
+0.7158,51.5331,0.15,Southend-on-Sea
+0.7091,51.5408,0.23,Southend-on-Sea
+0.2611,51.4891,0.6,Thurrock
+0.3399,51.5392,49.9,Thurrock
+0.3209,51.4777,0.43,Thurrock
+0.2677,51.4807,0.79,Thurrock
+0.2373,51.5033,16,Thurrock
+0.2835,51.4871,1.31,Thurrock
+0.2603,51.4827,0.26,Thurrock
+0.3326,51.4705,0.3,Thurrock
+0.2931,51.482,0.22,Thurrock
+0.2332,51.497,2.8,Thurrock
+0.2756,51.489,1.05,Thurrock
+0.6154,51.4342,1.3,Medway
+0.5411,51.3907,0.26,Medway
+0.5415,51.3937,0.4,Medway
+0.5819,51.3597,1.82,Medway
+0.5801,51.3621,0.32,Medway
+0.5819,51.3597,0.32,Medway
+0.5504,51.3917,0.17,Medway
+-0.7857,51.3687,0.19,Bracknell Forest
+-0.7765,51.3711,0.43,Bracknell Forest
+-0.7758,51.3363,0.21,Bracknell Forest
+-0.7951,51.3624,0.2,Bracknell Forest
+-1.0619,51.4075,5,West Berkshire
+-1.0173,51.387,25.77,West Berkshire
+-1.2794,51.4442,0.25,West Berkshire
+-1.231,51.3961,1.6,West Berkshire
+-1.2026,51.4629,0.45,West Berkshire
+-1.3578,51.3705,3,West Berkshire
+-1.0475,51.4061,0.42,West Berkshire
+-1.1526,51.4156,12,West Berkshire
+-1.2917,51.3984,0.25,West Berkshire
+-1.2923,51.4061,0.34,West Berkshire
+-1.0635,51.4357,0.21,West Berkshire
+-1.5029,51.4006,2.5,West Berkshire
+-1.035,51.4262,5,West Berkshire
+-1.2534,51.5133,0.3,West Berkshire
+-1.0999,51.3845,1.5,West Berkshire
+-1.2487,51.4017,0.3,West Berkshire
+-1.3288,51.4376,0.16,West Berkshire
+-1.13,51.402,0.9,West Berkshire
+-0.9988,51.4586,0.2,Reading
+-0.9759,51.4152,0.26,Reading
+-0.9752,51.4147,0.6,Reading
+-0.9783,51.4245,0.32,Reading
+-0.9756,51.4149,0.19,Reading
+-0.9861,51.4334,0.51,Reading
+-1.0003,51.4615,0.21,Reading
+-0.9835,51.4223,0.37,Reading
+-0.9668,51.4791,0.19,Reading
+-0.6212,51.5132,0.32,Slough
+-0.6233,51.5131,0.19,Slough
+-0.5358,51.4982,0.31,Slough
+-0.5882,51.5123,0.37,Slough
+-0.6381,51.5342,0.26,Slough
+-0.8087,51.4598,21.51,Windsor and Maidenhead
+-0.7391,51.5358,0.25,Windsor and Maidenhead
+-0.6262,51.4432,0.21,Windsor and Maidenhead
+-0.6575,51.4652,1.2,Windsor and Maidenhead
+-0.6516,51.3924,0.45,Windsor and Maidenhead
+-0.6106,51.4822,0.41,Windsor and Maidenhead
+-0.621,51.4828,0.49,Windsor and Maidenhead
+-0.6883,51.4089,0.28,Windsor and Maidenhead
+-0.9214,51.3859,14,Wokingham
+-0.8714,51.3873,33,Wokingham
+-0.9395,51.4598,0.16,Wokingham
+-0.8807,51.4392,0.19,Wokingham
+-0.9657,51.3827,28,Wokingham
+-0.9414,51.4569,1.3,Wokingham
+-0.9172,51.3914,0.38,Wokingham
+-0.7326,52.0643,2,Milton Keynes
+-0.7272,51.9803,0.2,Milton Keynes
+-0.7602,52.0257,0.18,Milton Keynes
+-0.7097,52.0534,0.75,Milton Keynes
+-0.6589,52.0372,0.2,Milton Keynes
+-0.7853,52.0382,0.52,Milton Keynes
+-0.7249,52.0099,0.28,Milton Keynes
+-0.7166,52.0728,0.26,Milton Keynes
+-0.6825,52.0402,0.45,Milton Keynes
+-0.7343,52.0139,0.88,Milton Keynes
+-0.7909,51.989,1.55,Milton Keynes
+-0.7985,52.0605,0.34,Milton Keynes
+-0.7182,52.0037,0.47,Milton Keynes
+-0.6814,52.0324,0.53,Milton Keynes
+-0.8197,52.0441,0.98,Milton Keynes
+-0.7438,52.0782,0.2,Milton Keynes
+-0.7324,52.053,0.56,Milton Keynes
+-0.6699,52.036,0.9,Milton Keynes
+-0.7055,52.0511,0.31,Milton Keynes
+-0.7592,52.0574,0.41,Milton Keynes
+-0.7818,52.0405,0.26,Milton Keynes
+-0.7249,52.0099,0.26,Milton Keynes
+-0.6815,52.0385,1.75,Milton Keynes
+-0.7831,51.9931,1.23,Milton Keynes
+-0.7274,52.0037,0.23,Milton Keynes
+-0.7958,52.0423,0.7,Milton Keynes
+-0.7295,52.069,0.47,Milton Keynes
+-0.8017,52.0453,0.61,Milton Keynes
+-0.6724,52.0316,0.23,Milton Keynes
+-0.8251,52.0482,0.5,Milton Keynes
+-0.7359,52.0036,0.23,Milton Keynes
+-0.8247,52.0585,0.38,Milton Keynes
+-0.7461,52.0299,0.35,Milton Keynes
+-0.693,52.0096,0.29,Milton Keynes
+-0.1898,50.842,0.2,Brighton and Hove
+-0.205,50.8423,0.57,Brighton and Hove
+-1.0884,50.812,1.2,Portsmouth
+-1.0291,50.8513,3.68,Portsmouth
+-1.0616,50.7987,0.17,Portsmouth
+-1.0619,50.8304,0.18,Portsmouth
+-1.0558,50.83,0.57,Portsmouth
+-1.0479,50.8367,0.29,Portsmouth
+-1.1065,50.7958,0.64,Portsmouth
+-1.0833,50.8244,0.27,Portsmouth
+-1.0848,50.8163,0.27,Portsmouth
+-1.0751,50.839,4.5,Portsmouth
+-1.0392,50.8405,0.54,Portsmouth
+-1.0434,50.8404,0.24,Portsmouth
+-1.0862,50.7964,0.16,Portsmouth
+-1.0699,50.8503,0.87,Portsmouth
+-1.0699,50.8503,0.54,Portsmouth
+-1.0639,50.8001,0.46,Portsmouth
+-1.0381,50.8415,0.89,Portsmouth
+-1.1047,50.8486,0.18,Portsmouth
+-1.4736,50.9292,0.33,Southampton
+-1.4217,50.9032,0.84,Southampton
+-1.4639,50.9363,0.3,Southampton
+-1.4327,50.9337,0.25,Southampton
+-1.4327,50.9306,0.23,Southampton
+-1.3887,50.9274,0.16,Southampton
+-1.3407,50.9062,0.67,Southampton
+-1.2482,50.7171,20,Isle of Wight
+-1.4795,50.6942,30,Isle of Wight
+-1.2743,50.7413,1.3,Isle of Wight
+-1.2188,50.5995,0.22,Isle of Wight
+-1.3106,50.694,0.29,Isle of Wight
+-1.8419,54.8392,5,County Durham
+-1.6983,54.6408,0.5,County Durham
+-1.3327,54.7041,49.9,County Durham
+-1.5379,54.7784,0.61,County Durham
+-1.8272,54.8638,0.32,County Durham
+-1.4049,54.81,49.9,County Durham
+-1.7556,54.6172,0.61,County Durham
+-1.5506,54.6228,0.15,County Durham
+-1.3747,54.8154,0.25,County Durham
+-1.3364,54.7568,0.15,County Durham
+-1.5319,54.7247,3.45,County Durham
+-1.8272,54.864,1.02,County Durham
+-1.3622,54.7697,1.34,County Durham
+-1.7242,54.835,49.9,County Durham
+-1.4723,54.6896,41.4,County Durham
+-1.6624,54.6459,0.19,County Durham
+-1.7926,54.6215,49.99,County Durham
+-1.3487,54.7641,0.46,County Durham
+-1.4533,54.67,0.25,County Durham
+-1.5522,54.7124,49.9,County Durham
+-1.5755,54.7647,0.19,County Durham
+-1.5457,54.7879,0.16,County Durham
+-1.9056,54.5512,16,County Durham
+-1.7495,54.8734,0.89,County Durham
+-1.5757,54.604,0.2,County Durham
+-1.6965,54.6505,0.25,County Durham
+-1.3257,54.8225,0.35,County Durham
+-1.338,54.8198,8,County Durham
+-1.5773,54.808,0.17,County Durham
+-1.5843,54.7054,1.7,County Durham
+-1.6714,54.6603,0.22,County Durham
+-1.5349,54.7924,0.21,County Durham
+-1.3539,54.7588,0.19,County Durham
+-1.5751,54.8509,0.16,County Durham
+-1.5938,54.7885,0.4,County Durham
+-2.4422,53.1309,17,Cheshire East
+-2.3525,53.1961,0.96,Cheshire East
+-2.4163,53.1122,5,Cheshire East
+-2.348,53.2716,2.5,Cheshire East
+-2.4709,53.1066,0.46,Cheshire East
+-2.4719,53.102,0.17,Cheshire East
+-2.4716,53.1053,0.22,Cheshire East
+-2.479,53.1043,0.37,Cheshire East
+-2.4763,53.1026,0.49,Cheshire East
+-2.1645,53.2781,0.5,Cheshire East
+-2.1903,53.2788,0.22,Cheshire East
+-2.4614,53.0232,12.5,Cheshire East
+-2.2301,53.2775,0.4,Cheshire East
+-2.1175,53.2629,0.29,Cheshire East
+-2.479,53.1043,0.7,Cheshire East
+-2.4525,53.0985,0.44,Cheshire East
+-2.4368,53.1453,0.15,Cheshire East
+-2.6053,53.0135,0.18,Cheshire East
+-2.6067,53.0972,0.15,Cheshire East
+-2.3297,53.1465,0.2,Cheshire East
+-2.4314,53.1868,0.19,Cheshire East
+-2.4686,53.1075,0.56,Cheshire East
+-2.4789,53.1043,0.54,Cheshire East
+-2.4722,53.1059,1.12,Cheshire East
+-2.4346,53.0969,0.17,Cheshire East
+-2.4612,53.2292,2.25,Cheshire West and Chester
+-2.891,53.1961,0.15,Cheshire West and Chester
+-2.5282,53.1891,0.27,Cheshire West and Chester
+-2.8877,53.2634,0.31,Cheshire West and Chester
+-2.9579,53.1445,0.16,Cheshire West and Chester
+-2.6986,53.1569,17.57,Cheshire West and Chester
+-2.8898,53.2109,0.28,Cheshire West and Chester
+-2.9061,53.1595,0.2,Cheshire West and Chester
+-2.4976,53.2033,0.2,Cheshire West and Chester
+-2.5117,53.1986,0.57,Cheshire West and Chester
+-2.881,53.1942,1,Cheshire West and Chester
+-2.9225,53.1951,0.17,Cheshire West and Chester
+-2.4944,53.1957,2.2,Cheshire West and Chester
+-2.8972,53.1594,0.73,Cheshire West and Chester
+-2.5055,53.2085,0.16,Cheshire West and Chester
+-2.9521,53.2635,0.25,Cheshire West and Chester
+-2.9269,53.1958,0.4,Cheshire West and Chester
+-2.5553,53.1747,19,Cheshire West and Chester
+-2.5399,53.2583,22,Cheshire West and Chester
+-2.4986,53.2035,0.22,Cheshire West and Chester
+-2.932,53.2471,0.27,Cheshire West and Chester
+-2.8555,53.183,0.38,Cheshire West and Chester
+-2.9166,53.1924,0.2,Cheshire West and Chester
+-2.7503,53.1325,0.3,Cheshire West and Chester
+-2.6981,53.2762,0.39,Cheshire West and Chester
+-2.4539,53.1691,0.2,Cheshire West and Chester
+-2.9334,53.3055,1.3,Cheshire West and Chester
+-2.851,53.1238,0.6,Cheshire West and Chester
+-2.879,53.2631,0.53,Cheshire West and Chester
+-2.5062,53.2416,0.22,Cheshire West and Chester
+-2.9064,53.1612,0.18,Cheshire West and Chester
+-2.8988,53.2116,0.21,Cheshire West and Chester
+-2.5145,52.8046,49,Shropshire
+-2.2451,52.6347,16,Shropshire
+-2.6249,52.3331,49.9,Shropshire
+-2.6996,52.3777,40,Shropshire
+-2.9061,52.8184,1,Shropshire
+-2.7135,52.79,1,Shropshire
+-2.4043,52.6376,22,Shropshire
+-3.1312,52.876,1.23,Shropshire
+-2.6265,52.7124,25,Shropshire
+-2.4111,52.9911,0.67,Shropshire
+-2.6584,52.9141,0.3,Shropshire
+-2.7075,52.6544,30,Shropshire
+-2.8408,52.8552,0.3,Shropshire
+-2.4789,52.6192,0.16,Shropshire
+-2.6584,52.9141,0.55,Shropshire
+-3.0351,52.845,0.83,Shropshire
+-2.9103,52.8824,1.1,Shropshire
+-2.5976,52.3163,0.3,Shropshire
+-3.0512,52.8023,1.8,Shropshire
+-2.703,52.3778,0.18,Shropshire
+-2.7337,52.7417,0.2,Shropshire
+-2.4115,52.8749,0.24,Shropshire
+-2.7026,52.9611,2.18,Shropshire
+-2.8023,52.7203,0.38,Shropshire
+-3.0327,52.8842,0.26,Shropshire
+-2.3812,52.5433,5,Shropshire
+-2.7365,52.73,0.37,Shropshire
+-2.7937,52.7093,0.75,Shropshire
+-2.6306,52.8873,0.56,Shropshire
+-3.0506,52.9185,1.28,Shropshire
+-3.0327,52.8842,0.21,Shropshire
+-2.5966,52.9004,0.17,Shropshire
+-3.0327,52.8842,0.2,Shropshire
+-2.46,52.93,0.3,Shropshire
+-2.7214,52.6972,0.65,Shropshire
+-4.5987,50.6684,5,Cornwall
+-5.3256,50.1909,30,Cornwall
+-5.4496,50.1371,49.9,Cornwall
+-5.0739,50.3477,10,Cornwall
+-5.1029,50.2598,0.48,Cornwall
+-5.5213,50.1522,0.4,Cornwall
+-4.51,50.7039,42.5,Cornwall
+-4.5589,50.4291,0.9,Cornwall
+-5.0623,50.4014,0.37,Cornwall
+-5.0043,50.3887,68,Cornwall
+-5.0687,50.2601,0.33,Cornwall
+-4.7635,50.3567,17.51,Cornwall
+-5.2585,50.2274,0.82,Cornwall
+-4.3125,50.5206,0.16,Cornwall
+-5.1284,50.3108,0.75,Cornwall
+-5.478,50.2046,0.2,Cornwall
+-4.6181,50.3907,0.15,Cornwall
+-4.7064,50.4682,0.27,Cornwall
+-4.4532,50.4513,0.37,Cornwall
+-4.5281,50.8281,0.33,Cornwall
+-5.5132,50.1277,0.33,Cornwall
+-4.5409,50.3753,0.18,Cornwall
+-5.3492,50.1878,40,Cornwall
+-5.1446,50.3586,0.53,Cornwall
+-5.4251,50.1972,0.24,Cornwall
+-5.1996,50.2562,2.65,Cornwall
+-5.1297,50.3852,0.25,Cornwall
+-5.4018,50.1978,2.5,Cornwall
+-5.0073,50.3378,49.9,Cornwall
+-5.2835,50.2328,0.43,Cornwall
+-4.5396,50.8073,2.1,Cornwall
+-4.8109,50.4282,0.85,Cornwall
+-4.2387,50.4156,0.16,Cornwall
+-4.6992,50.4699,1.2,Cornwall
+-5.4928,50.2031,0.16,Cornwall
+-5.0427,50.2608,0.24,Cornwall
+-5.0955,50.1523,0.34,Cornwall
+-5.1284,50.3108,0.53,Cornwall
+-4.6951,50.6121,0.19,Cornwall
+-4.815,50.4195,4.5,Cornwall
+-4.2262,50.4178,0.6,Cornwall
+-4.7006,50.4773,0.57,Cornwall
+-4.6998,50.4709,1.1,Cornwall
+-5.0677,50.2615,0.44,Cornwall
+-1.6856,51.1936,49.9,Wiltshire
+-2.0074,51.6015,40,Wiltshire
+-2.1383,51.4062,49.9,Wiltshire
+-2.0961,51.6103,49.9,Wiltshire
+-2.1835,51.3475,25,Wiltshire
+-2.0768,51.4429,49.9,Wiltshire
+-2.1716,51.5088,49.9,Wiltshire
+-1.8746,51.5977,20,Wiltshire
+-1.8005,51.0703,0.18,Wiltshire
+-2.2186,51.2706,31,Wiltshire
+-1.8035,51.0785,0.16,Wiltshire
+-1.8786,51.6388,13,Wiltshire
+-1.8035,51.0785,0.41,Wiltshire
+-2.1892,51.3846,49.9,Wiltshire
+-1.7572,50.995,0.51,Wiltshire
+-2.1981,51.4205,0.7,Wiltshire
+-2.1069,51.4711,1.6,Wiltshire
+-2.115,51.511,0.19,Wiltshire
+-1.7711,51.1808,0.3,Wiltshire
+-2.1827,51.2043,0.23,Wiltshire
+-2.2225,51.3081,0.16,Wiltshire
+-2.139,51.3557,0.58,Wiltshire
+-2.1124,51.4306,0.32,Wiltshire
+-2.1584,51.4157,0.25,Wiltshire
+-1.8399,51.043,30,Wiltshire
+-2.0097,51.1935,18,Wiltshire
+-2.0205,51.5214,23,Wiltshire
+-2.1261,51.5005,40,Wiltshire
+-1.7898,51.0439,0.76,Wiltshire
+-1.9868,51.3087,49.9,Wiltshire
+-2.1303,51.4768,0.3,Wiltshire
+-2.1931,51.4325,0.16,Wiltshire
+-2.0088,51.4402,0.23,Wiltshire
+-1.8845,51.6303,0.31,Wiltshire
+-1.7194,51.4829,0.2,Wiltshire
+-1.8862,51.5381,0.17,Wiltshire
+-2.2049,51.3295,0.72,Wiltshire
+-2.2049,51.3295,1.33,Wiltshire
+-2.2113,51.2746,0.18,Wiltshire
+-2.0568,51.3926,0.34,Wiltshire
+-1.8656,51.601,12,Wiltshire
+-2.1855,51.4809,10,Wiltshire
+-2.0531,51.33,13.5,Wiltshire
+-1.642,51.2406,0.8,Wiltshire
+-2.2592,51.3521,0.19,Wiltshire
+-1.7898,51.0439,0.19,Wiltshire
+-1.6444,51.3772,0.68,Wiltshire
+-1.8612,51.4601,0.16,Wiltshire
+-1.7898,51.0439,0.26,Wiltshire
+-2.2028,51.3167,0.15,Wiltshire
+-1.7898,51.0439,0.21,Wiltshire
+-2.132,51.3531,0.42,Wiltshire
+-0.47,52.1322,5.5,Bedford
+-0.3114,52.2168,49.9,Bedford
+-0.5919,52.1139,45.5,Bedford
+-0.4765,52.1203,0.2,Bedford
+-0.4538,52.1186,0.15,Bedford
+-0.4847,52.1657,5.5,Bedford
+-0.5872,52.2607,10.5,Bedford
+-0.5198,52.1685,1.6,Bedford
+-0.4136,52.1525,0.88,Bedford
+-0.2867,52.2088,0.24,Bedford
+-0.4843,52.154,0.28,Bedford
+-0.4699,52.0907,0.25,Bedford
+-0.4783,52.1096,1,Bedford
+-0.4783,52.1096,1,Bedford
+-0.5025,52.0991,0.52,Bedford
+-0.588,52.262,10.38,Bedford
+-0.4955,52.1065,0.3,Bedford
+-0.3303,52.2368,0.19,Bedford
+-0.4603,52.1505,0.18,Bedford
+-0.4908,52.1847,49.9,Bedford
+-0.2941,52.2099,0.52,Bedford
+-0.5016,52.1079,0.21,Bedford
+-0.4637,52.1414,0.21,Bedford
+-0.4812,52.148,0.33,Bedford
+-0.6026,51.9326,20,Central Bedfordshire
+-0.5884,52.0531,40,Central Bedfordshire
+-0.5114,51.8917,0.37,Central Bedfordshire
+-0.5188,51.9374,40,Central Bedfordshire
+-0.6169,51.9197,20,Central Bedfordshire
+-0.5879,51.9161,15,Central Bedfordshire
+-0.2989,52.0917,0.2,Central Bedfordshire
+-0.6682,51.9272,0.45,Central Bedfordshire
+-0.633,51.894,2.09,Central Bedfordshire
+-0.3233,52.0901,0.23,Central Bedfordshire
+-0.2637,52.1357,26.5,Central Bedfordshire
+-0.5254,51.8979,0.15,Central Bedfordshire
+-0.5927,52.0322,0.35,Central Bedfordshire
+-0.4819,51.8597,19.69,Central Bedfordshire
+-0.6383,51.9118,0.33,Central Bedfordshire
+-0.5045,51.8979,0.36,Central Bedfordshire
+-0.2735,52.0934,0.27,Central Bedfordshire
+-0.4854,51.9205,2.3,Central Bedfordshire
+-0.3125,52.0207,0.25,Central Bedfordshire
+-1.5927,55.1245,49.99,Northumberland
+-1.5258,55.2079,1.2,Northumberland
+-1.5631,55.1101,49.99,Northumberland
+-1.6327,55.141,49.99,Northumberland
+-1.9222,55.472,5.56,Northumberland
+-1.7007,55.3966,4,Northumberland
+-1.9222,55.472,0.91,Northumberland
+-2.1429,55.0353,1,Northumberland
+-1.6037,55.0976,0.22,Northumberland
+-1.6038,55.0974,0.99,Northumberland
+-1.7422,55.0442,0.47,Northumberland
+-1.6147,55.0924,0.6,Northumberland
+-2.0034,55.7756,0.36,Northumberland
+-1.6931,55.1748,0.27,Northumberland
+-1.7139,55.1516,4.3,Northumberland
+-1.837,54.9704,0.34,Northumberland
+-1.7268,55.1987,0.15,Northumberland
+-2.089,55.8712,0.18,Northumberland
+-2.1116,54.9938,0.99,Northumberland
+-1.6404,55.2693,0.3,Northumberland
+-1.6931,55.4018,0.34,Northumberland
+-1.6109,55.0901,1,Northumberland
+-1.5688,55.1855,0.22,Northumberland
+-1.6079,55.0973,0.18,Northumberland
+-1.521,55.118,0.45,Northumberland
+-1.5367,55.1997,0.49,Northumberland
+-1.5473,55.1223,0.61,Northumberland
+-1.7119,55.1849,0.37,Northumberland
+-2.0235,55.7617,0.52,Northumberland
+-1.8634,50.7694,35,"Bournemouth, Christchurch and Poole"
+-1.978,50.7401,0.18,"Bournemouth, Christchurch and Poole"
+-1.9942,50.7371,0.4,"Bournemouth, Christchurch and Poole"
+-1.9731,50.722,0.2,"Bournemouth, Christchurch and Poole"
+-1.9731,50.722,0.15,"Bournemouth, Christchurch and Poole"
+-1.9906,50.7437,0.63,"Bournemouth, Christchurch and Poole"
+-1.9594,50.7677,2,"Bournemouth, Christchurch and Poole"
+-2.0316,50.7185,0.32,"Bournemouth, Christchurch and Poole"
+-1.9498,50.7902,0.22,"Bournemouth, Christchurch and Poole"
+-1.8537,50.7833,1,"Bournemouth, Christchurch and Poole"
+-1.9172,50.7266,0.18,"Bournemouth, Christchurch and Poole"
+-1.9117,50.7386,0.28,"Bournemouth, Christchurch and Poole"
+-1.8748,50.7546,0.15,"Bournemouth, Christchurch and Poole"
+-2.7635,50.8613,2.1,Dorset
+-2.5169,50.8985,35,Dorset
+-2.4514,50.6229,0.47,Dorset
+-2.2283,50.8021,15,Dorset
+-2.2549,51.0281,49.9,Dorset
+-2.2843,50.6672,40,Dorset
+-2.7509,50.8657,32,Dorset
+-2.1232,50.6827,0.27,Dorset
+-2.4406,50.7167,0.2,Dorset
+-2.4574,50.6171,0.2,Dorset
+-1.9033,50.8062,0.26,Dorset
+-2.0979,50.7106,0.19,Dorset
+-1.9004,50.8056,0.24,Dorset
+-2.4779,50.596,0.15,Dorset
+-2.3165,50.6654,30,Dorset
+-2.4868,50.618,0.3,Dorset
+-2.4344,50.7155,0.26,Dorset
+-1.9556,50.8792,19,Dorset
+-2.7724,50.7553,0.25,Dorset
+-2.0901,50.7199,0.25,Dorset
+-2.3378,50.6886,0.28,Dorset
+-2.2722,51.0316,0.33,Dorset
+-2.2722,51.0316,0.17,Dorset
+-2.2722,51.0316,0.16,Dorset
+-2.2722,51.0316,0.62,Dorset
+-2.4891,50.6121,0.17,Dorset
+-2.4641,50.6338,0.38,Dorset
+-2.8222,50.7235,0.27,Dorset
+-2.4923,50.6036,0.28,Dorset
+-2.4139,50.6448,0.2,Dorset
+-2.1474,50.7167,0.2,Dorset
+-2.7776,50.7208,0.2,Dorset
+-2.4845,50.6122,1,Dorset
+-2.4274,50.7097,0.2,Dorset
+-2.2687,51.0373,0.25,Dorset
+-2.7582,50.7135,0.2,Dorset
+-1.935,50.8742,30,Dorset
+-2.6683,50.7737,0.15,Dorset
+-2.4048,50.8725,30,Dorset
+-1.9523,50.9058,0.15,Dorset
+-2.2722,51.0316,0.18,Dorset
+-1.8754,50.8117,0.43,Dorset
+-2.1232,50.6827,0.14,Dorset
+-2.2759,51.0319,0.69,Dorset
+-2.4617,50.7159,0.19,Dorset
+-2.454,50.7084,0.59,Dorset
+-2.2565,50.6815,0.17,Dorset
+-0.8963,51.7483,12,Buckinghamshire
+-0.9087,51.9335,25,Buckinghamshire
+-0.8449,51.9677,36,Buckinghamshire
+-0.9571,51.9962,12,Buckinghamshire
+-0.8685,52.0141,5,Buckinghamshire
+-0.8997,51.758,49.9,Buckinghamshire
+-0.8155,51.7828,24.06,Buckinghamshire
+-0.9202,52.0312,21,Buckinghamshire
+-0.6438,51.8793,49.9,Buckinghamshire
+-1.021,52.0691,0.87,Buckinghamshire
+-0.877,51.7623,49.9,Buckinghamshire
+-0.7538,51.6294,0.15,Buckinghamshire
+-0.6487,51.8279,0.99,Buckinghamshire
+-0.8826,52.0213,25,Buckinghamshire
+-0.6773,51.881,49.9,Buckinghamshire
+-1.1258,52.02,0.24,Buckinghamshire
+-0.7349,51.8573,49.9,Buckinghamshire
+-0.9184,51.7719,0.36,Buckinghamshire
+-0.8417,51.7639,40,Buckinghamshire
+-0.8485,52.02,37,Buckinghamshire
+-0.7089,51.9163,0.27,Buckinghamshire
+-0.7538,51.6294,0.63,Buckinghamshire
+-0.824,51.8199,0.52,Buckinghamshire
+-0.8025,51.8204,0.42,Buckinghamshire
+-0.6923,51.5823,0.42,Buckinghamshire
+-0.7281,51.6223,0.18,Buckinghamshire
+-0.698,51.6663,0.18,Buckinghamshire
+-0.7627,51.614,0.5,Buckinghamshire
+-0.8022,51.8175,0.29,Buckinghamshire
+-0.9833,51.9937,0.18,Buckinghamshire
+-0.8747,51.8765,0.17,Buckinghamshire
+-1.0381,51.7958,0.19,Buckinghamshire
+-0.8226,51.8139,0.54,Buckinghamshire
+-0.574,51.532,0.21,Buckinghamshire
+-0.574,51.532,1.59,Buckinghamshire
+-0.6474,51.7461,0.33,Buckinghamshire
+-0.6282,51.5879,0.38,Buckinghamshire
+-0.572,51.6548,0.2,Buckinghamshire
+-0.9788,51.9874,1.27,Buckinghamshire
+-0.6607,52.3655,5,North Northamptonshire
+-0.662,52.3639,5,North Northamptonshire
+-0.6476,52.4216,38,North Northamptonshire
+-0.6455,52.4419,49.9,North Northamptonshire
+-0.6758,52.5018,0.63,North Northamptonshire
+-0.6737,52.4946,0.64,North Northamptonshire
+-0.7326,52.42,0.18,North Northamptonshire
+-0.4827,52.441,1,North Northamptonshire
+-0.6935,52.5076,0.49,North Northamptonshire
+-0.74,52.301,0.18,North Northamptonshire
+-0.7335,52.4228,0.77,North Northamptonshire
+-0.73,52.4213,0.34,North Northamptonshire
+-0.6246,52.3076,10,North Northamptonshire
+-0.7207,52.2923,0.24,North Northamptonshire
+-0.6718,52.2903,0.8,North Northamptonshire
+-0.7045,52.488,0.3,North Northamptonshire
+-0.6618,52.5014,1,North Northamptonshire
+-0.6547,52.5036,0.32,North Northamptonshire
+-0.5389,52.3921,0.21,North Northamptonshire
+-0.7348,52.4272,0.45,North Northamptonshire
+-0.7316,52.4007,0.42,North Northamptonshire
+-0.5242,52.4778,0.16,North Northamptonshire
+-0.8261,52.4534,1.88,North Northamptonshire
+-0.7273,52.4029,0.28,North Northamptonshire
+-0.6673,52.48,0.52,North Northamptonshire
+-0.7362,52.4029,0.2,North Northamptonshire
+-0.7111,52.4118,0.2,North Northamptonshire
+-0.9023,52.0377,20,West Northamptonshire
+-0.9113,52.2155,0.4,West Northamptonshire
+-1.1357,52.3596,49.9,West Northamptonshire
+-1.1683,52.0815,30,West Northamptonshire
+-1.1862,52.2607,1,West Northamptonshire
+-1.2965,52.0422,3.17,West Northamptonshire
+-1.2477,52.3265,0.28,West Northamptonshire
+-1.199,52.0652,49.9,West Northamptonshire
+-0.7917,52.1878,0.15,West Northamptonshire
+-1.0319,52.3043,2,West Northamptonshire
+-0.9984,52.0803,0.23,West Northamptonshire
+-0.8055,52.1936,0.15,West Northamptonshire
+-1.1994,52.3468,13,West Northamptonshire
+-1.181,52.2065,12,West Northamptonshire
+-0.9964,52.0827,0.22,West Northamptonshire
+-1.1527,52.3286,49.9,West Northamptonshire
+-0.8404,52.2797,0.5,West Northamptonshire
+-0.8336,52.2439,0.26,West Northamptonshire
+-1.1697,52.3617,0.69,West Northamptonshire
+-1.1697,52.3617,0.4,West Northamptonshire
+-1.1697,52.3617,0.6,West Northamptonshire
+-1.1484,52.2571,0.18,West Northamptonshire
+-1.1652,52.2641,0.21,West Northamptonshire
+-1.1397,52.0388,0.24,West Northamptonshire
+-1.2608,52.2128,0.32,West Northamptonshire
+-0.8329,52.2454,0.26,West Northamptonshire
+-0.8867,52.1845,0.27,West Northamptonshire
+-1.154,52.2467,0.15,West Northamptonshire
+-1.1342,52.2943,6,West Northamptonshire
+-1.0858,52.2974,0.36,West Northamptonshire
+-1.0881,52.2328,0.15,West Northamptonshire
+-0.9444,52.2583,0.25,West Northamptonshire
+-1.0925,52.3047,0.2,West Northamptonshire
+-1.0947,52.4222,49.9,West Northamptonshire
+-0.9076,52.1836,0.6,West Northamptonshire
+-0.8936,52.2408,0.17,West Northamptonshire
+-0.8579,52.2207,0.92,West Northamptonshire
+-0.9918,52.1403,0.22,West Northamptonshire
+-1.0061,52.2131,0.38,West Northamptonshire
+-2.7706,55.0551,20,Cumberland
+-3.4067,54.687,0.25,Cumberland
+-2.7696,55.0015,49.9,Cumberland
+-2.972,54.9302,0.25,Cumberland
+-3.3124,54.2007,0.19,Cumberland
+-3.3702,54.6679,0.51,Cumberland
+-3.3002,54.8,0.25,Cumberland
+-3.5202,54.6125,0.25,Cumberland
+-3.0264,54.7676,0.46,Cumberland
+-3.4777,54.596,150,Cumberland
+-3.089,54.7875,0.68,Cumberland
+-3.5455,54.6459,0.17,Cumberland
+-3.4909,54.4354,0.42,Cumberland
+-3.5867,54.5472,0.18,Cumberland
+-3.4874,54.7033,13,Cumberland
+-2.9631,54.9236,0.19,Cumberland
+-3.5568,54.5395,0.21,Cumberland
+-2.8837,54.8749,0.27,Cumberland
+-2.7803,54.6595,2.5,Westmorland and Furness
+-3.2292,54.1477,2,Westmorland and Furness
+-2.8413,54.6554,1.85,Westmorland and Furness
+-3.2248,54.1002,2,Westmorland and Furness
+-2.6038,54.2017,0.19,Westmorland and Furness
+-2.9479,54.4102,0.16,Westmorland and Furness
+-2.7616,54.3561,3,Westmorland and Furness
+-2.9658,54.1578,0.27,Westmorland and Furness
+-3.2325,54.1522,0.73,Westmorland and Furness
+-3.2243,54.1084,0.58,Westmorland and Furness
+-2.7723,54.7694,5,Westmorland and Furness
+-2.7691,54.6962,0.18,Westmorland and Furness
+-2.7328,54.6854,0.36,Westmorland and Furness
+-2.75,54.6619,0.15,Westmorland and Furness
+-2.7895,54.6648,0.2,Westmorland and Furness
+-3.2122,54.1164,0.43,Westmorland and Furness
+-2.3513,54.4745,0.18,Westmorland and Furness
+-2.9519,54.781,0.18,Westmorland and Furness
+-1.556,54.0683,49.9,North Yorkshire
+-1.5605,54.3447,49.9,North Yorkshire
+-1.0205,53.7359,49.9,North Yorkshire
+-1.7663,53.9705,0.38,North Yorkshire
+-0.7957,54.1632,30.4,North Yorkshire
+-1.5028,54.0691,43,North Yorkshire
+-1.0144,53.797,49.9,North Yorkshire
+-1.5334,54.0633,10,North Yorkshire
+-1.5598,54.3063,1,North Yorkshire
+-1.5379,54.3236,49.9,North Yorkshire
+-1.3872,54.0045,0.16,North Yorkshire
+-1.5429,53.9957,0.4,North Yorkshire
+-0.4251,54.2486,32,North Yorkshire
+-1.0748,53.7134,190,North Yorkshire
+-2.018,53.9478,1.59,North Yorkshire
+-1.4268,53.943,0.16,North Yorkshire
+-1.4653,54.3294,0.31,North Yorkshire
+-0.9869,53.7237,49.99,North Yorkshire
+-1.6857,54.3938,0.17,North Yorkshire
+-1.7393,54.4951,0.19,North Yorkshire
+-1.2029,54.1979,0.5,North Yorkshire
+-1.2212,53.7928,0.65,North Yorkshire
+-0.7698,54.1339,0.67,North Yorkshire
+-0.5583,54.2258,0.15,North Yorkshire
+-0.9352,54.2537,0.23,North Yorkshire
+-1.6801,54.3786,0.23,North Yorkshire
+-1.6599,54.4583,0.42,North Yorkshire
+-1.5815,54.0657,0.17,North Yorkshire
+-1.3058,53.9557,0.5,North Yorkshire
+-1.4916,54.1784,0.2,North Yorkshire
+-1.385,54.0437,0.27,North Yorkshire
+-1.2762,54.0951,0.25,North Yorkshire
+-0.2545,54.1656,0.24,North Yorkshire
+-0.2885,54.1853,0.67,North Yorkshire
+-1.8029,54.0253,0.47,North Yorkshire
+-0.3211,54.2159,0.23,North Yorkshire
+-1.4694,54.1018,0.15,North Yorkshire
+-1.8412,54.3082,0.54,North Yorkshire
+-1.1017,53.686,0.18,North Yorkshire
+-1.2236,53.7575,49.9,North Yorkshire
+-0.8138,54.1275,0.23,North Yorkshire
+-1.4383,53.9682,0.37,North Yorkshire
+-1.2945,54.1481,49.99,North Yorkshire
+-0.9367,54.2531,0.5,North Yorkshire
+-1.0314,53.7965,0.2,North Yorkshire
+-1.3687,53.9469,7,North Yorkshire
+-2.518,54.114,0.27,North Yorkshire
+-1.2232,54.1585,49.9,North Yorkshire
+-0.2956,54.1633,0.38,North Yorkshire
+-1.5738,54.2059,0.17,North Yorkshire
+-0.5562,54.1986,23.5,North Yorkshire
+-1.569,53.9758,0.31,North Yorkshire
+-0.3663,54.2402,0.27,North Yorkshire
+-1.3991,54.0884,0.28,North Yorkshire
+-1.6679,54.3925,39.3,North Yorkshire
+-1.5391,54.1392,0.44,North Yorkshire
+-1.1429,53.7909,49.9,North Yorkshire
+-1.7314,54.3728,0.26,North Yorkshire
+-0.6004,54.4711,0.31,North Yorkshire
+-1.9889,53.8997,0.63,North Yorkshire
+-1.2043,54.09,0.3,North Yorkshire
+-1.2745,53.7241,2.95,North Yorkshire
+-1.4305,54.3423,0.42,North Yorkshire
+-0.6655,54.157,0.45,North Yorkshire
+-1.2126,53.8706,0.37,North Yorkshire
+-1.1614,54.125,0.53,North Yorkshire
+-0.4143,54.238,0.48,North Yorkshire
+-1.5759,54.436,0.16,North Yorkshire
+-0.9891,53.8608,0.54,North Yorkshire
+-1.2212,53.7892,0.68,North Yorkshire
+-0.5957,54.4713,0.9,North Yorkshire
+-1.6661,54.2177,0.38,North Yorkshire
+-1.1666,53.7127,0.3,North Yorkshire
+-1.0783,53.7775,0.25,North Yorkshire
+-1.937,53.9817,0.65,North Yorkshire
+-0.8066,54.1373,0.17,North Yorkshire
+-0.4348,54.2817,0.48,North Yorkshire
+-0.6245,54.4904,0.17,North Yorkshire
+-1.5128,54.1292,0.32,North Yorkshire
+-1.7245,54.0873,0.19,North Yorkshire
+-2.5056,51.205,5,Somerset
+-2.2683,51.2337,14.5,Somerset
+-3.464,51.2027,0.18,Somerset
+-3.0028,51.0794,49.9,Somerset
+-2.3996,51.0416,18.8,Somerset
+-3.3478,51.1748,25,Somerset
+-3.1847,51.0594,25,Somerset
+-3.0669,51.0242,0.18,Somerset
+-3.0752,51.1449,3.58,Somerset
+-3.0205,51.0203,20,Somerset
+-2.8204,50.9334,0.22,Somerset
+-2.9416,51.2652,0.6,Somerset
+-2.6844,50.9253,15.23,Somerset
+-3.0813,51.0291,0.7,Somerset
+-3.1268,51.0167,0.15,Somerset
+-2.9011,50.867,1,Somerset
+-3.2984,51.1809,0.26,Somerset
+-2.9974,51.2285,0.15,Somerset
+-3.1341,51.027,0.24,Somerset
+-3.2208,51.0266,0.23,Somerset
+-2.988,51.1526,0.26,Somerset
+-2.934,50.9526,2.22,Somerset
+-2.2729,51.3175,0.16,Somerset
+-2.2603,51.285,49.9,Somerset
+-2.4645,51.2585,4.97,Somerset
+-3.2384,50.9807,0.17,Somerset
+-2.4775,51.2163,1.78,Somerset
+-3.0677,51.0152,0.15,Somerset
+-3.1293,50.93,0.27,Somerset
+-2.5107,51.1477,0.5,Somerset
+-2.6372,51.015,0.17,Somerset
+-3.0052,51.1247,0.36,Somerset
+-2.5369,51.1904,0.32,Somerset
+-2.8395,50.8827,1.81,Somerset
+-2.794,51.3004,0.2,Somerset
+-2.3268,51.2199,0.81,Somerset
+-2.6267,51.1987,2.2,Somerset
+-2.5856,51.1598,0.2,Somerset
+-2.5359,51.1904,0.3,Somerset
+-2.5369,51.1904,0.29,Somerset
+-3.2037,50.986,1.6,Somerset
+-2.9954,51.1217,1.35,Somerset
+-3.2852,51.0165,0.25,Somerset
+0.1623,52.1907,1,Cambridge
+0.1228,52.207,0.15,Cambridge
+0.121,52.2048,0.33,Cambridge
+0.1671,52.1953,0.5,Cambridge
+0.3158,52.3227,29.4,East Cambridgeshire
+0.304,52.284,49.9,East Cambridgeshire
+0.3203,52.2957,5,East Cambridgeshire
+0.2829,52.2161,49.9,East Cambridgeshire
+0.182,52.3553,0.9,East Cambridgeshire
+0.3611,52.3641,0.15,East Cambridgeshire
+0.0866,52.4072,0.27,East Cambridgeshire
+0.2281,52.3868,0.21,East Cambridgeshire
+0.3107,52.2937,49.95,East Cambridgeshire
+0.09,52.3626,0.15,East Cambridgeshire
+0.3938,52.2938,0.22,East Cambridgeshire
+0.1422,52.6512,0.8,Fenland
+0.0486,52.5015,0.15,Fenland
+0.0738,52.5237,0.41,Fenland
+-0.1513,52.5606,0.2,Fenland
+0.1854,52.6341,0.96,Fenland
+0.1555,52.6492,0.42,Fenland
+0.0906,52.5658,0.27,Fenland
+0.0906,52.5658,0.62,Fenland
+0.074,52.5622,0.71,Fenland
+0.0426,52.4522,2.08,Fenland
+-0.0653,52.3223,0.9,Huntingdonshire
+-0.1077,52.4482,50,Huntingdonshire
+-0.2291,52.4178,20,Huntingdonshire
+-0.052,52.3292,0.37,Huntingdonshire
+-0.2416,52.3791,0.99,Huntingdonshire
+-0.389,52.3114,8,Huntingdonshire
+-0.2416,52.3791,0.99,Huntingdonshire
+-0.2409,52.1946,49.9,Huntingdonshire
+-0.1985,52.224,49.9,Huntingdonshire
+-0.3749,52.3229,49.99,Huntingdonshire
+-0.1992,52.3464,0.25,Huntingdonshire
+0.0219,52.4216,0.5,Huntingdonshire
+-0.1894,52.348,0.88,Huntingdonshire
+-0.2383,52.525,0.35,Huntingdonshire
+-0.1894,52.348,0.77,Huntingdonshire
+0.0263,52.3663,0.2,Huntingdonshire
+-0.1817,52.331,0.34,Huntingdonshire
+0.2238,52.3154,9.6,South Cambridgeshire
+-0.0069,52.2415,49.99,South Cambridgeshire
+0.0446,52.1737,5,South Cambridgeshire
+-0.0697,52.2191,0.48,South Cambridgeshire
+0.1406,52.2486,0.8,South Cambridgeshire
+-0.1102,52.2431,0.2,South Cambridgeshire
+0.0648,52.2112,0.21,South Cambridgeshire
+-0.0686,52.0484,18,South Cambridgeshire
+-0.0436,52.0932,2.3,South Cambridgeshire
+0.261,52.1048,0.89,South Cambridgeshire
+0.018,52.2581,0.3,South Cambridgeshire
+0.1134,52.2448,0.28,South Cambridgeshire
+-0.0927,52.099,0.18,South Cambridgeshire
+0.3425,52.109,0.22,South Cambridgeshire
+0.0043,52.1161,0.41,South Cambridgeshire
+-1.3754,53.1076,19.6,Amber Valley
+-1.4144,53.0266,0.62,Amber Valley
+-1.3348,53.0163,0.47,Amber Valley
+-1.3644,53.088,2.36,Amber Valley
+-1.4075,53.0472,0.24,Amber Valley
+-1.3932,53.0968,0.39,Amber Valley
+-1.4104,53.0299,4.1,Amber Valley
+-1.3657,53.0075,0.4,Amber Valley
+-1.3673,53.0064,0.3,Amber Valley
+-1.3657,53.0075,0.4,Amber Valley
+-1.3709,53.0111,0.7,Amber Valley
+-1.3388,53.0245,0.38,Amber Valley
+-1.2249,53.2473,25,Bolsover
+-1.3586,53.0904,0.27,Bolsover
+-1.2822,53.2815,1.3,Bolsover
+-1.3469,53.0905,1.12,Bolsover
+-1.4402,53.2716,0.54,Chesterfield
+-1.4203,53.2628,0.25,Chesterfield
+-1.3391,53.2468,0.23,Chesterfield
+-1.4397,53.2348,0.16,Chesterfield
+-1.4181,53.2536,0.35,Chesterfield
+-1.4219,53.2483,0.19,Chesterfield
+-1.3334,53.2434,0.25,Chesterfield
+-1.3694,53.2542,0.16,Chesterfield
+-1.6838,53.2182,0.2,Derbyshire Dales
+-1.6838,53.2182,0.15,Derbyshire Dales
+-1.6081,53.0066,0.5,Derbyshire Dales
+-1.6335,53.0959,4.3,Derbyshire Dales
+-1.5605,53.1386,0.18,Derbyshire Dales
+-1.7463,53.1438,0.19,Derbyshire Dales
+-1.7142,53.0068,0.25,Derbyshire Dales
+-1.5716,53.0789,0.2,Derbyshire Dales
+-1.2933,52.9517,0.4,Erewash
+-1.356,52.9631,1,Erewash
+-1.4019,52.9415,0.2,Erewash
+-1.2937,52.9529,0.24,Erewash
+-1.8819,53.2733,0.34,High Peak
+-1.9781,53.4503,1,High Peak
+-1.9983,53.3674,0.11,High Peak
+-1.9838,53.4533,0.23,High Peak
+-1.9013,53.326,0.38,High Peak
+-1.389,53.2164,49.9,North East Derbyshire
+-1.3655,53.1927,1.7,North East Derbyshire
+-1.3505,53.1868,0.23,North East Derbyshire
+-1.3729,53.2314,0.35,North East Derbyshire
+-1.3512,53.192,0.31,North East Derbyshire
+-1.3488,53.1987,4.41,North East Derbyshire
+-1.4626,53.3002,0.29,North East Derbyshire
+-1.4407,53.2076,7.5,North East Derbyshire
+-1.4796,53.2404,0.17,North East Derbyshire
+-1.476,53.3038,0.17,North East Derbyshire
+-1.669,52.8661,5.1,South Derbyshire
+-1.709,52.8664,10,South Derbyshire
+-1.642,52.7483,138,South Derbyshire
+-3.3419,50.7351,15,East Devon
+-2.9529,50.7774,18.9,East Devon
+-3.3588,50.7786,49.9,East Devon
+-3.3603,50.733,30,East Devon
+-3.3415,50.8056,49,East Devon
+-3.4131,50.7089,0.9,East Devon
+-3.3543,50.7025,18,East Devon
+-3.4483,50.6859,0.2,East Devon
+-3.3666,50.615,0.51,East Devon
+-3.4662,50.7183,0.15,East Devon
+-3.4694,50.7101,0.39,East Devon
+-3.3977,50.6999,1.1,East Devon
+-3.4652,50.7309,0.5,East Devon
+-3.4457,50.7027,1.88,East Devon
+-3.4488,50.7519,16.2,East Devon
+-3.4288,50.7368,0.46,East Devon
+-3.5234,50.7076,1.2,Exeter
+-3.4695,50.7187,0.4,Exeter
+-3.4733,50.7173,0.19,Exeter
+-3.5178,50.6945,0.23,Exeter
+-3.5033,50.7339,0.31,Exeter
+-3.5351,50.7457,1.07,Exeter
+-3.5166,50.7233,1,Exeter
+-3.5394,50.7375,0.24,Exeter
+-3.4482,51.0192,5.5,Mid Devon
+-3.4925,50.9049,0.19,Mid Devon
+-3.4668,50.9108,0.19,Mid Devon
+-3.3839,50.8877,49.9,Mid Devon
+-3.4172,50.8635,5,Mid Devon
+-3.492,50.9127,0.44,Mid Devon
+-3.4925,50.9049,0.26,Mid Devon
+-3.7795,50.8097,0.16,Mid Devon
+-3.3393,50.8564,0.15,Mid Devon
+-3.3205,50.8822,0.17,Mid Devon
+-4.1529,51.097,0.75,North Devon
+-4.1529,51.097,5.9,North Devon
+-3.9033,51.0675,0.41,North Devon
+-4.0695,51.0725,0.77,North Devon
+-4.0023,50.9802,0.61,North Devon
+-4.1359,51.1177,15,North Devon
+-4.1108,50.4475,1,South Hams
+-4.0204,50.3898,0.2,South Hams
+-4.1026,50.4516,1.56,South Hams
+-3.9411,50.3855,0.3,South Hams
+-3.952,50.3873,0.2,South Hams
+-4.0186,50.3908,0.13,South Hams
+-3.6435,50.5863,5,Teignbridge
+-3.5647,50.5055,21,Teignbridge
+-3.662,50.5742,0.28,Teignbridge
+-3.7417,50.5279,0.53,Teignbridge
+-3.6034,50.5389,1.06,Teignbridge
+-3.6132,50.5659,0.79,Teignbridge
+-3.6594,50.578,0.38,Teignbridge
+-4.27,50.9107,5,Torridge
+-3.9839,50.8971,49.99,Torridge
+-3.9558,50.8804,0.25,Torridge
+-4.3313,50.9758,6.5,Torridge
+-4.2399,50.8144,7.6,Torridge
+-4.2155,51.0184,0.39,Torridge
+-4.0177,50.9498,27.76,Torridge
+-3.8615,50.7223,5,West Devon
+-4.1457,50.5373,0.3,West Devon
+-3.9123,50.7968,0.2,West Devon
+-3.9757,50.7421,0.86,West Devon
+0.2849,50.7967,0.29,Eastbourne
+0.2858,50.7941,0.2,Eastbourne
+0.2867,50.789,20,Eastbourne
+0.2887,50.7977,0.16,Eastbourne
+0.2896,50.797,0.15,Eastbourne
+0.5828,50.8599,0.23,Hastings
+0.5276,50.8569,0.46,Hastings
+0.0545,50.9044,17,Lewes
+-0.0305,50.972,0.32,Lewes
+-0.1053,50.9382,0.28,Lewes
+0.4647,50.9842,0.5,Rother
+0.5043,50.9162,0.17,Rother
+0.4494,50.9705,1.2,Rother
+0.4028,50.9059,0.2,Rother
+0.8058,50.9321,0.47,Rother
+0.4644,50.837,0.32,Rother
+0.1768,50.858,4,Wealden
+0.0793,50.9689,5.5,Wealden
+0.1446,50.8619,5,Wealden
+0.2536,50.8749,0.15,Wealden
+0.1619,50.8627,0.23,Wealden
+0.1158,50.8935,40,Wealden
+0.1289,50.9338,0.15,Wealden
+0.1935,51.0481,0.24,Wealden
+0.2102,50.8861,0.26,Wealden
+0.1428,51.0637,0.32,Wealden
+0.0825,50.9692,0.56,Wealden
+0.1935,51.0481,0.16,Wealden
+0.1887,50.952,0.19,Wealden
+0.2482,50.9708,0.23,Wealden
+0.107,50.9747,0.28,Wealden
+0.2702,50.8898,0.33,Wealden
+0.3424,50.8057,0.17,Wealden
+0.3233,50.898,0.2,Wealden
+0.4467,51.6219,7,Basildon
+0.4951,51.5916,0.27,Basildon
+0.5208,51.5852,0.28,Basildon
+0.4454,51.6012,17,Basildon
+0.4624,51.5866,0.4,Basildon
+0.3919,51.6274,10,Basildon
+0.5009,51.591,0.62,Basildon
+0.5103,51.6055,0.27,Basildon
+0.545,51.7832,500,Braintree
+0.6447,51.8379,22.5,Braintree
+0.606,51.864,24.9,Braintree
+0.6026,52.0524,49.99,Braintree
+0.6095,51.8369,13.8,Braintree
+0.4635,51.9199,0.35,Braintree
+0.6278,51.7922,0.28,Braintree
+0.6375,51.7922,0.16,Braintree
+0.5367,51.882,0.15,Braintree
+0.6867,51.9091,0.23,Braintree
+0.4638,52.0513,36,Braintree
+0.5888,51.9852,0.16,Braintree
+0.6475,51.8084,0.2,Braintree
+0.7055,51.861,15,Braintree
+0.5974,52.0419,0.2,Braintree
+0.5709,51.8701,0.36,Braintree
+0.3007,51.5808,0.46,Brentwood
+0.3321,51.6318,15,Brentwood
+0.2575,51.6876,0.16,Brentwood
+0.3031,51.6003,0.17,Brentwood
+0.551,51.5229,0.36,Castle Point
+0.6074,51.5545,0.32,Castle Point
+0.5948,51.5204,0.28,Castle Point
+0.5509,51.7214,25,Chelmsford
+0.5335,51.6615,49.9,Chelmsford
+0.5348,51.6765,36.7,Chelmsford
+0.5298,51.6658,8,Chelmsford
+0.45,51.7233,0.18,Chelmsford
+0.5465,51.6195,24.6,Chelmsford
+0.5132,51.7525,0.57,Chelmsford
+0.7513,51.8092,0.2,Colchester
+0.9006,51.9218,0.27,Colchester
+0.896,51.9016,0.18,Colchester
+0.8817,51.9437,1.02,Colchester
+0.8114,51.9391,0.63,Colchester
+0.869,51.868,0.2,Colchester
+0.1713,51.7502,0.5,Epping Forest
+0.0423,51.7703,49.9,Epping Forest
+0.0019,51.6498,0.62,Epping Forest
+0.1956,51.6849,25,Epping Forest
+0.0899,51.6469,0.15,Epping Forest
+0.1674,51.6894,30,Epping Forest
+0.0027,51.6502,0.15,Epping Forest
+0.128,51.7876,0.16,Harlow
+0.0701,51.7688,1.5,Harlow
+0.1205,51.7854,0.36,Harlow
+0.0715,51.7601,0.5,Harlow
+0.0695,51.7587,0.7,Harlow
+0.0722,51.7634,0.57,Harlow
+0.0722,51.7634,0.8,Harlow
+0.0673,51.7694,0.61,Harlow
+0.0687,51.7612,0.58,Harlow
+0.0999,51.7679,0.7,Harlow
+0.1261,51.7862,0.2,Harlow
+0.8439,51.6372,25.5,Maldon
+0.6882,51.7402,0.2,Maldon
+0.8743,51.6773,19,Maldon
+0.6255,51.6896,21,Maldon
+0.6887,51.6275,49.99,Rochford
+0.5976,51.5813,30,Rochford
+0.7066,51.6137,49.9,Rochford
+0.6718,51.5948,0.25,Rochford
+1.1611,51.9149,20,Tendring
+1.117,51.8319,22.5,Tendring
+1.1883,51.8503,40,Tendring
+1.0246,51.7996,0.23,Tendring
+1.0432,51.8713,0.91,Tendring
+1.0935,51.8045,20,Tendring
+1.0489,51.8721,0.24,Tendring
+0.9805,51.9152,1,Tendring
+0.3213,51.9603,40,Uttlesford
+0.2349,52.0605,2.8,Uttlesford
+0.5095,51.8574,49.9,Uttlesford
+0.2657,51.8879,14.3,Uttlesford
+0.1992,51.8961,0.18,Uttlesford
+0.3782,51.8631,9.89,Uttlesford
+0.127,51.8878,20,Uttlesford
+0.1796,51.8634,0.23,Uttlesford
+0.3245,51.8644,0.31,Uttlesford
+0.2004,51.8887,30,Uttlesford
+0.131,51.9369,56,Uttlesford
+-2.0903,51.9012,0.15,Cheltenham
+-2.0815,51.9067,0.16,Cheltenham
+-2.0907,51.8995,0.16,Cheltenham
+-2.1023,51.9122,0.18,Cheltenham
+-2.1111,51.9146,0.18,Cheltenham
+-1.9529,51.6906,19.94,Cotswold
+-2.15,51.6461,0.2,Cotswold
+-1.8186,51.7205,13,Cotswold
+-1.7665,52.0372,0.2,Cotswold
+-1.7617,51.8889,0.3,Cotswold
+-1.9661,51.7119,0.16,Cotswold
+-1.8264,52.0254,0.15,Cotswold
+-1.9742,51.7139,0.3,Cotswold
+-1.8688,51.9235,0.28,Cotswold
+-2.5042,51.8515,15.7,Forest of Dean
+-2.389,51.9183,49.9,Forest of Dean
+-2.5127,51.8262,1,Forest of Dean
+-2.6009,51.8053,0.32,Forest of Dean
+-2.616,51.7699,0.89,Forest of Dean
+-2.2215,51.8446,0.2,Gloucester
+-2.2321,51.8664,0.16,Gloucester
+-2.2304,51.8814,0.26,Gloucester
+-2.2771,51.833,0.28,Gloucester
+-2.256,51.8618,0.64,Gloucester
+-2.268,51.8629,2,Gloucester
+-2.2717,51.8134,0.17,Gloucester
+-2.1972,51.8674,0.22,Gloucester
+-2.2017,51.8686,3.5,Gloucester
+-2.2389,51.8629,0.25,Gloucester
+-2.2019,51.8685,0.19,Gloucester
+-2.2324,51.8602,0.17,Gloucester
+-2.2029,51.8642,0.56,Gloucester
+-2.2723,51.8135,0.18,Gloucester
+-2.3128,51.7951,49.9,Stroud
+-2.2277,51.7059,0.24,Stroud
+-2.3002,51.7506,0.45,Stroud
+-2.3519,51.6386,0.31,Stroud
+-2.2808,51.8109,1,Stroud
+-2.4886,51.6802,36,Stroud
+-2.2443,51.8251,8,Stroud
+-2.236,51.7371,0.57,Stroud
+-2.2926,51.7503,0.8,Stroud
+-2.2808,51.8109,0.32,Stroud
+-2.3006,51.7515,1.6,Stroud
+-2.3574,51.6867,0.21,Stroud
+-2.3673,51.7745,0.17,Stroud
+-2.2747,51.8741,9.9,Tewkesbury
+-2.0999,51.9817,49.9,Tewkesbury
+-2.1648,51.9869,0.22,Tewkesbury
+-2.2793,51.8871,37,Tewkesbury
+-2.1698,51.8398,1,Tewkesbury
+-2.1706,51.8455,1,Tewkesbury
+-2.1696,51.8398,0.25,Tewkesbury
+-2.1773,51.8982,0.26,Tewkesbury
+-2.171,51.8414,0.53,Tewkesbury
+-2.1637,51.8985,0.27,Tewkesbury
+-2.2299,51.8955,16,Tewkesbury
+-2.2475,51.9031,15,Tewkesbury
+-2.1695,51.8398,0.22,Tewkesbury
+-2.171,51.8415,0.77,Tewkesbury
+-2.1712,51.8481,0.21,Tewkesbury
+-2.1373,51.9988,0.59,Tewkesbury
+-1.1773,51.2785,30,Basingstoke and Deane
+-1.0695,51.3388,49.9,Basingstoke and Deane
+-1.1111,51.2666,0.18,Basingstoke and Deane
+-1.1602,51.1794,28,Basingstoke and Deane
+-1.1044,51.2628,0.47,Basingstoke and Deane
+-1.4161,51.2365,21,Basingstoke and Deane
+-1.1177,51.265,0.2,Basingstoke and Deane
+-1.2581,51.2184,0.28,Basingstoke and Deane
+-1.107,51.274,0.34,Basingstoke and Deane
+-1.1057,51.2759,0.15,Basingstoke and Deane
+-1.1394,51.2355,0.55,Basingstoke and Deane
+-1.0692,51.292,0.2,Basingstoke and Deane
+-1.1415,51.3552,0.41,Basingstoke and Deane
+-0.9627,51.1283,49.9,East Hampshire
+-0.9513,51.0018,0.17,East Hampshire
+-0.8502,51.1404,0.44,East Hampshire
+-0.8324,51.0748,0.22,East Hampshire
+-0.9403,50.9975,0.16,East Hampshire
+-0.9774,51.1694,0.44,East Hampshire
+-1.3427,50.9392,0.5,Eastleigh
+-1.3496,50.9392,0.2,Eastleigh
+-1.3868,50.9651,0.2,Eastleigh
+-1.3222,50.916,0.34,Eastleigh
+-1.3626,50.9472,0.27,Eastleigh
+-1.3665,50.9463,0.34,Eastleigh
+-1.3889,50.9814,0.32,Eastleigh
+-1.3045,50.963,27,Eastleigh
+-1.3234,50.9234,0.43,Eastleigh
+-1.391,50.9768,0.64,Eastleigh
+-1.3262,50.8578,1.37,Eastleigh
+-1.3262,50.8578,0.5,Eastleigh
+-1.3665,50.9463,0.45,Eastleigh
+-1.3124,50.9233,0.84,Eastleigh
+-1.3251,50.927,0.24,Eastleigh
+-1.1772,50.852,0.3,Fareham
+-1.1787,50.8875,0.16,Fareham
+-1.1155,50.846,0.7,Fareham
+-1.2863,50.8871,0.99,Fareham
+-1.2836,50.8846,3.27,Fareham
+-1.185,50.8587,0.25,Fareham
+-1.1267,50.7951,0.16,Gosport
+-1.1286,50.7867,0.73,Gosport
+-1.1275,50.7821,0.23,Gosport
+-1.1523,50.8145,0.43,Gosport
+-1.1523,50.8145,0.42,Gosport
+-0.9598,51.2472,49.9,Hart
+-0.9562,51.2996,49.9,Hart
+-0.9619,51.3277,17.87,Hart
+-0.9523,51.2798,0.15,Hart
+-0.9338,51.223,47.5,Hart
+-0.9979,50.8529,0.25,Havant
+-0.9552,50.8688,0.15,Havant
+-1.0063,50.878,1.25,Havant
+-1.8115,50.8902,23,New Forest
+-1.5224,50.9227,0.34,New Forest
+-1.8072,50.9281,0.22,New Forest
+-1.5139,50.7742,0.25,New Forest
+-1.6814,50.7523,15,New Forest
+-1.7835,50.8373,0.31,New Forest
+-1.4588,50.8888,0.2,New Forest
+-0.7686,51.2841,0.23,Rushmoor
+-0.7648,51.2876,0.15,Rushmoor
+-0.7589,51.278,1.15,Rushmoor
+-0.7545,51.3117,0.3,Rushmoor
+-0.7496,51.2966,0.21,Rushmoor
+-1.5672,50.9876,46,Test Valley
+-1.5979,51.2434,15,Test Valley
+-1.6189,51.2251,49.9,Test Valley
+-1.5132,51.212,0.94,Test Valley
+-1.5145,51.2172,0.7,Test Valley
+-1.5127,51.2133,0.59,Test Valley
+-1.5115,51.2127,0.3,Test Valley
+-1.5127,51.2133,0.36,Test Valley
+-1.4509,51.2121,0.25,Test Valley
+-1.5565,50.9812,0.5,Test Valley
+-1.4642,51.1768,45.9,Test Valley
+-1.5301,51.1098,6.2,Test Valley
+-1.5397,51.1457,0.19,Test Valley
+-1.5613,51.2428,0.17,Test Valley
+-1.4519,51.2152,0.98,Test Valley
+-1.5101,51.2122,0.27,Test Valley
+-1.6097,51.1997,22.5,Test Valley
+-1.482,51.2086,0.25,Test Valley
+-1.6009,51.206,0.23,Test Valley
+-1.2092,50.8956,10,Winchester
+-1.2187,50.9416,18,Winchester
+-1.299,51.0223,0.19,Winchester
+-1.2487,50.8711,1.04,Winchester
+-1.2289,50.867,0.21,Winchester
+-1.3936,51.0601,20,Winchester
+-1.2444,50.8781,0.22,Winchester
+-1.2488,50.8773,0.19,Winchester
+-1.2447,50.8695,0.41,Winchester
+-1.0692,50.9883,0.16,Winchester
+-1.3392,51.0464,0.6,Winchester
+-1.4126,51.0268,5,Winchester
+-1.2029,50.9025,49.9,Winchester
+-1.2437,50.8701,0.9,Winchester
+-0.0548,51.6964,8.8,Broxbourne
+0.0093,51.7578,0.71,Broxbourne
+-0.4349,51.7661,1.25,Dacorum
+-0.438,51.7628,0.72,Dacorum
+-0.4595,51.7443,0.85,Dacorum
+-0.546,51.7105,22,Dacorum
+-0.4765,51.7465,0.32,Dacorum
+-0.5666,51.7508,0.16,Dacorum
+-0.4348,51.7669,0.77,Dacorum
+-0.4741,51.7393,0.15,Dacorum
+-0.2786,51.723,0.18,Hertsmere
+-0.2405,51.6884,0.61,Hertsmere
+-0.2562,51.6613,0.22,Hertsmere
+-0.3652,51.6664,0.28,Hertsmere
+-0.2058,51.7071,0.16,Hertsmere
+-0.2405,51.6884,0.22,Hertsmere
+-0.275,51.7279,0.17,Hertsmere
+-0.3111,51.6409,0.17,Hertsmere
+-0.3653,51.6634,0.28,Hertsmere
+-0.2829,51.7168,0.6,Hertsmere
+-0.1607,52.0125,40,North Hertfordshire
+-0.2364,51.9419,49.99,North Hertfordshire
+-0.3511,51.8958,49.9,North Hertfordshire
+-0.2025,51.9497,0.2,North Hertfordshire
+-0.2473,51.9229,25,North Hertfordshire
+-0.5335,51.6433,0.32,Three Rivers
+-0.4554,51.6449,0.18,Three Rivers
+-0.4931,51.6595,0.24,Three Rivers
+-0.3948,51.6922,0.18,Watford
+-0.3876,51.6514,0.39,Watford
+0.8648,51.1231,0.3,Ashford
+0.9396,51.1022,99.9,Ashford
+0.8794,51.1401,0.17,Ashford
+0.763,51.1763,0.25,Ashford
+0.8674,51.1323,0.18,Ashford
+0.8905,51.1273,0.18,Ashford
+0.8608,51.1582,0.31,Ashford
+0.948,51.1144,0.2,Ashford
+0.9017,51.1325,0.9,Ashford
+0.8074,51.1945,0.64,Ashford
+0.8982,51.1548,2.15,Ashford
+0.8673,51.1587,0.79,Ashford
+0.9975,51.2615,0.37,Canterbury
+0.9985,51.2658,0.37,Canterbury
+1.0634,51.2717,0.42,Canterbury
+1.0591,51.3619,0.2,Canterbury
+0.9975,51.2615,0.31,Canterbury
+1.1051,51.2959,1,Canterbury
+1.0723,51.314,38,Canterbury
+1.0691,51.2976,0.27,Canterbury
+1.1038,51.2388,0.24,Canterbury
+0.9975,51.2615,0.15,Canterbury
+1.0807,51.2854,0.18,Canterbury
+0.9975,51.2615,0.18,Canterbury
+1.033,51.265,0.4,Canterbury
+1.0871,51.2666,0.94,Canterbury
+0.3115,51.4208,0.47,Dartford
+0.2458,51.4385,0.15,Dartford
+0.2728,51.4394,1.28,Dartford
+0.2563,51.4555,0.27,Dartford
+0.2288,51.4601,0.77,Dartford
+0.2167,51.4391,0.41,Dartford
+0.2167,51.4391,0.16,Dartford
+0.2278,51.4372,0.3,Dartford
+0.2186,51.4542,0.84,Dartford
+0.2056,51.4457,0.16,Dartford
+0.2436,51.4633,0.6,Dartford
+1.337,51.155,24,Dover
+1.3014,51.1519,0.5,Dover
+1.3026,51.1248,0.26,Dover
+1.2685,51.2781,0.27,Dover
+1.4001,51.2244,0.24,Dover
+1.3029,51.1255,0.28,Dover
+0.3543,51.42,0.31,Gravesham
+0.34,51.4446,0.44,Gravesham
+0.4662,51.1745,49.9,Maidstone
+0.547,51.2465,0.36,Maidstone
+0.4965,51.2925,0.15,Maidstone
+0.4967,51.2128,0.58,Maidstone
+0.6057,51.2448,0.19,Maidstone
+0.4954,51.2699,0.3,Maidstone
+0.5816,51.2403,0.83,Maidstone
+0.5637,51.2384,0.18,Maidstone
+0.4952,51.2334,0.17,Maidstone
+0.5857,51.3012,0.18,Maidstone
+0.233,51.391,49.9,Sevenoaks
+0.1552,51.2205,0.18,Sevenoaks
+0.0752,51.202,0.62,Sevenoaks
+0.1972,51.2643,0.36,Sevenoaks
+0.1717,51.4011,0.43,Sevenoaks
+1.1937,51.0911,0.77,Folkestone and Hythe
+0.9479,50.9884,0.36,Folkestone and Hythe
+0.9534,50.9835,0.25,Folkestone and Hythe
+0.8873,51.0111,16,Folkestone and Hythe
+1.151,51.0947,0.19,Folkestone and Hythe
+0.8648,51.398,10,Swale
+0.6966,51.3705,49.9,Swale
+0.855,51.3938,0.38,Swale
+0.6884,51.3199,40,Swale
+0.7516,51.4327,0.32,Swale
+0.8918,51.3168,0.23,Swale
+0.7743,51.3346,0.68,Swale
+0.9229,51.3994,0.17,Swale
+0.7582,51.3518,0.46,Swale
+0.7491,51.3081,41,Swale
+0.7484,51.4146,0.99,Swale
+0.7612,51.3509,1.3,Swale
+0.7568,51.3801,0.39,Swale
+0.7596,51.3539,1.12,Swale
+0.7504,51.4071,0.4,Swale
+0.8226,51.3033,0.15,Swale
+0.9186,51.3114,0.41,Swale
+0.7596,51.3662,3.5,Swale
+0.9296,51.2704,0.3,Swale
+0.7504,51.3462,0.96,Swale
+1.3177,51.3313,33,Thanet
+1.2869,51.3585,1,Thanet
+1.411,51.3543,0.96,Thanet
+1.3202,51.3507,0.23,Thanet
+1.415,51.3434,0.35,Thanet
+1.347,51.3089,1,Thanet
+1.3603,51.3634,30,Thanet
+1.3389,51.3171,3.3,Thanet
+1.4135,51.3368,0.39,Thanet
+1.3899,51.3504,0.2,Thanet
+1.3484,51.3513,2.7,Thanet
+1.2438,51.3567,0.15,Thanet
+1.3598,51.3705,0.15,Thanet
+1.4351,51.3542,0.29,Thanet
+1.3312,51.3657,0.17,Thanet
+0.3661,51.2904,10.2,Tonbridge and Malling
+0.4554,51.3157,0.99,Tonbridge and Malling
+0.2714,51.203,0.28,Tonbridge and Malling
+0.443,51.3081,0.16,Tonbridge and Malling
+0.2522,51.1232,0.2,Tunbridge Wells
+0.3532,51.1882,0.22,Tunbridge Wells
+0.4345,51.1486,49.9,Tunbridge Wells
+0.2956,51.1566,0.15,Tunbridge Wells
+0.4132,51.1461,0.16,Tunbridge Wells
+0.3516,51.1705,10,Tunbridge Wells
+0.3541,51.1892,0.27,Tunbridge Wells
+0.2124,51.1227,0.72,Tunbridge Wells
+0.3771,51.1421,2.5,Tunbridge Wells
+0.257,51.1241,0.43,Tunbridge Wells
+0.3543,51.1883,0.29,Tunbridge Wells
+-2.22,53.8009,1.04,Burnley
+-2.2279,53.8104,0.97,Burnley
+-2.6465,53.6558,0.29,Chorley
+-2.6959,53.6347,0.2,Chorley
+-2.621,53.6779,0.21,Chorley
+-2.9687,53.7734,25,Fylde
+-2.892,53.7919,1.3,Fylde
+-2.9423,53.8216,0.7,Fylde
+-2.3569,53.7665,0.18,Hyndburn
+-2.3427,53.7911,0.15,Hyndburn
+-2.3774,53.7612,0.41,Hyndburn
+-2.3974,53.7497,2,Hyndburn
+-2.3558,53.7497,0.43,Hyndburn
+-2.3543,53.7382,0.33,Hyndburn
+-2.3543,53.7669,0.3,Hyndburn
+-2.3906,53.7447,0.22,Hyndburn
+-2.3771,53.7444,0.18,Hyndburn
+-2.828,54.0563,3,Lancaster
+-2.7775,54.0584,28,Lancaster
+-2.7957,54.0278,16.5,Lancaster
+-2.6547,54.098,0.32,Lancaster
+-2.7874,54.0174,4,Lancaster
+-2.8422,54.0567,0.8,Lancaster
+-2.9138,54.0367,0.49,Lancaster
+-2.9138,54.0367,0.5,Lancaster
+-2.2212,53.8444,0.45,Pendle
+-2.1426,53.9221,1,Pendle
+-2.238,53.8371,0.25,Pendle
+-2.7361,53.7624,0.51,Preston
+-2.6586,53.79,0.2,Preston
+-2.6953,53.8481,0.36,Preston
+-2.7602,53.761,0.14,Preston
+-2.6462,53.7884,1.3,Preston
+-2.6893,53.7722,0.34,Preston
+-2.6998,53.7843,0.47,Preston
+-2.3974,53.8407,0.22,Ribble Valley
+-2.3413,53.7967,0.97,Ribble Valley
+-2.3375,53.7262,1,Rossendale
+-2.6893,53.7036,0.22,South Ribble
+-2.652,53.7219,0.94,South Ribble
+-2.7447,53.7024,0.16,South Ribble
+-2.7009,53.7128,4,South Ribble
+-2.6415,53.7224,0.7,South Ribble
+-2.6946,53.71,1.1,South Ribble
+-2.8541,53.503,0.73,West Lancashire
+-2.8619,53.6653,1.3,West Lancashire
+-2.7827,53.5431,0.36,West Lancashire
+-3.0278,53.5526,0.45,West Lancashire
+-2.7801,53.5528,0.22,West Lancashire
+-2.7606,53.5417,0.16,West Lancashire
+-2.7115,53.5898,0.15,West Lancashire
+-2.8086,53.9509,0.15,Wyre
+-2.7443,53.8979,23,Wyre
+-2.8,53.9216,10,Wyre
+-3.0022,53.8839,0.39,Wyre
+-2.7987,53.8252,20,Wyre
+-2.9097,53.9286,1.19,Wyre
+-2.944,53.8688,0.22,Wyre
+-1.2444,52.6036,40,Blaby
+-1.2166,52.6467,0.49,Blaby
+-1.1813,52.5661,0.4,Blaby
+-1.1947,52.6088,0.21,Blaby
+-1.3232,52.528,20,Blaby
+-1.1115,52.5479,49.9,Blaby
+-1.2519,52.5401,0.15,Blaby
+-1.1848,52.5919,0.21,Blaby
+-1.2178,52.6413,0.84,Blaby
+-1.199,52.5965,1.8,Blaby
+-1.199,52.5965,0.68,Blaby
+-1.2115,52.6298,0.57,Blaby
+-1.2111,52.5967,0.34,Blaby
+-1.1883,52.6037,0.3,Blaby
+-1.0959,52.7104,26,Charnwood
+-1.1791,52.7733,34,Charnwood
+-1.1691,52.7544,10,Charnwood
+-1.2628,52.7943,49.9,Charnwood
+-1.129,52.7202,0.9,Charnwood
+-1.2216,52.7826,0.88,Charnwood
+-1.2031,52.7652,0.19,Charnwood
+-1.2446,52.761,0.21,Charnwood
+-1.1287,52.7201,1.44,Charnwood
+-1.2196,52.7842,0.45,Charnwood
+-1.2099,52.7728,0.25,Charnwood
+-1.1659,52.4113,20,Harborough
+-1.2431,52.4572,0.47,Harborough
+-1.037,52.5311,0.41,Harborough
+-1.2431,52.4572,0.53,Harborough
+-0.9218,52.4868,0.17,Harborough
+-1.2498,52.4605,0.58,Harborough
+-0.9299,52.5241,0.28,Harborough
+-1.2089,52.4604,0.3,Harborough
+-1.1973,52.4635,0.29,Harborough
+-1.345,52.5832,23.5,Hinckley and Bosworth
+-1.2915,52.5913,40,Hinckley and Bosworth
+-1.328,52.7005,0.61,Hinckley and Bosworth
+-1.4938,52.6296,0.18,Hinckley and Bosworth
+-1.3688,52.6494,49.9,Hinckley and Bosworth
+-1.3372,52.6957,0.45,Hinckley and Bosworth
+-1.3828,52.5539,0.44,Hinckley and Bosworth
+-1.3361,52.517,0.3,Hinckley and Bosworth
+-1.3961,52.5348,0.3,Hinckley and Bosworth
+-1.4073,52.5434,1.3,Hinckley and Bosworth
+-1.3857,52.5293,0.75,Hinckley and Bosworth
+-1.3905,52.527,0.5,Hinckley and Bosworth
+-1.3696,52.5404,0.31,Hinckley and Bosworth
+-1.3312,52.6482,0.2,Hinckley and Bosworth
+-1.3304,52.5751,0.28,Hinckley and Bosworth
+-0.849,52.9179,49.9,Melton
+-0.7827,52.8947,49.9,Melton
+-0.7412,52.7594,0.56,Melton
+-1.0215,52.7722,22.5,Melton
+-1.0076,52.7381,0.2,Melton
+-0.9264,52.6819,10,Melton
+-0.8156,52.9286,0.23,Melton
+-1.2567,52.733,0.8,North West Leicestershire
+-1.3154,52.8351,4.2,North West Leicestershire
+-1.3667,52.7266,0.75,North West Leicestershire
+-1.5548,52.6926,1,North West Leicestershire
+-1.3416,52.6974,0.57,North West Leicestershire
+-1.452,52.7204,0.58,North West Leicestershire
+-1.3883,52.7313,0.28,North West Leicestershire
+-1.3582,52.8504,0.32,North West Leicestershire
+-1.3314,52.7076,0.19,North West Leicestershire
+-1.5513,52.6856,0.21,North West Leicestershire
+-1.3714,52.7335,0.35,North West Leicestershire
+-1.3395,52.7026,0.25,North West Leicestershire
+-1.352,52.8486,0.16,North West Leicestershire
+-1.352,52.8486,0.45,North West Leicestershire
+-1.4508,52.75,0.16,North West Leicestershire
+-1.1177,52.5811,0.21,Oadby and Wigston
+-1.0835,52.6147,0.84,Oadby and Wigston
+-1.0873,52.591,0.19,Oadby and Wigston
+-0.2226,52.931,49.9,Boston
+0.0003,52.9551,9.7,Boston
+-0.1741,52.9564,0.25,Boston
+-0.0157,52.9655,0.89,Boston
+-0.2109,52.9224,75,Boston
+-0.0168,52.9618,0.89,Boston
+0.1275,53.0565,0.38,Boston
+-0.0157,52.9634,0.45,Boston
+0.1564,53.0336,1.89,Boston
+0.2413,53.144,1.4,East Lindsey
+0.1807,53.099,49.9,East Lindsey
+-0.2663,53.1931,0.17,East Lindsey
+-0.2137,53.2749,49.9,East Lindsey
+0.0148,53.0456,10,East Lindsey
+0.009,53.523,0.57,East Lindsey
+-0.0011,53.3823,0.28,East Lindsey
+-0.1597,53.3946,0.16,East Lindsey
+0.3191,53.142,0.23,East Lindsey
+0.1578,53.3019,0.22,East Lindsey
+0.0874,53.4224,14,East Lindsey
+0.3102,53.1597,0.39,East Lindsey
+0.0101,53.3618,0.38,East Lindsey
+-0.2957,53.2999,0.15,East Lindsey
+0.0625,53.4806,0.16,East Lindsey
+-0.1076,53.2037,0.22,East Lindsey
+-0.5198,53.2451,800,Lincoln
+-0.5172,53.2208,0.21,Lincoln
+-0.5042,53.2339,0.43,Lincoln
+-0.4658,53.1837,40,North Kesteven
+-0.3655,52.9759,25,North Kesteven
+-0.4133,52.9682,20,North Kesteven
+-0.2551,52.9416,49.99,North Kesteven
+-0.2076,52.9766,500,North Kesteven
+-0.5879,53.1114,0.22,North Kesteven
+-0.5596,53.1181,0.22,North Kesteven
+-0.7403,53.1936,0.37,North Kesteven
+-0.5463,52.9647,4.8,North Kesteven
+-0.6652,53.1521,0.36,North Kesteven
+-0.6652,53.1521,1.2,North Kesteven
+-0.4026,52.9917,49.99,North Kesteven
+-0.3952,53.1633,0.5,North Kesteven
+-0.5979,53.1862,0.17,North Kesteven
+-0.3851,53.0416,0.73,North Kesteven
+-0.3851,53.0416,0.49,North Kesteven
+-0.6493,53.1959,18,North Kesteven
+-0.6066,53.2403,20.2,North Kesteven
+-0.1282,52.8014,1,South Holland
+0.1827,52.7391,49.9,South Holland
+-0.1368,52.8074,0.36,South Holland
+-0.1463,52.8056,0.3,South Holland
+0.1469,52.778,0.56,South Holland
+0.1469,52.778,0.72,South Holland
+-0.1425,52.8093,0.28,South Holland
+0.0423,52.7377,0.41,South Holland
+0.0439,52.7364,0.69,South Holland
+0.0025,52.8169,0.4,South Holland
+0.0894,52.8519,49.9,South Holland
+-0.1278,52.796,1.64,South Holland
+-0.0376,52.8215,0.28,South Holland
+-0.0781,52.7888,0.97,South Holland
+-0.0326,52.6642,49.9,South Holland
+-0.735,52.9725,49.99,South Kesteven
+-0.4655,52.6564,0.68,South Kesteven
+-0.674,52.9096,0.21,South Kesteven
+-0.6026,52.7866,0.38,South Kesteven
+-0.4709,52.6523,0.17,South Kesteven
+-0.2904,52.7717,20,South Kesteven
+-0.3922,52.8914,27,South Kesteven
+-0.5884,53.0249,0.97,South Kesteven
+-0.3218,52.757,0.15,South Kesteven
+-0.5503,52.9315,24,South Kesteven
+-0.6271,52.9432,0.18,South Kesteven
+-0.549,52.9331,46,South Kesteven
+-0.5823,52.9118,49.9,South Kesteven
+-0.3595,52.7473,15,South Kesteven
+-0.4421,52.7354,28,South Kesteven
+-0.6323,52.9024,0.48,South Kesteven
+-0.6788,52.9491,23,South Kesteven
+-0.6578,52.8977,0.22,South Kesteven
+-0.7743,52.9693,0.23,South Kesteven
+-0.4371,53.2387,49.9,West Lindsey
+-0.7426,53.336,531,West Lindsey
+-0.6432,53.3521,600,West Lindsey
+-0.6775,53.2926,480,West Lindsey
+-0.6361,53.3058,0.19,West Lindsey
+-0.249,53.5553,0.17,West Lindsey
+-0.6032,53.4071,500,West Lindsey
+-0.7516,53.4042,0.3,West Lindsey
+-0.3493,53.2313,0.86,West Lindsey
+-0.6035,53.2539,0.31,West Lindsey
+-0.3089,53.2396,0.75,West Lindsey
+-0.494,53.3779,11,West Lindsey
+-0.7557,53.4088,0.45,West Lindsey
+-0.4153,53.272,0.15,West Lindsey
+-0.4982,53.4071,0.25,West Lindsey
+-0.5372,53.4541,0.55,West Lindsey
+-0.576,53.4021,0.33,West Lindsey
+1.0281,52.4972,30,Breckland
+1.0489,52.7148,15,Breckland
+0.992,52.5195,1,Breckland
+0.7644,52.695,49.9,Breckland
+0.9475,52.6789,0.32,Breckland
+0.7508,52.4137,49.9,Breckland
+0.9562,52.5427,0.23,Breckland
+0.8051,52.5691,0.66,Breckland
+0.8047,52.5693,1.82,Breckland
+0.9586,52.471,0.25,Breckland
+0.6888,52.6391,0.22,Breckland
+0.9473,52.6784,0.17,Breckland
+0.7349,52.4175,0.21,Breckland
+0.6888,52.6391,0.26,Breckland
+0.7498,52.4206,0.2,Breckland
+0.7803,52.4231,0.19,Breckland
+0.6224,52.4524,0.59,Breckland
+0.8047,52.5693,0.81,Breckland
+1.3053,52.7073,15,Broadland
+1.0457,52.7719,0.19,Broadland
+1.1794,52.7924,28,Broadland
+1.3728,52.6749,0.28,Broadland
+1.2411,52.6817,18,Broadland
+1.3729,52.632,0.19,Broadland
+1.3522,52.7269,0.5,Broadland
+1.5257,52.6399,0.27,Broadland
+1.3744,52.6332,0.31,Broadland
+1.0786,52.7562,40,Broadland
+1.1275,52.8175,30,Broadland
+1.3353,52.6601,0.33,Broadland
+1.7286,52.6208,0.17,Great Yarmouth
+1.7384,52.6316,0.24,Great Yarmouth
+1.7319,52.5413,0.24,Great Yarmouth
+1.6188,52.6748,0.52,Great Yarmouth
+1.7235,52.6587,0.41,Great Yarmouth
+1.7177,52.618,0.57,Great Yarmouth
+1.718,52.5617,0.25,Great Yarmouth
+1.718,52.5617,0.46,Great Yarmouth
+0.3985,52.7611,49.9,King's Lynn and West Norfolk
+0.1993,52.7226,40,King's Lynn and West Norfolk
+0.3868,52.5322,0.52,King's Lynn and West Norfolk
+0.4185,52.7453,0.2,King's Lynn and West Norfolk
+0.4069,52.754,0.53,King's Lynn and West Norfolk
+0.5528,52.8815,21,King's Lynn and West Norfolk
+0.267,52.6752,0.35,King's Lynn and West Norfolk
+0.2257,52.6732,49.9,King's Lynn and West Norfolk
+0.3454,52.5839,0.2,King's Lynn and West Norfolk
+0.3965,52.7404,0.23,King's Lynn and West Norfolk
+0.1875,52.6819,0.46,King's Lynn and West Norfolk
+0.5203,52.8334,2.1,King's Lynn and West Norfolk
+0.4841,52.4893,0.32,King's Lynn and West Norfolk
+0.577,52.5459,0.21,King's Lynn and West Norfolk
+0.439,52.5129,0.26,King's Lynn and West Norfolk
+0.661,52.8868,0.21,King's Lynn and West Norfolk
+0.5536,52.5356,15,King's Lynn and West Norfolk
+0.4075,52.7344,0.28,King's Lynn and West Norfolk
+0.4222,52.747,0.32,King's Lynn and West Norfolk
+0.651,52.8186,0.54,King's Lynn and West Norfolk
+1.3618,52.8109,5,North Norfolk
+1.4695,52.8575,1.6,North Norfolk
+1.5496,52.7301,0.24,North Norfolk
+1.1972,52.9418,0.4,North Norfolk
+1.4252,52.7473,1.08,North Norfolk
+1.1402,52.8777,0.31,North Norfolk
+1.1222,52.8626,0.21,North Norfolk
+1.1329,52.8884,0.21,North Norfolk
+1.1212,52.8671,0.21,North Norfolk
+1.2926,52.9294,0.19,North Norfolk
+0.826,52.8205,0.88,North Norfolk
+1.382,52.8176,0.24,North Norfolk
+0.7775,52.7753,2.4,North Norfolk
+0.8317,52.9086,0.41,North Norfolk
+1.2916,52.6252,0.15,Norwich
+1.272,52.6711,0.5,Norwich
+1.309,52.6241,0.86,Norwich
+1.2925,52.6725,0.48,Norwich
+1.296,52.6252,0.24,Norwich
+1.2898,52.6224,0.31,Norwich
+1.2625,52.6339,0.18,Norwich
+1.1975,52.6383,5,South Norfolk
+1.3064,52.6051,9,South Norfolk
+1.2116,52.5616,28.5,South Norfolk
+1.2671,52.5519,49.9,South Norfolk
+1.6254,52.4813,7,South Norfolk
+1.0898,52.6473,30,South Norfolk
+1.1797,52.6519,0.2,South Norfolk
+1.5595,52.5203,2.5,South Norfolk
+1.1126,52.6462,0.25,South Norfolk
+1.18,52.5616,0.99,South Norfolk
+1.1399,52.4106,1.2,South Norfolk
+1.1279,52.3741,30,South Norfolk
+1.2208,52.5443,24,South Norfolk
+1.1879,52.4342,20,South Norfolk
+1.2258,52.6271,0.21,South Norfolk
+1.1882,52.6545,0.23,South Norfolk
+1.1205,52.5732,0.3,South Norfolk
+1.2291,52.491,0.14,South Norfolk
+1.0841,52.6425,1,South Norfolk
+1.2486,52.4821,0.4,South Norfolk
+1.1805,52.612,0.23,South Norfolk
+1.1776,52.631,0.34,South Norfolk
+-1.2203,53.1272,2.73,Ashfield
+-1.2109,53.0957,3.8,Ashfield
+-1.2478,53.1174,1,Ashfield
+-1.305,53.1187,0.3,Ashfield
+-1.2191,53.0199,1.9,Ashfield
+-1.2239,53.0112,0.17,Ashfield
+-1.2667,53.1261,0.19,Ashfield
+-1.2455,53.1113,0.81,Ashfield
+-0.9423,53.3455,49.9,Bassetlaw
+-0.8523,53.3478,49.9,Bassetlaw
+-0.8221,53.3829,78,Bassetlaw
+-1.099,53.3066,34,Bassetlaw
+-0.8018,53.2272,42.7,Bassetlaw
+-0.7953,53.216,0.2,Bassetlaw
+-1.1393,53.3194,1.7,Bassetlaw
+-0.7935,53.2226,740,Bassetlaw
+-0.8344,53.4282,0.42,Bassetlaw
+-1.1235,53.3012,0.19,Bassetlaw
+-1.1402,53.3185,2.59,Bassetlaw
+-0.9554,53.2662,0.15,Bassetlaw
+-1.1253,53.3651,0.3,Bassetlaw
+-1.2334,53.0167,17,Broxtowe
+-1.2098,52.9185,0.57,Broxtowe
+-1.2689,52.9208,0.23,Broxtowe
+-1.073,52.9585,0.75,Gedling
+-1.1183,52.9978,0.18,Gedling
+-1.0656,52.9583,0.41,Gedling
+-1.1533,53.2046,45.4,Mansfield
+-1.225,53.1354,0.41,Mansfield
+-1.1471,53.1501,0.33,Mansfield
+-1.1581,53.1294,0.2,Mansfield
+-1.171,53.1474,0.32,Mansfield
+-1.2201,53.1608,0.39,Mansfield
+-1.0416,53.129,3.2,Newark and Sherwood
+-0.9619,53.1194,49.9,Newark and Sherwood
+-0.9835,53.0605,49.9,Newark and Sherwood
+-0.8477,53.1476,49.9,Newark and Sherwood
+-0.8949,53.1205,49.9,Newark and Sherwood
+-0.8998,53.1149,49.9,Newark and Sherwood
+-0.8469,53.0935,49.9,Newark and Sherwood
+-0.8839,53.0912,0.15,Newark and Sherwood
+-0.7245,53.1776,0.55,Newark and Sherwood
+-0.8151,53.1694,0.91,Newark and Sherwood
+-0.8209,52.9713,0.18,Newark and Sherwood
+-0.7975,53.0804,0.24,Newark and Sherwood
+-0.7989,53.0573,0.4,Newark and Sherwood
+-1.0781,52.879,0.62,Rushcliffe
+-1.1717,52.8459,4.2,Rushcliffe
+-1.2536,52.846,49.9,Rushcliffe
+-1.1301,52.8467,42.9,Rushcliffe
+-1.157,52.8806,49.9,Rushcliffe
+-0.9111,52.9474,0.25,Rushcliffe
+-0.8522,52.9816,49.9,Rushcliffe
+-1.1265,52.8922,0.45,Rushcliffe
+-0.8716,52.9655,0.2,Rushcliffe
+-1.0635,52.9375,4.2,Rushcliffe
+-1.1196,52.8839,0.32,Rushcliffe
+-1.1433,52.8825,0.15,Rushcliffe
+-1.2591,52.8618,9,Rushcliffe
+-1.021,52.9242,20,Rushcliffe
+-1.0841,52.9119,0.88,Rushcliffe
+-1.1437,52.9257,0.3,Rushcliffe
+-1.1184,52.8466,49.9,Rushcliffe
+-1.1261,52.9036,0.15,Rushcliffe
+-1.061,52.9539,0.26,Rushcliffe
+-1.061,52.9539,1.01,Rushcliffe
+-1.0339,52.8405,0.17,Rushcliffe
+-1.1261,52.9036,0.18,Rushcliffe
+-1.1458,52.9233,0.47,Rushcliffe
+-1.1593,51.8909,0.6,Cherwell
+-1.1272,51.852,19,Cherwell
+-1.3311,51.9662,8.9,Cherwell
+-1.0944,51.8526,0.47,Cherwell
+-1.3069,51.8305,0.23,Cherwell
+-1.2131,51.9242,0.23,Cherwell
+-1.3063,51.9716,0.5,Cherwell
+-1.212,51.8229,45,Cherwell
+-1.1142,51.9303,44,Cherwell
+-1.3206,51.8224,0.18,Cherwell
+-1.1637,51.8872,0.61,Cherwell
+-1.3051,51.8303,1.16,Cherwell
+-1.1366,51.9003,0.83,Cherwell
+-1.1295,51.8975,0.32,Cherwell
+-1.1664,51.8867,0.31,Cherwell
+-1.3348,52.0535,0.37,Cherwell
+-1.1358,51.9008,0.33,Cherwell
+-1.494,51.997,0.27,Cherwell
+-1.1985,51.95,0.17,Cherwell
+-1.305,51.8295,1,Cherwell
+-1.3341,52.0801,0.54,Cherwell
+-1.1944,51.8909,0.4,Cherwell
+-1.1142,51.9878,0.18,Cherwell
+-1.1234,51.8805,0.55,Cherwell
+-1.3334,52.0505,0.31,Cherwell
+-1.2737,51.7482,0.21,Oxford
+-1.233,51.7576,0.19,Oxford
+-1.2592,51.7734,0.25,Oxford
+-1.2291,51.7541,0.17,Oxford
+-1.2051,51.7305,0.38,Oxford
+-1.2295,51.7174,0.2,Oxford
+-1.2018,51.7021,49.9,South Oxfordshire
+-1.0347,51.7023,49.9,South Oxfordshire
+-1.0131,51.7048,49.9,South Oxfordshire
+-1.0057,51.7103,49.9,South Oxfordshire
+-1.1024,51.5527,1.4,South Oxfordshire
+-1.2287,51.6578,0.17,South Oxfordshire
+-1.2329,51.6611,0.22,South Oxfordshire
+-1.2299,51.6574,0.19,South Oxfordshire
+-0.9558,51.7391,0.3,South Oxfordshire
+-1.1912,51.6663,49.9,South Oxfordshire
+-1.2381,51.6079,0.38,South Oxfordshire
+-1.1046,51.6108,0.18,South Oxfordshire
+-1.0704,51.6716,0.25,South Oxfordshire
+-1.3974,51.6459,49.9,Vale of White Horse
+-1.3159,51.5726,1.6,Vale of White Horse
+-1.3819,51.6725,0.8,Vale of White Horse
+-1.4502,51.6245,30,Vale of White Horse
+-1.2767,51.6199,0.88,Vale of White Horse
+-1.2448,51.6962,2,Vale of White Horse
+-1.3033,51.672,0.21,Vale of White Horse
+-1.2798,51.621,0.87,Vale of White Horse
+-1.3197,51.5753,0.59,Vale of White Horse
+-1.2844,51.6245,0.3,Vale of White Horse
+-1.4239,51.5966,0.36,Vale of White Horse
+-1.4036,51.781,32,West Oxfordshire
+-1.3592,51.8478,5,West Oxfordshire
+-1.5042,51.7645,36,West Oxfordshire
+-1.4394,51.7601,49.9,West Oxfordshire
+-1.418,51.742,1,West Oxfordshire
+-1.5272,51.79,1,West Oxfordshire
+-1.6308,51.799,8,West Oxfordshire
+-1.522,51.7886,0.24,West Oxfordshire
+-1.4762,51.7635,0.69,West Oxfordshire
+-1.4898,51.7874,0.15,West Oxfordshire
+-1.4866,51.8049,35,West Oxfordshire
+-1.4811,51.7835,0.19,West Oxfordshire
+-1.7601,52.8177,0.64,East Staffordshire
+-1.6234,52.8263,1.29,East Staffordshire
+-1.6296,52.8147,0.17,East Staffordshire
+-1.6738,52.7926,0.65,East Staffordshire
+-1.6683,52.7936,0.2,East Staffordshire
+-1.9447,52.8248,49.9,East Staffordshire
+-1.8706,52.8966,0.25,East Staffordshire
+-1.6551,52.6904,49.9,Lichfield
+-1.908,52.7622,49.9,Lichfield
+-1.8979,52.771,49.9,Lichfield
+-1.6449,52.675,61.9,Lichfield
+-1.7812,52.7115,0.64,Lichfield
+-1.9385,52.6765,0.16,Lichfield
+-1.8756,52.5996,0.2,Lichfield
+-1.8108,52.6927,0.15,Lichfield
+-2.2369,53.0446,0.24,Newcastle-under-Lyme
+-2.2485,53.0278,0.5,Newcastle-under-Lyme
+-2.2422,53.0513,0.33,Newcastle-under-Lyme
+-2.2118,52.9956,0.16,Newcastle-under-Lyme
+-2.211,52.9955,0.61,Newcastle-under-Lyme
+-2.2269,53.0178,0.18,Newcastle-under-Lyme
+-2.2455,53.0442,0.2,Newcastle-under-Lyme
+-2.2118,53.0033,1,Newcastle-under-Lyme
+-2.2422,53.0541,0.71,Newcastle-under-Lyme
+-2.2411,53.0299,0.29,Newcastle-under-Lyme
+-2.1363,52.7265,49.9,South Staffordshire
+-2.1073,52.7697,0.91,South Staffordshire
+-2.1503,52.745,40,South Staffordshire
+-2.122,52.6735,22.5,South Staffordshire
+-2.2034,52.6587,40,South Staffordshire
+-2.1403,52.6492,48,South Staffordshire
+-2.1383,52.6347,0.26,South Staffordshire
+-2.1631,52.6251,0.17,South Staffordshire
+-2.086,52.7164,0.7,South Staffordshire
+-2.2094,52.522,0.4,South Staffordshire
+-2.2143,52.528,1.01,South Staffordshire
+-2.2085,52.449,0.21,South Staffordshire
+-2.1227,52.6809,0.16,South Staffordshire
+-2.002,52.826,0.74,Stafford
+-2.0035,52.8234,0.74,Stafford
+-2.0586,52.8136,49.5,Stafford
+-1.963,52.8397,49.9,Stafford
+-2.1374,52.8373,0.9,Stafford
+-2.124,52.8851,0.3,Stafford
+-2.3521,52.7962,0.2,Stafford
+-2.1084,52.8058,0.26,Stafford
+-2.1083,52.8275,0.15,Stafford
+-2.1215,52.8087,0.21,Stafford
+-2.0978,52.8113,0.73,Stafford
+-2.0795,52.8145,0.15,Stafford
+-2.1169,52.7857,0.15,Stafford
+-2.0203,52.9473,27.7,Staffordshire Moorlands
+-1.991,52.9382,49.9,Staffordshire Moorlands
+-2.0098,52.9554,19.8,Staffordshire Moorlands
+-2.0309,53.0697,0.39,Staffordshire Moorlands
+-2.017,52.9479,16.6,Staffordshire Moorlands
+-2.0173,53.036,0.3,Staffordshire Moorlands
+-1.8748,53.0437,0.53,Staffordshire Moorlands
+-2.0555,52.9313,0.25,Staffordshire Moorlands
+-1.9562,52.9521,0.15,Staffordshire Moorlands
+-1.6747,52.611,0.33,Tamworth
+-1.6474,52.6399,30,Tamworth
+-1.707,52.6279,0.5,Tamworth
+-1.6928,52.6413,0.44,Tamworth
+0.7479,52.0466,0.69,Babergh
+0.7128,52.0359,0.27,Babergh
+1.1953,52.0029,0.39,Babergh
+1.1603,52.0379,0.86,Ipswich
+1.2119,52.0294,0.29,Ipswich
+1.1115,52.0819,0.2,Ipswich
+1.132,52.0589,0.24,Ipswich
+1.1205,52.328,1.5,Mid Suffolk
+0.9816,52.1923,0.19,Mid Suffolk
+1.2686,52.3221,0.58,Mid Suffolk
+1.0771,52.0838,49.9,Mid Suffolk
+1.0034,52.3301,7.3,Mid Suffolk
+1.0935,52.1086,6.1,Mid Suffolk
+1.0664,52.2081,30,Mid Suffolk
+1.0416,52.076,49.9,Mid Suffolk
+1.0131,52.1814,1.2,Mid Suffolk
+1.0126,52.176,0.43,Mid Suffolk
+0.9901,52.3663,3.53,Mid Suffolk
+1.1726,52.326,0.3,Mid Suffolk
+1.0946,52.3539,48,Mid Suffolk
+1.2468,52.2741,0.32,Mid Suffolk
+1.1337,52.3387,0.15,Mid Suffolk
+-0.3856,51.3629,0.28,Elmbridge
+-0.4745,51.3502,0.23,Elmbridge
+-0.3796,51.3975,0.2,Elmbridge
+-0.2252,51.3553,0.33,Epsom and Ewell
+-0.2629,51.3372,0.18,Epsom and Ewell
+-0.6074,51.2359,0.91,Guildford
+-0.6251,51.2374,12.1,Guildford
+-0.5688,51.2608,0.15,Guildford
+-0.563,51.2492,0.55,Guildford
+-0.343,51.234,0.2,Mole Valley
+-0.3842,51.2164,0.2,Mole Valley
+-0.3751,51.3088,49.5,Mole Valley
+-0.1857,51.1684,0.38,Mole Valley
+-0.1748,51.2616,0.34,Reigate and Banstead
+-0.162,51.2192,2.1,Reigate and Banstead
+-0.2323,51.3156,0.25,Reigate and Banstead
+-0.5062,51.3434,0.18,Runnymede
+-0.595,51.4294,0.25,Runnymede
+-0.7646,51.3327,1.15,Surrey Heath
+-0.0045,51.2553,0.2,Tandridge
+0.0309,51.2201,10.7,Tandridge
+-0.0142,51.1415,0.2,Tandridge
+-0.7975,51.2156,0.33,Waverley
+-0.7764,51.2264,0.33,Waverley
+-0.806,51.2157,0.57,Waverley
+-0.6236,51.1683,1,Waverley
+-0.6053,51.1856,0.63,Waverley
+-0.5605,51.3142,0.27,Woking
+-0.5061,51.3381,0.16,Woking
+-0.4782,51.347,0.18,Woking
+-0.585,51.3245,1.47,Woking
+-0.4812,51.3469,0.18,Woking
+-0.5446,51.3449,2.56,Woking
+-1.6995,52.5435,3,North Warwickshire
+-1.5438,52.4743,16.5,North Warwickshire
+-1.5614,52.4991,30,North Warwickshire
+-1.6214,52.5991,0.16,North Warwickshire
+-1.6221,52.5848,5,North Warwickshire
+-1.5257,52.4864,16,North Warwickshire
+-1.5962,52.4722,47.7,North Warwickshire
+-1.7359,52.537,0.94,North Warwickshire
+-1.7133,52.5158,0.61,North Warwickshire
+-1.6237,52.5981,1.5,North Warwickshire
+-1.6251,52.5955,0.67,North Warwickshire
+-1.6283,52.5933,3,North Warwickshire
+-1.7011,52.5243,0.3,North Warwickshire
+-1.712,52.5181,0.18,North Warwickshire
+-1.7044,52.531,2.2,North Warwickshire
+-1.7531,52.5202,1.08,North Warwickshire
+-1.654,52.5585,49.9,North Warwickshire
+-1.6986,52.5315,0.15,North Warwickshire
+-1.6831,52.5662,0.23,North Warwickshire
+-1.4739,52.5044,0.61,Nuneaton and Bedworth
+-1.4775,52.5012,0.7,Nuneaton and Bedworth
+-1.4495,52.5305,0.29,Nuneaton and Bedworth
+-1.4584,52.5067,0.29,Nuneaton and Bedworth
+-1.3976,52.5249,49.9,Rugby
+-1.2675,52.3972,0.24,Rugby
+-1.2369,52.4057,0.52,Rugby
+-1.2089,52.3996,0.26,Rugby
+-1.4528,52.4583,25,Rugby
+-1.273,52.3522,0.62,Rugby
+-1.2501,52.4108,0.4,Rugby
+-1.4355,52.332,16.8,Rugby
+-1.2693,52.3971,0.2,Rugby
+-1.2547,52.3662,0.16,Rugby
+-1.2875,52.371,0.41,Rugby
+-1.4108,52.4331,0.3,Rugby
+-1.4115,52.4336,0.26,Rugby
+-1.4205,52.2529,0.5,Stratford-on-Avon
+-1.4306,52.1973,49.9,Stratford-on-Avon
+-1.4262,52.2368,34.8,Stratford-on-Avon
+-1.6786,52.1229,49.99,Stratford-on-Avon
+-1.5074,52.2308,49.99,Stratford-on-Avon
+-1.5233,52.1838,0.16,Stratford-on-Avon
+-1.4391,52.2082,0.21,Stratford-on-Avon
+-1.8577,52.2983,0.43,Stratford-on-Avon
+-1.7237,52.1637,26,Stratford-on-Avon
+-1.64,52.2479,25,Stratford-on-Avon
+-1.7599,52.1949,32,Stratford-on-Avon
+-1.4767,52.2511,49.99,Stratford-on-Avon
+-1.6799,52.1978,0.23,Stratford-on-Avon
+-1.7127,52.195,0.18,Stratford-on-Avon
+-1.5355,52.1981,20,Stratford-on-Avon
+-1.4844,52.1946,5.2,Stratford-on-Avon
+-1.7132,52.0929,0.19,Stratford-on-Avon
+-1.7172,52.1959,0.31,Stratford-on-Avon
+-1.8661,52.3547,0.26,Stratford-on-Avon
+-1.5198,52.277,0.26,Warwick
+-1.6275,52.2571,20,Warwick
+-1.6565,52.361,23.1,Warwick
+-1.4688,52.3647,0.27,Warwick
+-1.5476,52.232,0.39,Warwick
+-1.6085,52.2636,0.21,Warwick
+-1.4681,52.3642,0.17,Warwick
+-1.5186,52.29,0.17,Warwick
+-1.5278,52.2559,0.15,Warwick
+-1.5792,52.2819,0.21,Warwick
+-1.4664,52.373,0.57,Warwick
+-1.5482,52.2783,0.61,Warwick
+-0.3337,50.8232,0.35,Adur
+-0.2923,50.8416,0.21,Adur
+-0.2655,50.8334,0.16,Adur
+-0.7354,50.7906,2,Arun
+-0.4977,50.8179,0.68,Arun
+-0.5521,50.8531,0.28,Arun
+-0.6161,50.8499,0.16,Arun
+-0.9239,50.8207,1.5,Chichester
+-0.7881,50.73,11,Chichester
+-0.787,50.8338,0.17,Chichester
+-0.7365,50.8246,0.27,Chichester
+-0.7585,50.8298,0.18,Chichester
+-0.7484,50.8213,0.19,Chichester
+-0.8442,50.8353,0.18,Chichester
+-0.8343,50.8392,0.37,Chichester
+-0.7793,50.744,1.84,Chichester
+-0.7415,50.8206,1.33,Chichester
+-0.7384,50.8044,30,Chichester
+-0.7878,50.8349,0.35,Chichester
+-0.1896,51.1202,0.22,Crawley
+-0.1768,51.1371,0.94,Crawley
+-0.1745,51.131,0.27,Crawley
+-0.1908,51.1345,0.22,Crawley
+-0.1912,51.0972,0.42,Crawley
+-0.1716,51.1271,0.44,Crawley
+-0.1835,51.1343,0.35,Crawley
+-0.2827,50.9728,0.2,Horsham
+-0.3249,51.1076,0.48,Horsham
+-0.3132,51.0825,0.15,Horsham
+-0.2898,50.9945,49.9,Horsham
+-0.305,50.9571,0.16,Horsham
+-0.305,50.9571,0.29,Horsham
+-0.3047,50.9577,0.21,Horsham
+-0.3324,51.063,0.65,Horsham
+-0.1479,50.954,0.23,Mid Sussex
+-0.0024,51.134,0.29,Mid Sussex
+-0.014,51.134,0.19,Mid Sussex
+-0.0278,51.0183,0.28,Mid Sussex
+-0.3564,50.8256,0.44,Worthing
+-0.4293,50.8262,0.49,Worthing
+-0.3811,50.8353,0.19,Worthing
+-1.8819,52.3364,0.39,Bromsgrove
+-2.0586,52.3193,0.26,Bromsgrove
+-2.049,52.3393,0.21,Bromsgrove
+-2.0974,52.3217,49.9,Bromsgrove
+-2.4137,52.3086,5,Malvern Hills
+-2.2591,52.2042,0.38,Malvern Hills
+-2.3248,52.1097,0.2,Malvern Hills
+-2.3033,52.0267,0.21,Malvern Hills
+-1.893,52.3121,1.43,Redditch
+-1.9226,52.3082,0.25,Redditch
+-1.8896,52.3125,0.39,Redditch
+-1.939,52.313,0.42,Redditch
+-1.936,52.3088,0.3,Redditch
+-2.1824,52.2154,0.93,Worcester
+-2.2059,52.2132,0.23,Worcester
+-2.2116,52.213,0.24,Worcester
+-2.172,52.188,0.15,Worcester
+-2.2267,52.3153,8.75,Wychavon
+-2.1611,52.0499,25,Wychavon
+-2.0025,52.1623,30,Wychavon
+-2.105,52.3021,1,Wychavon
+-1.9404,52.0741,0.19,Wychavon
+-1.938,52.1165,0.25,Wychavon
+-2.0832,52.1383,0.15,Wychavon
+-1.9064,52.1154,0.2,Wychavon
+-2.1606,52.058,25,Wychavon
+-1.9735,52.0638,0.21,Wychavon
+-2.1616,52.2161,0.42,Wychavon
+-1.9371,52.056,35,Wychavon
+-2.1598,52.1594,0.18,Wychavon
+-1.852,52.0455,3.2,Wychavon
+-1.9353,52.0739,0.2,Wychavon
+-2.1604,52.2033,0.42,Wychavon
+-2.1585,52.3043,40,Wychavon
+-2.1526,52.2728,1.16,Wychavon
+-1.9385,52.0727,0.21,Wychavon
+-2.2451,52.3844,0.45,Wyre Forest
+-2.2916,52.3787,0.46,Wyre Forest
+-2.2663,52.3589,0.27,Wyre Forest
+-2.244,52.3661,0.79,Wyre Forest
+-2.2685,52.3295,0.18,Wyre Forest
+-0.3378,51.7515,0.33,St Albans
+-0.3414,51.7417,0.79,St Albans
+-0.3162,51.7555,0.17,St Albans
+-0.3078,51.7708,0.16,St Albans
+-0.3604,51.8281,0.26,St Albans
+-0.3414,51.7417,0.47,St Albans
+-0.3112,51.7515,0.29,St Albans
+-0.3455,51.751,0.19,St Albans
+-0.2458,51.7742,2,Welwyn Hatfield
+-0.2452,51.7705,1.2,Welwyn Hatfield
+-0.2144,51.7375,0.29,Welwyn Hatfield
+-0.1664,51.7149,0.16,Welwyn Hatfield
+-0.1772,51.8008,0.19,Welwyn Hatfield
+-0.22,51.7809,10,Welwyn Hatfield
+-0.1795,51.7992,0.27,Welwyn Hatfield
+0.1187,51.8916,35,East Hertfordshire
+-0.0811,51.7914,0.2,East Hertfordshire
+-0.0631,51.7942,0.15,East Hertfordshire
+-0.0653,51.796,0.27,East Hertfordshire
+0.1712,51.8711,0.29,East Hertfordshire
+-0.0597,51.8122,24,East Hertfordshire
+0.1711,51.8677,0.35,East Hertfordshire
+-0.2043,51.904,0.4,Stevenage
+-0.2083,51.8999,0.22,Stevenage
+-0.1977,51.8924,0.29,Stevenage
+-0.2149,51.9201,0.31,Stevenage
+-0.1972,51.8879,0.16,Stevenage
+-0.2069,51.9016,0.24,Stevenage
+-0.2026,51.9042,0.26,Stevenage
+1.3947,52.0876,1.5,East Suffolk
+1.3822,52.1392,21,East Suffolk
+1.5019,52.2487,21,East Suffolk
+1.2833,52.0342,25,East Suffolk
+1.4025,52.1995,49.9,East Suffolk
+1.485,52.3531,27,East Suffolk
+1.4513,52.051,1.2,East Suffolk
+1.5992,52.4391,0.18,East Suffolk
+1.5194,52.2359,0.25,East Suffolk
+1.3229,51.9705,2.49,East Suffolk
+1.4441,52.112,0.2,East Suffolk
+1.4592,52.126,0.2,East Suffolk
+1.5188,52.356,0.7,East Suffolk
+1.3275,51.9654,0.43,East Suffolk
+1.4889,52.2962,0.23,East Suffolk
+1.5496,52.2906,1,East Suffolk
+1.461,52.1073,0.17,East Suffolk
+1.2707,51.9964,1.2,East Suffolk
+1.2781,52.0666,0.66,East Suffolk
+1.3321,51.973,0.22,East Suffolk
+1.3281,51.9459,0.21,East Suffolk
+1.4434,52.3023,0.28,East Suffolk
+0.4829,52.3247,500,West Suffolk
+0.8468,52.3508,46.9,West Suffolk
+0.5008,52.3534,0.6,West Suffolk
+0.6964,52.2523,0.5,West Suffolk
+0.6995,52.2492,0.55,West Suffolk
+0.7328,52.2518,0.53,West Suffolk
+0.493,52.0665,35,West Suffolk
+0.5107,52.3541,0.3,West Suffolk
+0.5664,52.2712,0.26,West Suffolk
+0.7408,52.3493,0.25,West Suffolk
+0.513,52.3555,0.35,West Suffolk
+0.7024,52.2758,0.18,West Suffolk
+0.757,52.2401,1,West Suffolk
+0.6636,52.2499,0.2,West Suffolk
+0.8366,52.1918,42,West Suffolk
+0.5508,52.3124,1.3,West Suffolk
+0.4474,52.0894,0.21,West Suffolk
+0.4089,52.0902,0.31,West Suffolk
+-2.5171,53.5486,0.18,Bolton
+-2.532,53.5814,0.45,Bolton
+-2.4279,53.5683,1.7,Bolton
+-2.4152,53.5974,0.2,Bolton
+-2.4509,53.54,0.21,Bolton
+-2.3749,53.5388,0.29,Bolton
+-2.4201,53.5841,0.71,Bolton
+-2.4539,53.5504,0.22,Bolton
+-2.4048,53.5538,0.49,Bolton
+-2.4299,53.554,0.17,Bolton
+-2.2877,53.5517,0.17,Bury
+-2.2734,53.5779,0.16,Bury
+-2.2196,53.4121,1,Manchester
+-2.2952,53.3591,1.51,Manchester
+-2.1955,53.5014,0.27,Manchester
+-2.237,53.4686,0.17,Manchester
+-2.2932,53.3879,0.45,Manchester
+-2.2943,53.3987,0.47,Manchester
+-2.1906,53.4854,0.92,Manchester
+-2.1887,53.4725,0.39,Manchester
+-2.1855,53.4769,0.29,Manchester
+-2.1809,53.5043,0.42,Manchester
+-2.2488,53.4663,0.2,Manchester
+-2.1852,53.4757,0.61,Manchester
+-2.2142,53.5019,0.26,Manchester
+-2.2223,53.4555,0.17,Manchester
+-2.2263,53.4092,0.15,Manchester
+-2.1763,53.4715,0.27,Manchester
+-2.1763,53.4715,0.16,Manchester
+-2.1937,53.4815,1.12,Manchester
+-2.299,53.3951,0.4,Manchester
+-2.2917,53.3577,0.29,Manchester
+-2.2028,53.4842,0.22,Manchester
+-2.288,53.3602,0.33,Manchester
+-2.2408,53.4852,0.22,Manchester
+-2.2963,53.4021,0.22,Manchester
+-2.1966,53.478,0.23,Manchester
+-2.247,53.4428,0.39,Manchester
+-2.253,53.4619,0.36,Manchester
+-2.1751,53.4505,0.6,Manchester
+-2.2347,53.4578,0.17,Manchester
+-2.2932,53.3879,0.48,Manchester
+-2.2275,53.4973,0.46,Manchester
+-2.1881,53.4633,0.16,Manchester
+-2.2925,53.3559,4.3,Manchester
+-2.1548,53.5162,0.9,Oldham
+-2.1261,53.5456,0.5,Oldham
+-2.136,53.5491,0.52,Oldham
+-2.0998,53.5456,0.47,Oldham
+-2.1259,53.5456,0.42,Oldham
+-2.1571,53.5307,0.24,Oldham
+-2.1687,53.5336,0.25,Oldham
+-2.1676,53.5413,0.23,Oldham
+-2.1497,53.5418,3.06,Oldham
+-2.1647,53.5329,0.3,Oldham
+-2.1279,53.5543,0.38,Oldham
+-2.1105,53.5403,0.37,Oldham
+-2.2058,53.6271,0.16,Rochdale
+-2.2274,53.5962,0.15,Rochdale
+-2.213,53.5902,3.99,Rochdale
+-2.1446,53.632,0.65,Rochdale
+-2.2329,53.5547,0.55,Rochdale
+-2.1732,53.5647,1,Rochdale
+-2.18,53.6191,0.15,Rochdale
+-2.0907,53.6489,0.26,Rochdale
+-2.1396,53.6088,0.21,Rochdale
+-2.1833,53.5642,0.36,Rochdale
+-2.2515,53.584,0.15,Rochdale
+-2.2515,53.584,0.15,Rochdale
+-2.4378,53.5266,1.9,Salford
+-2.4294,53.4317,0.29,Salford
+-2.3277,53.5112,0.17,Salford
+-2.3147,53.4821,0.48,Salford
+-2.4447,53.4188,0.16,Salford
+-2.2983,53.5066,0.4,Salford
+-2.2598,53.507,0.19,Salford
+-2.4294,53.4317,0.39,Salford
+-2.2681,53.477,0.34,Salford
+-2.2786,53.4952,0.22,Salford
+-2.3561,53.4795,0.18,Salford
+-2.2102,53.42,1,Stockport
+-2.1746,53.4105,0.2,Stockport
+-2.1415,53.3787,0.64,Stockport
+-2.1609,53.4069,0.18,Stockport
+-2.1767,53.4109,0.27,Stockport
+-2.1524,53.3668,0.25,Stockport
+-2.1816,53.409,0.2,Stockport
+-2.1816,53.3928,0.2,Stockport
+-2.1938,53.3686,0.3,Stockport
+-2.1689,53.4115,0.15,Stockport
+-2.1495,53.4053,0.19,Stockport
+-2.1259,53.3836,0.5,Stockport
+-2.185,53.3965,0.51,Stockport
+-2.091,53.4597,0.24,Tameside
+-2.1101,53.4864,0.91,Tameside
+-2.1124,53.4551,0.46,Tameside
+-2.0808,53.488,0.4,Tameside
+-2.1311,53.4939,0.27,Tameside
+-2.0744,53.4521,0.48,Tameside
+-2.3474,53.3855,0.5,Trafford
+-2.2847,53.455,0.28,Trafford
+-2.3131,53.4652,0.27,Trafford
+-2.2948,53.448,0.43,Trafford
+-2.3185,53.4699,0.22,Trafford
+-2.3601,53.47,0.25,Trafford
+-2.3505,53.3839,0.36,Trafford
+-2.3136,53.4682,0.35,Trafford
+-2.3547,53.4491,0.37,Trafford
+-2.3086,53.4653,0.25,Trafford
+-2.3214,53.424,0.18,Trafford
+-2.4321,53.4122,0.23,Trafford
+-2.3303,53.4674,0.99,Trafford
+-2.3148,53.4678,0.17,Trafford
+-2.3206,53.4646,0.47,Trafford
+-2.3707,53.4541,0.36,Trafford
+-2.6357,53.5398,0.2,Wigan
+-2.6719,53.5522,0.47,Wigan
+-2.6358,53.5029,2.2,Wigan
+-2.656,53.5458,0.27,Wigan
+-2.6308,53.54,0.15,Wigan
+-2.6489,53.5936,0.42,Wigan
+-2.5062,53.5302,0.17,Wigan
+-2.5123,53.5044,0.71,Wigan
+-2.8613,53.4718,0.35,Knowsley
+-2.8267,53.3524,1.26,Knowsley
+-2.8578,53.478,0.9,Knowsley
+-2.861,53.4603,0.24,Knowsley
+-2.822,53.3636,0.32,Knowsley
+-2.822,53.3636,0.33,Knowsley
+-2.8612,53.4583,0.47,Knowsley
+-2.8346,53.3504,9.3,Knowsley
+-2.8629,53.4636,0.2,Knowsley
+-2.785,53.4205,0.22,Knowsley
+-2.8629,53.4636,0.26,Knowsley
+-2.9937,53.4137,0.35,Liverpool
+-2.8826,53.3402,0.47,Liverpool
+-2.9147,53.4108,0.17,Liverpool
+-2.9796,53.4231,0.45,Liverpool
+-3.001,53.4354,0.7,Liverpool
+-3.0067,53.4318,1.46,Liverpool
+-2.8759,53.3431,0.62,Liverpool
+-2.926,53.4156,0.3,Liverpool
+-2.9976,53.4392,0.21,Liverpool
+-2.8704,53.3539,0.17,Liverpool
+-2.898,53.415,0.46,Liverpool
+-2.9069,53.4475,0.17,Liverpool
+-2.8993,53.4189,0.47,Liverpool
+-2.6655,53.4649,0.4,St. Helens
+-2.6439,53.4475,0.46,St. Helens
+-2.723,53.4467,0.4,St. Helens
+-2.735,53.4599,1.19,St. Helens
+-2.7417,53.4187,0.55,St. Helens
+-2.6257,53.46,0.28,St. Helens
+-2.7499,53.455,0.32,St. Helens
+-2.7412,53.428,0.22,St. Helens
+-2.7423,53.4188,0.31,St. Helens
+-2.7313,53.4269,0.38,St. Helens
+-2.6571,53.4758,0.21,St. Helens
+-2.7276,53.4435,0.2,St. Helens
+-3.0252,53.5735,5,Sefton
+-3.0283,53.5702,5,Sefton
+-2.9703,53.6477,1,Sefton
+-3.0686,53.5607,0.4,Sefton
+-2.9399,53.5128,0.63,Sefton
+-3.0415,53.5237,0.2,Sefton
+-2.9689,53.6353,0.61,Sefton
+-3.0037,53.4501,0.31,Sefton
+-3.028,53.4653,0.2,Sefton
+-3.0271,53.4677,0.15,Sefton
+-3.0201,53.4669,2.05,Sefton
+-2.9452,53.5072,0.22,Sefton
+-3.0369,53.5719,9,Sefton
+-2.9831,53.4804,0.15,Sefton
+-3.0209,53.6455,0.16,Sefton
+-3.0801,53.3492,0.17,Wirral
+-3.0169,53.3995,0.81,Wirral
+-3.0657,53.4062,0.17,Wirral
+-3.0702,53.408,0.3,Wirral
+-3.0775,53.3747,0.34,Wirral
+-3.0649,53.4238,0.31,Wirral
+-3.0775,53.3747,0.49,Wirral
+-3.0452,53.3739,0.16,Wirral
+-3.0702,53.408,0.23,Wirral
+-1.0164,53.4613,33,Doncaster
+-1.1102,53.4743,2.3,Doncaster
+-1.0991,53.4861,1.9,Doncaster
+-1.0278,53.5621,49.9,Doncaster
+-1.2292,53.4403,56,Doncaster
+-0.9643,53.5871,0.18,Doncaster
+-1.1765,53.5812,2.5,Doncaster
+-1.232,53.5126,0.15,Doncaster
+-1.2326,53.5128,0.16,Doncaster
+-1.232,53.5126,1.03,Doncaster
+-1.0461,53.5367,0.2,Doncaster
+-1.1278,53.5029,0.64,Doncaster
+-1.1313,53.5671,49.9,Doncaster
+-1.0889,53.5794,237.5,Doncaster
+-1.0355,53.542,0.2,Doncaster
+-1.0381,53.5276,0.99,Doncaster
+-1.1278,53.5029,0.27,Doncaster
+-1.0818,53.5574,0.23,Doncaster
+-1.1726,53.5462,0.3,Doncaster
+-1.239,53.4837,0.24,Doncaster
+-1.0767,53.5456,0.55,Doncaster
+-1.2474,53.3722,49,Rotherham
+-1.3725,53.4184,0.53,Rotherham
+-1.2386,53.4267,0.17,Rotherham
+-1.3196,53.506,1.13,Rotherham
+-1.3196,53.506,1.11,Rotherham
+-1.3782,53.3866,0.81,Rotherham
+-1.3893,53.5073,0.38,Rotherham
+-1.353,53.447,0.2,Rotherham
+-1.2043,53.4235,0.47,Rotherham
+-1.228,53.3767,0.25,Rotherham
+-1.348,53.4191,0.08,Rotherham
+-1.5456,54.9808,0.21,Newcastle upon Tyne
+-1.624,54.9819,0.16,Newcastle upon Tyne
+-1.6966,55.0018,0.16,Newcastle upon Tyne
+-1.5778,54.9768,0.3,Newcastle upon Tyne
+-1.6997,54.9944,0.2,Newcastle upon Tyne
+-1.6593,54.9774,0.24,Newcastle upon Tyne
+-1.7432,54.9969,0.51,Newcastle upon Tyne
+-1.6987,55.0376,3,Newcastle upon Tyne
+-1.6987,55.0376,4,Newcastle upon Tyne
+-1.5986,55.0086,0.26,Newcastle upon Tyne
+-1.5962,54.9801,0.21,Newcastle upon Tyne
+-1.5796,55.0049,0.18,Newcastle upon Tyne
+-1.6113,54.9811,0.2,Newcastle upon Tyne
+-1.6987,55.0376,5,Newcastle upon Tyne
+-1.6987,55.0376,4,Newcastle upon Tyne
+-1.6074,54.983,0.47,Newcastle upon Tyne
+-1.6651,54.965,0.24,Newcastle upon Tyne
+-1.6267,54.984,0.63,Newcastle upon Tyne
+-1.5997,55.0017,0.33,Newcastle upon Tyne
+-1.616,54.979,0.63,Newcastle upon Tyne
+-1.6667,54.9762,0.23,Newcastle upon Tyne
+-1.5773,54.9909,0.16,Newcastle upon Tyne
+-1.5593,54.9899,0.41,Newcastle upon Tyne
+-1.5415,54.9744,0.16,Newcastle upon Tyne
+-1.6276,55.0135,0.15,Newcastle upon Tyne
+-1.6332,55.0093,0.17,Newcastle upon Tyne
+-1.6237,55.0132,0.52,Newcastle upon Tyne
+-1.5593,54.9899,0.23,Newcastle upon Tyne
+-1.6911,54.975,0.53,Newcastle upon Tyne
+-1.6422,55.0305,0.21,Newcastle upon Tyne
+-1.6411,54.9633,0.5,Newcastle upon Tyne
+-1.6536,55.0056,0.16,Newcastle upon Tyne
+-1.5629,54.9858,0.7,Newcastle upon Tyne
+-1.5416,54.965,0.27,Newcastle upon Tyne
+-1.6154,54.9675,1,Newcastle upon Tyne
+-1.563,54.9943,0.33,Newcastle upon Tyne
+-1.6237,55.0132,0.58,Newcastle upon Tyne
+-1.6331,55.0065,0.23,Newcastle upon Tyne
+-1.7292,54.9777,0.19,Newcastle upon Tyne
+-1.4673,55.0252,0.98,North Tyneside
+-1.5525,55.043,28,North Tyneside
+-1.4974,55.0249,0.68,North Tyneside
+-1.4963,55.0239,0.53,North Tyneside
+-1.4967,55.0235,0.66,North Tyneside
+-1.5234,54.9888,0.16,North Tyneside
+-1.5878,55.0433,1.4,North Tyneside
+-1.4528,54.9925,0.25,North Tyneside
+-1.5838,55.0193,0.2,North Tyneside
+-1.6193,55.0582,0.43,North Tyneside
+-1.5944,55.0625,0.21,North Tyneside
+-1.4491,54.978,0.69,South Tyneside
+-1.4675,54.973,0.36,South Tyneside
+-1.5089,54.9842,0.37,South Tyneside
+-1.509,54.9723,0.25,South Tyneside
+-1.4266,54.9822,0.32,South Tyneside
+-1.4198,54.9957,0.2,South Tyneside
+-1.4451,54.9757,0.52,South Tyneside
+-1.4158,55.0003,0.15,South Tyneside
+-1.4825,54.8314,0.3,Sunderland
+-1.4669,54.9206,20,Sunderland
+-1.5019,54.9088,0.25,Sunderland
+-1.5334,54.8859,0.36,Sunderland
+-1.3915,54.9044,0.21,Sunderland
+-1.4943,54.9024,0.7,Sunderland
+-1.511,54.9193,1.24,Sunderland
+-1.5379,54.8842,0.43,Sunderland
+-1.384,54.9086,0.21,Sunderland
+-1.4977,54.9085,0.3,Sunderland
+-1.4851,54.9181,0.32,Sunderland
+-1.5156,54.9096,0.51,Sunderland
+-1.3742,54.9135,0.71,Sunderland
+-1.4549,54.8915,2.07,Sunderland
+-1.5516,54.8844,1.57,Sunderland
+-1.4762,54.9259,0.67,Sunderland
+-1.4183,54.9199,0.25,Sunderland
+-1.4168,54.8663,0.39,Sunderland
+-1.5335,54.8858,0.2,Sunderland
+-1.3888,54.875,0.32,Sunderland
+-1.5292,54.8981,0.2,Sunderland
+-1.4785,54.9243,1.15,Sunderland
+-1.5116,54.9201,0.21,Sunderland
+-1.3779,54.9126,0.23,Sunderland
+-1.5325,54.8996,0.6,Sunderland
+-2.008,52.396,0.57,Birmingham
+-1.8275,52.4779,0.57,Birmingham
+-1.7807,52.4875,0.53,Birmingham
+-1.9408,52.4109,0.16,Birmingham
+-2.009,52.4424,0.6,Birmingham
+-1.895,52.5532,0.18,Birmingham
+-1.8332,52.5112,0.29,Birmingham
+-1.8834,52.523,0.99,Birmingham
+-1.8541,52.4483,0.35,Birmingham
+-1.8531,52.4514,0.78,Birmingham
+-1.8707,52.4976,0.33,Birmingham
+-1.8707,52.4976,0.21,Birmingham
+-1.8794,52.5082,0.31,Birmingham
+-1.8749,52.4886,0.2,Birmingham
+-1.8784,52.534,0.2,Birmingham
+-1.9771,52.429,0.18,Birmingham
+-1.8818,52.4944,0.52,Birmingham
+-1.8054,52.5174,0.5,Birmingham
+-1.8955,52.5167,0.24,Birmingham
+-1.8233,52.5089,1.6,Birmingham
+-1.8584,52.4621,0.73,Birmingham
+-1.9102,52.4806,0.19,Birmingham
+-1.8971,52.5524,0.3,Birmingham
+-1.9731,52.4166,0.17,Birmingham
+-1.853,52.5043,0.28,Birmingham
+-1.9028,52.5443,0.16,Birmingham
+-1.8578,52.4532,0.22,Birmingham
+-1.8699,52.4876,0.36,Birmingham
+-1.8947,52.5147,0.3,Birmingham
+-1.9577,52.5088,0.21,Birmingham
+-2.009,52.3964,0.21,Birmingham
+-1.8358,52.4553,0.39,Birmingham
+-1.8174,52.4942,0.33,Birmingham
+-1.874,52.5048,0.28,Birmingham
+-1.8666,52.4743,0.34,Birmingham
+-1.8726,52.5122,0.4,Birmingham
+-1.8919,52.5211,0.15,Birmingham
+-1.7766,52.5252,0.26,Birmingham
+-1.8612,52.506,0.15,Birmingham
+-1.9538,52.3982,0.18,Birmingham
+-1.8639,52.4894,0.21,Birmingham
+-1.9199,52.4381,0.27,Birmingham
+-1.7649,52.5115,0.3,Birmingham
+-1.5185,52.4076,0.42,Coventry
+-1.438,52.4015,0.77,Coventry
+-1.4917,52.4342,0.25,Coventry
+-1.4314,52.433,0.2,Coventry
+-1.524,52.4548,0.19,Coventry
+-1.4517,52.4141,0.3,Coventry
+-1.5942,52.3931,0.42,Coventry
+-1.5031,52.4247,0.4,Coventry
+-1.4292,52.4347,0.15,Coventry
+-1.4753,52.3944,0.43,Coventry
+-1.4841,52.4306,0.17,Coventry
+-1.5037,52.414,0.46,Coventry
+-1.5027,52.4131,0.2,Coventry
+-1.4541,52.4446,25,Coventry
+-1.524,52.4548,1.6,Coventry
+-1.524,52.4548,0.82,Coventry
+-2.0485,52.448,0.18,Dudley
+-2.1105,52.4821,1.01,Dudley
+-2.0722,52.5161,0.2,Dudley
+-2.107,52.4921,0.25,Dudley
+-2.117,52.4678,0.5,Dudley
+-2.1032,52.487,0.19,Dudley
+-2.0554,52.4563,0.16,Dudley
+-2.111,52.4815,8.8,Dudley
+-2.0826,52.5143,0.22,Dudley
+-2.1298,52.5257,0.44,Dudley
+-2.0098,52.5057,1,Sandwell
+-2.0253,52.531,0.2,Sandwell
+-2.0234,52.5175,0.72,Sandwell
+-2.0606,52.4783,0.7,Sandwell
+-2.0316,52.5424,0.6,Sandwell
+-1.9648,52.4842,0.3,Sandwell
+-2.0098,52.5057,0.65,Sandwell
+-1.9501,52.4951,0.24,Sandwell
+-1.9716,52.4958,0.21,Sandwell
+-2.0266,52.516,0.99,Sandwell
+-2.0256,52.5324,0.42,Sandwell
+-2.0538,52.4813,0.27,Sandwell
+-1.9795,52.4932,0.26,Sandwell
+-1.9633,52.509,0.7,Sandwell
+-2.0411,52.5524,1.27,Sandwell
+-2.0399,52.51,0.3,Sandwell
+-1.9941,52.5547,0.16,Sandwell
+-1.9706,52.5046,0.2,Sandwell
+-1.7968,52.3741,0.23,Solihull
+-1.7042,52.462,0.38,Solihull
+-1.7554,52.4706,25,Solihull
+-1.7311,52.4513,0.96,Solihull
+-1.7461,52.4877,0.37,Solihull
+-1.793,52.4045,0.47,Solihull
+-1.7461,52.3976,0.35,Solihull
+-1.809,52.3955,0.3,Solihull
+-1.8023,52.3962,0.53,Solihull
+-1.7275,52.4646,0.25,Solihull
+-1.793,52.4045,0.28,Solihull
+-1.8119,52.4286,0.34,Solihull
+-1.7361,52.4604,0.15,Solihull
+-1.7289,52.4784,0.38,Solihull
+-1.7828,52.4123,0.28,Solihull
+-1.9835,52.5871,1,Walsall
+-1.9418,52.6026,0.19,Walsall
+-1.9136,52.5992,0.32,Walsall
+-1.9763,52.5865,0.21,Walsall
+-2.0445,52.5815,0.52,Walsall
+-2.027,52.5983,0.16,Walsall
+-1.9853,52.5818,0.2,Walsall
+-2.0098,52.5821,0.21,Walsall
+-2.0085,52.608,0.24,Walsall
+-1.9703,52.572,0.72,Walsall
+-1.9484,52.5629,0.2,Walsall
+-2.0012,52.5954,0.15,Walsall
+-2.067,52.5843,0.53,Walsall
+-1.9989,52.5823,0.4,Walsall
+-2.0944,52.5922,6.9,Wolverhampton
+-2.1383,52.6325,1.2,Wolverhampton
+-2.0872,52.5605,1.55,Wolverhampton
+-2.0928,52.558,0.17,Wolverhampton
+-2.1386,52.6322,0.88,Wolverhampton
+-2.1281,52.5846,0.41,Wolverhampton
+-2.1235,52.6035,0.7,Wolverhampton
+-2.0875,52.5615,0.6,Wolverhampton
+-2.0745,52.5945,0.38,Wolverhampton
+-2.1269,52.5792,0.35,Wolverhampton
+-2.1359,52.6185,0.2,Wolverhampton
+-2.1394,52.6224,0.41,Wolverhampton
+-1.7879,53.7976,0.9,Bradford
+-1.7483,53.8486,0.3,Bradford
+-1.7621,53.7917,0.4,Bradford
+-1.9064,53.8641,0.18,Bradford
+-1.7525,53.8448,2.5,Bradford
+-1.7368,53.7883,0.18,Bradford
+-1.7139,53.7648,2.02,Bradford
+-1.8166,53.7847,0.2,Bradford
+-1.7525,53.8544,0.17,Bradford
+-1.8267,53.797,0.15,Bradford
+-1.759,53.8042,0.2,Bradford
+-1.7962,53.8038,0.26,Bradford
+-1.7274,53.7806,0.38,Bradford
+-1.7962,53.8038,0.16,Bradford
+-1.7116,53.8295,0.31,Bradford
+-1.7714,53.7425,0.23,Bradford
+-1.9144,53.8782,0.54,Bradford
+-1.7877,53.8383,0.16,Bradford
+-1.9144,53.8782,0.51,Bradford
+-1.8984,53.8776,0.16,Bradford
+-1.8121,53.9251,0.28,Bradford
+-1.7376,53.7537,1.6,Bradford
+-1.7597,53.7605,0.2,Bradford
+-1.9049,53.8686,0.72,Bradford
+-1.8214,53.6939,0.62,Calderdale
+-2.0855,53.7151,0.83,Calderdale
+-1.8549,53.7203,0.18,Calderdale
+-1.9317,53.7032,0.26,Calderdale
+-1.8289,53.6888,0.18,Calderdale
+-1.8558,53.7258,0.84,Calderdale
+-1.6285,53.641,49.9,Kirklees
+-1.6381,53.5702,1,Kirklees
+-1.8031,53.6351,0.57,Kirklees
+-1.7675,53.677,0.89,Kirklees
+-1.7678,53.6607,0.31,Kirklees
+-1.7777,53.6437,0.66,Kirklees
+-1.8028,53.6411,0.26,Kirklees
+-1.8605,53.626,0.51,Kirklees
+-1.8257,53.6544,0.17,Kirklees
+-1.7744,53.6489,0.93,Kirklees
+-1.7045,53.6915,0.34,Kirklees
+-1.765,53.6773,1.15,Kirklees
+-1.7488,53.6691,0.18,Kirklees
+-1.7743,53.648,0.45,Kirklees
+-1.7689,53.6546,0.5,Kirklees
+-1.7613,53.6613,0.15,Kirklees
+-1.6637,53.571,0.57,Kirklees
+-1.7787,53.6437,0.23,Kirklees
+-1.746,53.6694,0.25,Kirklees
+-1.8163,53.6555,0.18,Kirklees
+-1.6239,53.6895,0.37,Kirklees
+-1.582,53.8038,0.2,Leeds
+-1.3648,53.7571,40,Leeds
+-1.7006,53.9144,0.47,Leeds
+-1.6915,53.9073,0.24,Leeds
+-1.6273,53.7526,0.21,Leeds
+-1.6655,53.8062,0.38,Leeds
+-1.5696,53.7882,0.17,Leeds
+-1.6263,53.7491,0.15,Leeds
+-1.6271,53.7506,0.16,Leeds
+-1.4836,53.7841,1.67,Leeds
+-1.5273,53.8042,0.18,Leeds
+-1.4471,53.7709,4.4,Leeds
+-1.5214,53.7515,0.23,Leeds
+-1.7175,53.8706,0.27,Leeds
+-1.6229,53.7985,0.16,Leeds
+-1.6562,53.7933,0.2,Leeds
+-1.4613,53.7965,0.19,Leeds
+-1.5268,53.7492,0.21,Leeds
+-1.5027,53.783,0.28,Leeds
+-1.6835,53.8571,0.23,Leeds
+-1.5806,53.8161,0.25,Leeds
+-1.5502,53.8436,0.6,Leeds
+-1.5442,53.7661,0.34,Leeds
+-1.6627,53.7959,0.25,Leeds
+-1.5462,53.7658,0.41,Leeds
+-1.5579,53.7901,0.43,Leeds
+-1.538,53.7983,0.17,Leeds
+-1.4854,53.7876,2.28,Leeds
+-1.6025,53.8146,0.65,Leeds
+-1.4645,53.8134,0.37,Leeds
+-1.6587,53.8089,0.24,Leeds
+-1.711,53.8762,0.2,Leeds
+-1.5833,53.8044,0.27,Leeds
+-1.6383,53.8145,0.43,Leeds
+-1.3214,53.9197,0.43,Leeds
+-1.3214,53.9197,0.21,Leeds
+-1.4625,53.8286,0.66,Leeds
+-1.4568,53.8302,1.6,Leeds
+-1.5471,53.8488,0.2,Leeds
+-1.4769,53.7569,0.18,Leeds
+-1.4607,53.8222,0.62,Leeds
+-1.559,53.7596,0.43,Leeds
+-1.5125,53.8004,0.22,Leeds
+-1.5392,53.7841,0.94,Leeds
+-1.5797,53.7827,0.77,Leeds
+-1.6129,53.6361,0.21,Wakefield
+-1.3106,53.5864,0.5,Wakefield
+-1.5901,53.6545,49.9,Wakefield
+-1.253,53.7082,0.49,Wakefield
+-1.3108,53.6936,0.39,Wakefield
+-1.2748,53.6023,3,Wakefield
+-1.3467,53.7062,0.2,Wakefield
+-1.4261,53.614,30,Wakefield
+-1.6102,53.639,22.4,Wakefield
+-1.3234,53.6995,0.79,Wakefield
+-1.5448,53.6845,0.22,Wakefield
+-1.3268,53.6038,0.17,Wakefield
+-1.5365,53.6154,29.7,Wakefield
+-1.5832,53.6815,0.2,Wakefield
+-1.4043,53.6096,10,Wakefield
+-1.4363,53.7251,3.2,Wakefield
+-1.508,53.6425,0.2,Wakefield
+-1.2748,53.6023,1.65,Wakefield
+-1.6022,53.6741,1,Wakefield
+-1.4493,53.7211,1,Wakefield
+-1.3935,53.7042,0.3,Wakefield
+-1.3989,53.7011,0.36,Wakefield
+-1.524,53.652,0.18,Wakefield
+-1.2745,53.7167,0.51,Wakefield
+-1.2863,53.7234,0.5,Wakefield
+-1.5692,53.686,20,Wakefield
+-1.4716,53.7267,0.25,Wakefield
+-1.5038,53.6634,0.15,Wakefield
+-1.7322,54.943,0.26,Gateshead
+-1.5813,54.9607,0.94,Gateshead
+-1.5913,54.9658,2,Gateshead
+-1.6159,54.9318,0.25,Gateshead
+-1.5811,54.9378,0.46,Gateshead
+-1.6263,54.932,0.18,Gateshead
+-1.6182,54.9429,0.22,Gateshead
+-1.5712,54.9599,0.21,Gateshead
+-1.519,54.9365,3.9,Gateshead
+-1.6263,54.932,1.08,Gateshead
+-1.6686,54.9576,0.74,Gateshead
+-1.5799,54.8903,1.76,Gateshead
+-1.6502,54.9477,0.18,Gateshead
+-1.5364,54.9544,0.19,Gateshead
+-1.5592,54.9541,0.18,Gateshead
+-1.6337,54.9543,0.19,Gateshead
+-1.587,54.904,0.58,Gateshead
+-1.7513,54.9648,0.16,Gateshead
+-1.452,53.5005,0.15,Barnsley
+-1.3905,53.5757,0.25,Barnsley
+-1.3939,53.5275,0.38,Barnsley
+-1.4289,53.5589,1.33,Barnsley
+-1.4572,53.5662,0.37,Barnsley
+-1.3848,53.527,0.37,Barnsley
+-1.3847,53.5737,3.1,Barnsley
+-1.364,53.5916,0.18,Barnsley
+-1.378,53.5173,2.24,Barnsley
+-1.415,53.4015,0.28,Sheffield
+-1.5036,53.4177,0.65,Sheffield
+-1.4676,53.3668,0.15,Sheffield
+-1.4962,53.4068,0.16,Sheffield
+-1.4019,53.4039,1.08,Sheffield
+-1.4058,53.4012,0.27,Sheffield
+-1.4491,53.3932,0.99,Sheffield
+-1.4453,53.3957,0.3,Sheffield
+-1.4113,53.4073,4.29,Sheffield
+-1.4933,53.3784,0.19,Sheffield
+-1.4212,53.4078,0.39,Sheffield
+-1.4541,53.4233,0.18,Sheffield
+-1.418,53.4173,0.39,Sheffield
+-1.4128,53.4141,0.39,Sheffield
+-1.4622,53.446,0.68,Sheffield
+-1.4337,53.4023,1.03,Sheffield
+-1.4126,53.4051,0.16,Sheffield
+-1.4859,53.4321,0.19,Sheffield
+-0.0898,51.5114,0.3,City of London
+-0.0802,51.509,0.41,City of London
+0.1064,51.5313,0.31,Barking and Dagenham
+0.0821,51.5286,0.98,Barking and Dagenham
+0.0792,51.5296,0.22,Barking and Dagenham
+0.1424,51.524,0.47,Barking and Dagenham
+0.1054,51.5333,0.25,Barking and Dagenham
+0.1454,51.5286,0.57,Barking and Dagenham
+0.1561,51.5473,0.25,Barking and Dagenham
+0.1746,51.5603,0.8,Barking and Dagenham
+0.1381,51.5287,0.35,Barking and Dagenham
+0.1307,51.5324,0.37,Barking and Dagenham
+-0.1751,51.6034,0.18,Barnet
+-0.2434,51.5798,0.23,Barnet
+-0.2482,51.6295,0.21,Barnet
+-0.1744,51.6059,0.33,Barnet
+-0.1547,51.6161,0.17,Barnet
+-0.2003,51.6388,0.21,Barnet
+-0.2553,51.605,0.2,Barnet
+-0.1361,51.6327,0.32,Barnet
+0.1533,51.5045,1,Bexley
+0.1847,51.4802,0.62,Bexley
+0.1461,51.455,0.19,Bexley
+0.1224,51.4195,0.34,Bexley
+0.1422,51.4959,0.17,Bexley
+-0.2161,51.5306,0.17,Brent
+-0.2717,51.5366,1.44,Brent
+-0.2918,51.5399,0.66,Brent
+-0.2775,51.5384,0.58,Brent
+-0.2712,51.5372,0.61,Brent
+-0.2712,51.5372,0.37,Brent
+-0.2728,51.5359,0.24,Brent
+-0.2711,51.5368,0.28,Brent
+-0.2717,51.5366,0.39,Brent
+-0.2743,51.5368,0.58,Brent
+-0.2743,51.5383,0.42,Brent
+-0.2717,51.537,0.37,Brent
+-0.2741,51.5377,0.51,Brent
+-0.2801,51.5324,0.29,Brent
+-0.2712,51.5372,0.28,Brent
+-0.2717,51.5366,0.25,Brent
+-0.2815,51.5318,0.55,Brent
+-0.279,51.5314,0.69,Brent
+-0.2792,51.532,0.99,Brent
+-0.2792,51.5326,0.51,Brent
+-0.2821,51.5325,0.27,Brent
+-0.271,51.5325,0.32,Brent
+-0.2717,51.5366,1.31,Brent
+-0.2701,51.5324,0.16,Brent
+-0.2605,51.554,0.7,Brent
+-0.2692,51.5363,0.38,Brent
+-0.2628,51.5353,0.37,Brent
+-0.291,51.5523,0.24,Brent
+-0.2684,51.5335,0.34,Brent
+-0.2717,51.5366,0.21,Brent
+-0.2309,51.5401,0.31,Brent
+-0.3036,51.5389,0.27,Brent
+-0.274,51.5395,0.4,Brent
+0.0179,51.4033,0.18,Bromley
+-0.0375,51.4091,0.29,Bromley
+-0.0354,51.3958,0.49,Bromley
+-0.0482,51.3967,0.18,Bromley
+0.0289,51.3319,12,Bromley
+0.1218,51.4119,0.18,Bromley
+0.0144,51.4066,0.24,Bromley
+-0.1769,51.5542,0.17,Camden
+-0.1367,51.5248,0.18,Camden
+-0.1178,51.3758,0.57,Croydon
+-0.0861,51.3911,1,Croydon
+-0.0397,51.3514,0.34,Croydon
+-0.3047,51.5066,0.2,Ealing
+-0.3631,51.5057,0.24,Ealing
+-0.27,51.5269,0.43,Ealing
+-0.3617,51.5421,0.38,Ealing
+-0.3569,51.5425,0.31,Ealing
+-0.4033,51.5003,0.22,Ealing
+-0.029,51.6584,0.2,Enfield
+-0.0494,51.6469,0.15,Enfield
+-0.0443,51.6123,0.3,Enfield
+-0.0497,51.6197,0.3,Enfield
+-0.0228,51.6555,0.27,Enfield
+-0.0216,51.6769,2.64,Enfield
+-0.0676,51.6353,0.33,Enfield
+-0.0788,51.6333,0.25,Enfield
+-0.0216,51.6769,0.43,Enfield
+-0.0262,51.6648,0.53,Enfield
+-0.0262,51.6648,0.53,Enfield
+-0.0575,51.6476,0.23,Enfield
+-0.0573,51.6535,0.67,Enfield
+-0.0975,51.6302,0.19,Enfield
+0.0655,51.4838,0.15,Greenwich
+0.0424,51.4929,0.7,Greenwich
+0.0424,51.4929,0.7,Greenwich
+0.026,51.4591,0.21,Greenwich
+0.0372,51.4862,0.65,Greenwich
+0.081,51.4462,0.53,Greenwich
+0.0346,51.4898,0.1,Greenwich
+-0.0461,51.5506,0.33,Hackney
+-0.2123,51.4868,0.52,Hammersmith and Fulham
+-0.2083,51.4845,0.29,Hammersmith and Fulham
+-0.2364,51.5127,0.18,Hammersmith and Fulham
+-0.2347,51.5174,0.17,Hammersmith and Fulham
+-0.1095,51.5946,0.31,Haringey
+-0.3568,51.599,0.59,Harrow
+-0.3389,51.5815,0.18,Harrow
+0.322,51.5412,49.9,Havering
+0.2738,51.5762,0.25,Havering
+0.1718,51.5182,0.91,Havering
+0.2179,51.5834,0.38,Havering
+0.1835,51.5783,0.46,Havering
+0.226,51.6058,0.37,Havering
+-0.4366,51.5068,0.36,Hillingdon
+-0.4086,51.5065,0.39,Hillingdon
+-0.4441,51.4544,0.39,Hillingdon
+-0.4441,51.4544,0.44,Hillingdon
+-0.4657,51.5107,0.64,Hillingdon
+-0.4657,51.5107,0.64,Hillingdon
+-0.4673,51.551,0.22,Hillingdon
+-0.4441,51.4544,0.25,Hillingdon
+-0.4234,51.4667,0.26,Hillingdon
+-0.4055,51.5167,0.17,Hillingdon
+-0.4607,51.4824,0.15,Hillingdon
+-0.4612,51.5261,0.19,Hillingdon
+-0.361,51.4748,0.15,Hounslow
+-0.4169,51.4632,0.84,Hounslow
+-0.3833,51.4397,0.21,Hounslow
+-0.4061,51.4632,0.27,Hounslow
+-0.4558,51.4546,0.39,Hounslow
+-0.4067,51.4612,0.25,Hounslow
+-0.4557,51.4544,0.48,Hounslow
+-0.3252,51.486,0.44,Hounslow
+-0.4004,51.4935,0.16,Hounslow
+-0.2905,51.4911,0.23,Hounslow
+-0.3423,51.4758,0.2,Hounslow
+-0.3244,51.4736,0.15,Hounslow
+-0.2656,51.493,0.3,Hounslow
+-0.1165,51.5497,0.43,Islington
+-0.0998,51.5198,0.18,Islington
+-0.2153,51.5144,0.17,Kensington and Chelsea
+-0.1816,51.4843,0.19,Kensington and Chelsea
+-0.2443,51.4012,0.17,Kingston upon Thames
+-0.2912,51.3721,0.18,Kingston upon Thames
+-0.2933,51.3714,0.6,Kingston upon Thames
+-0.1047,51.4269,0.18,Lambeth
+-0.1312,51.4243,0.33,Lambeth
+0.0098,51.4268,0.23,Lewisham
+-0.0225,51.4238,0.39,Lewisham
+-0.2179,51.4077,0.8,Merton
+-0.1915,51.4103,0.15,Merton
+-0.1816,51.4152,0.99,Merton
+0.0473,51.5077,0.44,Newham
+0.0758,51.5076,0.36,Newham
+0.0099,51.5434,0.18,Newham
+-0.0076,51.5434,0.33,Newham
+0.0621,51.5077,0.15,Newham
+0.0386,51.5108,0.24,Newham
+0.0101,51.5449,0.17,Newham
+0.0454,51.516,0.17,Newham
+0.0461,51.521,0.17,Newham
+0.0497,51.5397,0.2,Newham
+0.0005,51.5175,0.24,Newham
+0.0347,51.5228,0.77,Newham
+0.0435,51.5902,0.22,Redbridge
+0.0238,51.598,0.17,Redbridge
+0.0431,51.5872,0.17,Redbridge
+0.0332,51.601,0.54,Redbridge
+0.0724,51.5601,0.68,Redbridge
+0.033,51.5852,0.21,Redbridge
+0.0375,51.5973,0.16,Redbridge
+0.0716,51.5799,0.15,Redbridge
+0.0552,51.6039,0.15,Redbridge
+-0.316,51.4387,0.43,Richmond upon Thames
+-0.3507,51.4551,0.25,Richmond upon Thames
+-0.3835,51.4515,0.24,Richmond upon Thames
+-0.3388,51.4559,0.16,Richmond upon Thames
+-0.3736,51.4345,0.29,Richmond upon Thames
+-0.0647,51.4893,0.19,Southwark
+-0.0629,51.4937,0.24,Southwark
+-0.0788,51.4874,0.26,Southwark
+-0.0835,51.4391,0.66,Southwark
+-0.0705,51.4742,0.23,Southwark
+-0.1946,51.3461,0.46,Sutton
+-0.2208,51.3799,0.24,Sutton
+-0.1567,51.3674,0.27,Sutton
+-0.0617,51.5091,0.18,Tower Hamlets
+-0.0613,51.5042,0.27,Tower Hamlets
+-0.0553,51.5338,0.16,Tower Hamlets
+-0.0175,51.5557,0.23,Waltham Forest
+-0.1459,51.4724,0.4,Wandsworth
+-0.1383,51.5092,2.3,Westminster
+-0.1772,51.5225,0.2,Westminster
+-0.1557,51.5357,0.21,Westminster
+-6.2096,54.7477,25,Antrim and Newtownabbey
+-6.2341,54.6943,39.5,Antrim and Newtownabbey
+-6.5474,54.2995,29.9,"Armagh City, Banbridge and Craigavon"
+-5.9419,54.4899,0.7,Lisburn and Castlereagh
+-6.276,54.8663,2,Mid and East Antrim
+-6.276,54.8663,2.5,Mid and East Antrim
+-6.2279,54.8707,3.5,Mid and East Antrim
+-6.8117,54.5372,0.15,Mid Ulster
+-6.7704,54.5039,0.3,Mid Ulster
+-6.7281,54.5375,0.25,Mid Ulster
+-6.3332,54.2624,2,"Newry, Mourne and Down"
+-3.7913,56.1067,0.95,Clackmannanshire
+-3.2305,55.0288,37.9,Dumfries and Galloway
+-5.1145,54.9278,1,Dumfries and Galloway
+-4.1037,54.8228,49.9,Dumfries and Galloway
+-4.9623,54.8129,0.46,Dumfries and Galloway
+-3.5882,55.0681,0.16,Dumfries and Galloway
+-3.8158,55.0191,0.3,Dumfries and Galloway
+-3.6269,55.0752,0.76,Dumfries and Galloway
+-3.2785,54.9748,0.49,Dumfries and Galloway
+-3.9961,55.0138,0.19,Dumfries and Galloway
+-3.8172,54.9174,0.23,Dumfries and Galloway
+-3.7577,54.967,0.5,Dumfries and Galloway
+-3.1885,55.289,0.3,Dumfries and Galloway
+-4.0151,54.8232,36,Dumfries and Galloway
+-3.5652,55.1007,0.24,Dumfries and Galloway
+-3.4397,55.0847,0.48,Dumfries and Galloway
+-4.4673,55.348,20,East Ayrshire
+-4.2822,55.4572,0.46,East Ayrshire
+-4.0477,55.5231,0.2,East Ayrshire
+-4.4931,55.6086,0.18,East Ayrshire
+-2.5677,55.9899,0.26,East Lothian
+-2.9298,55.9721,0.17,East Lothian
+-2.9354,55.9205,0.24,East Lothian
+-2.6468,56.0039,0.15,East Lothian
+-4.3432,55.7122,40,East Renfrewshire
+-4.323,55.799,0.46,East Renfrewshire
+-4.2829,55.7628,0.5,East Renfrewshire
+-4.3139,55.7464,28,East Renfrewshire
+-3.8993,56.0247,0.44,Falkirk
+-3.8687,56.0087,0.81,Falkirk
+-3.8016,56.021,0.55,Falkirk
+-3.8481,56.0256,0.21,Falkirk
+-3.7804,56.0123,0.21,Falkirk
+-3.728,56.0141,0.25,Falkirk
+-3.6682,56.0108,1.2,Falkirk
+-4.2516,57.6936,0.5,Highland
+-3.2163,58.6153,15,Highland
+-3.0899,58.4503,0.28,Highland
+-4.028,57.8783,1,Highland
+-5.7435,57.2721,0.34,Highland
+-4.1641,57.6056,0.15,Highland
+-4.229,57.4924,0.65,Highland
+-3.4829,58.5203,0.66,Highland
+-3.4976,58.5218,0.66,Highland
+-4.399,58.0247,0.33,Highland
+-3.4976,58.5218,0.33,Highland
+-4.8622,55.9429,0.34,Inverclyde
+-4.7995,55.9612,0.23,Inverclyde
+-4.7686,55.9361,0.62,Inverclyde
+-4.6192,55.9286,0.15,Inverclyde
+-4.6954,55.9349,0.57,Inverclyde
+-3.1956,55.8685,3,Midlothian
+-3.0985,55.9064,0.15,Midlothian
+-3.2375,55.8367,0.26,Midlothian
+-3.2665,55.8252,0.24,Midlothian
+-3.0705,55.8618,0.37,Midlothian
+-3.0795,55.8825,0.19,Midlothian
+-3.142,55.861,0.2,Midlothian
+-3.2353,57.6733,50,Moray
+-3.1996,57.6824,20,Moray
+-3.1797,57.4921,4,Moray
+-4.6283,55.5964,19.9,North Ayrshire
+-4.6683,55.6158,1,North Ayrshire
+-4.6485,55.683,63,North Ayrshire
+-4.6742,55.6132,7.5,North Ayrshire
+-4.6742,55.6132,19,North Ayrshire
+-4.6391,55.5988,0.2,North Ayrshire
+-4.6505,55.5979,5,North Ayrshire
+-4.6693,55.6047,0.25,North Ayrshire
+-4.6632,55.5877,0.33,North Ayrshire
+-4.6677,55.6055,0.42,North Ayrshire
+-5.1475,55.5281,6,North Ayrshire
+-4.6398,55.58,1.56,North Ayrshire
+-4.7532,55.7232,19.99,North Ayrshire
+-4.7536,55.6349,0.6,North Ayrshire
+-4.6411,55.5827,0.34,North Ayrshire
+-2.7597,55.4355,0.48,Scottish Borders
+-2.4249,55.5908,0.51,Scottish Borders
+-2.3097,55.9273,0.8,Scottish Borders
+-2.2925,55.8851,15,Scottish Borders
+-2.5622,55.8939,27.5,Scottish Borders
+-2.7264,55.6842,0.2,Scottish Borders
+-2.9155,55.4188,0.24,Scottish Borders
+-2.4249,55.5908,0.46,Scottish Borders
+-2.8631,55.5394,1.14,Scottish Borders
+-2.1007,55.8687,1.2,Scottish Borders
+-2.8434,55.5529,0.16,Scottish Borders
+-2.7419,55.5955,0.68,Scottish Borders
+-4.5444,55.4332,40,South Ayrshire
+-4.8347,55.263,0.25,South Ayrshire
+-4.6845,55.4303,0.71,South Ayrshire
+-4.5007,55.481,0.16,South Ayrshire
+-4.5923,55.4977,0.46,South Ayrshire
+-3.8402,55.5998,12,South Lanarkshire
+-3.9585,55.7469,0.2,South Lanarkshire
+-4.0761,55.7999,0.65,South Lanarkshire
+-4.1976,55.8313,0.19,South Lanarkshire
+-4.215,55.7646,0.94,South Lanarkshire
+-4.076,55.788,0.37,South Lanarkshire
+-3.8524,55.6001,0.39,South Lanarkshire
+-4.237,55.7535,0.37,South Lanarkshire
+-4.1596,55.7459,0.18,South Lanarkshire
+-3.9605,55.7261,0.71,South Lanarkshire
+-4.159,55.8244,0.3,South Lanarkshire
+-4.1624,55.7553,0.16,South Lanarkshire
+-4.0937,55.7791,0.22,South Lanarkshire
+-4.044,55.7864,0.68,South Lanarkshire
+-4.0934,55.778,0.25,South Lanarkshire
+-4.1603,55.8233,0.55,South Lanarkshire
+-3.9225,56.0758,4,Stirling
+-3.9268,56.1492,0.35,Stirling
+-3.92,56.1455,0.48,Stirling
+-4.2126,56.2369,0.22,Stirling
+-2.0765,57.1163,0.3,Aberdeen City
+-2.0992,57.1512,0.18,Aberdeen City
+-2.1509,57.1422,0.16,Aberdeen City
+-2.1419,57.1285,1.05,Aberdeen City
+-2.096,57.1577,0.19,Aberdeen City
+-2.0856,57.1385,0.28,Aberdeen City
+-2.1565,57.2057,72,Aberdeen City
+-2.0614,57.1322,1.13,Aberdeen City
+-2.2007,57.2117,0.19,Aberdeen City
+-2.1594,57.1232,0.59,Aberdeen City
+-2.1269,57.1193,0.32,Aberdeen City
+-2.1249,57.1203,0.32,Aberdeen City
+-2.0886,57.1861,0.19,Aberdeen City
+-1.8543,57.5503,2,Aberdeenshire
+-1.9126,57.5894,36.6,Aberdeenshire
+-1.8414,57.5656,5,Aberdeenshire
+-2.3638,57.1183,13,Aberdeenshire
+-2.049,57.6908,1.03,Aberdeenshire
+-2.4117,56.8891,1.5,Aberdeenshire
+-1.9249,57.6632,0.18,Aberdeenshire
+-1.8559,57.4629,14.2,Aberdeenshire
+-2.1539,57.0725,0.37,Aberdeenshire
+-2.0262,57.6857,0.2,Aberdeenshire
+-1.9152,57.6012,60.1,Aberdeenshire
+-2.0639,57.3126,21,Aberdeenshire
+-2.474,56.8462,0.15,Aberdeenshire
+-2.2854,57.1486,0.18,Aberdeenshire
+-2.3009,57.2037,0.26,Aberdeenshire
+-2.0297,57.6924,0.29,Aberdeenshire
+-2.132,57.0852,3,Aberdeenshire
+-2.3361,56.9184,9.2,Aberdeenshire
+-2.5847,57.6432,25,Aberdeenshire
+-2.4971,56.8352,0.2,Aberdeenshire
+-2.3184,57.2056,0.2,Aberdeenshire
+-2.1567,57.0696,0.38,Aberdeenshire
+-1.8424,57.5599,50,Aberdeenshire
+-1.8053,57.4914,0.29,Aberdeenshire
+-2.3462,57.2214,0.19,Aberdeenshire
+-2.0011,57.6892,0.2,Aberdeenshire
+-2.0297,57.6924,0.76,Aberdeenshire
+-2.3437,57.2275,0.85,Aberdeenshire
+-2.3278,57.2042,0.38,Aberdeenshire
+-2.09,57.5847,6,Aberdeenshire
+-2.0297,57.6924,0.27,Aberdeenshire
+-2.3228,57.5444,9.9,Aberdeenshire
+-2.5531,57.5783,35,Aberdeenshire
+-5.9477,55.8527,2.1,Argyll and Bute
+-5.0357,55.8313,0.26,Argyll and Bute
+-6.2376,55.6854,0.22,Argyll and Bute
+-6.8844,56.4932,0.15,Argyll and Bute
+-3.3982,55.9476,1.02,City of Edinburgh
+-3.3632,55.9484,9,City of Edinburgh
+-3.4042,55.9372,1.22,City of Edinburgh
+-3.1855,55.9562,0.18,City of Edinburgh
+-3.3964,55.937,0.63,City of Edinburgh
+-3.1888,55.9428,0.22,City of Edinburgh
+-3.2407,55.9565,0.65,City of Edinburgh
+-3.1931,55.983,0.19,City of Edinburgh
+-3.2025,55.9299,0.15,City of Edinburgh
+-3.3032,55.939,0.45,City of Edinburgh
+-3.1727,55.9392,0.41,City of Edinburgh
+-3.2095,55.9456,0.38,City of Edinburgh
+-4.4683,55.8771,14.3,Renfrewshire
+-4.4282,55.8638,19.9,Renfrewshire
+-4.4501,55.8794,0.2,Renfrewshire
+-4.5502,55.8676,75,Renfrewshire
+-4.4265,55.8517,0.2,Renfrewshire
+-4.5664,55.8477,3,Renfrewshire
+-4.3713,55.8732,0.2,Renfrewshire
+-4.4763,55.8546,40,Renfrewshire
+-4.4846,55.8531,1.64,Renfrewshire
+-4.4504,55.932,0.36,West Dunbartonshire
+-4.5749,56.0035,0.18,West Dunbartonshire
+-3.4434,55.8825,18,West Lothian
+-3.4948,55.9207,0.33,West Lothian
+-3.4432,55.9858,29.9,West Lothian
+-3.5053,55.9651,29.9,West Lothian
+-3.5081,55.9109,2,West Lothian
+-3.5911,55.8716,0.34,West Lothian
+-3.6657,55.9137,0.34,West Lothian
+-3.6982,55.8697,0.53,West Lothian
+-3.4718,55.9122,1.7,West Lothian
+-3.5291,55.8669,0.25,West Lothian
+-3.5137,55.9143,2.8,West Lothian
+-3.5077,55.907,0.62,West Lothian
+-2.825,56.6819,5,Angus
+-2.8577,56.6473,0.23,Angus
+-2.5406,56.7469,39.9,Angus
+-2.9392,56.6539,5,Angus
+-3.0856,56.6072,0.2,Angus
+-2.8796,56.6289,6.5,Angus
+-2.68,56.6658,42,Angus
+-2.9082,56.6412,0.36,Angus
+-2.873,56.53,25,Angus
+-3.0598,56.4893,28,Angus
+-2.875,56.6565,31,Angus
+-2.6082,56.6028,18,Angus
+-2.6323,56.641,10,Angus
+-2.5851,56.7168,18.5,Angus
+-2.9088,56.6389,6.68,Angus
+-2.6083,56.572,0.32,Angus
+-2.9309,56.5303,110,Angus
+-2.8336,56.4918,0.39,Angus
+-2.6357,56.5737,12.5,Angus
+-2.616,56.551,0.82,Angus
+-2.8435,56.6469,1,Angus
+-2.6083,56.5718,0.33,Angus
+-2.4632,56.7279,0.67,Angus
+-3.027,56.47,49.9,Dundee City
+-3.0701,56.4633,2,Dundee City
+-2.9047,56.4819,0.16,Dundee City
+-3.0089,56.4562,0.18,Dundee City
+-3.1512,56.1561,12,Fife
+-3.1208,56.1633,50,Fife
+-3.0152,56.2018,0.2,Fife
+-3.2585,56.1638,25,Fife
+-3.0272,56.1992,4.19,Fife
+-3.2713,56.1129,39,Fife
+-3.4646,56.0996,29.9,Fife
+-3.3408,56.0716,30,Fife
+-3.3327,56.1103,0.57,Fife
+-3.1811,56.184,1,Fife
+-3.1941,56.184,0.15,Fife
+-3.5035,56.097,40,Fife
+-3.441,56.0285,5.64,Fife
+-3.0661,56.3064,3.5,Fife
+-3.1437,56.1881,0.2,Fife
+-3.1502,56.117,0.26,Fife
+-3.1853,56.1756,1.47,Fife
+-3.0434,56.1745,0.22,Fife
+-2.7911,56.3285,0.19,Fife
+-3.0092,56.1944,0.92,Fife
+-3.509,56.1314,80,Fife
+-2.9229,56.353,0.3,Fife
+-2.8051,56.3079,0.16,Fife
+-3.2883,56.1786,30,Fife
+-3.1513,56.1798,0.5,Fife
+-3.4611,56.2694,17,Perth and Kinross
+-3.3392,56.3048,5,Perth and Kinross
+-3.7614,56.2559,7,Perth and Kinross
+-3.0694,56.4564,2,Perth and Kinross
+-3.2971,56.5321,20.5,Perth and Kinross
+-3.8274,56.3015,14,Perth and Kinross
+-3.5843,56.3018,2,Perth and Kinross
+-3.7637,56.7441,0.3,Perth and Kinross
+-3.3774,56.6005,0.75,Perth and Kinross
+-3.4571,56.4794,0.25,Perth and Kinross
+-3.2971,56.5321,60,Perth and Kinross
+-4.2611,55.9082,18.4,Glasgow City
+-4.2402,55.8636,0.15,Glasgow City
+-4.3627,55.8798,0.46,Glasgow City
+-4.2605,55.8717,0.54,Glasgow City
+-4.2608,55.8909,0.24,Glasgow City
+-4.1668,55.8338,0.46,Glasgow City
+-4.3155,55.8565,0.3,Glasgow City
+-4.3482,55.8557,0.48,Glasgow City
+-4.2414,55.8832,0.24,Glasgow City
+-4.3203,55.8641,0.84,Glasgow City
+-4.2941,55.8685,0.6,Glasgow City
+-4.3634,55.8116,0.21,Glasgow City
+-4.2942,55.8686,0.6,Glasgow City
+-4.2536,55.853,0.25,Glasgow City
+-4.3275,55.8871,0.17,Glasgow City
+-4.253,55.8646,0.17,Glasgow City
+-4.0645,55.8475,0.18,North Lanarkshire
+-3.8117,55.8142,0.23,North Lanarkshire
+-3.9868,55.8231,1.3,North Lanarkshire
+-4.0312,55.8322,0.18,North Lanarkshire
+-4.0372,55.8317,0.19,North Lanarkshire
+-3.9377,55.8314,1.35,North Lanarkshire
+-4.1299,55.8938,0.86,North Lanarkshire
+-3.8811,55.8119,75,North Lanarkshire
+-3.987,55.9304,0.39,North Lanarkshire
+-3.9435,55.8691,2,North Lanarkshire
+-3.9671,55.8805,1,North Lanarkshire
+-4.4202,53.4057,49.9,Isle of Anglesey
+-4.488,53.2644,35,Isle of Anglesey
+-4.099,53.28,160,Isle of Anglesey
+-4.7671,54.0794,0.15,Isle of Anglesey
+-4.3099,53.253,0.49,Isle of Anglesey
+-4.635,54.208,0.28,Isle of Anglesey
+-4.5046,54.1527,0.65,Isle of Anglesey
+-4.1527,53.2066,0.44,Gwynedd
+-4.5573,52.855,0.25,Gwynedd
+-3.9518,52.9876,1,Gwynedd
+-3.4508,52.9305,0.6,Denbighshire
+-2.9557,53.1713,16,Flintshire
+-2.9505,53.1678,14,Flintshire
+-2.998,53.1764,1.05,Flintshire
+-2.9896,53.1751,0.89,Flintshire
+-3.0145,53.2268,0.24,Flintshire
+-2.9797,53.172,1.3,Flintshire
+-2.9242,53.0269,5.7,Wrexham
+-2.9544,53.0342,9.9,Wrexham
+-3.0139,53.1022,0.6,Wrexham
+-3.0641,53.0748,0.58,Wrexham
+-4.0697,52.4078,0.24,Ceredigion
+-4.0685,52.4145,0.38,Ceredigion
+-4.0685,52.4145,0.3,Ceredigion
+-4.1882,52.2409,0.39,Ceredigion
+-4.5793,51.9402,0.52,Pembrokeshire
+-4.7648,51.6869,0.25,Pembrokeshire
+-4.7165,51.6686,0.24,Pembrokeshire
+-4.8936,51.6684,30,Pembrokeshire
+-4.8984,51.6971,9,Pembrokeshire
+-4.858,51.6893,9.99,Pembrokeshire
+-5.1947,51.7513,0.24,Pembrokeshire
+-4.1109,51.7225,29.9,Carmarthenshire
+-4.0502,51.7738,40,Carmarthenshire
+-4.0432,51.7536,36,Carmarthenshire
+-4.5093,51.8867,0.6,Carmarthenshire
+-4.1331,51.6808,0.41,Carmarthenshire
+-4.1837,51.685,0.22,Carmarthenshire
+-4.3023,51.729,1,Carmarthenshire
+-4.1148,51.7585,1,Carmarthenshire
+-4.119,51.7028,8.36,Carmarthenshire
+-4.2122,51.8359,2,Carmarthenshire
+-3.946,51.8442,0.6,Carmarthenshire
+-3.9109,51.6319,5,Swansea
+-3.9075,51.6658,0.6,Swansea
+-3.8738,51.6878,20,Swansea
+-3.9066,51.6245,3,Swansea
+-3.9266,51.6435,0.74,Swansea
+-4.0118,51.6546,42,Swansea
+-4.0152,51.6926,16.26,Swansea
+-4.0434,51.7137,0.25,Swansea
+-3.9025,51.6598,0.67,Swansea
+-3.8464,51.7797,2.3,Neath Port Talbot
+-3.7327,51.537,0.37,Neath Port Talbot
+-3.7959,51.5908,0.36,Neath Port Talbot
+-3.8523,51.6386,1.3,Neath Port Talbot
+-3.531,51.4943,0.8,Bridgend
+-3.5206,51.5442,40,Bridgend
+-3.3534,51.4522,50,Vale of Glamorgan
+-3.4384,51.4182,1.5,Vale of Glamorgan
+-3.2307,51.4649,21,Vale of Glamorgan
+-3.286,51.4626,65,Vale of Glamorgan
+-3.3629,51.3981,35,Vale of Glamorgan
+-3.3637,51.4195,45,Vale of Glamorgan
+-3.3033,51.4401,42,Vale of Glamorgan
+-3.2029,51.4489,0.71,Vale of Glamorgan
+-3.2707,51.4021,0.25,Vale of Glamorgan
+-3.2273,51.408,1.3,Vale of Glamorgan
+-3.4336,51.4107,6,Vale of Glamorgan
+-3.2019,51.4484,0.71,Vale of Glamorgan
+-3.1874,51.5324,0.2,Cardiff
+-3.1865,51.5068,0.34,Cardiff
+-3.1486,51.4764,0.36,Cardiff
+-3.1681,51.4626,0.2,Cardiff
+-3.1514,51.479,0.6,Cardiff
+-3.146,51.4992,0.37,Cardiff
+-3.1417,51.5311,0.17,Cardiff
+-3.1822,51.4902,0.19,Cardiff
+-3.1582,51.4754,0.41,Cardiff
+-3.0958,51.5083,1.04,Cardiff
+-3.3887,51.5543,9.9,Rhondda Cynon Taf
+-3.2962,51.5644,30,Rhondda Cynon Taf
+-3.3869,51.558,0.5,Rhondda Cynon Taf
+-3.5453,51.7403,9.88,Rhondda Cynon Taf
+-3.4357,51.738,0.3,Rhondda Cynon Taf
+-3.4186,51.5671,6,Rhondda Cynon Taf
+-3.4369,51.5253,1.3,Rhondda Cynon Taf
+-3.2915,51.5783,0.93,Rhondda Cynon Taf
+-3.2855,51.7838,0.9,Caerphilly
+-3.2473,51.5959,20,Caerphilly
+-3.2461,51.7501,30,Blaenau Gwent
+-3.0208,51.633,3,Torfaen
+-3.0107,51.6329,0.5,Torfaen
+-2.9963,51.6463,0.72,Torfaen
+-2.9736,51.7975,32,Monmouthshire
+-3.0162,51.8238,0.23,Monmouthshire
+-2.9468,51.8261,1,Monmouthshire
+-2.6744,51.6166,0.28,Monmouthshire
+-3.0021,51.5606,2.37,Newport
+-2.9666,51.5688,1.8,Newport
+-3.0411,51.5539,0.29,Newport
+-3.0005,51.5659,1.01,Newport
+-2.9666,51.5704,0.15,Newport
+-3.7924,51.7967,20,Powys
+-3.8275,52.6194,0.3,Powys
+-3.0967,52.6733,0.2,Powys
+-3.1076,52.7406,1.15,Powys
+-3.4053,52.1571,0.29,Powys
+-2.9646,52.3461,1.2,Powys
+-3.5775,52.5758,0.22,Powys
+-3.1651,52.5909,1.87,Powys
+-3.4127,51.9417,0.22,Powys
+-3.4514,52.2158,0.15,Powys
+-3.5216,52.5031,0.6,Powys
+-3.5111,52.515,0.86,Powys
+-3.4834,52.5366,0.41,Powys
+-3.3801,51.7671,1.4,Merthyr Tydfil
+-3.3376,51.7693,0.16,Merthyr Tydfil

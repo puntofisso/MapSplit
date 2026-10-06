@@ -1,0 +1,17 @@
+{
+ "id": "boundaries",
+ "title": "Local Authority Districts (May 2025) and Westminster Parliamentary Constituencies (July 2024), UK",
+ "publisher": "Office for National Statistics",
+ "page": "https://geoportal.statistics.gov.uk/",
+ "vintage": "LAD May 2025; PCON July 2024",
+ "refresh": "Yearly: check the Open Geography Portal for a newer LAD vintage (usually May). When codes change, add the old→new pairs to LAD_CODE_CHANGES in tools/pipeline/common.py.",
+ "licence": {"name": "Open Government Licence v3.0", "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"},
+ "attribution": "Source: Office for National Statistics licensed under the Open Government Licence v3.0. Contains OS data © Crown copyright and database right 2025. Contains LPS Intellectual Property © Crown copyright and database right 2025.",
+ "notes": "Geography only — yields no statistics. Supplies the coordinates (ONS label points, always inside the area) and names that other sources attach to their numbers, and the ultra-generalised LA polygons used to name points by location.",
+ "fetch": [
+  {"file": "lad25_buc.geojson",
+   "url": "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/LAD_MAY_2025_UK_BUC/FeatureServer/0/query?where=1%3D1&outFields=LAD25CD,LAD25NM,LONG,LAT&outSR=4326&f=geojson&resultRecordCount=2000"},
+  {"file": "pcon24_points.json",
+   "url": "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Westminster_Parliamentary_Constituencies_July_2024_Boundaries_UK_BUC/FeatureServer/0/query?where=1%3D1&outFields=PCON24CD,PCON24NM,LAT,LONG&returnGeometry=false&f=json&resultRecordCount=2000"}
+ ]
+}

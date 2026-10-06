@@ -1,0 +1,168 @@
+variable,name,unit,total,ns_lat,we_lon,ns_km,we_km,nwse_km,nesw_km,max_abs_km,top_area_share,E,W,S,N
+uk001002,Residence type: Lives in a household,Person,65764943,52.421,-1.501,0,0,0,0,0,0.0001,0.844,0.046,0.081,0.029
+uk001003,Residence type: Lives in a communal establishment,Person,1176188,52.486,-1.557,7,-4,1,5,7,0.0075,0.838,0.048,0.092,0.022
+uk002002,Marital and civil partnership status: Never married and never registered a civil partnership,Person,20712546,52.419,-1.492,0,1,-1,0,1,0.0004,0.842,0.046,0.084,0.028
+uk002003,Marital and civil partnership status: Married or in a registered civil partnership,Person,24377723,52.406,-1.505,-2,0,0,-3,3,0.0001,0.843,0.046,0.082,0.028
+uk002004,"Marital and civil partnership status: Separated, but still legally married or still legally in a civil partnership",Person,1254278,52.494,-1.536,8,-2,1,9,9,0.0001,0.824,0.042,0.089,0.046
+uk002005,Marital and civil partnership status: Divorced or civil partnership dissolved,Person,4897411,52.427,-1.518,1,-1,2,2,2,0.0001,0.852,0.052,0.078,0.019
+uk002006,Marital and civil partnership status: Widowed or surviving civil partnership partner,Person,3387973,52.543,-1.623,13,-8,5,12,13,0.0001,0.824,0.053,0.095,0.028
+uk003002,Household composition: One person household,Household,8645359,52.549,-1.6,14,-7,5,14,14,0.0001,0.816,0.05,0.107,0.027
+uk003003,Household composition: One person household: Aged 66 years and over,Household,3647919,52.537,-1.633,13,-9,5,12,13,0.0001,0.823,0.054,0.098,0.025
+uk003004,Household composition: One person household: Other,Household,4997440,52.561,-1.584,15,-6,4,15,15,0.0001,0.81,0.047,0.114,0.029
+uk003005,Household composition: Single family household,Household,17574795,52.454,-1.524,4,-1,2,4,4,0.0001,0.84,0.048,0.083,0.028
+uk003006,Household composition:  Single family household: Couple family household,Household,11695335,52.438,-1.511,2,-1,2,2,2,0.0001,0.841,0.046,0.085,0.027
+uk003007,Household composition:  Single family household: Couple family household: No children,Household,4686290,52.473,-1.533,6,-2,4,5,6,0.0001,0.838,0.047,0.093,0.022
+uk003008,Household composition:  Single family household: Couple family household: Dependent children,Household,5216766,52.387,-1.476,-4,2,0,-5,5,0.0001,0.849,0.044,0.078,0.029
+uk003009,Household composition:  Single family household: Couple family household: All children non-dependent,Household,1792279,52.483,-1.549,7,-3,2,8,8,0.0001,0.828,0.052,0.084,0.037
+uk003010,Household composition: Single family household: Lone parent family,Household,3117518,52.492,-1.533,8,-2,1,11,11,0.0001,0.833,0.052,0.08,0.036
+uk003011,Household composition: Single family household: Lone parent family: With dependent children,Household,1932116,52.511,-1.538,10,-2,2,12,12,0.0001,0.837,0.053,0.075,0.035
+uk003012,Household composition: Single family household: Lone parent family: All children non-dependent,Household,1185402,52.463,-1.527,5,-2,-1,8,8,0.0001,0.825,0.05,0.087,0.037
+uk003013,Household composition: Single family household: Other single family household (including All aged 66 years and over),Household,2761942,52.47,-1.576,5,-5,4,5,5,0.0001,0.843,0.053,0.079,0.025
+uk003014,Household composition: Other household types,Household,1841955,51.843,-1.196,-64,21,-7,-46,64,0.0003,0.88,0.037,0.065,0.019
+uk004002,Country of birth: Europe,Person,60710993,52.474,-1.544,6,-3,2,7,7,0.0001,0.836,0.049,0.085,0.03
+uk004003,Country of birth: Europe: United Kingdom,Person,56202930,52.515,-1.586,10,-6,4,11,11,0.0001,0.831,0.051,0.087,0.031
+uk004004,Country of birth: Europe: EU countries,Person,3985591,51.737,-0.752,-76,51,-7,-84,84,0.0003,0.891,0.023,0.059,0.027
+uk004005,Country of birth: Europe: Non-EU countries,Person,522472,51.58,-0.239,-93,86,-8,-138,138,0.001,0.94,0.017,0.036,0.007
+uk004006,Country of birth: Africa,Person,1667436,51.594,-0.433,-91,72,-8,-125,125,0.0005,0.933,0.017,0.043,0.006
+uk004007,Country of birth: Middle East and Asia,Person,3503724,51.668,-0.885,-83,42,-9,-97,97,0.0006,0.925,0.02,0.047,0.008
+uk004008,Country of birth: The Americas and the Caribbean,Person,845437,51.557,-0.269,-95,84,-13,-135,135,0.0025,0.915,0.015,0.059,0.012
+uk004009,Country of birth: Antarctica and Oceania (including Australasia) and Other,Person,189825,51.547,-0.483,-96,69,-15,-125,125,0.0009,0.884,0.024,0.076,0.016
+uk007a002,Age: Aged 4 years and under,Person,3595082,52.4,-1.465,-2,3,-1,-4,4,0.0002,0.856,0.043,0.069,0.032
+uk007a003,Age: Aged 5 to 9 years,Person,3931322,52.418,-1.483,0,1,0,-1,1,0.0002,0.852,0.045,0.072,0.032
+uk007a004,Age: Aged 10 to 14 years,Person,4024837,52.422,-1.49,0,1,0,0,1,0.0001,0.848,0.045,0.075,0.032
+uk007a005,Age: Aged 15 to 19 years,Person,3807606,52.453,-1.518,3,-1,0,4,4,0.001,0.845,0.046,0.079,0.03
+uk007a006,Age: Aged 20 to 24 years,Person,4054886,52.45,-1.512,3,-1,0,4,4,0.001,0.842,0.046,0.084,0.027
+uk007a007,Age: Aged 25 to 29 years,Person,4355540,52.307,-1.433,-13,5,-2,-9,13,0.0003,0.853,0.043,0.077,0.027
+uk007a008,Age: Aged 30 to 34 years,Person,4631940,52.294,-1.428,-14,5,-2,-10,14,0.0001,0.853,0.042,0.077,0.027
+uk007a009,Age: Aged 35 to 39 years,Person,4455331,52.304,-1.436,-13,4,-2,-10,13,0.0001,0.852,0.042,0.078,0.029
+uk007a010,Age: Aged 40 to 44 years,Person,4212280,52.278,-1.433,-16,5,-2,-11,16,0.0001,0.85,0.042,0.079,0.029
+uk007a011,Age: Aged 45 to 49 years,Person,4239325,52.363,-1.465,-7,3,-1,-6,7,0.0001,0.85,0.044,0.078,0.029
+uk007a012,Age: Aged 50 to 54 years,Person,4645740,52.438,-1.509,2,0,1,2,2,0.0001,0.841,0.046,0.084,0.028
+uk007a013,Age: Aged 55 to 59 years,Person,4567198,52.469,-1.54,5,-3,2,6,6,0.0001,0.833,0.049,0.089,0.028
+uk007a014,Age: Aged 60 to 64 years,Person,3940952,52.504,-1.578,9,-5,3,9,9,0.0001,0.826,0.051,0.094,0.029
+uk007a015,Age: Aged 65 to 69 years,Person,3353120,52.52,-1.604,11,-7,4,10,11,0.0001,0.825,0.053,0.094,0.028
+uk007a016,Age: Aged 70 to 74 years,Person,3346102,52.495,-1.594,8,-6,5,8,8,0.0001,0.836,0.054,0.085,0.025
+uk007a017,Age: Aged 75 to 79 years,Person,2454911,52.489,-1.614,7,-8,4,8,8,0.0001,0.831,0.054,0.089,0.027
+uk007a018,Age: Aged 80 to 84 years,Person,1700900,52.479,-1.587,6,-6,3,7,7,0.0001,0.838,0.052,0.084,0.026
+uk007a019,Age: Aged 85 years and over,Person,1625241,52.411,-1.558,-1,-4,0,-1,4,0.0002,0.845,0.051,0.08,0.024
+uk008002,Sex: Female,Person,34184391,52.419,-1.501,0,0,0,0,0,0.0001,0.843,0.046,0.082,0.028
+uk008003,Sex: Male,Person,32755778,52.425,-1.504,0,0,0,0,0,0.0002,0.844,0.046,0.081,0.029
+uk015002,Year of arrival in the UK: Born in the UK,Person,56110693,52.511,-1.584,10,-6,4,10,10,0.0001,0.832,0.052,0.087,0.029
+uk015003,Year of arrival in the UK: Arrived before 1951,Person,83859,51.802,-1.306,-68,13,-16,-58,68,0.0005,0.856,0.031,0.053,0.06
+uk015004,Year of arrival in the UK: Arrived 1951 to 1960,Person,249782,51.71,-0.987,-78,35,-12,-81,81,0.0003,0.911,0.026,0.036,0.027
+uk015005,Year of arrival in the UK: Arrived 1961 to 1970,Person,575557,51.665,-0.786,-83,49,-12,-99,99,0.0004,0.92,0.018,0.036,0.025
+uk015006,Year of arrival in the UK: Arrived 1971 to 1980,Person,593493,51.622,-0.601,-88,61,-12,-113,113,0.0005,0.915,0.02,0.038,0.027
+uk015007,Year of arrival in the UK: Arrived 1981 to 1990,Person,618608,51.587,-0.394,-92,75,-12,-129,129,0.0004,0.918,0.02,0.034,0.028
+uk015008,Year of arrival in the UK: Arrived 1991 to 2000,Person,1153314,51.574,-0.349,-93,78,-12,-133,133,0.0004,0.928,0.017,0.033,0.023
+uk015009,Year of arrival in the UK: Arrived 2001 to 2010,Person,2905071,51.635,-0.687,-87,55,-8,-105,105,0.0003,0.907,0.021,0.049,0.023
+uk015010,Year of arrival in the UK: Arrived 2011 to 2013,Person,948882,51.634,-0.673,-87,56,-8,-104,104,0.0004,0.907,0.02,0.052,0.021
+uk015011,Year of arrival in the UK: Arrived 2014 to 2016,Person,1349651,51.663,-0.736,-84,52,-8,-99,99,0.0004,0.911,0.019,0.049,0.021
+uk015012,Year of arrival in the UK: Arrived 2017 to 2019,Person,1554515,51.672,-0.766,-83,50,-9,-99,99,0.0008,0.904,0.019,0.053,0.024
+uk015013,Year of arrival in the UK: Arrived 2020 to 2021,Person,797751,52.053,-1.176,-41,22,-5,-48,48,0.002,0.83,0.022,0.124,0.024
+uk017002,Household size: 1 person in household,Household,8646211,52.549,-1.601,14,-7,5,14,14,0.0001,0.816,0.05,0.108,0.027
+uk017003,Household size: 2 people in household,Household,9541178,52.474,-1.545,6,-3,3,6,6,0.0001,0.836,0.05,0.09,0.025
+uk017004,Household size: 3 people in household,Household,4429839,52.413,-1.488,-1,1,0,0,1,0.0001,0.845,0.048,0.079,0.028
+uk017005,Household size: 4 people in household,Household,3555877,52.297,-1.451,-14,3,-2,-10,14,0.0001,0.851,0.044,0.075,0.03
+uk017006,Household size: 5 or more people in household,Household,1887847,52.298,-1.418,-14,6,-3,-11,14,0.0002,0.867,0.04,0.056,0.036
+uk029002,Proficiency in English language: Speaks English very well or well,Person,63672248,52.424,-1.507,0,0,0,1,1,0.0002,0.843,0.047,0.082,0.029
+uk029003,Proficiency in English language: Cannot speak English well or at all,Person,1157278,52.293,-1.116,-14,26,-3,-33,33,0.0007,0.88,0.019,0.083,0.017
+uk037002,General health: Very good health,Person,32386670,52.335,-1.476,-10,2,-2,-7,10,0.0002,0.846,0.044,0.081,0.029
+uk037003,General health: Good health,Person,22271953,52.415,-1.486,-1,1,1,-3,3,0.0001,0.855,0.045,0.075,0.025
+uk037004,General health: Fair health,Person,8629923,52.542,-1.583,13,-5,4,13,13,0.0001,0.828,0.052,0.09,0.03
+uk037005,General health: Bad health,Person,2809580,52.652,-1.746,26,-17,6,24,26,0.0001,0.8,0.058,0.103,0.039
+uk037006,General health: Very bad health,Person,841792,52.67,-1.784,28,-19,5,26,28,0.0001,0.788,0.062,0.106,0.044
+uk038002,Disability: Disabled under the Equality Act,Person,12218626,52.614,-1.708,21,-14,6,19,21,0.0001,0.8,0.055,0.107,0.038
+uk038003,Disability: Disabled under the Equality Act: Day-to-day activities limited a lot,Person,5263457,52.682,-1.788,29,-19,7,26,29,0.0001,0.787,0.061,0.111,0.041
+uk038004,Disability: Disabled under the Equality Act: Day-to-day activities limited a little,Person,6955169,52.566,-1.636,16,-9,5,14,16,0.0002,0.81,0.05,0.104,0.035
+uk038005,Disability: Not disabled under the Equality Act,Person,54721746,52.374,-1.472,-5,2,-1,-6,6,0.0002,0.854,0.045,0.075,0.026
+uk039002,Provision of unpaid care: Provides no unpaid care,Person,57610112,52.41,-1.495,-1,0,0,-2,2,0.0002,0.846,0.046,0.081,0.027
+uk039003,Provision of unpaid care: Provides 19 hours or less unpaid care a week,Person,2894158,52.541,-1.653,13,-10,4,12,13,0.0001,0.796,0.048,0.121,0.035
+uk039004,Provision of unpaid care: Provides 20 to 34 hours unpaid care a week,Person,569947,52.611,-1.727,21,-15,4,20,21,0.0001,0.794,0.055,0.109,0.043
+uk039005,Provision of unpaid care: Provides 35 to 49 hours unpaid care a week,Person,643123,52.631,-1.687,23,-13,5,22,23,0.0001,0.805,0.054,0.098,0.044
+uk039006,Provision of unpaid care: Provides 50 or more hours unpaid care a week,Person,1732813,52.605,-1.681,20,-12,5,20,20,0.0001,0.811,0.062,0.088,0.04
+uk044002,Accommodation type: Detached,Household,6643703,52.542,-1.63,13,-9,4,7,13,0.0002,0.808,0.058,0.09,0.044
+uk044003,Accommodation type: Semi-detached,Household,8623189,52.625,-1.588,23,-6,9,20,23,0.0001,0.856,0.05,0.068,0.026
+uk044004,Accommodation type: Terraced,Household,6368831,52.487,-1.593,7,-6,4,12,12,0.0001,0.845,0.056,0.072,0.027
+uk044005,Accommodation type: In a purpose-built block of flats or tenement,Household,5004804,51.765,-1.217,-73,19,-6,-59,73,0.0003,0.799,0.025,0.163,0.013
+uk044006,"Accommodation type: Part of a converted or shared house, including bedsits",Household,1090302,51.545,-0.348,-96,78,-14,-134,134,0.0006,0.926,0.029,0.036,0.009
+uk044007,"Accommodation type: In a commercial building, for example, in an office building, hotel or over a shop",Household,220630,51.751,-1.236,-74,18,-9,-45,74,0.0008,0.897,0.048,0.044,0.012
+uk044008,Accommodation type: A caravan or other mobile or temporary structure,Household,109477,51.824,-1.326,-66,12,-12,-46,66,0.0056,0.912,0.04,0.038,0.01
+uk045002,Number of cars or vans: No cars or vans in household,Household,6589994,52.474,-1.469,6,2,0,8,8,0.0002,0.837,0.04,0.1,0.023
+uk045003,Number of cars or vans: 1 car or van in household,Household,11624096,52.48,-1.543,6,-3,3,7,7,0.0001,0.832,0.048,0.093,0.026
+uk045004,Number of cars or vans: 2 cars or vans in household,Household,7300696,52.46,-1.576,4,-5,3,5,5,0.0001,0.836,0.052,0.081,0.03
+uk045005,Number of cars or vans: 3 or more cars or vans in household,Household,2546341,52.325,-1.546,-11,-3,-2,-7,11,0.0001,0.84,0.057,0.068,0.036
+uk046002,Type of central heating in household: No central heating,Household,422142,52.381,-1.583,-5,-6,-1,-3,6,0.0004,0.833,0.037,0.125,0.006
+uk046003,Type of central heating in household: Mains gas only,Household,20383817,52.48,-1.515,6,-1,5,8,8,0.0001,0.85,0.047,0.09,0.012
+uk046004,Type of central heating in household: Tank or bottled gas only,Household,299315,52.336,-1.935,-10,-29,-8,4,29,0.0012,0.777,0.092,0.111,0.02
+uk046005,Type of central heating in household: Electric only,Household,2351994,51.9,-1.373,-58,9,-6,-42,58,0.0004,0.868,0.03,0.096,0.005
+uk046006,Type of central heating in household: Oil only,Household,1374013,53.005,-2.831,65,-90,-39,78,90,0.0007,0.553,0.077,0.093,0.277
+uk046007,Type of central heating in household: Wood only,Household,47994,52.926,-2.615,56,-75,34,66,75,0.0033,0.646,0.098,0.239,0.016
+uk046008,Type of central heating in household: Solid fuel only,Household,61973,53.271,-2.163,95,-45,53,69,95,0.0016,0.678,0.121,0.131,0.069
+uk046009,Type of central heating in household: Renewable energy only,Household,129113,52.572,-1.977,17,-32,28,5,32,0.0014,0.716,0.049,0.214,0.02
+uk046010,Type of central heating in household: Other central heating only,Household,474234,51.6,-0.64,-91,58,-8,-109,109,0.001,0.915,0.026,0.055,0.004
+uk046011,Type of central heating in household: Two or more types of central heating,Household,2517312,52.457,-1.557,4,-4,-2,6,6,0.0002,0.841,0.052,0.061,0.046
+uk054002,Tenure of household: Owned (Including Shared Ownership),Household,17586374,52.482,-1.572,7,-5,4,8,8,0.0001,0.83,0.051,0.09,0.029
+uk054003,Tenure of household: Owned: Owns outright,Household,9254779,52.53,-1.645,12,-10,5,11,12,0.0001,0.824,0.055,0.092,0.029
+uk054004,"Tenure of household: Owned: Owns with a mortgage, loan or shared ownership",Household,8331595,52.439,-1.516,2,-1,2,2,2,0.0001,0.838,0.046,0.088,0.028
+uk054005,Tenure of household: Social rented,Household,4909654,52.538,-1.536,13,-2,3,14,14,0.0002,0.816,0.045,0.115,0.024
+uk054006,Tenure of household: Private rented,Household,5478606,52.187,-1.378,-26,8,-4,-20,26,0.0002,0.875,0.042,0.059,0.024
+uk054007,Tenure of household: Private rented: Private landlord or letting agency,Household,4903457,52.19,-1.369,-26,9,-4,-21,26,0.0002,0.872,0.04,0.063,0.025
+uk054008,Tenure of household: Private rented: Other private rented,Household,575149,52.136,-1.448,-32,4,-6,-17,32,0.0009,0.906,0.059,0.02,0.015
+uk054009,Tenure of household: Lives rent free,Household,86045,54.653,-3.269,254,-120,54,370,370,0.0006,0.354,0.025,0.418,0.203
+uk059002,Hours worked: Part-time,Person,9297907,52.381,-1.497,-5,0,-1,-5,5,0.0001,0.847,0.044,0.081,0.028
+uk059003,Hours worked: Part-time: 15 hours or less worked,Person,3153720,52.131,-1.407,-32,6,-4,-23,32,0.0002,0.866,0.039,0.067,0.028
+uk059004,Hours worked: Part-time: 16 to 30 hours worked,Person,6144187,52.453,-1.532,3,-2,1,4,4,0.0001,0.837,0.047,0.088,0.029
+uk059005,Hours worked: Full-time,Person,21972342,52.341,-1.464,-9,3,-1,-8,9,0.0001,0.844,0.044,0.086,0.027
+uk059006,Hours worked: Full-time: 31 to 48 hours worked,Person,18564010,52.395,-1.484,-3,1,0,-4,4,0.0001,0.841,0.044,0.088,0.027
+uk059007,Hours worked: Full-time: 49 or more hours worked,Person,3408332,52.041,-1.293,-42,14,-5,-36,42,0.0003,0.858,0.041,0.078,0.023
+uk061002,Method of travel to workplace: Work mainly at or from home,Person,9626149,51.879,-1.262,-60,16,-7,-48,60,0.0001,0.864,0.036,0.083,0.016
+uk061003,"Method of travel to workplace: Underground, metro, light rail, tram",Person,511094,51.544,-0.124,-97,93,-9,-145,145,0.001,0.987,0.001,0.011,0.0
+uk061004,Method of travel to workplace: Train,Person,594198,51.556,-0.244,-95,85,-6,-140,140,0.0004,0.871,0.019,0.097,0.013
+uk061005,"Method of travel to workplace: Bus, minibus or coach",Person,1329105,52.397,-1.393,-3,7,-3,-9,9,0.0004,0.85,0.024,0.109,0.017
+uk061006,Method of travel to workplace: Taxi,Person,223101,52.984,-1.725,63,-15,14,46,63,0.0004,0.864,0.034,0.066,0.036
+uk061007,"Method of travel to workplace: Motorcycle, scooter or moped",Person,134630,51.61,-1.086,-89,28,-12,-74,89,0.0004,0.922,0.034,0.033,0.011
+uk061008,Method of travel to workplace: Car or van,Person,15417072,52.572,-1.636,17,-9,6,15,17,0.0001,0.828,0.054,0.081,0.036
+uk061009,Method of travel to workplace: Bicycle,Person,609885,51.929,-1.115,-54,26,-6,-56,56,0.0006,0.908,0.025,0.056,0.011
+uk061010,Method of travel to workplace: On foot,Person,2351260,52.398,-1.505,-3,0,0,-6,6,0.0003,0.858,0.041,0.078,0.022
+uk061011,Method of travel to workplace: Other method of travel to work,Person,325239,52.4,-1.433,-2,5,1,-9,9,0.0006,0.843,0.036,0.101,0.02
+uk062002,"National Statistics Socio-economic Classification (NS-SEC): L1, L2 and L3 Higher managerial, administrative and professional occupations",Person,7055858,51.93,-1.308,-54,13,-8,-40,54,0.0001,0.864,0.037,0.078,0.022
+uk062003,"National Statistics Socio-economic Classification (NS-SEC): L4, L5 and L6 Lower managerial, administrative and professional occupations",Person,10913156,52.28,-1.485,-16,1,-2,-10,16,0.0001,0.84,0.046,0.088,0.026
+uk062004,National Statistics Socio-economic Classification (NS-SEC): L7 Intermediate occupations,Person,6263280,52.436,-1.526,2,-2,2,2,2,0.0002,0.839,0.047,0.085,0.028
+uk062005,National Statistics Socio-economic Classification (NS-SEC): L8 and L9 Small employers and own account workers,Person,5643269,52.097,-1.427,-36,5,-4,-23,36,0.0002,0.864,0.046,0.065,0.026
+uk062006,National Statistics Socio-economic Classification (NS-SEC): L10 and L11 Lower supervisory and technical occupations,Person,3025780,52.594,-1.613,19,-8,8,16,19,0.0001,0.813,0.053,0.107,0.027
+uk062007,National Statistics Socio-economic Classification (NS-SEC): L12 Semi-routine occupations,Person,6211642,52.526,-1.58,12,-5,4,11,12,0.0001,0.834,0.054,0.082,0.03
+uk062008,National Statistics Socio-economic Classification (NS-SEC): L13 Routine occupations,Person,6677700,52.636,-1.605,24,-7,9,19,24,0.0002,0.827,0.051,0.092,0.031
+uk062009,National Statistics Socio-economic Classification (NS-SEC): L14.1 and L14.2 Never worked and long-term unemployed,Person,4605220,52.536,-1.532,13,-2,1,15,15,0.0002,0.85,0.047,0.067,0.035
+uk062010,National Statistics Socio-economic Classification (NS-SEC): L15 Full-time students,Person,4234253,52.447,-1.518,3,-1,-1,4,4,0.0021,0.834,0.046,0.092,0.028
+uk063002,"Occupation (current): 1. Managers, directors and senior officials",Person,3830100,51.912,-1.253,-56,17,-7,-45,56,0.0001,0.889,0.038,0.054,0.02
+uk063003,Occupation (current): 2. Professional occupations,Person,6324560,52.095,-1.395,-36,7,-6,-26,36,0.0002,0.847,0.039,0.086,0.027
+uk063004,Occupation (current): 3. Associate professional and technical occupations,Person,4110869,52.12,-1.389,-33,8,-3,-24,33,0.0003,0.851,0.039,0.09,0.02
+uk063005,Occupation (current): 4. Administrative and secretarial occupations,Person,2924525,52.395,-1.505,-3,0,1,-4,4,0.0002,0.837,0.044,0.087,0.032
+uk063006,Occupation (current): 5. Skilled trades occupations,Person,3254689,52.47,-1.575,5,-5,2,7,7,0.0001,0.824,0.051,0.091,0.033
+uk063007,"Occupation (current): 6. Caring, leisure and other service occupations",Person,2939431,52.47,-1.544,5,-3,1,7,7,0.0001,0.833,0.052,0.085,0.03
+uk063008,Occupation (current): 7. Sales and customer service occupations,Person,2383191,52.533,-1.564,12,-4,3,11,12,0.0001,0.828,0.048,0.091,0.033
+uk063009,"Occupation (current): 8. Process, plant and machine operatives",Person,2204156,52.604,-1.566,20,-4,8,16,20,0.0002,0.831,0.049,0.091,0.029
+uk063010,Occupation (current): 9. Elementary occupations,Person,3299699,52.524,-1.517,11,-1,5,9,11,0.0003,0.837,0.044,0.094,0.026
+uk066002,Economic activity status: Economically active (excluding full-time students),Person,31774875,52.339,-1.466,-9,2,-1,-8,9,0.0001,0.848,0.044,0.081,0.027
+uk066003,Economic activity status: Economically active (excluding full-time students):In employment,Person,30277895,52.34,-1.469,-9,2,-1,-8,9,0.0001,0.847,0.044,0.083,0.027
+uk066004,Economic activity status: Economically active (excluding full-time students):In employment:Employee,Person,25213052,52.405,-1.486,-2,1,0,-3,3,0.0001,0.843,0.044,0.086,0.027
+uk066005,Economic activity status: Economically active (excluding full-time students):In employment:Self-employed with employees,Person,840823,52.242,-1.459,-20,3,-3,-12,20,0.0001,0.836,0.045,0.086,0.033
+uk066006,Economic activity status: Economically active (excluding full-time students):In employment:Self-employed without employees,Person,4224020,51.903,-1.302,-57,14,-7,-41,57,0.0001,0.873,0.041,0.063,0.023
+uk066007,Economic activity status: Economically active (excluding full-time students): Unemployed,Person,1496980,52.303,-1.386,-13,8,-3,-9,13,0.0002,0.877,0.042,0.058,0.023
+uk066008,Economic activity status: Economically active and a full-time student,Person,1336116,52.527,-1.582,12,-5,2,12,12,0.0011,0.79,0.042,0.135,0.032
+uk066009,Economic activity status: Economically active and a full-time student:In employment,Person,994702,52.557,-1.602,15,-7,3,13,15,0.0009,0.777,0.041,0.147,0.036
+uk066010,Economic activity status: Economically active and a full-time student:In employment:Employee,Person,918701,52.606,-1.643,20,-10,4,16,20,0.0008,0.771,0.042,0.15,0.037
+uk066011,Economic activity status: Economically active and a full-time student:In employment:Self-employed with employees,Person,8053,51.748,-1.068,-74,29,-4,-63,74,0.0029,0.853,0.034,0.1,0.014
+uk066012,Economic activity status: Economically active and a full-time student:In employment:Self-employed without employees,Person,67948,51.753,-1.157,-74,23,-6,-57,74,0.0035,0.85,0.032,0.105,0.013
+uk066013,Economic activity status: Economically active and a full-time student: Unemployed,Person,341414,52.485,-1.533,7,-2,1,9,9,0.0022,0.831,0.045,0.102,0.023
+uk066014,Economic activity status: Economically inactive,Person,21521141,52.493,-1.564,8,-4,2,9,9,0.0004,0.837,0.052,0.083,0.029
+uk066015,Economic activity status: Economically inactive: Retired,Person,11879965,52.524,-1.612,11,-7,5,10,11,0.0001,0.832,0.053,0.089,0.026
+uk066016,Economic activity status: Economically inactive: Student,Person,3042306,52.411,-1.494,-1,1,-3,-1,3,0.0026,0.853,0.048,0.073,0.026
+uk066017,Economic activity status: Economically inactive: Looking after home or family,Person,2549784,52.408,-1.439,-2,4,-2,-4,4,0.0002,0.866,0.043,0.061,0.03
+uk066018,Economic activity status: Economically inactive: Long-term sick or disabled,Person,2374875,52.741,-1.796,36,-20,6,28,36,0.0002,0.789,0.064,0.099,0.047
+uk066019,Economic activity status: Economically inactive: Other,Person,1674211,52.436,-1.46,2,3,-2,1,3,0.0015,0.864,0.044,0.063,0.028
+uk067002,Highest level of qualification: No qualifications,Person,9945765,52.555,-1.554,15,-4,4,14,15,0.0001,0.836,0.051,0.076,0.036
+uk067003,Highest level of qualification: Level 1-2 Qualifications,Person,12326362,52.447,-1.506,3,0,3,2,3,0.0001,0.859,0.048,0.07,0.024
+uk067004,Highest level of qualification: Apprenticeship,Person,3034588,52.658,-1.684,26,-12,13,21,26,0.0001,0.806,0.047,0.115,0.032
+uk067005,Highest level of qualification: Level 3 qualifications,Person,8974744,52.434,-1.516,1,-1,0,1,1,0.0007,0.867,0.049,0.057,0.027
+uk067006,Highest level of qualification: Level 4 qualifications and above,Person,18978837,52.205,-1.47,-24,2,-4,-14,24,0.0002,0.822,0.043,0.11,0.026
