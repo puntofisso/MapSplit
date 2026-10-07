@@ -26,7 +26,7 @@ export function measureLines(G, cat, ids, axes, targetsFor) {
   const line = {}, ref = {};
   for (const id of ids) {
     if (!cat[id]) throw new Error('unknown statistic: ' + id);
-    const p = G.parseCsvText(fs.readFileSync(path.join(ROOT, 'data', cat[id].file), 'utf8'), {});
+    const p = G.parseCsvText(fs.readFileSync(path.join(ROOT, 'Play/data', cat[id].file), 'utf8'), {});
     const merc = p.coords.map(c => G.lngLatToMerc(c));
     ref[id] = G.weightedCentroidMerc(merc, p.weights);
     line[id] = {};

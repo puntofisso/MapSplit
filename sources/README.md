@@ -22,10 +22,10 @@ python3 tools/pipeline/run.py --refresh hmrc   # re-download its raw files first
 
 Raw downloads go to `data/raw/<source>/` (git-ignored, never deployed). Output:
 
-- `data/stats/<statistic>.csv` — always `lon,lat,value,name`
-- `data/stats.json` — the catalogue: label, question, unit, licences,
+- `Play/data/stats/<statistic>.csv` — always `lon,lat,value,name`
+- `Play/data/stats.json` — the catalogue: label, question, unit, licences,
   attribution, provenance links, caveats, nation shares
-- `data/stats/README.md` — the licence record for the derived files
+- `Play/data/stats/README.md` — the licence record for the derived files
 
 ## Measuring: the review sheet
 
@@ -34,7 +34,7 @@ node tools/pipeline/measure.mjs
 ```
 
 Runs the game's own pure code (extracted from `Play/app-game.js`, like the
-test pages) over every statistic in `data/stats.json` on twelve axes at 50%,
+test pages) over every statistic in `Play/data/stats.json` on twelve axes at 50%,
 and writes:
 
 - `review/questions.csv` — one row per statistic × axis: the question as the

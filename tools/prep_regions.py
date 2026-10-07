@@ -2,10 +2,10 @@
 
 Supersedes prep_coast.py, which did the same thing for the UK alone and hard-
 coded that region's bounding box. You do NOT need to run this: its output is
-already in data/coast/*.js. It exists so those files are reproducible.
+already in Play/data/coast/*.js. It exists so those files are reproducible.
 
     # fetch the three Natural Earth resolutions (see NE_URLS below), then:
-    python3 tools/prep_regions.py /path/to/ne-downloads data/coast
+    python3 tools/prep_regions.py /path/to/ne-downloads Play/data/coast
 
 WHAT IT EMITS, and why that shape
 ---------------------------------
@@ -298,7 +298,7 @@ def emit(reg, path):
 
 if __name__ == '__main__':
     src_dir = sys.argv[1] if len(sys.argv) > 1 else '.'
-    out_dir = sys.argv[2] if len(sys.argv) > 2 else 'data/coast'
+    out_dir = sys.argv[2] if len(sys.argv) > 2 else 'Play/data/coast'
     only = sys.argv[3:] or None
     os.makedirs(out_dir, exist_ok=True)
 

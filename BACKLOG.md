@@ -7,7 +7,7 @@ first. Delete an entry when it ships.
 
 ## Multi-region play
 
-`data/coast/{uk,eu,us,world}.js` exist and render. **The picker, per-region
+`Play/data/coast/{uk,eu,us,world}.js` exist and render. **The picker, per-region
 scores and map-only regions all shipped on 2026-08-27** — see CLAUDE.md,
 "Regions". What is left:
 

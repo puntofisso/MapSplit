@@ -12,7 +12,8 @@ import urllib.request
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 SOURCES = os.path.join(REPO, 'sources')
 RAW = os.path.join(REPO, 'data', 'raw')
-STATS = os.path.join(REPO, 'data', 'stats')
+GAME_DATA = os.path.join(REPO, 'Play', 'data')   # the game's deployable data
+STATS = os.path.join(GAME_DATA, 'stats')
 
 UK_BBOX = (-8.7, 49.8, 1.9, 61.0)       # matches the game's displayBbox
 NATIONS = {'E': 'England', 'W': 'Wales', 'S': 'Scotland', 'N': 'Northern Ireland'}

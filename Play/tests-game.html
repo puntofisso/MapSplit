@@ -455,7 +455,7 @@
         const COASTS = {};
         for (const r of REGIONS) {
           try {
-            const src = await fetch('../data/coast/' + r.id + '.js').then((res) => {
+            const src = await fetch('data/coast/' + r.id + '.js').then((res) => {
               if (!res.ok) throw new Error(res.status);
               return res.text();
             });
@@ -489,10 +489,10 @@
 
         test('stats.json builds a catalogue with one entry per statistic', () => {
           assert(!STATS_ERR, STATS_ERR && STATS_ERR.message);
-          const cat = catalogueFromStats(STATS, '../data/');
+          const cat = catalogueFromStats(STATS, 'data/');
           assert(cat.length === Object.keys(STATS).length, `${cat.length} entries`);
           for (const e of cat) {
-            assert(e.url === '../data/' + STATS[e.id].file + '?v=' + STATS[e.id].hash, e.url);
+            assert(e.url === 'data/' + STATS[e.id].file + '?v=' + STATS[e.id].hash, e.url);
             assert(/^[0-9a-f]{12}$/.test(STATS[e.id].hash), e.id + ' has no content hash');
             assert(e.weightColumn === 'value' && e.groupColumn === 'name', e.id);
             assert(e.question && e.question.length > 2, e.id + ' has no question wording');
@@ -533,7 +533,7 @@
           test(`the shipped ${y} schedule parses, never repeats a day, and has no gaps`, () => {
             assert(!STATS_ERR, 'stats.json did not load');
             assert(!SCHEDULES[y].error, SCHEDULES[y].error);
-            const cat = catalogueFromStats(STATS, '../data/');
+            const cat = catalogueFromStats(STATS, 'data/');
             const days = parseGamesJson(SCHEDULES[y], cat);
             const seen = new Set();
             for (let i = 0; i < days.length; i++) {
@@ -557,7 +557,7 @@
 
         test('a scheduled day reaches puzzleForDate with its theme and wording', () => {
           assert(!STATS_ERR && !SCHEDULES[2027].error, 'inputs did not load');
-          const cat = catalogueFromStats(STATS, '../data/');
+          const cat = catalogueFromStats(STATS, 'data/');
           const list = parseGamesJson(SCHEDULES[2027], cat);
           const cfg = Object.assign({}, GAME, { puzzles: list, forceTarget: 50, forceCardinal: true });
           const day = list[100];
@@ -1424,7 +1424,7 @@
           const e = datasetForFile(CONFIG.datasets, 'LA.csv', 'Population2024');
           assert(e && e.label === 'Population (LA 🇬🇧)', e && e.label);
           // Path and case are irrelevant; the column is alias-normalised.
-          assert(datasetForFile(CONFIG.datasets, '../data/samples/la.csv', 'population 2024') === e);
+          assert(datasetForFile(CONFIG.datasets, 'data/legacy/samples/la.csv', 'population 2024') === e);
           assert(datasetForFile(CONFIG.datasets, 'LA.csv', 'Nope') === null);
           assert(datasetForFile(CONFIG.datasets, 'Nope.csv', 'Population2024') === null);
         });

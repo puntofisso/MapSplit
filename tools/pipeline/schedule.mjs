@@ -1,6 +1,6 @@
 // Generate a year of daily puzzles.
 //
-//   node tools/pipeline/schedule.mjs 2027                 → data/games/2027.json
+//   node tools/pipeline/schedule.mjs 2027                 → Play/data/games/2027.json
 //   node tools/pipeline/schedule.mjs 2026 --from 2026-10-07
 //   node tools/pipeline/schedule.mjs 2027 --seed 42       (default seed = the year)
 //
@@ -30,7 +30,7 @@ const seed = Number(opt('--seed') || year);
 const from = opt('--from') || `${year}-01-01`;
 
 const G = loadGame();
-const cat = readJson('data/stats.json');
+const cat = readJson('Play/data/stats.json');
 const cfg = readJson('schedule/themes.json');
 const R = cfg.rules;
 const themes = cfg.themes;
@@ -157,8 +157,8 @@ for (const d of days) {
 }
 
 // --- write -----------------------------------------------------------------
-fs.mkdirSync(path.join(ROOT, 'data/games'), { recursive: true });
-const out = path.join(ROOT, `data/games/${year}.json`);
+fs.mkdirSync(path.join(ROOT, 'Play/data/games'), { recursive: true });
+const out = path.join(ROOT, `Play/data/games/${year}.json`);
 // One day per line, so the file reads (and diffs) like a calendar.
 const lines = days.map(d => '  ' + JSON.stringify(d));
 const head = {

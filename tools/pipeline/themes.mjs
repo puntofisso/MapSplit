@@ -16,7 +16,7 @@ import { ROOT, MIN_GAP_KM, NORMAL_AXES, ALL_AXES, loadGame, readJson, measureLin
 const NORMAL_ONLY = process.argv.includes('--normal-only');
 const AXES = NORMAL_ONLY ? NORMAL_AXES : ALL_AXES;
 const G = loadGame();
-const cat = readJson('data/stats.json');
+const cat = readJson('Play/data/stats.json');
 const themes = readJson('schedule/themes.json').themes;
 const ids = [...new Set(themes.flatMap(t => t.stats))];
 const proBand = ax => G.GAME.proTargets[G.proTargetBand(ax)] || [50];

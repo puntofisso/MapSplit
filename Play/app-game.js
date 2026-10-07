@@ -69,7 +69,7 @@ var CONFIG = {
   // format documentation. Delete them once real data is wired in.
   datasets: [
     { label: 'Population (LA 🇬🇧)', unit: 'people',
-      url: '../data/samples/LA.csv', type: 'csv',
+      url: 'data/legacy/samples/LA.csv', type: 'csv',
       weightColumn: 'Population2024', groupColumn: 'Name',
       sources: [
         { label: 'One point per UK local authority. Centroids from Local Authority District (May 2025) boundaries',
@@ -78,7 +78,7 @@ var CONFIG = {
           url: 'https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland' },
       ] },
       { label: 'Population (LA 🇬🇧, grouped)', unit: 'people',
-      url: '../data/samples/LA-grouped.csv', type: 'csv',
+      url: 'data/legacy/samples/LA-grouped.csv', type: 'csv',
       weightColumn: 'Population2024', groupColumn: 'Nation',
       sources: [
         { label: 'As Population (LA), but grouped by Nation in "What\'s being counted". Centroids from Local Authority District (May 2025) boundaries',
@@ -87,7 +87,7 @@ var CONFIG = {
           url: 'https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland' },
       ] },
       { label: 'Population (LSOA 🏴󠁧󠁢󠁥󠁮󠁧󠁿 + 🏴󠁧󠁢󠁷󠁬󠁳󠁿)', unit: 'people',
-      url: '../data/samples/LSOA.csv', type: 'csv',
+      url: 'data/legacy/samples/LSOA.csv', type: 'csv',
       weightColumn: 'Population', groupColumn: 'LSOA21NM',
       sources: [
         { label: 'One point per Lower-layer Super Output Area in England & Wales. Centroids from LSOA (December 2021) boundaries',
@@ -96,23 +96,23 @@ var CONFIG = {
           url: 'https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/lowersuperoutputareamidyearpopulationestimates' },
       ] },
       { label: 'HMRC 🇬🇧 Self-Employed', unit: 'people',
-      url: '../data/samples/HMRC.csv', type: 'csv',
+      url: 'data/legacy/samples/HMRC.csv', type: 'csv',
       weightColumn: 'Self-employment income: Number of individuals', groupColumn: 'Name',
       sources: HMRC_SOURCES },
       { label: 'HMRC 🇬🇧 Employed', unit: 'people',
-      url: '../data/samples/HMRC.csv', type: 'csv',
+      url: 'data/legacy/samples/HMRC.csv', type: 'csv',
       weightColumn: 'Employment income: Number of individuals', groupColumn: 'Name',
       sources: HMRC_SOURCES },
       { label: 'HMRC 🇬🇧 Retired', unit: 'people',
-      url: '../data/samples/HMRC.csv', type: 'csv',
+      url: 'data/legacy/samples/HMRC.csv', type: 'csv',
       weightColumn: 'Pension income: Number of individuals', groupColumn: 'Name',
       sources: HMRC_SOURCES },
       { label: 'HMRC 🇬🇧 Taxpayers', unit: 'people',
-      url: '../data/samples/HMRC.csv', type: 'csv',
+      url: 'data/legacy/samples/HMRC.csv', type: 'csv',
       weightColumn: 'Total tax: Number of individuals', groupColumn: 'Name',
       sources: HMRC_SOURCES },
       { label: 'HMRC 🇬🇧 Tax Amount', unit: 'GBP',
-      url: '../data/samples/HMRC.csv', type: 'csv',
+      url: 'data/legacy/samples/HMRC.csv', type: 'csv',
       weightColumn: 'Total tax: Amount', groupColumn: 'Name',
       sources: HMRC_SOURCES },
   ],
@@ -1287,7 +1287,7 @@ var GAME = {
   bullseyeKm: 10,     // ~4 px: tight, but reachable, and trivial with arrow keys
   zeroAtKm: 250,      // ~105 px of gradient; a quarter of the country
   maxPoints: 1000,
-  shareUrl: 'https://puntofisso.net/MapSplit/Play/',
+  shareUrl: 'https://playmapsplit.puntofisso.net/',
 
   // Pro's percentage when the puzzle list does not name one — which is the
   // normal case, because the list is authored as "which statistic, which
@@ -1392,8 +1392,8 @@ var REGIONS = [
   // whenever both are declared; the CSV path is kept for the tests and as
   // the record of how the first season was authored.
   { id: 'uk',    label: 'United Kingdom', flag: '🇬🇧', puzzles: GAME.puzzles,
-    puzzleUrl: '../data/puzzles.csv',
-    gamesUrl: '../data/games/', statsUrl: '../data/stats.json', dataBase: '../data/' },
+    puzzleUrl: 'data/legacy/puzzles.csv',
+    gamesUrl: 'data/games/', statsUrl: 'data/stats.json', dataBase: 'data/' },
   { id: 'eu',    label: 'European Union', flag: '🇪🇺', puzzles: [] },
   { id: 'us',    label: 'United States',  flag: '🇺🇸', puzzles: [] },
   { id: 'world', label: 'World',          flag: '🌍',           puzzles: [] },
@@ -2224,12 +2224,12 @@ function loadRegionCoast(id, cb) {
   var reg = window.MapSplitCoast && window.MapSplitCoast[id];
   if (reg) return cb(null, reg);
   var el = document.createElement('script');
-  el.src = '../data/coast/' + encodeURIComponent(id) + '.js';
+  el.src = 'data/coast/' + encodeURIComponent(id) + '.js';
   el.onload = function () {
     var r = window.MapSplitCoast && window.MapSplitCoast[id];
     cb(r ? null : new Error('coast file loaded but registered nothing'), r);
   };
-  el.onerror = function () { cb(new Error('could not load ../data/coast/' + id + '.js')); };
+  el.onerror = function () { cb(new Error('could not load data/coast/' + id + '.js')); };
   document.head.appendChild(el);
 }
 

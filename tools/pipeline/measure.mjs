@@ -1,4 +1,4 @@
-// Measure every statistic in data/stats.json on every axis the game can play,
+// Measure every statistic in Play/data/stats.json on every axis the game can play,
 // using the GAME'S OWN CODE, and write the review sheet.
 //
 //   node tools/pipeline/measure.mjs            → review/questions.csv
@@ -29,13 +29,13 @@ const MIN_GAP_KM = 18;                    // the authoring gap CLAUDE.md settled
 const AXES = ['ns', 'we', '15', '30', '45', '60', '75', '105', '120', '135', '150', '165'];
 const TARGET = 50;
 
-const cat = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/stats.json'), 'utf8'));
+const cat = JSON.parse(fs.readFileSync(path.join(ROOT, 'Play/data/stats.json'), 'utf8'));
 const ids = Object.keys(cat).sort();
 
 // Load and project every statistic once.
 const data = {};
 for (const id of ids) {
-  const text = fs.readFileSync(path.join(ROOT, 'data', cat[id].file), 'utf8');
+  const text = fs.readFileSync(path.join(ROOT, 'Play/data', cat[id].file), 'utf8');
   const p = G.parseCsvText(text, {});
   const merc = p.coords.map(c => G.lngLatToMerc(c));
   data[id] = { ...p, merc, ref: G.weightedCentroidMerc(merc, p.weights) };

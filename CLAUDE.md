@@ -10,8 +10,8 @@ reports a statistic for each side — live. Inspired by Alasdair Rae's
 population-weighted north/south split map.
 
 There are **three** live builds in this repo. Each owns its own CSS, JS and test
-page, and they share nothing but `data/` — so a change to one can never break
-another, and none of them import from another's files.
+page, and they share nothing — the game has its own `Play/data/`, the tools use the root
+`data/samples/` — so a change to one can never break another.
 
 | | `index.html` | `index.php` | `Play/index.php` | `legacy/` |
 | --- | --- | --- | --- | --- |
@@ -54,8 +54,9 @@ backup.
 **Standing instruction from the repo owner: never edit `index.html`.** It is the
 reference implementation. Work in `index.php` or the `-game` files.
 
-`deploy.sh` rsyncs to `puntofisso.net` from an explicit file list — add new
-files there or they will not ship. It **pre-flight checks that every listed file
+`deploy.sh tool|game` rsyncs one of the two sites — the tool to
+`puntofisso.net/MapSplit/`, the game to `playmapsplit.puntofisso.net` — from
+an explicit file list per site; add new files there or they will not ship. It **pre-flight checks that every listed file
 exists and aborts before contacting the server**, because rsync otherwise
 uploads what it can find and merely complains about the rest, which leaves the
 live site referencing a stylesheet that 404s.
@@ -213,7 +214,7 @@ holds the logic in four sections in order: **config → pure logic → render �
 interaction**, with the inlined `COAST` constant. `tools/prep_coast.py`
 regenerates `COAST` from Natural Earth; you never need to run it.
 `tools/prep_regions.py` supersedes it — it does the same job for four regions
-and reproduces this exact constant as `data/coast/uk.js` — but `prep_coast.py`
+and reproduces this exact constant as `Play/data/coast/uk.js` — but `prep_coast.py`
 is kept because it is the record of how the inlined constant was made.
 
 - **The `/* BEGIN PURE */ … /* END PURE */` block** holds everything with no DOM
@@ -364,14 +365,17 @@ that test is the one that matters.
 
 ## Architecture — `Play/index.php` (the daily game)
 
-**The game lives in `Play/`** (moved there 2026-08-27), so its public URL is
-`https://puntofisso.net/MapSplit/Play/` — that string is also `GAME.shareUrl`,
-which every shared scorecard carries. `data/` did **not** move: it is shared
-with the other builds and stays at the repo root, so the catalogue's URLs are
-`../data/samples/*.csv`. `$v()` cache-busts off `__DIR__`, so it needed no
-change. `deploy.sh` lists `Play/` **file by file** and rsyncs with **`-R`**:
-without `-R` every path is flattened onto the remote root and `Play/index.php`
-would overwrite the front door.
+**The game is its own site.** It lives in `Play/` and is served from its own
+domain, `https://playmapsplit.puntofisso.net/` (split from the tool on
+2026-10-07) — that string is also `GAME.shareUrl`, which every shared
+scorecard carries. `Play/` is **self-contained**: every URL it uses is relative
+to it (`data/coast/`, `data/stats.json`, `data/stats/`, `data/games/`), so it
+works the same as a docroot of its own or as `localhost:8765/MapSplit/Play/`.
+Nothing in it may reach outside with `../` — that is what lets the two sites
+deploy separately (`./deploy.sh tool` / `./deploy.sh game`).
+`Play/data/legacy/` holds the first season's `puzzles.csv` and a copy of the
+sample CSVs that `CONFIG.datasets` names; only `tests-game.html` reads them,
+and they are not deployed. The front tool keeps its own `data/samples/`.
 
 A daily puzzle on the same geometry. One fixed axis, one target share, **three
 statistics**, and **one committed guess each**:
@@ -438,7 +442,7 @@ chosen for.
 
 **Two tests guard this, and they cover different things.** One measures the
 built-in fallback `GAME.puzzles` (three hand-written rows); the other parses
-**`data/puzzles.csv` itself** and checks all 120 authored days in both modes —
+**`Play/data/legacy/puzzles.csv` itself** and checks all 120 authored days in both modes —
 closest pair 18.3 km. Until that second test existed the shipped file was never
 validated at all, which was survivable with 8 cardinal days and is not with 120
 across ten angles: one bad day is invisible until the morning it comes up. It
@@ -498,7 +502,7 @@ nothing downstream needed a new parameter. A test asserts it does not mutate
 shipped table for every later read.
 
 The UK coastline is **no longer inlined** in `app-game.js`; that 71 KB constant
-is gone and `data/coast/uk.js` is the only copy. A test asserts the file's
+is gone and `Play/data/coast/uk.js` is the only copy. A test asserts the file's
 `origin` and `scale` still match the `WORLD_ORIGIN` / `WORLD_SCALE` defaults the
 pure block is compiled with, because if those drift every UK coordinate shifts
 silently.
@@ -714,7 +718,7 @@ commits. That is not a nicety: the bullseye is ~4 px wide, so a mouse can reach
 it but not comfortably, and the keys are also the only way to play without a
 pointing device.
 
-### The authored puzzle list — `data/puzzles.csv`
+### The authored puzzle list — `Play/data/legacy/puzzles.csv`
 
 **One row per ROUND**, three rows sharing a date. A round is the unit a person
 thinks about, and it is what lets axis and target belong to the round rather
@@ -848,7 +852,7 @@ number to re-measure when the data changes.
 
 A test asserts the shipped table keeps its statistics further apart than
 `bullseyeKm` **at every mode's effective axis and target**, another asserts the
-table exercises more than one axis, and a third parses **`data/puzzles.csv`
+table exercises more than one axis, and a third parses **`Play/data/legacy/puzzles.csv`
 itself** and checks all 120 authored days the same way — **run
 `Play/tests-game.html` after editing the puzzle CSV**, since it loads the real
 datasets to check this.
@@ -997,7 +1001,7 @@ dragging costs nothing when it is shut. Clusters the divider passes through
 contribute to both sides and are marked `†`, so the same name appearing in both
 columns reads as information rather than a bug.
 
-## Region coastlines — `data/coast/*.js`
+## Region coastlines — `Play/data/coast/*.js`
 
 Four regions, generated by `tools/prep_regions.py` from Natural Earth and
 rendered by nothing yet: `uk` (10m), `eu` (50m), `us` (50m), `world` (110m).
@@ -1049,13 +1053,13 @@ French DOM, which Eurostat's own maps show as insets — and Antarctica.
 region's `defaultLine` overlaid to prove the coastline and the geometry share
 one coordinate system. It is a dev tool and is not deployed.
 
-## Data pipeline — `sources/` → `data/stats/` (in progress, not yet wired in)
+## Data pipeline — `sources/` → `Play/data/stats/` (in progress, not yet wired in)
 
 The game's statistics are being rebuilt through a repeatable pipeline;
 `sources/README.md` is the full description and the yearly runbook. One folder
 per source (`source.json` + `build.py`), run by `tools/pipeline/run.py`, which
-writes `data/stats/<id>.csv` (always `lon,lat,value,name`), the catalogue
-`data/stats.json`, and the licence record `data/stats/README.md`. Standard
+writes `Play/data/stats/<id>.csv` (always `lon,lat,value,name`), the catalogue
+`Play/data/stats.json`, and the licence record `Play/data/stats/README.md`. Standard
 library only — the local pandas is broken, and `tools/pipeline/sheets.py`
 reads .ods/.xlsx directly.
 
@@ -1074,7 +1078,7 @@ reads .ods/.xlsx directly.
 - **Census and OSM ship aggregated to local authorities** (`"aggregate": "lad"`
   in their `source.json`, applied by `run.py` via `common.aggregate_lad`): each
   authority's total sits at that statistic's own weighted centre within it.
-  This took `data/stats/` from 68 MB to 1.4 MB and moved answer lines by a
+  This took `Play/data/stats/` from 68 MB to 1.4 MB and moved answer lines by a
   median 1.1 km (max 7.4 km, castles W/E) — all inside the bullseye; valid
   Normal days went 785 → 761. Three OSM statistics opt out (`"aggregate": null`,
   reason in `aggregateNote`) because one authority would hold >10% as a single
@@ -1094,16 +1098,16 @@ reads .ods/.xlsx directly.
   and `index.html` keep using them as worked examples for people's own data.
 
 **The game now reads the pipeline's output** (switched 2026-10-06): the UK
-region declares `statsUrl` (`data/stats.json`, turned into the runtime
-catalogue by the pure `catalogueFromStats`) and `gamesUrl` (`data/games/`,
+region declares `statsUrl` (`Play/data/stats.json`, turned into the runtime
+catalogue by the pure `catalogueFromStats`) and `gamesUrl` (`Play/data/games/`,
 one file per UTC year, parsed by `parseGamesJson`). A missing year file falls
 back to the previous year and `puzzleForDate`'s rotation. `puzzleUrl`
-(`data/puzzles.csv`) and `CONFIG.datasets` remain for the tests and as the
+(`Play/data/legacy/puzzles.csv`) and `CONFIG.datasets` remain for the tests and as the
 record of the first season.
 
 - **Themes and schedules**: `schedule/themes.json` (themes, caps, spacing
   rules) → `node tools/pipeline/schedule.mjs YEAR [--from DATE]` →
-  `data/games/YEAR.json` plus `review/schedule-YEAR.csv`. Seeded by the year,
+  `Play/data/games/YEAR.json` plus `review/schedule-YEAR.csv`. Seeded by the year,
   so regenerating gives the identical file. No day repeats within a year; the
   generator re-verifies every day's gaps with the game's own code.
   `tools/pipeline/themes.mjs [--normal-only]` counts each theme's valid days.
@@ -1118,7 +1122,7 @@ record of the first season.
   from this folder serves `http://localhost:8765/MapSplit/Play/`.
 - **Data URLs are versioned.** Each statistic carries a 12-hex content `hash`
   in `stats.json` (written by `run.py`), which `catalogueFromStats` appends as
-  `?v=`; `stats.json` and `data/games/*.json` are stamped with
+  `?v=`; `stats.json` and `Play/data/games/*.json` are stamped with
   `window.MAPSPLIT_DATA_VERSION`, the newest of their mtimes, emitted by
   `Play/index.php` (`$dataVersion`). Without it a cached old catalogue could
   meet a new schedule after the yearly refresh.

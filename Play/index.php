@@ -26,7 +26,7 @@ $v = function ($f) {
 // newest of their mtimes stamps both URLs; each statistic file carries its own
 // content hash inside stats.json, so it is versioned from there.
 $dataVersion = 0;
-foreach (array_merge([__DIR__ . '/../data/stats.json'], glob(__DIR__ . '/../data/games/*.json') ?: []) as $p) {
+foreach (array_merge([__DIR__ . '/data/stats.json'], glob(__DIR__ . '/data/games/*.json') ?: []) as $p) {
     if (is_file($p)) $dataVersion = max($dataVersion, filemtime($p));
 }
 

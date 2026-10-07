@@ -3,8 +3,8 @@ outputs, for the owner to mark up — uploaded to Google Drive as a Sheet.
 
     python3 tools/pipeline/review_workbook.py
 
-Reads data/stats.json, review/questions.csv (run measure.mjs first),
-schedule/themes.json, review/themes-normal.csv and data/games/2027.json.
+Reads Play/data/stats.json, review/questions.csv (run measure.mjs first),
+schedule/themes.json, review/themes-normal.csv and Play/data/games/2027.json.
 Proposed wording here is a DRAFT for the owner to accept or change; nothing
 in the game reads this file.
 """
@@ -23,11 +23,11 @@ YEAR = 2027
 EPOCH = datetime.date(2026, 8, 25)            # GAME.epoch: puzzle #1
 PREVIEW = 'http://localhost:8765/MapSplit/Play/?date='
 
-cat = json.load(open(P('data/stats.json')))
+cat = json.load(open(P('Play/data/stats.json')))
 q = {(r['statistic'], r['axis']): r for r in csv.DictReader(open(P('review/questions.csv')))}
 cfg = json.load(open(P('schedule/themes.json')))
 tcount = {r['theme']: r for r in csv.DictReader(open(P('review/themes-normal.csv')))}
-games = json.load(open(P('data/games/%d.json' % YEAR)))
+games = json.load(open(P('Play/data/games/%d.json' % YEAR)))
 
 # Draft wording for the questions long enough to wrap on a phone.
 SHORTER = {
@@ -89,7 +89,7 @@ wb = Workbook()
 
 readme = [
     ['MapSplit — review workbook', ''],
-    ['Generated', datetime.date.today().isoformat() + ' from data/stats.json, the measurements in review/ and data/games/%d.json.' % YEAR],
+    ['Generated', datetime.date.today().isoformat() + ' from Play/data/stats.json, the measurements in review/ and Play/data/games/%d.json.' % YEAR],
     ['How to use it', 'Fill in the shaded (cream) columns only: Keep / Change / Drop, your wording, notes. Claude reads this Sheet back and applies the changes to sources/*/source.json and schedule/themes.json, then rebuilds and regenerates the schedule.'],
     ['Statistics', 'One row per statistic (84). "Proposed question" is a DRAFT only where the current one is long enough to wrap on a phone. "Proposed takeaway" is how the after-guess fact would read with the question wording instead of the label (fixes units such as "(MW)" appearing in sentences). Lines are the 50/50 answer; "km vs population" is how far that sits from the population\'s own line — the bigger, the more surprising.'],
     ['Themes', 'One row per theme. Valid days = distinct (three statistics, axis) days in Normal mode with all lines at least 18 km apart.'],
