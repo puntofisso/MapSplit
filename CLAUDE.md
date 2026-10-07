@@ -1131,7 +1131,7 @@ record of the first season.
   coordinate along the line) and only considers points inside the
   statistic's 25th–75th weighted percentile along it — an upright line through
   Edinburgh used to name itself after Orkney.
-- `Play/tests-game.html` now has 177 assertions, including ones that load the
+- `Play/tests-game.html` now has 178 assertions, including ones that load the
   shipped `stats.json` and both schedules.
 
 ## Design specs

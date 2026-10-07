@@ -507,6 +507,22 @@
           return cat.length + ' statistics';
         });
 
+        test('allSourcesFromStats lists every publisher once, OpenStreetMap included', () => {
+          assert(!STATS_ERR, STATS_ERR && STATS_ERR.message);
+          const all = allSourcesFromStats(STATS);
+          const keys = all.map((s) => s.url + '|' + s.label);
+          assert(new Set(keys).size === keys.length, 'duplicates in the list');
+          for (const id of Object.keys(STATS)) {
+            for (const s of STATS[id].sources || []) {
+              assert(all.some((a) => a.label === s.label), id + ': ' + s.label + ' missing');
+            }
+            const l = STATS[id].derivedLicence;
+            assert(all.some((a) => a.label === 'Licence: ' + l.name), id + ': licence missing');
+          }
+          assert(all.some((s) => /OpenStreetMap/.test(s.label)), 'no OpenStreetMap entry');
+          return all.length + ' entries';
+        });
+
         test('catalogueFromStats refuses two statistics with the same label', () => {
           let threw = false;
           try {

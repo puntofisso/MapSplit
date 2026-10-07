@@ -1964,6 +1964,30 @@ function catalogueFromStats(stats, baseUrl) {
   return out;
 }
 
+// Every publisher and licence behind the whole game, for the Sources
+// dialog's "All data used by the game" list. The per-round box only describes
+// the statistic on the map, so on a census day OpenStreetMap was never named.
+// Deduplicated by url + label, in the order stats.json first mentions them;
+// licences follow the publishers.
+function allSourcesFromStats(stats) {
+  var out = [], lic = [], seen = {};
+  var ids = Object.keys(stats || {}).sort();
+  function add(list, s) {
+    var key = (s.url || '') + '|' + s.label;
+    if (seen[key]) return;
+    seen[key] = true;
+    list.push({ label: s.label, url: s.url || null });
+  }
+  for (var i = 0; i < ids.length; i++) {
+    var st = stats[ids[i]] || {};
+    for (var j = 0; j < (st.sources || []).length; j++) add(out, st.sources[j]);
+    if (st.derivedLicence) {
+      add(lic, { label: 'Licence: ' + st.derivedLicence.name, url: st.derivedLicence.url });
+    }
+  }
+  return out.concat(lic);
+}
+
 // One year's schedule, data/games/YYYY.json (written by
 // tools/pipeline/schedule.mjs), into the shape puzzleForDate reads:
 // [{ date, theme, rounds: [{ stat, question, axis, target }] }]. FAILS LOUDLY,
@@ -2605,8 +2629,8 @@ function showNotice(messages, isError) {
 
 // Fills the Sources box under the picker. Built with DOM calls rather than
 // innerHTML because one of these labels is a user-supplied filename.
-function renderSources(list) {
-  var ul = document.getElementById('sources-list');
+function renderSources(list, listId) {
+  var ul = document.getElementById(listId || 'sources-list');
   ul.textContent = '';
   (list || []).forEach(function (s) {
     var li = document.createElement('li');
@@ -3563,6 +3587,7 @@ function loadPuzzleList(region, dateStr, cb) {
     var dv = window.MAPSPLIT_DATA_VERSION ? '?v=' + encodeURIComponent(window.MAPSPLIT_DATA_VERSION) : '';
     fetchJson(region.statsUrl + dv).then(function (stats) {
       var catalogue = catalogueFromStats(stats, region.dataBase);
+      renderSources(allSourcesFromStats(stats), 'sources-all');
       return fetchJson(region.gamesUrl + gamesFileFor(dateStr) + dv)
         .catch(function () { return fetchJson(region.gamesUrl + (year - 1) + '.json' + dv); })
         .then(function (games) {

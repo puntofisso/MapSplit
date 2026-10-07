@@ -148,8 +148,8 @@
       /* Provenance now lives in #sources-modal. Every dataset has an entry —
          including the synthetic one and an uploaded file — so the list is
          never empty; see the data-source contract. */
-      #sources-list { margin: 0; padding-left: 16px; }
-      #sources-list li { margin: 3px 0; overflow-wrap: anywhere; }
+      #sources-list, #sources-all { margin: 0; padding-left: 16px; }
+      #sources-list li, #sources-all li { margin: 3px 0; overflow-wrap: anywhere; }
 
       /* --- column-mapping modal --- */
       .modal {

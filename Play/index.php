@@ -341,6 +341,11 @@ $adsLive = $SHOW_ADS
           <h3>Data: <span id="credit-source">—</span></h3>
           <ul id="sources-list"></ul>
 
+          <!-- Filled from stats.json: every publisher and licence the game
+               draws on, not just this round's. -->
+          <h3>All data used by the game</h3>
+          <ul id="sources-all"></ul>
+
           <h3>Basemap</h3>
           <p><a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/"
                 target="_blank" rel="noopener">Natural Earth 1:10m</a> (public domain),
