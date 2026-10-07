@@ -56,7 +56,12 @@ $adsLive = $SHOW_ADS
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MapSplit — divide location data into 2 parts</title>
-    <script defer data-domain="puntofisso.net" src="https://plausible.puntofisso.net/js/script.file-downloads.outbound-links.js"></script>
+    <!-- Privacy-friendly analytics by Plausible (the playmapsplit.puntofisso.net site) -->
+    <script async src="https://plausible.puntofisso.net/js/pa-LIzdQiag_UL_LfBCBMxeU.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
     <link rel="stylesheet" href="<?= $v('style-game.css') ?>" />
 <?php if ($adsLive): ?>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=<?= htmlspecialchars($AD_CLIENT, ENT_QUOTES) ?>" crossorigin="anonymous"></script>
@@ -394,6 +399,12 @@ $adsLive = $SHOW_ADS
              point is a local authority, a constituency or a single place; a line
              splits the country into two half-planes and the statistic is
              totalled on each side.</p>
+
+          <h3>Split your own data</h3>
+          <p>The <a href="https://puntofisso.net/MapSplit/" target="_blank" rel="noopener">MapSplit
+             tool</a> lets you drag a line at any angle across the UK, with
+             sample datasets or a file of your own, and see the totals on each
+             side as you go.</p>
 
           <h3>Development notes</h3>
           <p>This website was developed by Giuseppe Sollazzo with an LLM-aided workflow using Claude Opus 5 and manual tests.</p>

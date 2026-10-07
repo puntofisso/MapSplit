@@ -286,6 +286,11 @@ $adsLive = $SHOW_ADS
           <p class="info-src"><strong>IMPORTANT:</strong> coordinates must be unprojected <strong>WGS84
              longitude/latitude in degrees</strong> (EPSG:4326).</p>
 
+          <h3>Play the daily game</h3>
+          <p><a href="https://playmapsplit.puntofisso.net/" target="_blank" rel="noopener">MapSplit
+             Play</a> turns this into a daily puzzle: three statistics a day, and
+             you find the line that splits each one in half.</p>
+
           <h3>Development notes</h3>
           <p>This website was developed by Giuseppe Sollazzo with an LLM-aided workflow using Claude Opus 5 and manual tests.</p>
           <p>The datasets were created by cleaning and merging the source data above using a manually created <a href="https://github.com/puntofisso/MapSplit/blob/main/data-scripts/Notebook.ipynb">Jupyter notebook</a></p>
