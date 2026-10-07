@@ -1088,7 +1088,10 @@ reads .ods/.xlsx directly.
 - The Sheffield/Barnsley hole in `data/samples/*.csv` came from ONS and HMRC
   tables still using pre-2023 codes (E08000019/16). `LAD_CODE_CHANGES` in
   `tools/pipeline/common.py` maps them, and an unexplained dropped area now
-  fails the build.
+  fails the build. The samples themselves were patched on 2026-10-07 from the
+  same source files they were built from (`data-scripts/LA-population.csv`,
+  `LA-income.csv`, old codes), so their vintage is unchanged; the front door
+  and `index.html` keep using them as worked examples for people's own data.
 
 **The game now reads the pipeline's output** (switched 2026-10-06): the UK
 region declares `statsUrl` (`data/stats.json`, turned into the runtime
