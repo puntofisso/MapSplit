@@ -120,7 +120,7 @@ All pass as of the last run:
 | --- | --- | --- |
 | `tests.html` | `app.js` | 89 |
 | `tests-main.html` | `app-main.js` | 89 |
-| `Play/tests-game.html` | `Play/app-game.js` | 169 |
+| `Play/tests-game.html` | `Play/app-game.js` | 178 |
 
 Open e.g. `http://localhost/MapSplit/Play/tests-game.html` — pass/fail is rendered in
 the page. When you touch one build, run that build's page; the others cannot be
