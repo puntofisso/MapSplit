@@ -277,9 +277,14 @@ $adsLive = $SHOW_ADS
          genuinely is nearly right, even when the percentage says otherwise.</p>
 
       <h2>Where the numbers come from</h2>
-      <p>Real published data &mdash; ONS population estimates and HMRC income and
-         tax statistics. Each point is one place; the line splits the country in
-         two and the statistic is totalled on each side. Full provenance is in
+      <p>Real published data covering the whole UK: the 2021/22 census (via the
+         Unified UK Census from the Geographic Data Service), ONS population
+         estimates, HMRC income and tax statistics, the 2024 general election
+         results from the House of Commons Library, the government's Renewable
+         Energy Planning Database, and shops and landmarks from OpenStreetMap.
+         Each point is a local authority, a constituency or a single place; the
+         line splits the country in two and the statistic is totalled on each
+         side. The exact source of every round is under
          <a href="#" id="foot-sources">Sources</a>.</p>
 
       <!-- An ad unit belongs here when ads return: in the content flow, below
@@ -290,6 +295,16 @@ $adsLive = $SHOW_ADS
         <p>MapSplit &mdash; drag a line across the UK and see what it divides.
            Built by Giuseppe Sollazzo.
            Coastline: Natural Earth 1:10m (public domain).</p>
+        <!-- Credits the licences require wherever the data is shown. The ODbL
+             line in particular must be visible: shops and landmarks are
+             OpenStreetMap data. Per-round detail is in the Sources dialog. -->
+        <p class="site-credits">Shops and landmarks &copy;
+           <a href="https://www.openstreetmap.org/copyright" target="_blank"
+              rel="noopener">OpenStreetMap contributors</a>, available under the
+           Open Database Licence. Contains public sector information licensed
+           under the Open Government Licence v3.0, and Parliamentary information
+           licensed under the Open Parliament Licence v3.0. Census data provided
+           by the Geographic Data Service (geods.ac.uk).</p>
       </footer>
     </main>
 
@@ -360,8 +375,8 @@ $adsLive = $SHOW_ADS
         <div id="info-body" class="info-body">
           <h3>How to play</h3>
           <p>One puzzle a day, in <strong>three rounds</strong>. Each round names a
-             statistic and asks you to find the line that puts a given share of it
-             on one side &mdash; say <em>70% of income tax north of the line</em>.</p>
+             statistic and asks you to find the line that splits it in half
+             &mdash; say <em>half of all income tax north of the line</em>.</p>
           <ul>
             <li>Drag and release the line to lock in your guess. You can also use the arrow keys (hold Shift for bigger steps) when you want to be
                 exact and hit Enter.</li>
@@ -373,13 +388,20 @@ $adsLive = $SHOW_ADS
           </ul>
         
           <h3>Where the numbers come from</h3>
-          <p>Real published data, listed under <strong>Sources</strong>. Each point
-             is one place; a line splits the country into two half-planes and the
-             statistic is totalled on each side.</p>
+          <p>Real published data for the whole UK &mdash; the census, ONS, HMRC,
+             the 2024 election, renewable energy projects and OpenStreetMap
+             &mdash; listed for each round under <strong>Sources</strong>. Each
+             point is a local authority, a constituency or a single place; a line
+             splits the country into two half-planes and the statistic is
+             totalled on each side.</p>
 
           <h3>Development notes</h3>
           <p>This website was developed by Giuseppe Sollazzo with an LLM-aided workflow using Claude Opus 5 and manual tests.</p>
-          <p>The datasets were created by cleaning and merging the source data using a manually created <a href="https://github.com/puntofisso/MapSplit/blob/main/data-scripts/Notebook.ipynb">Jupyter notebook</a></p>
+          <p>The datasets are built from the publishers' own files by a
+             repeatable pipeline &mdash; every source, its licence and each
+             processing step are in the
+             <a href="https://github.com/puntofisso/MapSplit/tree/main/sources"
+                target="_blank" rel="noopener">sources folder on GitHub</a>.</p>
         </div>
         <div class="modal-actions">
           <button type="button" id="info-close">Close</button>

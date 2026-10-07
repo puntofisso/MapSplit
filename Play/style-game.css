@@ -241,6 +241,9 @@
         font-size: 12px; color: var(--muted); line-height: 1.6;
       }
       .site-foot a { color: var(--primary); }
+      /* `#below p` would otherwise win and set the credits at body size. */
+      #below .site-foot p { font-size: 12px; }
+      #below .site-foot .site-credits { margin-top: 6px; font-size: 11px; }
 
       /* --- the ad ---
          In the content flow below the fold, so it can never cover the map.
